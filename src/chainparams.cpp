@@ -367,7 +367,7 @@ public:
         nDefaultPort = 40400;
         nPruneAfterHeight = 100000;
 
-        genesis = CreateGenesisBlock(1618061371, 627368, 0x1e0fffff, 1, 0 * COIN);
+        genesis = CreateGenesisBlock(1618061371, 94244, 0x1e0fffff, 1, 0 * COIN);
 
       /*  // just for now
         uint32_t nTime = 1618061371;
@@ -385,7 +385,7 @@ public:
 
         consensus.hashGenesisBlock = genesis.GetHash();
 
-        assert(consensus.hashGenesisBlock == uint256S("0x000007e10b8f8f17130696ae3b4525699cf2c9513a4a606e85ed608c72638aad"));
+        assert(consensus.hashGenesisBlock == uint256S("0x000002d4548cc5c708d1405728600c2920c4d37d7eb7731ab8f82dd7c6607486"));
         assert(genesis.hashMerkleRoot == uint256S("0xd1486494e285ae90379ac838a5aeeefbb9d689b76d2b2656a7ae65d50918cd76"));
 
         // Note that of those which support the service bits prefix, most only support a subset of
