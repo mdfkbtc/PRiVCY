@@ -114,7 +114,7 @@ CSipHasher& CSipHasher::Write(uint64_t data)
     v[1] = v1;
     v[2] = v2;
     v[3] = v3;
-
+// here
     count += 8;
     return *this;
 }

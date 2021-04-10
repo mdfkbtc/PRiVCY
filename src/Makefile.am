@@ -412,7 +412,18 @@ crypto_libprivcy_crypto_base_a_SOURCES = \
   crypto/sha256.cpp \
   crypto/sha256.h \
   crypto/sha512.cpp \
-	crypto/sha512.h 
+	crypto/sha512.h \
+	crypto/yespower/yespower.c
+
+noinst_HEADERS = \
+  crypto/yespower/yespower.h \
+  crypto/yespower/sha256.h \
+  crypto/yespower/sha256.c \
+  crypto/yespower/sysendian.h \
+  crypto/yespower/insecure_memzero.h \
+  crypto/yespower/yespower-platform.c \
+  crypto/yespower/yespower-opt.c \
+  crypto/yespower/yespower-ref.c
 
 if USE_ASM
 crypto_libprivcy_crypto_base_a_SOURCES += crypto/sha256_sse4.cpp
