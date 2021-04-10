@@ -1,0 +1,14 @@
+[Desktop Entry]
+Version=1.0
+Name=PRiVCY Core
+Comment=PRiVCY P2P Cryptocurrency
+Comment[de]=Verbinde mit dem PRiVCY peer-to-peer Netzwerk
+Comment[fr]=PRiVCY, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=PRiVCY, eşten eşe kriptografik sanal para birimi
+Exec=privcy-qt %u
+Terminal=false
+Type=Application
+Icon=privcy128
+MimeType=x-scheme-handler/privcy;
+Categories=Office;Finance;
+StartupWMClass=PRiVCY-qt

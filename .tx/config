@@ -1,0 +1,7 @@
+[main]
+host = https://www.transifex.com
+
+[privcy.qt-translation-012x]
+file_filter = src/qt/locale/privcy_<lang>.ts
+source_file = src/qt/locale/privcy_en.ts
+source_lang = en

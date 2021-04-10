@@ -1,0 +1,25 @@
+<!DOCTYPE RCC><RCC version="1.0">
+    <qresource prefix="/translations">
+        <file alias="ar">locale/privcy_ar.qm</file>
+        <file alias="bg">locale/privcy_bg.qm</file>
+        <file alias="de">locale/privcy_de.qm</file>
+        <file alias="en">locale/privcy_en.qm</file>
+        <file alias="es">locale/privcy_es.qm</file>
+        <file alias="fi">locale/privcy_fi.qm</file>
+        <file alias="fr">locale/privcy_fr.qm</file>
+        <file alias="it">locale/privcy_it.qm</file>
+        <file alias="ja">locale/privcy_ja.qm</file>
+        <file alias="ko">locale/privcy_ko.qm</file>
+        <file alias="nl">locale/privcy_nl.qm</file>
+        <file alias="pl">locale/privcy_pl.qm</file>
+        <file alias="pt">locale/privcy_pt.qm</file>
+        <file alias="ro">locale/privcy_ro.qm</file>
+        <file alias="ru">locale/privcy_ru.qm</file>
+        <file alias="sk">locale/privcy_sk.qm</file>
+        <file alias="th">locale/privcy_th.qm</file>
+        <file alias="tr">locale/privcy_tr.qm</file>
+        <file alias="vi">locale/privcy_vi.qm</file>
+        <file alias="zh_CN">locale/privcy_zh_CN.qm</file>
+        <file alias="zh_TW">locale/privcy_zh_TW.qm</file>
+    </qresource>
+</RCC>

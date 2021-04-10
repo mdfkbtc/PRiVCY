@@ -1,0 +1,6 @@
+usr/local/bin/privcy-qt usr/bin
+share/pixmaps/privcy32.xpm usr/share/pixmaps
+share/pixmaps/privcy16.xpm usr/share/pixmaps
+share/pixmaps/privcy128.png usr/share/pixmaps
+debian/privcy-qt.desktop usr/share/applications
+debian/privcy-qt.protocol usr/share/kde4/services/
