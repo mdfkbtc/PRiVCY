@@ -282,7 +282,7 @@ public:
         consensus.nBudgetPaymentsWindowBlocks = 100;
         consensus.nSuperblockStartBlock = 1048576;
         consensus.nSuperblockStartHash = uint256S("0000000000000000000000000000000000000000000000000000000000000000");
-        consensus.nSuperblockCycle = 1048576
+        consensus.nSuperblockCycle = 1048576;
         consensus.nGovernanceMinQuorum = 10;
         consensus.nGovernanceFilterElements = 20000;
         consensus.nMasternodeMinimumConfirmations = 15;
@@ -335,19 +335,19 @@ public:
 
         // Deployment of DIP0008
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0008].bit = 4;
-        consensus.vDeployments[Consensus::DEPLOYMENT_DIP0008].nStartTime = 1544655600
+        consensus.vDeployments[Consensus::DEPLOYMENT_DIP0008].nStartTime = 1544655600;
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0008].nTimeout = NEVER32;
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0008].nWindowSize = 100;
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0008].nThresholdStart = 10;
 
         // Deployment of Block Reward Reallocation
         consensus.vDeployments[Consensus::DEPLOYMENT_REALLOC].bit = 5;
-        consensus.vDeployments[Consensus::DEPLOYMENT_REALLOC].nStartTime = 1601510400; // Oct 1st, 2020
-        consensus.vDeployments[Consensus::DEPLOYMENT_REALLOC].nTimeout = 1633046400; // Oct 1st, 2021
-        consensus.vDeployments[Consensus::DEPLOYMENT_REALLOC].nWindowSize = 4032;
-        consensus.vDeployments[Consensus::DEPLOYMENT_REALLOC].nThresholdStart = 3226; // 80% of 4032
-        consensus.vDeployments[Consensus::DEPLOYMENT_REALLOC].nThresholdMin = 2420; // 60% of 4032
-        consensus.vDeployments[Consensus::DEPLOYMENT_REALLOC].nFalloffCoeff = 5; // this corresponds to 10 periods
+        consensus.vDeployments[Consensus::DEPLOYMENT_REALLOC].nStartTime = 1544655600;
+        consensus.vDeployments[Consensus::DEPLOYMENT_REALLOC].nTimeout = NEVER32;
+        consensus.vDeployments[Consensus::DEPLOYMENT_REALLOC].nWindowSize = 100;
+        consensus.vDeployments[Consensus::DEPLOYMENT_REALLOC].nThresholdStart = 50;
+        consensus.vDeployments[Consensus::DEPLOYMENT_REALLOC].nThresholdMin = 10;
+        consensus.vDeployments[Consensus::DEPLOYMENT_REALLOC].nFalloffCoeff = 5;
 
         // The best chain should have at least this much work.
         consensus.nMinimumChainWork = uint256S("0000000000000000000000000000000000000000000000000000000000000000");
@@ -367,9 +367,9 @@ public:
         nDefaultPort = 40400;
         nPruneAfterHeight = 100000;
 
-      //  genesis = CreateGenesisBlock(1618061371, 0, 0x1e0ffff0, 1, 50 * COIN);
+        genesis = CreateGenesisBlock(1618061371, 627368, 0x1e0fffff, 1, 0 * COIN);
 
-        // just for now
+      /*  // just for now
         uint32_t nTime = 1618061371;
         uint32_t nNonce = 0;
 
@@ -381,12 +381,12 @@ public:
           if (nNonce % 128 == 0) printf("\rnonce %08x", nNonce);
         }
         genesis = CreateGenesisBlock(nTime, nNonce, 0x1e0fffff, 1, 0 * COIN);
-        printf("\n%s\n", genesis.ToString().c_str());
+        printf("\n%s\n", genesis.ToString().c_str()); */
 
         consensus.hashGenesisBlock = genesis.GetHash();
 
-        //assert(consensus.hashGenesisBlock == uint256S("0x"));
-        //assert(genesis.hashMerkleRoot == uint256S("0x"));
+        assert(consensus.hashGenesisBlock == uint256S("0x000007e10b8f8f17130696ae3b4525699cf2c9513a4a606e85ed608c72638aad"));
+        assert(genesis.hashMerkleRoot == uint256S("0xd1486494e285ae90379ac838a5aeeefbb9d689b76d2b2656a7ae65d50918cd76"));
 
         // Note that of those which support the service bits prefix, most only support a subset of
         // possible options.
@@ -433,7 +433,7 @@ public:
         nPoolNewMaxParticipants = 20;
         nFulfilledRequestExpireTime = 60*60; // fulfilled requests expire in 1 hour
 
-        vSporkAddresses = {"P55CCvGp17opPZvhuWP4iugLF3NoXPUFw9"};
+        vSporkAddresses = {"PRD3VccdMRjtERa96zQjyKYSGs5ApfuHxG"};
         nMinSporkKeys = 1;
         fBIP9CheckMasternodesUpgraded = true;
 
