@@ -294,9 +294,9 @@ public:
         consensus.DIP0003Height = 30;
         consensus.DIP0003EnforcementHeight = 1048576;
         consensus.DIP0003EnforcementHash = uint256S("0000000000000000000000000000000000000000000000000000000000000000");
-        consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
-        consensus.nPowTargetTimespan = 2 * 60; // PRiVCY: 2 minutes
-        consensus.nPowTargetSpacing = consensus.nPowTargetTimespan; // PRiVCY: 2 minutes
+        consensus.powLimit = uint256S("00000fffff000000000000000000000000000000000000000000000000000000");
+        consensus.nPowTargetTimespan = 24 * 60 * 60; // PRiVCY: 1 day
+        consensus.nPowTargetSpacing = 2 * 60; // PRiVCY: 2 minutes
         consensus.fPowAllowMinDifficultyBlocks = false;
         consensus.fPowNoRetargeting = false;
         consensus.nPowKGWHeight = 15200;
@@ -367,7 +367,7 @@ public:
         nDefaultPort = 40400;
         nPruneAfterHeight = 100000;
 
-        genesis = CreateGenesisBlock(1618061371, 94244, 0x1e0fffff, 1, 0 * COIN);
+        genesis = CreateGenesisBlock(1618061371, 94244, 0x1e0ffff0, 1, 20 * COIN);
 
       /*  // just for now
         uint32_t nTime = 1618061371;
@@ -422,7 +422,7 @@ public:
         fDefaultConsistencyChecks = false;
         fRequireStandard = true;
         fRequireRoutableExternalIP = true;
-        fMineBlocksOnDemand = true;
+        fMineBlocksOnDemand = false;
         fAllowMultipleAddressesFromGroup = false;
         fAllowMultiplePorts = false;
         nLLMQConnectionRetryTimeout = 60;
