@@ -294,7 +294,7 @@ public:
         consensus.DIP0003Height = 30;
         consensus.DIP0003EnforcementHeight = 1048576;
         consensus.DIP0003EnforcementHash = uint256S("0000000000000000000000000000000000000000000000000000000000000000");
-        consensus.powLimit = uint256S("0x3fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
+        consensus.powLimit = uint256S("0x000fffff00000000000000000000000000000000000000000000000000000000");
         consensus.nPowTargetTimespan = 24 * 60 * 60; // PRiVCY: 1 day
         consensus.nPowTargetSpacing = 2 * 60; // PRiVCY: 2 minutes
         consensus.fPowAllowMinDifficultyBlocks = false;
