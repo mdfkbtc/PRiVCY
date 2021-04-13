@@ -367,9 +367,9 @@ public:
         nDefaultPort = 40400;
         nPruneAfterHeight = 100000;
 
-        genesis = CreateGenesisBlock(1618061371, 136932, 0x1e3fffff, 1, 50 * COIN);
+        genesis = CreateGenesisBlock(1618061371, 17757, 0x1f0fffff, 1, 50 * COIN);
 
-      /*  // just for now
+    /*    // just for now
         uint32_t nTime = 1618061371;
         uint32_t nNonce = 0;
 
@@ -377,15 +377,15 @@ public:
         UintToArith256(consensus.powLimit))
         {
           nNonce++;
-          genesis = CreateGenesisBlock(nTime, nNonce, 0x1e0fffff, 1, 0 * COIN);
+          genesis = CreateGenesisBlock(nTime, nNonce, 0x1f0fffff, 1, 50 * COIN);
           if (nNonce % 128 == 0) printf("\rnonce %08x", nNonce);
         }
-        genesis = CreateGenesisBlock(nTime, nNonce, 0x1e0fffff, 1, 0 * COIN);
-        printf("\n%s\n", genesis.ToString().c_str()); */
+        genesis = CreateGenesisBlock(nTime, nNonce, 0x1f0fffff, 1, 50 * COIN);
+        printf("\n%s\n", genesis.ToString().c_str());*/
 
         consensus.hashGenesisBlock = genesis.GetHash();
 
-        assert(consensus.hashGenesisBlock == uint256S("0x00003c96e34fc87e670c5ae7d54fd2546fe87f2507a3640bbf90c74b30407f5d"));
+        assert(consensus.hashGenesisBlock == uint256S("0x000e0c4e4b1b2cc067431732746d5206492a0c8f01d20258233dca8eb95e11c8"));
         assert(genesis.hashMerkleRoot == uint256S("0x5f270c5d88789dc9c2488e8f9ce5292104c988c2a87496c50f37c7187e26ef32"));
 
         // Note that of those which support the service bits prefix, most only support a subset of
