@@ -186,9 +186,9 @@ class CHashWriter
 private:
     CHash256 ctx;
 
-public:
     const int nType;
     const int nVersion;
+public:
 
     CHashWriter(int nTypeIn, int nVersionIn) : nType(nTypeIn), nVersion(nVersionIn) {}
 
@@ -245,39 +245,35 @@ public:
     {
         // Unserialize from this stream
         ::Unserialize(*this, obj);
-	        return (*this);
-	    }
-	};
+        return (*this);
+    }
+};
 
-	extern "C" void yespower_hash(const char *input, char *output);
+extern "C" void yespower_hash(const char *input, char *output);
 
-	class CHashWriterYespower: public CHashWriter
-	{
-	private:
-	    std::vector<unsigned char> buf;
+class CHashWriterYespower: public CHashWriter
+{
+private:
+    std::vector<unsigned char> buf;
 
-	public:
+public:
 
-     int nType;
-     int nVersion;
+    CHashWriterYespower(int nTypeIn, int nVersionIn) : CHashWriter(nTypeIn, nVersionIn) {}
 
-	    CHashWriterYespower(int nTypeIn, int nVersionIn) : CHashWriter(nTypeIn, nVersionIn) {}
+    void write(const char *pch, size_t size) {
+        buf.insert(buf.end(), pch, pch + size);
+    }
 
-	    void write(const char *pch, size_t size) {
-	        buf.insert(buf.end(), pch, pch + size);
-	    }
+    uint256 GetHash() {
+        uint256 result;
+        yespower_hash((const char*)buf.data(), (char*)&result);
+        return result;
+    }
 
-	    uint256 GetHash() {
-	        uint256 result;
-	        assert(buf.size() == 80);
-	        yespower_hash((const char*)buf.data(), (char*)&result);
-	        return result;
-	    }
-
-	    template<typename T>
-	    CHashWriterYespower& operator<<(const T& obj) {
-	        // Serialize to this stream
-	        ::Serialize(*this, obj);//yespower
+    template<typename T>
+    CHashWriterYespower& operator<<(const T& obj) {
+        // Serialize to this stream
+        ::Serialize(*this, obj);
         return (*this);
     }
 };
@@ -292,12 +288,12 @@ uint256 SerializeHash(const T& obj, int nType=SER_GETHASH, int nVersion=PROTOCOL
 }
 
 template<typename T>
-	uint256 SerializeHashYespower(const T& obj, int nType=SER_GETHASH, int nVersion=PROTOCOL_VERSION)
-	{
-	    CHashWriterYespower ss(nType, nVersion);
-	    ss << obj;
-	    return ss.GetHash();
-	}
+uint256 SerializeHashYespower(const T& obj, int nType=SER_GETHASH, int nVersion=PROTOCOL_VERSION)
+{
+    CHashWriterYespower ss(nType, nVersion);
+    ss << obj;
+    return ss.GetHash();
+}
 
 unsigned int MurmurHash3(unsigned int nHashSeed, const std::vector<unsigned char>& vDataToHash);
 
