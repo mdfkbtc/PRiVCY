@@ -394,7 +394,11 @@ public:
         // service bits we want, but we should get them updated to support all service bits wanted by any
         // release ASAP to avoid it where possible.
 
-        // vSeeds.emplace_back("");
+         vSeeds.emplace_back("178.62.221.188");
+         vSeeds.emplace_back("134.209.151.86");
+         vSeeds.emplace_back("103.253.147.48");
+         vSeeds.emplace_back("206.81.25.201");
+         vSeeds.emplace_back("104.131.76.104");
 
         // PRiVCY addresses start with 'P'
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,55);
