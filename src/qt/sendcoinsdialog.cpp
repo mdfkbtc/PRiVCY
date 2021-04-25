@@ -159,7 +159,7 @@ SendCoinsDialog::SendCoinsDialog(bool _fPRiVCYSend, QWidget* parent) :
     minimizeFeeSection(settings.value("fFeeSectionMinimized").toBool());
 
     if (fPRiVCYSend) {
-        ui->sendButton->setText("PrivateS&end");
+        ui->sendButton->setText("PRiVCYS&end");
         ui->sendButton->setToolTip(tr("Confirm the PRiVCYSend action"));
     } else {
         ui->sendButton->setText(tr("S&end"));
