@@ -64,8 +64,8 @@ file(GLOB SOURCE_FILES
         src/policy/*.h
         src/primitives/*.cpp
         src/primitives/*.h
-        src/privatesend/*.cpp
-        src/privatesend/*.h
+        src/privcysend/*.cpp
+        src/privcysend/*.h
         src/qt/*.cpp
         src/qt/*.h
         src/qt/test/*.cpp

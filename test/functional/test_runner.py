@@ -144,7 +144,7 @@ BASE_SCRIPTS= [
     'minchainwork.py',
     'p2p-acceptblock.py', # NOTE: needs privcy_hash to pass
     'feature_shutdown.py',
-    'privatesend.py',
+    'privcysend.py',
     'uacomment.py',
     'feature_logging.py',
     'node_network_limited.py',

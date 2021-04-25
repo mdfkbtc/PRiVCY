@@ -392,8 +392,8 @@
         <translation>&amp;Over %1</translation>
     </message>
     <message>
-        <source>PrivateSend coins to a PRiVCY address</source>
-        <translation>Stuur naar een PRiVCY adres met PrivateSend</translation>
+        <source>PRiVCYSend coins to a PRiVCY address</source>
+        <translation>Stuur naar een PRiVCY adres met PRiVCYSend</translation>
     </message>
     <message>
         <source>Modify configuration options for %1</source>
@@ -556,12 +556,12 @@
         <translation>Portemonnee is &lt;b&gt;onversleuteld&lt;/b&gt;</translation>
     </message>
     <message>
-        <source>&amp;PrivateSend information</source>
-        <translation>&amp;PrivateSend informatie</translation>
+        <source>&amp;PRiVCYSend information</source>
+        <translation>&amp;PRiVCYSend informatie</translation>
     </message>
     <message>
-        <source>Show the PrivateSend basic information</source>
-        <translation>Toon de PrivateSend basis informatie</translation>
+        <source>Show the PRiVCYSend basic information</source>
+        <translation>Toon de PRiVCYSend basis informatie</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -1054,12 +1054,12 @@
         <translation>Reset alle wijzigingen aan instellingen gedaan in de GUI</translation>
     </message>
     <message>
-        <source>PrivateSend information</source>
-        <translation>PrivateSend informatie</translation>
+        <source>PRiVCYSend information</source>
+        <translation>PRiVCYSend informatie</translation>
     </message>
     <message>
-        <source>&lt;h3&gt;PrivateSend Basics&lt;/h3&gt; PrivateSend gives you true financial privacy by obscuring the origins of your funds. All the PRiVCY in your wallet is comprised of different "inputs" which you can think of as separate, discrete coins.&lt;br&gt; PrivateSend uses an innovative process to mix your inputs with the inputs of two or more other people, without having your coins ever leave your wallet. You retain control of your money at all times.&lt;hr&gt; &lt;b&gt;The PrivateSend process works like this:&lt;/b&gt;&lt;ol type="1"&gt; &lt;li&gt;PrivateSend begins by breaking your transaction inputs down into standard denominations. These denominations are 0.001 PRIV, 0.01 PRIV, 0.1 PRIV, 1 PRIV and 10 PRIV -- sort of like the paper money you use every day.&lt;/li&gt; &lt;li&gt;Your wallet then sends requests to specially configured software nodes on the network, called "masternodes." These masternodes are informed then that you are interested in mixing a certain denomination. No identifiable information is sent to the masternodes, so they never know "who" you are.&lt;/li&gt; &lt;li&gt;When two or more other people send similar messages, indicating that they wish to mix the same denomination, a mixing session begins. The masternode mixes up the inputs and instructs all three users' wallets to pay the now-transformed input back to themselves. Your wallet pays that denomination directly to itself, but in a different address (called a change address).&lt;/li&gt; &lt;li&gt;In order to fully obscure your funds, your wallet must repeat this process a number of times with each denomination. Each time the process is completed, it's called a "round." Each round of PrivateSend makes it exponentially more difficult to determine where your funds originated.&lt;/li&gt; &lt;li&gt;This mixing process happens in the background without any intervention on your part. When you wish to make a transaction, your funds will already be mixed. No additional waiting is required.&lt;/li&gt; &lt;/ol&gt; &lt;hr&gt;&lt;b&gt;IMPORTANT:&lt;/b&gt; Your wallet only contains 1000 of these "change addresses." Every time a mixing event happens, up to 9 of your addresses are used up. This means those 1000 addresses last for about 100 mixing events. When 900 of them are used, your wallet must create more addresses. It can only do this, however, if you have automatic backups enabled.&lt;br&gt; Consequently, users who have backups disabled will also have PrivateSend disabled. &lt;hr&gt;For more information, see the &lt;a style="%1" href="https://docs.privcy.org/en/stable/wallets/privcycore/privatesend-instantsend.html"&gt;PrivateSend documentation&lt;/a&gt;.</source>
-        <translation>&lt;h3&gt;PrivateSend Basics&lt;/h3&gt; PrivateSend geeft u een echte financiële privacy door de oorsprong van uw geld te verschuilen. Alle PRiVCY in uw portefeuille bestaat uit verschillende "inputs" die u kunt beschouwen als afzonderlijke, discrete munten.&lt;br&gt; PrivateSend maakt gebruik van een innovatief proces om uw invoer te mengen met de invoer van twee andere mensen, zonder dat uw munten ooit uw portemonnee verlaten . U behoudt de controle over uw geld te allen tijde. &lt;hr&gt; &lt;b&gt;Het PrivateSend-proces werkt als volgt: &lt;/b&gt;&lt;ol type="1"&gt; &lt;li&gt;PrivateSend begint door uw transactie-inputs in de standaard denominaties te breken. Deze denominaties zijn 0,001 PRIV, 0,01 PRIV, 0,1 PRIV, 1 PRIV en 10 PRIV - zoals het papiergeld dat u elke dag gebruikt.&lt;/li&gt; &lt;li&gt;Uw portemonnee stuurt dan verzoeken naar speciaal geconfigureerde software nodes op het netwerk, genaamd "masternodes." Deze masternodes worden dan op de hoogte gesteld dat u geïnteresseerd bent in het mengen van een bepaalde denominaties. Er wordt geen identificeerbare informatie naar de masternodes gestuurd, zodat ze nooit weten wie u bent.&lt;/li&gt; &lt;li&gt;Wanneer twee andere mensen dezelfde berichten sturen, die aanduiden dat ze dezelfde denominaties willen vermengen, begint een mengsessie. De masternode mengt alle invoeren en instrueert de portefeuilles van alle drie de gebruikers om de nu getransformeerde invoer aan zichzelf terug te betalen. Uw portemonnee betaalt die denominaties rechtstreeks naar zichzelf, maar met een ander adres (een wijzigingadres genoemd).&lt;/li&gt; &lt;li&gt;Om uw geld volledig te verschuilen, moet uw portemonnee dit proces een aantal keren herhalen voor alle denominaties. Elke keer dat het proces wordt voltooid, heet dit een 'ronde'. Elke ronde van PrivateSend maakt het exponentieel moeilijker om te bepalen waar uw geld van afkomstig is.&lt;/li&gt; &lt;li&gt;Dit mengproces gebeurt op de achtergrond zonder enige interventie van uw kant. Wanneer u een transactie wenst uit te voeren, is uw saldo al geanonimiseerd. Er is geen extra wachttijd nodig.&lt;/li&gt; &lt;/ol&gt; &lt;hr&gt;&lt;b&gt;BELANGRIJK:&lt;/b&gt; Uw portemonnee bevat slechts 1000 van deze "wijzigingsadressen". Elke keer dat er een mengsessie plaatsvindt, worden maximaal 9 van uw adressen opgebruikt. Dit betekent dat deze 1000 adressen voor ongeveer 100 mengsessies volstaat. Wanneer er 900 zijn verbruikt, moet uw portemonnee meer adressen aanmaken. Dit kan alleen maar als u automatische back-ups hebt ingeschakeld.&lt;br&gt; Daarom zodra gebruikers die back-ups hebben uitgeschakeld, ook PrivateSend is uitgeschakeld. &lt;hr&gt;Voor meer informatie zie de &lt;a style="%1" href="https://docs.privcy.org/en/stable/wallets/privcycore/privatesend-instantsend.html"&gt;PrivateSend documentatie&lt;/a&gt;.</translation>
+        <source>&lt;h3&gt;PRiVCYSend Basics&lt;/h3&gt; PRiVCYSend gives you true financial privacy by obscuring the origins of your funds. All the PRiVCY in your wallet is comprised of different "inputs" which you can think of as separate, discrete coins.&lt;br&gt; PRiVCYSend uses an innovative process to mix your inputs with the inputs of two or more other people, without having your coins ever leave your wallet. You retain control of your money at all times.&lt;hr&gt; &lt;b&gt;The PRiVCYSend process works like this:&lt;/b&gt;&lt;ol type="1"&gt; &lt;li&gt;PRiVCYSend begins by breaking your transaction inputs down into standard denominations. These denominations are 0.001 PRIV, 0.01 PRIV, 0.1 PRIV, 1 PRIV and 10 PRIV -- sort of like the paper money you use every day.&lt;/li&gt; &lt;li&gt;Your wallet then sends requests to specially configured software nodes on the network, called "masternodes." These masternodes are informed then that you are interested in mixing a certain denomination. No identifiable information is sent to the masternodes, so they never know "who" you are.&lt;/li&gt; &lt;li&gt;When two or more other people send similar messages, indicating that they wish to mix the same denomination, a mixing session begins. The masternode mixes up the inputs and instructs all three users' wallets to pay the now-transformed input back to themselves. Your wallet pays that denomination directly to itself, but in a different address (called a change address).&lt;/li&gt; &lt;li&gt;In order to fully obscure your funds, your wallet must repeat this process a number of times with each denomination. Each time the process is completed, it's called a "round." Each round of PRiVCYSend makes it exponentially more difficult to determine where your funds originated.&lt;/li&gt; &lt;li&gt;This mixing process happens in the background without any intervention on your part. When you wish to make a transaction, your funds will already be mixed. No additional waiting is required.&lt;/li&gt; &lt;/ol&gt; &lt;hr&gt;&lt;b&gt;IMPORTANT:&lt;/b&gt; Your wallet only contains 1000 of these "change addresses." Every time a mixing event happens, up to 9 of your addresses are used up. This means those 1000 addresses last for about 100 mixing events. When 900 of them are used, your wallet must create more addresses. It can only do this, however, if you have automatic backups enabled.&lt;br&gt; Consequently, users who have backups disabled will also have PRiVCYSend disabled. &lt;hr&gt;For more information, see the &lt;a style="%1" href="https://docs.privcy.org/en/stable/wallets/privcycore/privcysend-instantsend.html"&gt;PRiVCYSend documentation&lt;/a&gt;.</source>
+        <translation>&lt;h3&gt;PRiVCYSend Basics&lt;/h3&gt; PRiVCYSend geeft u een echte financiële privacy door de oorsprong van uw geld te verschuilen. Alle PRiVCY in uw portefeuille bestaat uit verschillende "inputs" die u kunt beschouwen als afzonderlijke, discrete munten.&lt;br&gt; PRiVCYSend maakt gebruik van een innovatief proces om uw invoer te mengen met de invoer van twee andere mensen, zonder dat uw munten ooit uw portemonnee verlaten . U behoudt de controle over uw geld te allen tijde. &lt;hr&gt; &lt;b&gt;Het PRiVCYSend-proces werkt als volgt: &lt;/b&gt;&lt;ol type="1"&gt; &lt;li&gt;PRiVCYSend begint door uw transactie-inputs in de standaard denominaties te breken. Deze denominaties zijn 0,001 PRIV, 0,01 PRIV, 0,1 PRIV, 1 PRIV en 10 PRIV - zoals het papiergeld dat u elke dag gebruikt.&lt;/li&gt; &lt;li&gt;Uw portemonnee stuurt dan verzoeken naar speciaal geconfigureerde software nodes op het netwerk, genaamd "masternodes." Deze masternodes worden dan op de hoogte gesteld dat u geïnteresseerd bent in het mengen van een bepaalde denominaties. Er wordt geen identificeerbare informatie naar de masternodes gestuurd, zodat ze nooit weten wie u bent.&lt;/li&gt; &lt;li&gt;Wanneer twee andere mensen dezelfde berichten sturen, die aanduiden dat ze dezelfde denominaties willen vermengen, begint een mengsessie. De masternode mengt alle invoeren en instrueert de portefeuilles van alle drie de gebruikers om de nu getransformeerde invoer aan zichzelf terug te betalen. Uw portemonnee betaalt die denominaties rechtstreeks naar zichzelf, maar met een ander adres (een wijzigingadres genoemd).&lt;/li&gt; &lt;li&gt;Om uw geld volledig te verschuilen, moet uw portemonnee dit proces een aantal keren herhalen voor alle denominaties. Elke keer dat het proces wordt voltooid, heet dit een 'ronde'. Elke ronde van PRiVCYSend maakt het exponentieel moeilijker om te bepalen waar uw geld van afkomstig is.&lt;/li&gt; &lt;li&gt;Dit mengproces gebeurt op de achtergrond zonder enige interventie van uw kant. Wanneer u een transactie wenst uit te voeren, is uw saldo al geanonimiseerd. Er is geen extra wachttijd nodig.&lt;/li&gt; &lt;/ol&gt; &lt;hr&gt;&lt;b&gt;BELANGRIJK:&lt;/b&gt; Uw portemonnee bevat slechts 1000 van deze "wijzigingsadressen". Elke keer dat er een mengsessie plaatsvindt, worden maximaal 9 van uw adressen opgebruikt. Dit betekent dat deze 1000 adressen voor ongeveer 100 mengsessies volstaat. Wanneer er 900 zijn verbruikt, moet uw portemonnee meer adressen aanmaken. Dit kan alleen maar als u automatische back-ups hebt ingeschakeld.&lt;br&gt; Daarom zodra gebruikers die back-ups hebben uitgeschakeld, ook PRiVCYSend is uitgeschakeld. &lt;hr&gt;Voor meer informatie zie de &lt;a style="%1" href="https://docs.privcy.org/en/stable/wallets/privcycore/privcysend-instantsend.html"&gt;PRiVCYSend documentatie&lt;/a&gt;.</translation>
     </message>
 </context>
 <context>
@@ -1373,28 +1373,28 @@
         <translation>Toon Masternodes tab</translation>
     </message>
     <message>
-        <source>Show additional information and buttons for PrivateSend on overview screen.</source>
-        <translation>Toon extra informatie en knoppen voor PrivateSend op het overzichtscherm.</translation>
+        <source>Show additional information and buttons for PRiVCYSend on overview screen.</source>
+        <translation>Toon extra informatie en knoppen voor PRiVCYSend op het overzichtscherm.</translation>
     </message>
     <message>
-        <source>Enable advanced PrivateSend interface</source>
-        <translation>Schakel de geavanceerde PrivateSend interface in</translation>
+        <source>Enable advanced PRiVCYSend interface</source>
+        <translation>Schakel de geavanceerde PRiVCYSend interface in</translation>
     </message>
     <message>
-        <source>Show warning dialog when PrivateSend detects that wallet has very low number of keys left.</source>
-        <translation>Toon waarschuwing-dialoog wanneer PrivateSend detecteert dat je portemonnee slechts een klein aantal sleutels over heeft.</translation>
+        <source>Show warning dialog when PRiVCYSend detects that wallet has very low number of keys left.</source>
+        <translation>Toon waarschuwing-dialoog wanneer PRiVCYSend detecteert dat je portemonnee slechts een klein aantal sleutels over heeft.</translation>
     </message>
     <message>
-        <source>Warn if PrivateSend is running out of keys</source>
-        <translation>Waarschuw als de sleutels voor PrivateSend dreigen op te raken</translation>
+        <source>Warn if PRiVCYSend is running out of keys</source>
+        <translation>Waarschuw als de sleutels voor PRiVCYSend dreigen op te raken</translation>
     </message>
     <message>
-        <source>Whether to use experimental PrivateSend mode with multiple mixing sessions per block.&lt;br/&gt;Note: You must use this feature carefully.&lt;br/&gt;Make sure you always have recent wallet (auto)backup in a safe place!</source>
-        <translation>Of je de experimentele PrivateSend-modus wenst te gebruiken met meerdere mixsessies per blok.&lt;br/&gt;Nota: Je moet deze functie zorgvuldig gebruiken.&lt;br/&gt;Zorg ervoor dat je steeds een recente (auto)backup van jouw portemonnee op een veilige plek hebt!</translation>
+        <source>Whether to use experimental PRiVCYSend mode with multiple mixing sessions per block.&lt;br/&gt;Note: You must use this feature carefully.&lt;br/&gt;Make sure you always have recent wallet (auto)backup in a safe place!</source>
+        <translation>Of je de experimentele PRiVCYSend-modus wenst te gebruiken met meerdere mixsessies per blok.&lt;br/&gt;Nota: Je moet deze functie zorgvuldig gebruiken.&lt;br/&gt;Zorg ervoor dat je steeds een recente (auto)backup van jouw portemonnee op een veilige plek hebt!</translation>
     </message>
     <message>
-        <source>Enable PrivateSend &amp;multi-session</source>
-        <translation>Schakel PrivateSend &amp;multi-sessie in</translation>
+        <source>Enable PRiVCYSend &amp;multi-session</source>
+        <translation>Schakel PRiVCYSend &amp;multi-sessie in</translation>
     </message>
     <message>
         <source>If you disable the spending of unconfirmed change, the change from a transaction&lt;br/&gt;cannot be used until that transaction has at least one confirmation.&lt;br/&gt;This also affects how your balance is computed.</source>
@@ -1402,16 +1402,16 @@
 Dit heeft ook invloed op de manier waarop uw saldo wordt berekend.</translation>
     </message>
     <message>
-        <source>PrivateSend rounds to use</source>
-        <translation>PrivateSend rondes te gebruiken</translation>
+        <source>PRiVCYSend rounds to use</source>
+        <translation>PRiVCYSend rondes te gebruiken</translation>
     </message>
     <message>
-        <source>This amount acts as a threshold to turn off PrivateSend once it's reached.</source>
-        <translation>Dit bedrag fungeert als een drempel om PrivateSend uit te schakelen zodra het werd bereikt.</translation>
+        <source>This amount acts as a threshold to turn off PRiVCYSend once it's reached.</source>
+        <translation>Dit bedrag fungeert als een drempel om PRiVCYSend uit te schakelen zodra het werd bereikt.</translation>
     </message>
     <message>
-        <source>Target PrivateSend balance</source>
-        <translation>Target PrivateSend Saldo</translation>
+        <source>Target PRiVCYSend balance</source>
+        <translation>Target PRiVCYSend Saldo</translation>
     </message>
     <message>
         <source>Automatically open the PRiVCY Core client port on the router. This only works when your router supports UPnP and it is enabled.</source>
@@ -1478,12 +1478,12 @@ Dit heeft ook invloed op de manier waarop uw saldo wordt berekend.</translation>
         <translation>Coin &amp;Control activeren</translation>
     </message>
     <message>
-        <source>Show system popups for PrivateSend mixing transactions&lt;br/&gt;just like for all other transaction types.</source>
-        <translation>Toon systeem popups voor PrivateSend mixtransacties &lt;br/&gt;, net zoals voor alle andere transactie types.</translation>
+        <source>Show system popups for PRiVCYSend mixing transactions&lt;br/&gt;just like for all other transaction types.</source>
+        <translation>Toon systeem popups voor PRiVCYSend mixtransacties &lt;br/&gt;, net zoals voor alle andere transactie types.</translation>
     </message>
     <message>
-        <source>Show popups for PrivateSend transactions</source>
-        <translation>Toon popups voor PrivateSend transacties</translation>
+        <source>Show popups for PRiVCYSend transactions</source>
+        <translation>Toon popups voor PRiVCYSend transacties</translation>
     </message>
     <message>
         <source>&amp;Spend unconfirmed change</source>
@@ -1695,8 +1695,8 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>Uitgeefbaar:</translation>
     </message>
     <message>
-        <source>PrivateSend</source>
-        <translation>PrivateSend</translation>
+        <source>PRiVCYSend</source>
+        <translation>PRiVCYSend</translation>
     </message>
     <message>
         <source>Status:</source>
@@ -1735,8 +1735,8 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>Start/Stop met mixen</translation>
     </message>
     <message>
-        <source>PrivateSend Balance:</source>
-        <translation>PrivateSend-balans:</translation>
+        <source>PRiVCYSend Balance:</source>
+        <translation>PRiVCYSend-balans:</translation>
     </message>
     <message>
         <source>The denominations you submitted to the Masternode.&lt;br&gt;To mix, other users must submit the exact same denominations.</source>
@@ -1840,16 +1840,16 @@ Om te mixen moeten andere gebruikers exact dezelfde denominaties inbrengen.</tra
         <translation>WAARSCHUWING! Het aanvullen van de keypool is mislukt, ontgrendel alstublieft uw portemonnee om dit te doen.</translation>
     </message>
     <message>
-        <source>If you don't want to see internal PrivateSend fees/transactions select "Most Common" as Type on the "Transactions" tab.</source>
-        <translation>Als u de interne PrivateSend transacties/vergoeding niet wilt zien, selecteer dan "Meest gebruikte" als Type in de "Transacties" tab.</translation>
+        <source>If you don't want to see internal PRiVCYSend fees/transactions select "Most Common" as Type on the "Transactions" tab.</source>
+        <translation>Als u de interne PRiVCYSend transacties/vergoeding niet wilt zien, selecteer dan "Meest gebruikte" als Type in de "Transacties" tab.</translation>
     </message>
     <message>
-        <source>PrivateSend requires at least %1 to use.</source>
-        <translation>PrivateSend benodigd ten minste %1 om te gebruiken.</translation>
+        <source>PRiVCYSend requires at least %1 to use.</source>
+        <translation>PRiVCYSend benodigd ten minste %1 om te gebruiken.</translation>
     </message>
     <message>
-        <source>Wallet is locked and user declined to unlock. Disabling PrivateSend.</source>
-        <translation>De portemonnee is vergrendeld en de gebruiker heeft geweigerd deze te ontgrendelen. PrivateSend is uitgeschakeld.</translation>
+        <source>Wallet is locked and user declined to unlock. Disabling PRiVCYSend.</source>
+        <translation>De portemonnee is vergrendeld en de gebruiker heeft geweigerd deze te ontgrendelen. PRiVCYSend is uitgeschakeld.</translation>
     </message>
 </context>
 <context>
@@ -2913,20 +2913,20 @@ Nota: Het bericht zal niet verzonden worden met de betaling over het PRiVCY netw
         <translation>&lt;b&gt;(%1 van de %2 items weergegeven)&lt;/b&gt;</translation>
     </message>
     <message>
-        <source>Confirm the PrivateSend action</source>
-        <translation>Bevestig de PrivateSend actie</translation>
+        <source>Confirm the PRiVCYSend action</source>
+        <translation>Bevestig de PRiVCYSend actie</translation>
     </message>
     <message>
-        <source>PrivateSend funds only</source>
-        <translation>Allen PrivateSend saldo</translation>
+        <source>PRiVCYSend funds only</source>
+        <translation>Allen PRiVCYSend saldo</translation>
     </message>
     <message>
         <source>any available funds</source>
         <translation>Beschikbare fondsen</translation>
     </message>
     <message>
-        <source>(PrivateSend transactions have higher fees usually due to no change output being allowed)</source>
-        <translation>(PrivateSend-transacties hebben hogere kosten doordat er geen wisselgeld output is toegestaan)</translation>
+        <source>(PRiVCYSend transactions have higher fees usually due to no change output being allowed)</source>
+        <translation>(PRiVCYSend-transacties hebben hogere kosten doordat er geen wisselgeld output is toegestaan)</translation>
     </message>
     <message>
         <source>Transaction size: %1</source>
@@ -2941,8 +2941,8 @@ Nota: Het bericht zal niet verzonden worden met de betaling over het PRiVCY netw
         <translation><numerusform>Deze transactie verbruikt %n inputs</numerusform><numerusform>Deze transactie verbruikt %n inputs</numerusform></translation>
     </message>
     <message>
-        <source>Warning: Using PrivateSend with %1 or more inputs can harm your privacy and is not recommended</source>
-        <translation>Waarschuwing: het gebruik van PrivateSend met %1 of meer ingangen kan uw privacy schaden en wordt niet aanbevolen</translation>
+        <source>Warning: Using PRiVCYSend with %1 or more inputs can harm your privacy and is not recommended</source>
+        <translation>Waarschuwing: het gebruik van PRiVCYSend met %1 of meer ingangen kan uw privacy schaden en wordt niet aanbevolen</translation>
     </message>
     <message>
         <source>Confirm send coins</source>
@@ -3516,8 +3516,8 @@ Nota: Het bericht zal niet verzonden worden met de betaling over het PRiVCY netw
         <translation>Ontvangen van</translation>
     </message>
     <message>
-        <source>Received via PrivateSend</source>
-        <translation>Ontvangen via PrivateSend</translation>
+        <source>Received via PRiVCYSend</source>
+        <translation>Ontvangen via PRiVCYSend</translation>
     </message>
     <message>
         <source>Sent to</source>
@@ -3532,20 +3532,20 @@ Nota: Het bericht zal niet verzonden worden met de betaling over het PRiVCY netw
         <translation>Gedolven</translation>
     </message>
     <message>
-        <source>PrivateSend Denominate</source>
-        <translation>PrivateSend denominatie</translation>
+        <source>PRiVCYSend Denominate</source>
+        <translation>PRiVCYSend denominatie</translation>
     </message>
     <message>
-        <source>PrivateSend Collateral Payment</source>
-        <translation>PrivateSend Onderpand Betaling</translation>
+        <source>PRiVCYSend Collateral Payment</source>
+        <translation>PRiVCYSend Onderpand Betaling</translation>
     </message>
     <message>
-        <source>PrivateSend Make Collateral Inputs</source>
-        <translation>PrivateSend Vorm Onderpand Inputs</translation>
+        <source>PRiVCYSend Make Collateral Inputs</source>
+        <translation>PRiVCYSend Vorm Onderpand Inputs</translation>
     </message>
     <message>
-        <source>PrivateSend Create Denominations</source>
-        <translation>PrivateSend Creëer Denominaties</translation>
+        <source>PRiVCYSend Create Denominations</source>
+        <translation>PRiVCYSend Creëer Denominaties</translation>
     </message>
     <message>
         <source>watch-only</source>
@@ -3627,20 +3627,20 @@ Nota: Het bericht zal niet verzonden worden met de betaling over het PRiVCY netw
         <translation>Verzonden aan</translation>
     </message>
     <message>
-        <source>PrivateSend Make Collateral Inputs</source>
-        <translation>PrivateSend Vorm Onderpand Inputs</translation>
+        <source>PRiVCYSend Make Collateral Inputs</source>
+        <translation>PRiVCYSend Vorm Onderpand Inputs</translation>
     </message>
     <message>
-        <source>PrivateSend Create Denominations</source>
-        <translation>PrivateSend Creëer Denominaties</translation>
+        <source>PRiVCYSend Create Denominations</source>
+        <translation>PRiVCYSend Creëer Denominaties</translation>
     </message>
     <message>
-        <source>PrivateSend Denominate</source>
-        <translation>PrivateSend Denomineren</translation>
+        <source>PRiVCYSend Denominate</source>
+        <translation>PRiVCYSend Denomineren</translation>
     </message>
     <message>
-        <source>PrivateSend Collateral Payment</source>
-        <translation>PrivateSend Onderpand Betaling</translation>
+        <source>PRiVCYSend Collateral Payment</source>
+        <translation>PRiVCYSend Onderpand Betaling</translation>
     </message>
     <message>
         <source>To yourself</source>
@@ -4066,8 +4066,8 @@ Nota: Het bericht zal niet verzonden worden met de betaling over het PRiVCY netw
         <translation>Overschrijf minimum spork ondertekenaars om de spork waarde te veranderen. Alleen bruikbaar bij regtest en devnet. Door dit te gebruiken op mainnet of testnet zal een ban opleveren.</translation>
     </message>
     <message>
-        <source>PrivateSend uses exact denominated amounts to send funds, you might simply need to mix some more coins.</source>
-        <translation>PrivateSend gebruikt exact genoemde bedragen om geld te verzenden. Wellicht moet u gewoon wat meer munten mixen.</translation>
+        <source>PRiVCYSend uses exact denominated amounts to send funds, you might simply need to mix some more coins.</source>
+        <translation>PRiVCYSend gebruikt exact genoemde bedragen om geld te verzenden. Wellicht moet u gewoon wat meer munten mixen.</translation>
     </message>
     <message>
         <source>Reduce storage requirements by enabling pruning (deleting) of old blocks. This allows the pruneblockchain RPC to be called to delete specific blocks, and enables automatic pruning of old blocks if a target size in MiB is provided. This mode is incompatible with -txindex, -rescan and -disablegovernance=false. Warning: Reverting this setting requires re-downloading the entire blockchain. (default: 0 = disable pruning blocks, 1 = allow manual pruning via RPC, &gt;=%u = automatically prune block files to stay under the specified target size in MiB)</source>
@@ -4422,8 +4422,8 @@ Nota: Het bericht zal niet verzonden worden met de betaling over het PRiVCY netw
         <translation>Bewaar transactie niet langer dan &lt;n&gt; uren in de geheugenpool (standaard: %u)</translation>
     </message>
     <message>
-        <source>Enable multiple PrivateSend mixing sessions per block, experimental (0-1, default: %u)</source>
-        <translation>Inschakel van meerdere PrivateSend mixsessies per blok, experimenteel (0-1, standaard: %u)</translation>
+        <source>Enable multiple PRiVCYSend mixing sessions per block, experimental (0-1, default: %u)</source>
+        <translation>Inschakel van meerdere PRiVCYSend mixsessies per blok, experimenteel (0-1, standaard: %u)</translation>
     </message>
     <message>
         <source>Execute command when a wallet InstantSend transaction is successfully locked (%s in cmd is replaced by TxID)</source>
@@ -4526,8 +4526,8 @@ Nota: Het bericht zal niet verzonden worden met de betaling over het PRiVCY netw
         <translation>Probeer ten minste N inputs van elk bedrag te creëren (%u-%u, standaard: %u)</translation>
     </message>
     <message>
-        <source>Unable to locate enough PrivateSend denominated funds for this transaction.</source>
-        <translation>Kan onvoldoende met PrivateSend gedenomineerd geld vinden voor deze transactie.</translation>
+        <source>Unable to locate enough PRiVCYSend denominated funds for this transaction.</source>
+        <translation>Kan onvoldoende met PRiVCYSend gedenomineerd geld vinden voor deze transactie.</translation>
     </message>
     <message>
         <source>Unsupported argument -socks found. Setting SOCKS version isn't possible anymore, only SOCKS5 proxies are supported.</source>
@@ -4718,12 +4718,12 @@ Nota: Het bericht zal niet verzonden worden met de betaling over het PRiVCY netw
         <translation>De transactiegeheugenpool moet onder de &lt;n&gt; megabytes blijven (standaard: %u)</translation>
     </message>
     <message>
-        <source>Last PrivateSend was too recent.</source>
-        <translation>Vorige PrivateSend is te recent.</translation>
+        <source>Last PRiVCYSend was too recent.</source>
+        <translation>Vorige PRiVCYSend is te recent.</translation>
     </message>
     <message>
-        <source>Last successful PrivateSend action was too recent.</source>
-        <translation>Vorige succesvolle PrivateSend actie is te recent.</translation>
+        <source>Last successful PRiVCYSend action was too recent.</source>
+        <translation>Vorige succesvolle PRiVCYSend actie is te recent.</translation>
     </message>
     <message>
         <source>Loading block index...</source>
@@ -4806,16 +4806,16 @@ Nota: Het bericht zal niet verzonden worden met de betaling over het PRiVCY netw
         <translation>Print versie en sluit af</translation>
     </message>
     <message>
-        <source>PrivateSend is idle.</source>
-        <translation>PrivateSend is niet actief.</translation>
+        <source>PRiVCYSend is idle.</source>
+        <translation>PRiVCYSend is niet actief.</translation>
     </message>
     <message>
-        <source>PrivateSend options:</source>
-        <translation>PrivateSend-opties:</translation>
+        <source>PRiVCYSend options:</source>
+        <translation>PRiVCYSend-opties:</translation>
     </message>
     <message>
-        <source>PrivateSend request incomplete:</source>
-        <translation>PrivateSend aanvraag niet voltooid:</translation>
+        <source>PRiVCYSend request incomplete:</source>
+        <translation>PRiVCYSend aanvraag niet voltooid:</translation>
     </message>
     <message>
         <source>Prune cannot be configured with a negative value.</source>
@@ -4866,8 +4866,8 @@ Nota: Het bericht zal niet verzonden worden met de betaling over het PRiVCY netw
         <translation>Blokketen aan het synchronizeren...</translation>
     </message>
     <message>
-        <source>Target PrivateSend balance (%u-%u, default: %u)</source>
-        <translation>Target voor PrivateSend saldo (%u-%u, standaard: %u)</translation>
+        <source>Target PRiVCYSend balance (%u-%u, default: %u)</source>
+        <translation>Target voor PRiVCYSend saldo (%u-%u, standaard: %u)</translation>
     </message>
     <message>
         <source>The wallet will avoid paying less than the minimum relay fee.</source>
@@ -4994,8 +4994,8 @@ Nota: Het bericht zal niet verzonden worden met de betaling over het PRiVCY netw
         <translation>Uitgegeven onder de MIT software licentie, zie het bijgevoegde bestand %s of %s</translation>
     </message>
     <message>
-        <source>Enable use of PrivateSend for funds stored in this wallet (0-1, default: %u)</source>
-        <translation>Gebruik van PrivateSend inschakelen voor de PRiVCY die in deze portemonnee is opgeslagen (0-1, standaard: %u)</translation>
+        <source>Enable use of PRiVCYSend for funds stored in this wallet (0-1, default: %u)</source>
+        <translation>Gebruik van PRiVCYSend inschakelen voor de PRiVCY die in deze portemonnee is opgeslagen (0-1, standaard: %u)</translation>
     </message>
     <message>
         <source>Error loading %s: You can't enable HD on an already existing non-HD wallet</source>
@@ -5058,8 +5058,8 @@ Nota: Het bericht zal niet verzonden worden met de betaling over het PRiVCY netw
         <translation>Dit product bevat software dat ontwikkeld is door het OpenSSL Project voor gebruik in de OpenSSL Toolkit %s en cryptografische software geschreven door Eric Young en UPnP software geschreven door Thomas Bernard.</translation>
     </message>
     <message>
-        <source>Unable to locate enough PrivateSend non-denominated funds for this transaction.</source>
-        <translation>Kan onvoldoende met PrivateSend niet-gedenomineerd geld vinden voor deze transactie.</translation>
+        <source>Unable to locate enough PRiVCYSend non-denominated funds for this transaction.</source>
+        <translation>Kan onvoldoende met PRiVCYSend niet-gedenomineerd geld vinden voor deze transactie.</translation>
     </message>
     <message>
         <source>Unable to replay blocks. You will need to rebuild the database using -reindex-chainstate.</source>
@@ -5274,8 +5274,8 @@ Nota: Het bericht zal niet verzonden worden met de betaling over het PRiVCY netw
         <translation>Specificeer uw eigen publieke adres</translation>
     </message>
     <message>
-        <source>Start PrivateSend automatically (0-1, default: %u)</source>
-        <translation>Start PrivateSend automatisch (0-1, standaard: %u)</translation>
+        <source>Start PRiVCYSend automatically (0-1, default: %u)</source>
+        <translation>Start PRiVCYSend automatisch (0-1, standaard: %u)</translation>
     </message>
     <message>
         <source>Starting network threads...</source>

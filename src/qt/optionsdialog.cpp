@@ -19,7 +19,7 @@
 #include <txdb.h> // for -dbcache defaults
 
 #ifdef ENABLE_WALLET
-#include <privatesend/privatesend-client.h>
+#include <privcysend/privcysend-client.h>
 #endif // ENABLE_WALLET
 
 #include <QDataWidgetMapper>
@@ -80,15 +80,15 @@ OptionsDialog::OptionsDialog(QWidget *parent, bool enableWallet) :
     connect(ui->connectSocksTor, SIGNAL(toggled(bool)), this, SLOT(updateProxyValidationState()));
 
     pageButtons.addButton(ui->btnMain, pageButtons.buttons().size());
-    /* Remove Wallet/PrivateSend tabs in case of -disablewallet */
+    /* Remove Wallet/PRiVCYSend tabs in case of -disablewallet */
     if (!enableWallet) {
         ui->stackedWidgetOptions->removeWidget(ui->pageWallet);
         ui->btnWallet->hide();
-        ui->stackedWidgetOptions->removeWidget(ui->pagePrivateSend);
-        ui->btnPrivateSend->hide();
+        ui->stackedWidgetOptions->removeWidget(ui->pagePRiVCYSend);
+        ui->btnPRiVCYSend->hide();
     } else {
         pageButtons.addButton(ui->btnWallet, pageButtons.buttons().size());
-        pageButtons.addButton(ui->btnPrivateSend, pageButtons.buttons().size());
+        pageButtons.addButton(ui->btnPRiVCYSend, pageButtons.buttons().size());
     }
     pageButtons.addButton(ui->btnNetwork, pageButtons.buttons().size());
     pageButtons.addButton(ui->btnDisplay, pageButtons.buttons().size());
@@ -171,13 +171,13 @@ OptionsDialog::OptionsDialog(QWidget *parent, bool enableWallet) :
         Q_EMIT appearanceChanged();
     });
 
-    updatePrivateSendVisibility();
+    updatePRiVCYSendVisibility();
 
-    // Store the current PrivateSend enabled state to recover it if it gets changed but the dialog gets not accepted but declined.
+    // Store the current PRiVCYSend enabled state to recover it if it gets changed but the dialog gets not accepted but declined.
 #ifdef ENABLE_WALLET
-    fPrivateSendEnabledPrev = privateSendClient.fEnablePrivateSend;
+    fPRiVCYSendEnabledPrev = privateSendClient.fEnablePRiVCYSend;
     connect(this, &OptionsDialog::rejected, [=]() {
-        if (fPrivateSendEnabledPrev != privateSendClient.fEnablePrivateSend) {
+        if (fPRiVCYSendEnabledPrev != privateSendClient.fEnablePRiVCYSend) {
             ui->privateSendEnabled->click();
         }
     });
@@ -208,10 +208,10 @@ void OptionsDialog::setModel(OptionsModel *_model)
 
 
 #ifdef ENABLE_WALLET
-        // If -enableprivatesend was passed in on the command line, set the checkbox
+        // If -enableprivcysend was passed in on the command line, set the checkbox
         // to the value given via commandline and disable it (make it unclickable).
-        if (strLabel.contains("-enableprivatesend")) {
-            bool fEnabled = privateSendClient.fEnablePrivateSend;
+        if (strLabel.contains("-enableprivcysend")) {
+            bool fEnabled = privateSendClient.fEnablePRiVCYSend;
             ui->privateSendEnabled->setChecked(fEnabled);
             ui->privateSendEnabled->setEnabled(false);
         }
@@ -245,11 +245,11 @@ void OptionsDialog::setModel(OptionsModel *_model)
 
     connect(ui->privateSendEnabled, &QCheckBox::clicked, [=](bool fChecked) {
 #ifdef ENABLE_WALLET
-        privateSendClient.fEnablePrivateSend = fChecked;
+        privateSendClient.fEnablePRiVCYSend = fChecked;
 #endif
-        updatePrivateSendVisibility();
+        updatePRiVCYSendVisibility();
         if (_model != nullptr) {
-            _model->emitPrivateSendEnabledChanged();
+            _model->emitPRiVCYSendEnabledChanged();
         }
         updateWidth();
     });
@@ -266,18 +266,18 @@ void OptionsDialog::setMapper()
 #endif
     mapper->addMapping(ui->threadsScriptVerif, OptionsModel::ThreadsScriptVerif);
     mapper->addMapping(ui->databaseCache, OptionsModel::DatabaseCache);
-    mapper->addMapping(ui->privateSendEnabled, OptionsModel::PrivateSendEnabled);
+    mapper->addMapping(ui->privateSendEnabled, OptionsModel::PRiVCYSendEnabled);
 
     /* Wallet */
     mapper->addMapping(ui->coinControlFeatures, OptionsModel::CoinControlFeatures);
     mapper->addMapping(ui->showMasternodesTab, OptionsModel::ShowMasternodesTab);
     mapper->addMapping(ui->showAdvancedPSUI, OptionsModel::ShowAdvancedPSUI);
-    mapper->addMapping(ui->showPrivateSendPopups, OptionsModel::ShowPrivateSendPopups);
+    mapper->addMapping(ui->showPRiVCYSendPopups, OptionsModel::ShowPRiVCYSendPopups);
     mapper->addMapping(ui->lowKeysWarning, OptionsModel::LowKeysWarning);
-    mapper->addMapping(ui->privateSendMultiSession, OptionsModel::PrivateSendMultiSession);
+    mapper->addMapping(ui->privateSendMultiSession, OptionsModel::PRiVCYSendMultiSession);
     mapper->addMapping(ui->spendZeroConfChange, OptionsModel::SpendZeroConfChange);
-    mapper->addMapping(ui->privateSendRounds, OptionsModel::PrivateSendRounds);
-    mapper->addMapping(ui->privateSendAmount, OptionsModel::PrivateSendAmount);
+    mapper->addMapping(ui->privateSendRounds, OptionsModel::PRiVCYSendRounds);
+    mapper->addMapping(ui->privateSendAmount, OptionsModel::PRiVCYSendAmount);
 
     /* Network */
     mapper->addMapping(ui->mapPortUpnp, OptionsModel::MapPortUPnP);
@@ -439,14 +439,14 @@ void OptionsDialog::updateDefaultProxyNets()
     (strProxy == strDefaultProxyGUI.toStdString()) ? ui->proxyReachTor->setChecked(true) : ui->proxyReachTor->setChecked(false);
 }
 
-void OptionsDialog::updatePrivateSendVisibility()
+void OptionsDialog::updatePRiVCYSendVisibility()
 {
 #ifdef ENABLE_WALLET
-    bool fEnabled = privateSendClient.fEnablePrivateSend;
+    bool fEnabled = privateSendClient.fEnablePRiVCYSend;
 #else
     bool fEnabled = false;
 #endif
-    ui->btnPrivateSend->setVisible(fEnabled);
+    ui->btnPRiVCYSend->setVisible(fEnabled);
 }
 
 void OptionsDialog::updateWidth()

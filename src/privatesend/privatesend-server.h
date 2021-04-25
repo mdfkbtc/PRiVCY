@@ -6,17 +6,17 @@
 #define PRIVATESENDSERVER_H
 
 #include <net.h>
-#include <privatesend/privatesend.h>
+#include <privcysend/privcysend.h>
 
-class CPrivateSendServer;
+class CPRiVCYSendServer;
 class UniValue;
 
 // The main object for accessing mixing
-extern CPrivateSendServer privateSendServer;
+extern CPRiVCYSendServer privateSendServer;
 
 /** Used to keep track of current status of mixing pool
  */
-class CPrivateSendServer : public CPrivateSendBaseSession, public CPrivateSendBaseManager
+class CPRiVCYSendServer : public CPRiVCYSendBaseSession, public CPRiVCYSendBaseManager
 {
 private:
     // Mixing uses collateral transactions to trust parties entering the pool
@@ -26,7 +26,7 @@ private:
     bool fUnitTest;
 
     /// Add a clients entry to the pool
-    bool AddEntry(CConnman& connman, const CPrivateSendEntry& entry, PoolMessage& nMessageIDRet);
+    bool AddEntry(CConnman& connman, const CPRiVCYSendEntry& entry, PoolMessage& nMessageIDRet);
     /// Add signature to a txin
     bool AddScriptSig(const CTxIn& txin);
 
@@ -44,9 +44,9 @@ private:
     void CommitFinalTransaction(CConnman& connman);
 
     /// Is this nDenom and txCollateral acceptable?
-    bool IsAcceptableDSA(const CPrivateSendAccept& dsa, PoolMessage& nMessageIDRet);
-    bool CreateNewSession(const CPrivateSendAccept& dsa, PoolMessage& nMessageIDRet, CConnman& connman);
-    bool AddUserToExistingSession(const CPrivateSendAccept& dsa, PoolMessage& nMessageIDRet);
+    bool IsAcceptableDSA(const CPRiVCYSendAccept& dsa, PoolMessage& nMessageIDRet);
+    bool CreateNewSession(const CPRiVCYSendAccept& dsa, PoolMessage& nMessageIDRet, CConnman& connman);
+    bool AddUserToExistingSession(const CPRiVCYSendAccept& dsa, PoolMessage& nMessageIDRet);
     /// Do we have enough users to take entries?
     bool IsSessionReady();
 
@@ -67,7 +67,7 @@ private:
     void SetNull();
 
 public:
-    CPrivateSendServer() :
+    CPRiVCYSendServer() :
         vecSessionCollaterals(),
         fUnitTest(false) {}
 

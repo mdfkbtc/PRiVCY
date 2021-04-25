@@ -92,11 +92,11 @@ simply uses `coinbase_payload` field from `getblocktemplate` RPC and doesn't con
 manually then there should be no changes to your mining software required. We however encourage pools
 and solo-miners to check their software compatibility on testnet to ensure flawless migration.
 
-PrivateSend
+PRiVCYSend
 -----------
 The wallet will try to create and consume denoms a bit more accurately now. It will also only create a
 limited number of inputs for each denominated amount to prevent bloating itself with mostly the smallest
-denoms. You can control this number of inputs via new `-privatesenddenoms` cmd-line option (default is 300).
+denoms. You can control this number of inputs via new `-privcysenddenoms` cmd-line option (default is 300).
 
 InstantSend
 -----------
@@ -156,7 +156,7 @@ Changes in existing cmd-line options:
 
 New cmd-line options:
 - `-watchquorums`
-- `-privatesenddenoms`
+- `-privcysenddenoms`
 - `-dip3params` (regtest-only)
 - `-llmqchainlocks` (devnet-only)
 
@@ -193,7 +193,7 @@ See detailed [set of changes](https://github.com/privcypay/privcy/compare/v0.13.
 - [`b63f7dd39`](https://github.com/privcypay/privcy/commit/b63f7dd39) Fix a crash in `masternode winners` when `count` is too large (#2902)
 - [`357b7279d`](https://github.com/privcypay/privcy/commit/357b7279d) Implement isolate_node/reconnect_isolated_node in tests (#2901)
 - [`7fdc66dd8`](https://github.com/privcypay/privcy/commit/7fdc66dd8) Ask for locked TXs after removing conflicting TXs (#2898)
-- [`5d05ab17a`](https://github.com/privcypay/privcy/commit/5d05ab17a) Fix PrivateSend log (#2892)
+- [`5d05ab17a`](https://github.com/privcypay/privcy/commit/5d05ab17a) Fix PRiVCYSend log (#2892)
 - [`53827a376`](https://github.com/privcypay/privcy/commit/53827a376) Remove code for QDEBUGSTATUS propagation (#2891)
 - [`783cb9ca6`](https://github.com/privcypay/privcy/commit/783cb9ca6) Skip CheckCbTxMerkleRoots until assumeValid block (#2890)
 - [`4dee7c4a2`](https://github.com/privcypay/privcy/commit/4dee7c4a2) Cache heavy parts of `CalcCbTxMerkleRoot*` (#2885)
@@ -615,7 +615,7 @@ See detailed [set of changes](https://github.com/privcypay/privcy/compare/v0.13.
 - [`217f3941d`](https://github.com/privcypay/privcy/commit/217f3941d) Skip starting of cache populator thread in case we don't have a valid vvec
 - [`679a9895b`](https://github.com/privcypay/privcy/commit/679a9895b) Add comments about why it's ok to ignore some failures
 - [`15c34ccbd`](https://github.com/privcypay/privcy/commit/15c34ccbd) Implement CQuorum and CQuorumManager
-- [`8e4fe3660`](https://github.com/privcypay/privcy/commit/8e4fe3660) [PrivateSend] Fallback to less participants if possible, fix too long timeouts on server side (#2616)
+- [`8e4fe3660`](https://github.com/privcypay/privcy/commit/8e4fe3660) [PRiVCYSend] Fallback to less participants if possible, fix too long timeouts on server side (#2616)
 - [`ee808d819`](https://github.com/privcypay/privcy/commit/ee808d819) Add checkbox to show only masternodes the wallet has keys for (#2627)
 - [`fff50af3c`](https://github.com/privcypay/privcy/commit/fff50af3c) Revert "Set CLIENT_VERSION_IS_RELEASE to true (#2591)"
 - [`fed4716c0`](https://github.com/privcypay/privcy/commit/fed4716c0) Remove support for "0" as an alternative to "" when the default is requested (#2622)
@@ -642,9 +642,9 @@ See detailed [set of changes](https://github.com/privcypay/privcy/compare/v0.13.
 - [`9d25bb1d8`](https://github.com/privcypay/privcy/commit/9d25bb1d8) Add batched logger
 - [`0df3871d1`](https://github.com/privcypay/privcy/commit/0df3871d1) Remove dummy DKG
 - [`55f205eba`](https://github.com/privcypay/privcy/commit/55f205eba) A couple of fixes for `masternode list` rpc (#2615)
-- [`fa18d3e10`](https://github.com/privcypay/privcy/commit/fa18d3e10) More fixes for PrivateSend after 2612 (#2614)
+- [`fa18d3e10`](https://github.com/privcypay/privcy/commit/fa18d3e10) More fixes for PRiVCYSend after 2612 (#2614)
 - [`bade33273`](https://github.com/privcypay/privcy/commit/bade33273) Fix 2612 (#2613)
-- [`5c5932eb9`](https://github.com/privcypay/privcy/commit/5c5932eb9) [PrivateSend] Allow more than 3 mixing participants (#2612)
+- [`5c5932eb9`](https://github.com/privcypay/privcy/commit/5c5932eb9) [PRiVCYSend] Allow more than 3 mixing participants (#2612)
 - [`0acfbf640`](https://github.com/privcypay/privcy/commit/0acfbf640) Gracefully shutdown on evodb inconsistency instead of crashing (#2611)
 - [`07dcddb4c`](https://github.com/privcypay/privcy/commit/07dcddb4c) Backports 0.15 pr2 (#2597)
 - [`04d1671b9`](https://github.com/privcypay/privcy/commit/04d1671b9) armv7l build support (#2601)
@@ -675,8 +675,8 @@ See detailed [set of changes](https://github.com/privcypay/privcy/compare/v0.13.
 - [`71a695100`](https://github.com/privcypay/privcy/commit/71a695100) Move logic from FindRandomNotInVec into GetRandomNotUsedMasternode
 - [`2f66d6ada`](https://github.com/privcypay/privcy/commit/2f66d6ada) Replace uses of mnodeman in PS code when deterministicMNManager can be used directly
 - [`eedb15845`](https://github.com/privcypay/privcy/commit/eedb15845) Remove use of mnodeman.GetMasternodeInfo from IX code
-- [`fb13b000b`](https://github.com/privcypay/privcy/commit/fb13b000b) Remove support for legacy operator keys in CPrivateSendBroadcastTx
-- [`5f5fcc49c`](https://github.com/privcypay/privcy/commit/5f5fcc49c) Remove legacy signatures support in CPrivateSendQueue
+- [`fb13b000b`](https://github.com/privcypay/privcy/commit/fb13b000b) Remove support for legacy operator keys in CPRiVCYSendBroadcastTx
+- [`5f5fcc49c`](https://github.com/privcypay/privcy/commit/5f5fcc49c) Remove legacy signatures support in CPRiVCYSendQueue
 - [`da924519a`](https://github.com/privcypay/privcy/commit/da924519a) Remove support for legacy signatures in CTxLockVote
 - [`2b2e4f45d`](https://github.com/privcypay/privcy/commit/2b2e4f45d) Remove a few uses of mnodeman from governance code
 - [`14d8ce03c`](https://github.com/privcypay/privcy/commit/14d8ce03c) Don't use GetMasternodeInfo in CTxLockVote::IsValid

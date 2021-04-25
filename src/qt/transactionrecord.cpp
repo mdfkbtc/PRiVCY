@@ -11,7 +11,7 @@
 #include <timedata.h>
 #include <wallet/wallet.h>
 
-#include <privatesend/privatesend.h>
+#include <privcysend/privcysend.h>
 
 #include <stdint.h>
 
@@ -100,7 +100,7 @@ QList<TransactionRecord> TransactionRecord::decomposeTransaction(const CWallet *
         int nToMe = 0;
         for (const CTxOut& txout : wtx.tx->vout) {
             if(wallet->IsMine(txout)) {
-                fAllToMeDenom = fAllToMeDenom && CPrivateSend::IsDenominatedAmount(txout.nValue);
+                fAllToMeDenom = fAllToMeDenom && CPRiVCYSend::IsDenominatedAmount(txout.nValue);
                 nToMe++;
             }
             isminetype mine = wallet->IsMine(txout);
@@ -109,7 +109,7 @@ QList<TransactionRecord> TransactionRecord::decomposeTransaction(const CWallet *
         }
 
         if(fAllFromMeDenom && fAllToMeDenom && nFromMe * nToMe) {
-            parts.append(TransactionRecord(hash, nTime, TransactionRecord::PrivateSendDenominate, "", -nDebit, nCredit));
+            parts.append(TransactionRecord(hash, nTime, TransactionRecord::PRiVCYSendDenominate, "", -nDebit, nCredit));
             parts.last().involvesWatchAddress = false;   // maybe pass to TransactionRecord as constructor argument
         }
         else if (fAllFromMe && fAllToMe)
@@ -125,7 +125,7 @@ QList<TransactionRecord> TransactionRecord::decomposeTransaction(const CWallet *
 
             if(mapValue["DS"] == "1")
             {
-                sub.type = TransactionRecord::PrivateSend;
+                sub.type = TransactionRecord::PRiVCYSend;
                 CTxDestination address;
                 if (ExtractDestination(wtx.tx->vout[0].scriptPubKey, address))
                 {
@@ -144,31 +144,31 @@ QList<TransactionRecord> TransactionRecord::decomposeTransaction(const CWallet *
             {
                 sub.idx = parts.size();
                 if(wtx.tx->vin.size() == 1 && wtx.tx->vout.size() == 1
-                    && CPrivateSend::IsCollateralAmount(nDebit)
-                    && CPrivateSend::IsCollateralAmount(nCredit)
-                    && CPrivateSend::IsCollateralAmount(-nNet))
+                    && CPRiVCYSend::IsCollateralAmount(nDebit)
+                    && CPRiVCYSend::IsCollateralAmount(nCredit)
+                    && CPRiVCYSend::IsCollateralAmount(-nNet))
                 {
-                    sub.type = TransactionRecord::PrivateSendCollateralPayment;
+                    sub.type = TransactionRecord::PRiVCYSendCollateralPayment;
                 } else {
                     bool fMakeCollateral{false};
                     if (wtx.tx->vout.size() == 2) {
                         CAmount nAmount0 = wtx.tx->vout[0].nValue;
                         CAmount nAmount1 = wtx.tx->vout[1].nValue;
-                        // <case1>, see CPrivateSendClientSession::MakeCollateralAmounts
-                        fMakeCollateral = (nAmount0 == CPrivateSend::GetMaxCollateralAmount() && !CPrivateSend::IsDenominatedAmount(nAmount1) && nAmount1 >= CPrivateSend::GetCollateralAmount()) ||
-                                          (nAmount1 == CPrivateSend::GetMaxCollateralAmount() && !CPrivateSend::IsDenominatedAmount(nAmount0) && nAmount0 >= CPrivateSend::GetCollateralAmount()) ||
-                        // <case2>, see CPrivateSendClientSession::MakeCollateralAmounts
-                                          (nAmount0 == nAmount1 && CPrivateSend::IsCollateralAmount(nAmount0));
+                        // <case1>, see CPRiVCYSendClientSession::MakeCollateralAmounts
+                        fMakeCollateral = (nAmount0 == CPRiVCYSend::GetMaxCollateralAmount() && !CPRiVCYSend::IsDenominatedAmount(nAmount1) && nAmount1 >= CPRiVCYSend::GetCollateralAmount()) ||
+                                          (nAmount1 == CPRiVCYSend::GetMaxCollateralAmount() && !CPRiVCYSend::IsDenominatedAmount(nAmount0) && nAmount0 >= CPRiVCYSend::GetCollateralAmount()) ||
+                        // <case2>, see CPRiVCYSendClientSession::MakeCollateralAmounts
+                                          (nAmount0 == nAmount1 && CPRiVCYSend::IsCollateralAmount(nAmount0));
                     } else if (wtx.tx->vout.size() == 1) {
-                        // <case3>, see CPrivateSendClientSession::MakeCollateralAmounts
-                        fMakeCollateral = CPrivateSend::IsCollateralAmount(wtx.tx->vout[0].nValue);
+                        // <case3>, see CPRiVCYSendClientSession::MakeCollateralAmounts
+                        fMakeCollateral = CPRiVCYSend::IsCollateralAmount(wtx.tx->vout[0].nValue);
                     }
                     if (fMakeCollateral) {
-                        sub.type = TransactionRecord::PrivateSendMakeCollaterals;
+                        sub.type = TransactionRecord::PRiVCYSendMakeCollaterals;
                     } else {
                         for (const auto& txout : wtx.tx->vout) {
-                            if (CPrivateSend::IsDenominatedAmount(txout.nValue)) {
-                                sub.type = TransactionRecord::PrivateSendCreateDenominations;
+                            if (CPRiVCYSend::IsDenominatedAmount(txout.nValue)) {
+                                sub.type = TransactionRecord::PRiVCYSendCreateDenominations;
                                 break; // Done, it's definitely a tx creating mixing denoms, no need to look any further
                             }
                         }
@@ -192,13 +192,13 @@ QList<TransactionRecord> TransactionRecord::decomposeTransaction(const CWallet *
 
             bool fDone = false;
             if(wtx.tx->vin.size() == 1 && wtx.tx->vout.size() == 1
-                && CPrivateSend::IsCollateralAmount(nDebit)
+                && CPRiVCYSend::IsCollateralAmount(nDebit)
                 && nCredit == 0 // OP_RETURN
-                && CPrivateSend::IsCollateralAmount(-nNet))
+                && CPRiVCYSend::IsCollateralAmount(-nNet))
             {
                 TransactionRecord sub(hash, nTime);
                 sub.idx = 0;
-                sub.type = TransactionRecord::PrivateSendCollateralPayment;
+                sub.type = TransactionRecord::PRiVCYSendCollateralPayment;
                 sub.debit = -nDebit;
                 parts.append(sub);
                 fDone = true;
@@ -236,7 +236,7 @@ QList<TransactionRecord> TransactionRecord::decomposeTransaction(const CWallet *
 
                 if(mapValue["DS"] == "1")
                 {
-                    sub.type = TransactionRecord::PrivateSend;
+                    sub.type = TransactionRecord::PRiVCYSend;
                 }
 
                 CAmount nValue = txout.nValue;

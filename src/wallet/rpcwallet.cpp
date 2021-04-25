@@ -14,7 +14,7 @@
 #include <net.h>
 #include <policy/feerate.h>
 #include <policy/fees.h>
-#include <privatesend/privatesend-client.h>
+#include <privcysend/privcysend-client.h>
 #include <rpc/mining.h>
 #include <rpc/safemode.h>
 #include <rpc/server.h>
@@ -444,7 +444,7 @@ UniValue sendtoaddress(const JSONRPCRequest& request)
             "5. subtractfeefromamount  (boolean, optional, default=false) The fee will be deducted from the amount being sent.\n"
             "                             The recipient will receive less amount of PRiVCY than you enter in the amount field.\n"
             "6. \"use_is\"             (bool, optional, default=false) Deprecated and ignored\n"
-            "7. \"use_ps\"             (bool, optional, default=false) Use PrivateSend funds only\n"
+            "7. \"use_ps\"             (bool, optional, default=false) Use PRiVCYSend funds only\n"
             "8. conf_target            (numeric, optional) Confirmation target (in blocks)\n"
             "9. \"estimate_mode\"      (string, optional, default=UNSET) The fee estimate mode, must be one of:\n"
             "       \"UNSET\"\n"
@@ -493,7 +493,7 @@ UniValue sendtoaddress(const JSONRPCRequest& request)
     CCoinControl coin_control;
 
     if (!request.params[6].isNull()) {
-        coin_control.UsePrivateSend(request.params[6].get_bool());
+        coin_control.UsePRiVCYSend(request.params[6].get_bool());
     }
 
     if (!request.params[7].isNull()) {
@@ -1081,7 +1081,7 @@ UniValue sendmany(const JSONRPCRequest& request)
             "      ,...\n"
             "    ]\n"
             "7. \"use_is\"                (bool, optional, default=false) Deprecated and ignored\n"
-            "8. \"use_ps\"                (bool, optional, default=false) Use PrivateSend funds only\n"
+            "8. \"use_ps\"                (bool, optional, default=false) Use PRiVCYSend funds only\n"
             "9. conf_target            (numeric, optional) Confirmation target (in blocks)\n"
             "10. \"estimate_mode\"      (string, optional, default=UNSET) The fee estimate mode, must be one of:\n"
             "       \"UNSET\"\n"
@@ -1133,7 +1133,7 @@ UniValue sendmany(const JSONRPCRequest& request)
     CCoinControl coin_control;
 
     if (!request.params[7].isNull()) {
-        coin_control.UsePrivateSend(request.params[7].get_bool());
+        coin_control.UsePRiVCYSend(request.params[7].get_bool());
     }
 
     if (!request.params[8].isNull()) {
@@ -1566,7 +1566,7 @@ void ListTransactions(CWallet * const pwallet, const CWalletTx& wtx, const std::
             entry.push_back(Pair("account", strSentAccount));
             MaybePushAddress(entry, s.destination);
             std::map<std::string, std::string>::const_iterator it = wtx.mapValue.find("DS");
-            entry.push_back(Pair("category", (it != wtx.mapValue.end() && it->second == "1") ? "privatesend" : "send"));
+            entry.push_back(Pair("category", (it != wtx.mapValue.end() && it->second == "1") ? "privcysend" : "send"));
             entry.push_back(Pair("amount", ValueFromAmount(-s.amount)));
             if (pwallet->mapAddressBook.count(s.destination)) {
                 entry.push_back(Pair("label", pwallet->mapAddressBook[s.destination].name));
@@ -2256,7 +2256,7 @@ UniValue walletpassphrase(const JSONRPCRequest& request)
             "\nExamples:\n"
             "\nUnlock the wallet for 60 seconds\n"
             + HelpExampleCli("walletpassphrase", "\"my pass phrase\" 60") +
-            "\nUnlock the wallet for 60 seconds but allow PrivateSend mixing only\n"
+            "\nUnlock the wallet for 60 seconds but allow PRiVCYSend mixing only\n"
             + HelpExampleCli("walletpassphrase", "\"my pass phrase\" 60 true") +
             "\nLock the wallet again (before 60 seconds)\n"
             + HelpExampleCli("walletlock", "") +
@@ -2676,7 +2676,7 @@ UniValue settxfee(const JSONRPCRequest& request)
     return true;
 }
 
-UniValue setprivatesendrounds(const JSONRPCRequest& request)
+UniValue setprivcysendrounds(const JSONRPCRequest& request)
 {
     CWallet* const pwallet = GetWalletForJSONRPCRequest(request);
     if (!EnsureWalletIsAvailable(pwallet, request.fHelp))
@@ -2684,14 +2684,14 @@ UniValue setprivatesendrounds(const JSONRPCRequest& request)
 
     if (request.fHelp || request.params.size() != 1)
         throw std::runtime_error(
-            "setprivatesendrounds rounds\n"
-            "\nSet the number of rounds for PrivateSend mixing.\n"
+            "setprivcysendrounds rounds\n"
+            "\nSet the number of rounds for PRiVCYSend mixing.\n"
             "\nArguments:\n"
             "1. rounds         (numeric, required) The default number of rounds is " + std::to_string(DEFAULT_PRIVATESEND_ROUNDS) +
             " Cannot be more than " + std::to_string(MAX_PRIVATESEND_ROUNDS) + " nor less than " + std::to_string(MIN_PRIVATESEND_ROUNDS) +
             "\nExamples:\n"
-            + HelpExampleCli("setprivatesendrounds", "4")
-            + HelpExampleRpc("setprivatesendrounds", "16")
+            + HelpExampleCli("setprivcysendrounds", "4")
+            + HelpExampleRpc("setprivcysendrounds", "16")
         );
 
     int nRounds = request.params[0].get_int();
@@ -2699,12 +2699,12 @@ UniValue setprivatesendrounds(const JSONRPCRequest& request)
     if (nRounds > MAX_PRIVATESEND_ROUNDS || nRounds < MIN_PRIVATESEND_ROUNDS)
         throw JSONRPCError(RPC_INVALID_PARAMETER, "Invalid number of rounds");
 
-    privateSendClient.nPrivateSendRounds = nRounds;
+    privateSendClient.nPRiVCYSendRounds = nRounds;
 
     return NullUniValue;
 }
 
-UniValue setprivatesendamount(const JSONRPCRequest& request)
+UniValue setprivcysendamount(const JSONRPCRequest& request)
 {
     CWallet* const pwallet = GetWalletForJSONRPCRequest(request);
     if (!EnsureWalletIsAvailable(pwallet, request.fHelp))
@@ -2712,14 +2712,14 @@ UniValue setprivatesendamount(const JSONRPCRequest& request)
 
     if (request.fHelp || request.params.size() != 1)
         throw std::runtime_error(
-            "setprivatesendamount amount\n"
-            "\nSet the goal amount in " + CURRENCY_UNIT + " for PrivateSend mixing.\n"
+            "setprivcysendamount amount\n"
+            "\nSet the goal amount in " + CURRENCY_UNIT + " for PRiVCYSend mixing.\n"
             "\nArguments:\n"
             "1. amount         (numeric, required) The default amount is " + std::to_string(DEFAULT_PRIVATESEND_AMOUNT) +
             " Cannot be more than " + std::to_string(MAX_PRIVATESEND_AMOUNT) + " nor less than " + std::to_string(MIN_PRIVATESEND_AMOUNT) +
             "\nExamples:\n"
-            + HelpExampleCli("setprivatesendamount", "500")
-            + HelpExampleRpc("setprivatesendamount", "208")
+            + HelpExampleCli("setprivcysendamount", "500")
+            + HelpExampleRpc("setprivcysendamount", "208")
         );
 
     int nAmount = request.params[0].get_int();
@@ -2727,7 +2727,7 @@ UniValue setprivatesendamount(const JSONRPCRequest& request)
     if (nAmount > MAX_PRIVATESEND_AMOUNT || nAmount < MIN_PRIVATESEND_AMOUNT)
         throw JSONRPCError(RPC_INVALID_PARAMETER, "Invalid amount of " + CURRENCY_UNIT + " as mixing goal amount");
 
-    privateSendClient.nPrivateSendAmount = nAmount;
+    privateSendClient.nPRiVCYSendAmount = nAmount;
 
     return NullUniValue;
 }
@@ -2748,7 +2748,7 @@ UniValue getwalletinfo(const JSONRPCRequest& request)
             "  \"walletname\": xxxxx,             (string) the wallet name\n"
             "  \"walletversion\": xxxxx,     (numeric) the wallet version\n"
             "  \"balance\": xxxxxxx,         (numeric) the total confirmed balance of the wallet in " + CURRENCY_UNIT + "\n"
-            "  \"privatesend_balance\": xxxxxx, (numeric) the PrivateSend balance in " + CURRENCY_UNIT + "\n"
+            "  \"privcysend_balance\": xxxxxx, (numeric) the PRiVCYSend balance in " + CURRENCY_UNIT + "\n"
             "  \"unconfirmed_balance\": xxx, (numeric) the total unconfirmed balance of the wallet in " + CURRENCY_UNIT + "\n"
             "  \"immature_balance\": xxxxxx, (numeric) the total immature balance of the wallet in " + CURRENCY_UNIT + "\n"
             "  \"txcount\": xxxxxxx,         (numeric) the total number of transactions in the wallet\n"
@@ -2794,7 +2794,7 @@ UniValue getwalletinfo(const JSONRPCRequest& request)
     obj.push_back(Pair("walletname", pwallet->GetName()));
     obj.push_back(Pair("walletversion", pwallet->GetVersion()));
     obj.push_back(Pair("balance",       ValueFromAmount(pwallet->GetBalance())));
-    obj.push_back(Pair("privatesend_balance",       ValueFromAmount(pwallet->GetAnonymizedBalance())));
+    obj.push_back(Pair("privcysend_balance",       ValueFromAmount(pwallet->GetAnonymizedBalance())));
     obj.push_back(Pair("unconfirmed_balance", ValueFromAmount(pwallet->GetUnconfirmedBalance())));
     obj.push_back(Pair("immature_balance",    ValueFromAmount(pwallet->GetImmatureBalance())));
     obj.push_back(Pair("txcount",       (int)pwallet->mapWallet.size()));
@@ -3201,7 +3201,7 @@ UniValue listunspent(const JSONRPCRequest& request)
         entry.push_back(Pair("spendable", out.fSpendable));
         entry.push_back(Pair("solvable", out.fSolvable));
         entry.push_back(Pair("safe", out.fSafe));
-        entry.push_back(Pair("ps_rounds", pwallet->GetRealOutpointPrivateSendRounds(COutPoint(out.tx->GetHash(), out.i))));
+        entry.push_back(Pair("ps_rounds", pwallet->GetRealOutpointPRiVCYSendRounds(COutPoint(out.tx->GetHash(), out.i))));
         results.push_back(entry);
     }
 
@@ -3580,8 +3580,8 @@ static const CRPCCommand commands[] =
     { "wallet",             "sendtoaddress",            &sendtoaddress,            {"address","amount","comment","comment_to","subtractfeefromamount","use_is","use_ps","conf_target","estimate_mode"} },
     { "wallet",             "setaccount",               &setaccount,               {"address","account"} },
     { "wallet",             "settxfee",                 &settxfee,                 {"amount"} },
-    { "wallet",             "setprivatesendrounds",     &setprivatesendrounds,     {"rounds"} },
-    { "wallet",             "setprivatesendamount",     &setprivatesendamount,     {"amount"} },
+    { "wallet",             "setprivcysendrounds",     &setprivcysendrounds,     {"rounds"} },
+    { "wallet",             "setprivcysendamount",     &setprivcysendamount,     {"amount"} },
     { "wallet",             "signmessage",              &signmessage,              {"address","message"} },
     { "wallet",             "walletlock",               &walletlock,               {} },
     { "wallet",             "walletpassphrasechange",   &walletpassphrasechange,   {"oldpassphrase","newpassphrase"} },

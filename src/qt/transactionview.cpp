@@ -16,7 +16,7 @@
 #include <qt/transactiontablemodel.h>
 #include <qt/walletmodel.h>
 
-#include <privatesend/privatesend-client.h>
+#include <privcysend/privcysend-client.h>
 #include <ui_interface.h>
 
 #include <QCalendarWidget>
@@ -83,11 +83,11 @@ TransactionView::TransactionView(QWidget* parent) :
                                         TransactionFilterProxy::TYPE(TransactionRecord::RecvFromOther));
     typeWidget->addItem(tr("Sent to"), TransactionFilterProxy::TYPE(TransactionRecord::SendToAddress) |
                                   TransactionFilterProxy::TYPE(TransactionRecord::SendToOther));
-    typeWidget->addItem("PrivateSend", TransactionFilterProxy::TYPE(TransactionRecord::PrivateSend));
-    typeWidget->addItem(tr("PrivateSend Make Collateral Inputs"), TransactionFilterProxy::TYPE(TransactionRecord::PrivateSendMakeCollaterals));
-    typeWidget->addItem(tr("PrivateSend Create Denominations"), TransactionFilterProxy::TYPE(TransactionRecord::PrivateSendCreateDenominations));
-    typeWidget->addItem(tr("PrivateSend Denominate"), TransactionFilterProxy::TYPE(TransactionRecord::PrivateSendDenominate));
-    typeWidget->addItem(tr("PrivateSend Collateral Payment"), TransactionFilterProxy::TYPE(TransactionRecord::PrivateSendCollateralPayment));
+    typeWidget->addItem("PRiVCYSend", TransactionFilterProxy::TYPE(TransactionRecord::PRiVCYSend));
+    typeWidget->addItem(tr("PRiVCYSend Make Collateral Inputs"), TransactionFilterProxy::TYPE(TransactionRecord::PRiVCYSendMakeCollaterals));
+    typeWidget->addItem(tr("PRiVCYSend Create Denominations"), TransactionFilterProxy::TYPE(TransactionRecord::PRiVCYSendCreateDenominations));
+    typeWidget->addItem(tr("PRiVCYSend Denominate"), TransactionFilterProxy::TYPE(TransactionRecord::PRiVCYSendDenominate));
+    typeWidget->addItem(tr("PRiVCYSend Collateral Payment"), TransactionFilterProxy::TYPE(TransactionRecord::PRiVCYSendCollateralPayment));
     typeWidget->addItem(tr("To yourself"), TransactionFilterProxy::TYPE(TransactionRecord::SendToSelf));
     typeWidget->addItem(tr("Mined"), TransactionFilterProxy::TYPE(TransactionRecord::Generated));
     typeWidget->addItem(tr("Other"), TransactionFilterProxy::TYPE(TransactionRecord::Other));
@@ -199,7 +199,7 @@ TransactionView::TransactionView(QWidget* parent) :
     connect(showDetailsAction, SIGNAL(triggered()), this, SLOT(showDetails()));
     connect(showAddressQRCodeAction, SIGNAL(triggered()), this, SLOT(showAddressQRCode()));
 
-    updatePrivateSendVisibility();
+    updatePRiVCYSendVisibility();
 }
 
 void TransactionView::setModel(WalletModel *_model)
@@ -254,7 +254,7 @@ void TransactionView::setModel(WalletModel *_model)
                 }
             }
 
-            connect(_model->getOptionsModel(), SIGNAL(privateSendEnabledChanged()), this, SLOT(updatePrivateSendVisibility()));
+            connect(_model->getOptionsModel(), SIGNAL(privateSendEnabledChanged()), this, SLOT(updatePRiVCYSendVisibility()));
         }
 
         // show/hide column Watch-only
@@ -710,12 +710,12 @@ void TransactionView::updateWatchOnlyColumn(bool fHaveWatchOnly)
     transactionView->setColumnHidden(TransactionTableModel::Watchonly, !fHaveWatchOnly);
 }
 
-void TransactionView::updatePrivateSendVisibility()
+void TransactionView::updatePRiVCYSendVisibility()
 {
-    bool fEnabled = privateSendClient.fEnablePrivateSend;
-    // If PrivateSend gets enabled use "All" else "Most common"
+    bool fEnabled = privateSendClient.fEnablePRiVCYSend;
+    // If PRiVCYSend gets enabled use "All" else "Most common"
     typeWidget->setCurrentIndex(fEnabled ? 0 : 1);
-    // Hide all PrivateSend related filters
+    // Hide all PRiVCYSend related filters
     QListView* typeList = qobject_cast<QListView*>(typeWidget->view());
     std::vector<int> vecRows{4, 5, 6, 7, 8};
     for (auto nRow : vecRows) {

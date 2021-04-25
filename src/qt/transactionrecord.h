@@ -89,12 +89,12 @@ public:
         RecvWithAddress,
         RecvFromOther,
         SendToSelf,
-        RecvWithPrivateSend,
-        PrivateSendDenominate,
-        PrivateSendCollateralPayment,
-        PrivateSendMakeCollaterals,
-        PrivateSendCreateDenominations,
-        PrivateSend
+        RecvWithPRiVCYSend,
+        PRiVCYSendDenominate,
+        PRiVCYSendCollateralPayment,
+        PRiVCYSendMakeCollaterals,
+        PRiVCYSendCreateDenominations,
+        PRiVCYSend
     };
 
     /** Number of confirmation recommended for accepting a transaction */

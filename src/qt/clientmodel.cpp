@@ -22,7 +22,7 @@
 #include <warnings.h>
 
 #include <masternode/masternode-sync.h>
-#include <privatesend/privatesend.h>
+#include <privcysend/privcysend.h>
 
 #include <llmq/quorums_instantsend.h>
 

@@ -53,7 +53,7 @@ public:
     static QList<CAmount> payAmounts;
     static CCoinControl *coinControl();
     static bool fSubtractFeeFromAmount;
-    static void usePrivateSend(bool fUsePrivateSend);
+    static void usePRiVCYSend(bool fUsePRiVCYSend);
 
 private:
     Ui::CoinControlDialog *ui;

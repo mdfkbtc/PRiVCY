@@ -15,7 +15,7 @@
 #include <wallet/wallet.h>
 #include <wallet/walletutil.h>
 
-#include <privatesend/privatesend-client.h>
+#include <privcysend/privcysend-client.h>
 
 #include <functional>
 
@@ -53,7 +53,7 @@ public:
 
     // PRiVCY Specific Wallet Init
     void AutoLockMasternodeCollaterals() override;
-    void InitPrivateSendSettings() override;
+    void InitPRiVCYSendSettings() override;
     void InitKeePass() override;
     bool InitAutoBackup() override;
 };
@@ -98,15 +98,15 @@ std::string WalletInit::GetHelpString(bool showDebug)
     strUsage += HelpMessageOpt("-keepassid=<id>", _("KeePassHttp id for the established association"));
     strUsage += HelpMessageOpt("-keepassname=<name>", _("Name to construct url for KeePass entry that stores the wallet passphrase"));
 
-    strUsage += HelpMessageGroup(_("PrivateSend options:"));
-    strUsage += HelpMessageOpt("-enableprivatesend", strprintf(_("Enable use of PrivateSend for funds stored in this wallet (0-1, default: %u)"), 0));
-    strUsage += HelpMessageOpt("-privatesendautostart", strprintf(_("Start PrivateSend automatically (0-1, default: %u)"), DEFAULT_PRIVATESEND_AUTOSTART));
-    strUsage += HelpMessageOpt("-privatesendmultisession", strprintf(_("Enable multiple PrivateSend mixing sessions per block, experimental (0-1, default: %u)"), DEFAULT_PRIVATESEND_MULTISESSION));
-    strUsage += HelpMessageOpt("-privatesendsessions=<n>", strprintf(_("Use N separate masternodes in parallel to mix funds (%u-%u, default: %u)"), MIN_PRIVATESEND_SESSIONS, MAX_PRIVATESEND_SESSIONS, DEFAULT_PRIVATESEND_SESSIONS));
-    strUsage += HelpMessageOpt("-privatesendrounds=<n>", strprintf(_("Use N separate masternodes for each denominated input to mix funds (%u-%u, default: %u)"), MIN_PRIVATESEND_ROUNDS, MAX_PRIVATESEND_ROUNDS, DEFAULT_PRIVATESEND_ROUNDS));
-    strUsage += HelpMessageOpt("-privatesendamount=<n>", strprintf(_("Target PrivateSend balance (%u-%u, default: %u)"), MIN_PRIVATESEND_AMOUNT, MAX_PRIVATESEND_AMOUNT, DEFAULT_PRIVATESEND_AMOUNT));
-    strUsage += HelpMessageOpt("-privatesenddenomsgoal=<n>", strprintf(_("Try to create at least N inputs of each denominated amount (%u-%u, default: %u)"), MIN_PRIVATESEND_DENOMS_GOAL, MAX_PRIVATESEND_DENOMS_GOAL, DEFAULT_PRIVATESEND_DENOMS_GOAL));
-    strUsage += HelpMessageOpt("-privatesenddenomshardcap=<n>", strprintf(_("Create up to N inputs of each denominated amount (%u-%u, default: %u)"), MIN_PRIVATESEND_DENOMS_HARDCAP, MAX_PRIVATESEND_DENOMS_HARDCAP, DEFAULT_PRIVATESEND_DENOMS_HARDCAP));
+    strUsage += HelpMessageGroup(_("PRiVCYSend options:"));
+    strUsage += HelpMessageOpt("-enableprivcysend", strprintf(_("Enable use of PRiVCYSend for funds stored in this wallet (0-1, default: %u)"), 0));
+    strUsage += HelpMessageOpt("-privcysendautostart", strprintf(_("Start PRiVCYSend automatically (0-1, default: %u)"), DEFAULT_PRIVATESEND_AUTOSTART));
+    strUsage += HelpMessageOpt("-privcysendmultisession", strprintf(_("Enable multiple PRiVCYSend mixing sessions per block, experimental (0-1, default: %u)"), DEFAULT_PRIVATESEND_MULTISESSION));
+    strUsage += HelpMessageOpt("-privcysendsessions=<n>", strprintf(_("Use N separate masternodes in parallel to mix funds (%u-%u, default: %u)"), MIN_PRIVATESEND_SESSIONS, MAX_PRIVATESEND_SESSIONS, DEFAULT_PRIVATESEND_SESSIONS));
+    strUsage += HelpMessageOpt("-privcysendrounds=<n>", strprintf(_("Use N separate masternodes for each denominated input to mix funds (%u-%u, default: %u)"), MIN_PRIVATESEND_ROUNDS, MAX_PRIVATESEND_ROUNDS, DEFAULT_PRIVATESEND_ROUNDS));
+    strUsage += HelpMessageOpt("-privcysendamount=<n>", strprintf(_("Target PRiVCYSend balance (%u-%u, default: %u)"), MIN_PRIVATESEND_AMOUNT, MAX_PRIVATESEND_AMOUNT, DEFAULT_PRIVATESEND_AMOUNT));
+    strUsage += HelpMessageOpt("-privcysenddenomsgoal=<n>", strprintf(_("Try to create at least N inputs of each denominated amount (%u-%u, default: %u)"), MIN_PRIVATESEND_DENOMS_GOAL, MAX_PRIVATESEND_DENOMS_GOAL, DEFAULT_PRIVATESEND_DENOMS_GOAL));
+    strUsage += HelpMessageOpt("-privcysenddenomshardcap=<n>", strprintf(_("Create up to N inputs of each denominated amount (%u-%u, default: %u)"), MIN_PRIVATESEND_DENOMS_HARDCAP, MAX_PRIVATESEND_DENOMS_HARDCAP, DEFAULT_PRIVATESEND_DENOMS_HARDCAP));
 
     if (showDebug)
     {
@@ -263,17 +263,17 @@ bool WalletInit::ParameterInteraction()
         LogPrintf("%s: parameter interaction: can't use -hdseed and -mnemonic/-mnemonicpassphrase together, will prefer -seed\n", __func__);
     }
 
-    if (gArgs.IsArgSet("-privatesenddenoms")) {
-        int nDenomsDeprecated = gArgs.GetArg("-privatesenddenoms", DEFAULT_PRIVATESEND_DENOMS_HARDCAP);
-        InitWarning("Warning: -privatesenddenoms is deprecated, please use -privatesenddenomshardcap or -privatesenddenomsgoal.\n");
-        if (gArgs.SoftSetArg("-privatesenddenomshardcap", itostr(nDenomsDeprecated))) {
-            LogPrintf("%s: parameter interaction: -privatesenddenoms=%d -> setting -privatesenddenomshardcap=%d\n", __func__, nDenomsDeprecated, nDenomsDeprecated);
+    if (gArgs.IsArgSet("-privcysenddenoms")) {
+        int nDenomsDeprecated = gArgs.GetArg("-privcysenddenoms", DEFAULT_PRIVATESEND_DENOMS_HARDCAP);
+        InitWarning("Warning: -privcysenddenoms is deprecated, please use -privcysenddenomshardcap or -privcysenddenomsgoal.\n");
+        if (gArgs.SoftSetArg("-privcysenddenomshardcap", itostr(nDenomsDeprecated))) {
+            LogPrintf("%s: parameter interaction: -privcysenddenoms=%d -> setting -privcysenddenomshardcap=%d\n", __func__, nDenomsDeprecated, nDenomsDeprecated);
         }
-        gArgs.ForceRemoveArg("-privatesenddenoms");
+        gArgs.ForceRemoveArg("-privcysenddenoms");
     }
 
-    if (gArgs.GetArg("-privatesenddenomshardcap", DEFAULT_PRIVATESEND_DENOMS_HARDCAP) < gArgs.GetArg("-privatesenddenomsgoal", DEFAULT_PRIVATESEND_DENOMS_GOAL)) {
-        return InitError("-privatesenddenomshardcap can't be lower than -privatesenddenomsgoal");
+    if (gArgs.GetArg("-privcysenddenomshardcap", DEFAULT_PRIVATESEND_DENOMS_HARDCAP) < gArgs.GetArg("-privcysenddenomsgoal", DEFAULT_PRIVATESEND_DENOMS_GOAL)) {
+        return InitError("-privcysenddenomshardcap can't be lower than -privcysenddenomsgoal");
     }
 
     return true;
@@ -364,17 +364,17 @@ void WalletInit::Start(CScheduler& scheduler)
     // Run a thread to flush wallet periodically
     scheduler.scheduleEvery(MaybeCompactWalletDB, 500);
 
-    if (!fMasternodeMode && privateSendClient.fEnablePrivateSend) {
-        scheduler.scheduleEvery(std::bind(&CPrivateSendClientManager::DoMaintenance, std::ref(privateSendClient),
+    if (!fMasternodeMode && privateSendClient.fEnablePRiVCYSend) {
+        scheduler.scheduleEvery(std::bind(&CPRiVCYSendClientManager::DoMaintenance, std::ref(privateSendClient),
                                             std::ref(*g_connman)), 1 * 1000);
     }
 }
 
 void WalletInit::Flush()
 {
-    if (privateSendClient.fEnablePrivateSend) {
-        // Stop PrivateSend, release keys
-        privateSendClient.fPrivateSendRunning = false;
+    if (privateSendClient.fEnablePRiVCYSend) {
+        // Stop PRiVCYSend, release keys
+        privateSendClient.fPRiVCYSendRunning = false;
         privateSendClient.ResetPool();
     }
     for (CWallet* pwallet : GetWallets()) {
@@ -405,28 +405,28 @@ void WalletInit::AutoLockMasternodeCollaterals()
     }
 }
 
-void WalletInit::InitPrivateSendSettings()
+void WalletInit::InitPRiVCYSendSettings()
 {
     if (!HasWallets()) {
-        privateSendClient.fEnablePrivateSend = privateSendClient.fPrivateSendRunning = false;
+        privateSendClient.fEnablePRiVCYSend = privateSendClient.fPRiVCYSendRunning = false;
     } else {
-        privateSendClient.fEnablePrivateSend = gArgs.GetBoolArg("-enableprivatesend", true);
-        privateSendClient.fPrivateSendRunning = GetWallets()[0]->IsLocked() ? false : gArgs.GetBoolArg("-privatesendautostart", DEFAULT_PRIVATESEND_AUTOSTART);
+        privateSendClient.fEnablePRiVCYSend = gArgs.GetBoolArg("-enableprivcysend", true);
+        privateSendClient.fPRiVCYSendRunning = GetWallets()[0]->IsLocked() ? false : gArgs.GetBoolArg("-privcysendautostart", DEFAULT_PRIVATESEND_AUTOSTART);
     }
-    privateSendClient.fPrivateSendMultiSession = gArgs.GetBoolArg("-privatesendmultisession", DEFAULT_PRIVATESEND_MULTISESSION);
-    privateSendClient.nPrivateSendSessions = std::min(std::max((int)gArgs.GetArg("-privatesendsessions", DEFAULT_PRIVATESEND_SESSIONS), MIN_PRIVATESEND_SESSIONS), MAX_PRIVATESEND_SESSIONS);
-    privateSendClient.nPrivateSendRounds = std::min(std::max((int)gArgs.GetArg("-privatesendrounds", DEFAULT_PRIVATESEND_ROUNDS), MIN_PRIVATESEND_ROUNDS), MAX_PRIVATESEND_ROUNDS);
-    privateSendClient.nPrivateSendAmount = std::min(std::max((int)gArgs.GetArg("-privatesendamount", DEFAULT_PRIVATESEND_AMOUNT), MIN_PRIVATESEND_AMOUNT), MAX_PRIVATESEND_AMOUNT);
-    privateSendClient.nPrivateSendDenomsGoal = std::min(std::max((int)gArgs.GetArg("-privatesenddenomsgoal", DEFAULT_PRIVATESEND_DENOMS_GOAL), MIN_PRIVATESEND_DENOMS_GOAL), MAX_PRIVATESEND_DENOMS_GOAL);
-    privateSendClient.nPrivateSendDenomsHardCap = std::min(std::max((int)gArgs.GetArg("-privatesenddenomshardcap", DEFAULT_PRIVATESEND_DENOMS_HARDCAP), MIN_PRIVATESEND_DENOMS_HARDCAP), MAX_PRIVATESEND_DENOMS_HARDCAP);
+    privateSendClient.fPRiVCYSendMultiSession = gArgs.GetBoolArg("-privcysendmultisession", DEFAULT_PRIVATESEND_MULTISESSION);
+    privateSendClient.nPRiVCYSendSessions = std::min(std::max((int)gArgs.GetArg("-privcysendsessions", DEFAULT_PRIVATESEND_SESSIONS), MIN_PRIVATESEND_SESSIONS), MAX_PRIVATESEND_SESSIONS);
+    privateSendClient.nPRiVCYSendRounds = std::min(std::max((int)gArgs.GetArg("-privcysendrounds", DEFAULT_PRIVATESEND_ROUNDS), MIN_PRIVATESEND_ROUNDS), MAX_PRIVATESEND_ROUNDS);
+    privateSendClient.nPRiVCYSendAmount = std::min(std::max((int)gArgs.GetArg("-privcysendamount", DEFAULT_PRIVATESEND_AMOUNT), MIN_PRIVATESEND_AMOUNT), MAX_PRIVATESEND_AMOUNT);
+    privateSendClient.nPRiVCYSendDenomsGoal = std::min(std::max((int)gArgs.GetArg("-privcysenddenomsgoal", DEFAULT_PRIVATESEND_DENOMS_GOAL), MIN_PRIVATESEND_DENOMS_GOAL), MAX_PRIVATESEND_DENOMS_GOAL);
+    privateSendClient.nPRiVCYSendDenomsHardCap = std::min(std::max((int)gArgs.GetArg("-privcysenddenomshardcap", DEFAULT_PRIVATESEND_DENOMS_HARDCAP), MIN_PRIVATESEND_DENOMS_HARDCAP), MAX_PRIVATESEND_DENOMS_HARDCAP);
 
-    if (privateSendClient.fEnablePrivateSend) {
-        LogPrintf("PrivateSend: autostart=%d, multisession=%d," /* Continued */
+    if (privateSendClient.fEnablePRiVCYSend) {
+        LogPrintf("PRiVCYSend: autostart=%d, multisession=%d," /* Continued */
                   "sessions=%d, rounds=%d, amount=%d, denoms_goal=%d, denoms_hardcap=%d\n",
-                  privateSendClient.fPrivateSendRunning, privateSendClient.fPrivateSendMultiSession,
-                  privateSendClient.nPrivateSendSessions, privateSendClient.nPrivateSendRounds,
-                  privateSendClient.nPrivateSendAmount,
-                  privateSendClient.nPrivateSendDenomsGoal, privateSendClient.nPrivateSendDenomsHardCap);
+                  privateSendClient.fPRiVCYSendRunning, privateSendClient.fPRiVCYSendMultiSession,
+                  privateSendClient.nPRiVCYSendSessions, privateSendClient.nPRiVCYSendRounds,
+                  privateSendClient.nPRiVCYSendAmount,
+                  privateSendClient.nPRiVCYSendDenomsGoal, privateSendClient.nPRiVCYSendDenomsHardCap);
     }
 
 }

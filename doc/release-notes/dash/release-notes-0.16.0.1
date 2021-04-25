@@ -212,7 +212,7 @@ now the empty string `""` instead of `"wallet.dat"`. If PRiVCY Core is started
 with any `--wallet=<path>` options, there is no change in behavior, and the
 name of any wallet is just its `<path>` string.
 
-PrivateSend coin management improvements
+PRiVCYSend coin management improvements
 ----------------------------------------
 A new algorithm for the creation of mixing denominations was implemented which
 should reduce the number of the smallest inputs created and give users more
@@ -220,17 +220,17 @@ control on soft and hard caps. A much more accurate fee management algorithm was
 also implemented which should fix issues for users who have custom fees
 specified in wallet config or in times when network is under load.
 
-There is a new "PrivateSend" tab in the GUI which allows spending fully
+There is a new "PRiVCYSend" tab in the GUI which allows spending fully
 mixed coins only. The CoinControl feature was also improved to display coins
 based on the tab it was opened in, to protect users from accidentally spending
 mixed and non-mixed coins in the same transaction and to give better overview of
 spendable mixed coins.
 
-PrivateSend Random Round Mixing
+PRiVCYSend Random Round Mixing
 -------------------------------
-Some potential attacks on PrivateSend assume that all inputs had been mixed
+Some potential attacks on PRiVCYSend assume that all inputs had been mixed
 for the same number of rounds (up to 16). While this assumption alone is not
-enough to break PrivateSend privacy, it could still provide some additional
+enough to break PRiVCYSend privacy, it could still provide some additional
 information for other methods like cluster analysis and help to narrow results.
 
 With Random Round Mixing, an input will be mixed to N rounds like prior. However,
@@ -256,7 +256,7 @@ by specifying a path to custom css files via `--custom-css-dir`. Additionally, t
 `--debug-ui` will force PRiVCY Core to reload the custom css files as soon as they get updated
 which makes it possible to see and debug all css adjustments live in the running GUI.
 
-From now on the "Pay To" field in "Send" and "PrivateSend" tabs also accepts PRiVCY URIs.
+From now on the "Pay To" field in "Send" and "PRiVCYSend" tabs also accepts PRiVCY URIs.
 The PRiVCY address and the amount from the URI are assigned to corresponding fields automatically
 if a PRiVCY URI gets pasted into the field.
 
@@ -266,7 +266,7 @@ Two new sporks were introduced in this version:
 - `SPORK_21_QUORUM_ALL_CONNECTED` allows to control Concentrated Recovery and
 Masternode Probing activation;
 - `SPORK_22_PS_MORE_PARTICIPANTS` raises the number of users that can participate
-in a single PrivateSend mixing transaction to 20.
+in a single PRiVCYSend mixing transaction to 20.
 
 Sporks `SPORK_15_DETERMINISTIC_MNS_ENABLED`, `SPORK_16_INSTANTSEND_AUTOLOCKS`
 and `SPORK_20_INSTANTSEND_LLMQ_BASED` which were previously deprecated in v0.15
@@ -284,7 +284,7 @@ RPC changes
 There are a few changes in existing RPC interfaces in this release:
 - `getpeerinfo` has new field `masternode` to indicate whether connection was
   due to masternode connection attempt
-- `getprivatesendinfo` `denoms` field was replaced by `denoms_goal` and
+- `getprivcysendinfo` `denoms` field was replaced by `denoms_goal` and
   `denoms_hardcap`
 - `listunspent` has new filter option `coinType` to be able to filter different
   types of coins (all, mixed etc.)
@@ -321,13 +321,13 @@ New cmd-line options:
 - `--font-weight-normal`
 - `--llmqdevnetparams`
 - `--llmqtestparams`
-- `--privatesenddenomsgoal`
-- `--privatesenddenomshardcap`
+- `--privcysenddenomsgoal`
+- `--privcysenddenomshardcap`
 - `--socketevents`
 
 Few cmd-line options are no longer supported:
 - `--litemode`
-- `--privatesenddenoms`
+- `--privcysenddenoms`
 
 There are also new command-line options backported from Bitcoin Core 0.16:
 - `--addrmantest`
@@ -371,26 +371,26 @@ See detailed [set of changes](https://github.com/privcypay/privcy/compare/v0.15.
 - [`586f166499`](https://github.com/privcypay/privcy/commit/586f166499) qt: Fix Recent transactions list height (#3744)
 - [`12d0782071`](https://github.com/privcypay/privcy/commit/12d0782071) Translations 2020-09 (#3736)
 - [`fc8ca6ad50`](https://github.com/privcypay/privcy/commit/fc8ca6ad50) Bump few things and update man pages for v0.16 (#3737)
-- [`8e6706dede`](https://github.com/privcypay/privcy/commit/8e6706dede) qt: Add PrivateSend tab in OptionsDialog, allow to show/hide PS UI (#3717)
+- [`8e6706dede`](https://github.com/privcypay/privcy/commit/8e6706dede) qt: Add PRiVCYSend tab in OptionsDialog, allow to show/hide PS UI (#3717)
 - [`dbfdf8cb15`](https://github.com/privcypay/privcy/commit/dbfdf8cb15) qt: Finetune OverviewPage (#3715)
 - [`9028712b60`](https://github.com/privcypay/privcy/commit/9028712b60) qt: Finetune TransactionsView (#3710)
 - [`f4e3bf95d0`](https://github.com/privcypay/privcy/commit/f4e3bf95d0) qt: Finetune CoinControlDialog + bitcoin#14828 (#3701)
-- [`e405f553b9`](https://github.com/privcypay/privcy/commit/e405f553b9) RPC: Update getprivatesendinfo help (#3727)
+- [`e405f553b9`](https://github.com/privcypay/privcy/commit/e405f553b9) RPC: Update getprivcysendinfo help (#3727)
 - [`b4a78fb285`](https://github.com/privcypay/privcy/commit/b4a78fb285) Fix testnet icon (#3726)
 - [`3650ee6556`](https://github.com/privcypay/privcy/commit/3650ee6556) qt: Remove unused assets (#3721)
 - [`cb078422cd`](https://github.com/privcypay/privcy/commit/cb078422cd) qt: Finetune RPCConsole (#3720)
-- [`a198a74a4f`](https://github.com/privcypay/privcy/commit/a198a74a4f) privatesend: Avoid interacting with keypool in CTransactionBuilder ctor (#3723)
-- [`f601122cbd`](https://github.com/privcypay/privcy/commit/f601122cbd) qt: Hide remaining PrivateSend UI if PrivateSend is not enabled  (#3716)
+- [`a198a74a4f`](https://github.com/privcypay/privcy/commit/a198a74a4f) privcysend: Avoid interacting with keypool in CTransactionBuilder ctor (#3723)
+- [`f601122cbd`](https://github.com/privcypay/privcy/commit/f601122cbd) qt: Hide remaining PRiVCYSend UI if PRiVCYSend is not enabled  (#3716)
 - [`c7896eb657`](https://github.com/privcypay/privcy/commit/c7896eb657) qt: Disable missing macOS focus rects in AddressBookPage (#3711)
 - [`c136522e84`](https://github.com/privcypay/privcy/commit/c136522e84) qt: Finetune Options Dialog (#3709)
 - [`bb0d5d4808`](https://github.com/privcypay/privcy/commit/bb0d5d4808) qt: Make sure send confirmation dialog uses correct font settings (#3714)
 - [`ab5ffe3c11`](https://github.com/privcypay/privcy/commit/ab5ffe3c11) qt: Use scaled font size for all QToolTip instances (#3708)
 - [`42b606ea76`](https://github.com/privcypay/privcy/commit/42b606ea76) qt: Make sure font size in  TransactionDescDialog is adjusted properly (#3707)
 - [`8fa280140a`](https://github.com/privcypay/privcy/commit/8fa280140a) qt: Tweak few strings (#3706)
-- [`a70056c5a8`](https://github.com/privcypay/privcy/commit/a70056c5a8) privatesend: Implement Random Round Mixing (#3661)
+- [`a70056c5a8`](https://github.com/privcypay/privcy/commit/a70056c5a8) privcysend: Implement Random Round Mixing (#3661)
 - [`eb163c53a5`](https://github.com/privcypay/privcy/commit/eb163c53a5) Implement dynamic activation thresholds (#3692)
 - [`7d6aba47cf`](https://github.com/privcypay/privcy/commit/7d6aba47cf) Implement Block Reward Reallocation (#3691)
-- [`19aab3a1d8`](https://github.com/privcypay/privcy/commit/19aab3a1d8) qt|wallet: Fix "Use available balance" for PrivateSend  (#3700)
+- [`19aab3a1d8`](https://github.com/privcypay/privcy/commit/19aab3a1d8) qt|wallet: Fix "Use available balance" for PRiVCYSend  (#3700)
 - [`37af70a188`](https://github.com/privcypay/privcy/commit/37af70a188) Merge #13622: Remove mapRequest tracking that just effects Qt display. (#3694)
 - [`e13c746a7d`](https://github.com/privcypay/privcy/commit/e13c746a7d) chainparams: Remove llmq_50_60 from regtest (#3696)
 - [`f2c1a9213c`](https://github.com/privcypay/privcy/commit/f2c1a9213c) Fix two potential issues in the way pending islocks are processed (#3678)
@@ -403,17 +403,17 @@ See detailed [set of changes](https://github.com/privcypay/privcy/compare/v0.15.
 - [`54ed089f97`](https://github.com/privcypay/privcy/commit/54ed089f97) test: Implement unit tests for CTransactionBuilder (#3677)
 - [`ab0f789be6`](https://github.com/privcypay/privcy/commit/ab0f789be6) wallet: Fix and improve CWallet::CreateTransaction (#3668)
 - [`dd55609d6b`](https://github.com/privcypay/privcy/commit/dd55609d6b) test: Implement unit tests for CWallet::CreateTransaction (#3667)
-- [`9c988d5b5a`](https://github.com/privcypay/privcy/commit/9c988d5b5a) privatesend|wallet|qt: Improve calculations in CreateDenominated/MakeCollateralAmounts (#3657)
+- [`9c988d5b5a`](https://github.com/privcypay/privcy/commit/9c988d5b5a) privcysend|wallet|qt: Improve calculations in CreateDenominated/MakeCollateralAmounts (#3657)
 - [`ba2dcb0399`](https://github.com/privcypay/privcy/commit/ba2dcb0399) qt: Update assets and colorize them theme related (#3574)
 - [`50d7a2fecf`](https://github.com/privcypay/privcy/commit/50d7a2fecf) qt: Ignore GUIUtil::updateFont calls until GUIUtil::loadFonts was called (#3687)
 - [`608f481a9c`](https://github.com/privcypay/privcy/commit/608f481a9c) qt: Fix block update signals/slots in BitcoinGUI and SendCoinsDialog (#3685)
 - [`25e4fed75b`](https://github.com/privcypay/privcy/commit/25e4fed75b) QT: add last block hash to debug ui (#3672)
-- [`195dcad1ee`](https://github.com/privcypay/privcy/commit/195dcad1ee) trivial/docs: minor adjustments to PrivateSend help text (#3669)
+- [`195dcad1ee`](https://github.com/privcypay/privcy/commit/195dcad1ee) trivial/docs: minor adjustments to PRiVCYSend help text (#3669)
 - [`b1a35b2d32`](https://github.com/privcypay/privcy/commit/b1a35b2d32) Merge #13007: test: Fix dangling wallet pointer in vpwallets (#3666)
 - [`f9bf42cb90`](https://github.com/privcypay/privcy/commit/f9bf42cb90) Harden spork6 logic then remove spork6 (#3662)
 - [`604d6a4225`](https://github.com/privcypay/privcy/commit/604d6a4225) Fix some translation issues (#3656)
 - [`60d298376b`](https://github.com/privcypay/privcy/commit/60d298376b) Fix crash on splash screen when wallet fails to load (#3629)
-- [`ca76dd0868`](https://github.com/privcypay/privcy/commit/ca76dd0868) qt: Give PrivateSend separate instances of SendCoinsDialog + CCoinControl (#3625)
+- [`ca76dd0868`](https://github.com/privcypay/privcy/commit/ca76dd0868) qt: Give PRiVCYSend separate instances of SendCoinsDialog + CCoinControl (#3625)
 - [`0969c2d268`](https://github.com/privcypay/privcy/commit/0969c2d268) qt: Splashscreen redesign (#3613)
 - [`966be38c79`](https://github.com/privcypay/privcy/commit/966be38c79) qt: Make sure stylesheet updates of -debug-ui are activated (#3623)
 - [`0ed7f1672c`](https://github.com/privcypay/privcy/commit/0ed7f1672c) qt: Add missing placeholders (#3575)
@@ -443,7 +443,7 @@ See detailed [set of changes](https://github.com/privcypay/privcy/compare/v0.15.
 - [`4db8968d4a`](https://github.com/privcypay/privcy/commit/4db8968d4a) rpc: update help text for BLS operator key arguments (#3628)
 - [`bbb0064b60`](https://github.com/privcypay/privcy/commit/bbb0064b60) init: Fix crash due to -litemode and improve its deprecation warning (#3626)
 - [`8d99e7836c`](https://github.com/privcypay/privcy/commit/8d99e7836c) Fix `-resetguisettings` (#3624)
-- [`508fc2db4b`](https://github.com/privcypay/privcy/commit/508fc2db4b) privatesend: Increase max participants to 20 (#3610)
+- [`508fc2db4b`](https://github.com/privcypay/privcy/commit/508fc2db4b) privcysend: Increase max participants to 20 (#3610)
 - [`f425316eed`](https://github.com/privcypay/privcy/commit/f425316eed) util: Change TraceThread's "name" type: "const char*" -> "const std::string" (#3609)
 - [`a170c649b8`](https://github.com/privcypay/privcy/commit/a170c649b8) Fail GetTransaction when the block from txindex is not in mapBlockIndex (#3606)
 - [`62c3fb5748`](https://github.com/privcypay/privcy/commit/62c3fb5748) llmq: Fix thread handling in CDKGSessionManager and CDKGSessionHandler (#3601)
@@ -486,7 +486,7 @@ See detailed [set of changes](https://github.com/privcypay/privcy/compare/v0.15.
 - [`3a56ed9ca6`](https://github.com/privcypay/privcy/commit/3a56ed9ca6) Fix NO_WALLET=1 build (#3490)
 - [`926087aac6`](https://github.com/privcypay/privcy/commit/926087aac6) Implement significantly improved createdenominations algorithm (#3479)
 - [`fe208c98e3`](https://github.com/privcypay/privcy/commit/fe208c98e3) Feat. request for PRiVCY Platform: `quorum sign` rpc command with additional quorumHash #3424 (#3446)
-- [`4c1f65baae`](https://github.com/privcypay/privcy/commit/4c1f65baae) Fix #3241 UX/UI - Introduce PrivateSend tab which allows to spend fully mixed coins only (#3442)
+- [`4c1f65baae`](https://github.com/privcypay/privcy/commit/4c1f65baae) Fix #3241 UX/UI - Introduce PRiVCYSend tab which allows to spend fully mixed coins only (#3442)
 - [`f46617dbab`](https://github.com/privcypay/privcy/commit/f46617dbab) add litemode information to help texts regarding CL/IS and change getbestchainlock to throw an error if running in litemode (#3478)
 - [`5cabc8f5ca`](https://github.com/privcypay/privcy/commit/5cabc8f5ca) Introduce ONLY_PRIVATESEND coin type to select fully mixed coins only (#3459)
 - [`e0ff9af2b0`](https://github.com/privcypay/privcy/commit/e0ff9af2b0) qt: Allow and process URIs pasted to the payTo field of SendCoinsEntry (#3475)
@@ -494,7 +494,7 @@ See detailed [set of changes](https://github.com/privcypay/privcy/compare/v0.15.
 - [`970c23d6e6`](https://github.com/privcypay/privcy/commit/970c23d6e6) Remove logic for forcing chainlocks without DIP8 activation on testnet (#3470)
 - [`ae15299117`](https://github.com/privcypay/privcy/commit/ae15299117) Feature request #3425 - Add information to "protx diff" (#3468)
 - [`017c4779ca`](https://github.com/privcypay/privcy/commit/017c4779ca) Fix recovery from coin db crashes (and dbcrash.py test) (#3467)
-- [`d5f403d3fd`](https://github.com/privcypay/privcy/commit/d5f403d3fd) Refactor and fix GetRealOutpointPrivateSendRounds (#3460)
+- [`d5f403d3fd`](https://github.com/privcypay/privcy/commit/d5f403d3fd) Refactor and fix GetRealOutpointPRiVCYSendRounds (#3460)
 - [`c06838e205`](https://github.com/privcypay/privcy/commit/c06838e205) Streamline processing of pool state updates (#3458)
 - [`538fcf2f1b`](https://github.com/privcypay/privcy/commit/538fcf2f1b) Disable qt menu heuristics for openConfEditorAction (#3466)
 - [`6e1c5480cd`](https://github.com/privcypay/privcy/commit/6e1c5480cd) qt: Maximize the window if the dock icon gets clicked on macOS (#3465)
@@ -557,18 +557,18 @@ See detailed [set of changes](https://github.com/privcypay/privcy/compare/v0.15.
 - [`f7ddee13a1`](https://github.com/privcypay/privcy/commit/f7ddee13a1) Fix possible segfault (#3365)
 - [`40cdfe8662`](https://github.com/privcypay/privcy/commit/40cdfe8662) Add peer id to "socket send error" logs (#3363)
 - [`0fa2e14065`](https://github.com/privcypay/privcy/commit/0fa2e14065) Fix issues introduced with asynchronous signal handling (#3369)
-- [`b188c5c25e`](https://github.com/privcypay/privcy/commit/b188c5c25e) Refactor some PrivateSend related code to use WalletModel instead of accessing the wallet directly from qt (#3345)
+- [`b188c5c25e`](https://github.com/privcypay/privcy/commit/b188c5c25e) Refactor some PRiVCYSend related code to use WalletModel instead of accessing the wallet directly from qt (#3345)
 - [`05c134c783`](https://github.com/privcypay/privcy/commit/05c134c783) Fix litemode vs txindex check (#3355)
 - [`c9881d0fc7`](https://github.com/privcypay/privcy/commit/c9881d0fc7) Masternodes must have required services enabled (#3350)
 - [`c6911354a1`](https://github.com/privcypay/privcy/commit/c6911354a1) Few tweaks for MakeCollateralAmounts (#3347)
-- [`56b8e97ab0`](https://github.com/privcypay/privcy/commit/56b8e97ab0) Refactor and simplify PrivateSend based on the fact that we only mix one single denom at a time now (#3346)
+- [`56b8e97ab0`](https://github.com/privcypay/privcy/commit/56b8e97ab0) Refactor and simplify PRiVCYSend based on the fact that we only mix one single denom at a time now (#3346)
 - [`af7cfd6a3f`](https://github.com/privcypay/privcy/commit/af7cfd6a3f) Define constants for keys in CInstantSendDb and use them instead of plain strings (#3352)
 - [`d52020926c`](https://github.com/privcypay/privcy/commit/d52020926c) Fix undefined behaviour in stacktrace printing. (#3357)
 - [`4c01ca4573`](https://github.com/privcypay/privcy/commit/4c01ca4573) Fix undefined behaviour in unordered_limitedmap and optimise it. (#3349)
 - [`2521970a50`](https://github.com/privcypay/privcy/commit/2521970a50) Add configurable devnet quorums (#3348)
 - [`7075083f07`](https://github.com/privcypay/privcy/commit/7075083f07) Detect mixing session readiness based on the current pool state (#3328)
 - [`dff9430c5e`](https://github.com/privcypay/privcy/commit/dff9430c5e) A couple of fixes for CActiveMasternodeManager::Init() (#3326)
-- [`4af4432cb9`](https://github.com/privcypay/privcy/commit/4af4432cb9) Add unit tests for CPrivateSend::IsCollateralAmount (#3310)
+- [`4af4432cb9`](https://github.com/privcypay/privcy/commit/4af4432cb9) Add unit tests for CPRiVCYSend::IsCollateralAmount (#3310)
 - [`e1fc378ffd`](https://github.com/privcypay/privcy/commit/e1fc378ffd) Refactor PS a bit and make it so that the expected flow for mixing is to time out and fallback (#3309)
 - [`39b17fd5a3`](https://github.com/privcypay/privcy/commit/39b17fd5a3) Fix empty TRAVIS_COMMIT_RANGE for one-commit-branch builds in Travis (#3299)
 - [`f4f9f918dc`](https://github.com/privcypay/privcy/commit/f4f9f918dc) [Pretty Trivial] Adjust some comments (#3252)
@@ -578,7 +578,7 @@ See detailed [set of changes](https://github.com/privcypay/privcy/compare/v0.15.
 - [`88da298082`](https://github.com/privcypay/privcy/commit/88da298082) Add -whitelist to all nodes in smartfees.py (#3273)
 - [`7e3ed76e54`](https://github.com/privcypay/privcy/commit/7e3ed76e54) Make a deep copy of extra_args before modifying it in set_privcy_test_params (#3270)
 - [`75bb7ec022`](https://github.com/privcypay/privcy/commit/75bb7ec022) A few optimizations/speedups for PRiVCY related tests (#3268)
-- [`2afdc8c6f6`](https://github.com/privcypay/privcy/commit/2afdc8c6f6) Add basic PrivateSend RPC Tests (#3254)
+- [`2afdc8c6f6`](https://github.com/privcypay/privcy/commit/2afdc8c6f6) Add basic PRiVCYSend RPC Tests (#3254)
 - [`dc656e3236`](https://github.com/privcypay/privcy/commit/dc656e3236) Bump version to 0.16 on develop (#3239)
 - [`c182c6ca14`](https://github.com/privcypay/privcy/commit/c182c6ca14) Upgrade Travis to use Bionic instead of Trusty (#3143)
 

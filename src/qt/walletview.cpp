@@ -203,12 +203,12 @@ void WalletView::processNewTransaction(const QModelIndex& parent, int start, int
 
     QModelIndex index = ttm->index(start, 0, parent);
     QSettings settings;
-    if (!settings.value("fShowPrivateSendPopups").toBool()) {
+    if (!settings.value("fShowPRiVCYSendPopups").toBool()) {
         QVariant nType = ttm->data(index, TransactionTableModel::TypeRole);
-        if (nType == TransactionRecord::PrivateSendDenominate ||
-            nType == TransactionRecord::PrivateSendCollateralPayment ||
-            nType == TransactionRecord::PrivateSendMakeCollaterals ||
-            nType == TransactionRecord::PrivateSendCreateDenominations) return;
+        if (nType == TransactionRecord::PRiVCYSendDenominate ||
+            nType == TransactionRecord::PRiVCYSendCollateralPayment ||
+            nType == TransactionRecord::PRiVCYSendMakeCollaterals ||
+            nType == TransactionRecord::PRiVCYSendCreateDenominations) return;
     }
 
     QString date = ttm->index(start, TransactionTableModel::Date, parent).data().toString();
@@ -252,7 +252,7 @@ void WalletView::gotoSendCoinsPage(QString addr)
     }
 }
 
-void WalletView::gotoPrivateSendCoinsPage(QString addr)
+void WalletView::gotoPRiVCYSendCoinsPage(QString addr)
 {
     setCurrentWidget(privateSendCoinsPage);
 

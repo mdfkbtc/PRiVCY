@@ -81,24 +81,24 @@ locked via InstandSend, if they were sent while the receiving wallet was offline
 still apply to such `inv` messages, just like they do for transactions and locks that are relayed on a
 regular basis.
 
-PrivateSend improvements
+PRiVCYSend improvements
 ------------------------
-This version decouples the so called "Lite Mode" and client-side PrivateSend mixing, which allows client-side mixing
+This version decouples the so called "Lite Mode" and client-side PRiVCYSend mixing, which allows client-side mixing
 on pruned nodes running with `--litemode` option. Such nodes will have to also specify the newly redefined
-`--enableprivatesend` option. Non-prunned nodes do not have to do this but they can use `--enableprivatesend`
+`--enableprivcysend` option. Non-prunned nodes do not have to do this but they can use `--enableprivcysend`
 option to disable mixing completely instead. Please note that specifying this option does not start mixing
 automatically anymore (which was the case in previous versions). To automatically start mixing, use the new
-`--privatesendautostart` option in addition to `--enableprivatesend`. Additionally, PrivateSend can always be
-controlled with the `privatesend` RPC.
+`--privcysendautostart` option in addition to `--enableprivcysend`. Additionally, PRiVCYSend can always be
+controlled with the `privcysend` RPC.
 
 Thanks to LLMQ-based InstantSend and its ability to lock chains of unconfirmed transactions (and not only a single
-one like in the legacy system), PrivateSend mixing speed has improved significantly. In such an environment
+one like in the legacy system), PRiVCYSend mixing speed has improved significantly. In such an environment
 Liquidity Provider Mode, which was introduced a long time ago to support mixing volume, is no longer needed and
 is removed now. As such the `--liquidityprovider` option is not available anymore.
 
 Some other improvements were also introduced to speed up mixing, e.g. by joining more queues or dropping potential
 malicious mixing participants faster by checking some rules earlier etc. Lots of related code was refactored to
-further improve its readability, which should make it easier for someone to re-implement PrivateSend
+further improve its readability, which should make it easier for someone to re-implement PRiVCYSend
 correctly in other wallets if there is a desire to do so.
 
 Wallet changes
@@ -121,7 +121,7 @@ All issues with hi-dpi monitors should also be fixed now.
 
 The "Send" popup dialog was slightly tweaked to improve the language and provide a bit more information about inputs
 included in the transaction, its size and the actual resulting fee rate. It will also show the number of inputs
-a PrivateSend transaction is going to consume and display a warning regarding sender privacy if this number is 10
+a PRiVCYSend transaction is going to consume and display a warning regarding sender privacy if this number is 10
 or higher.
 
 Changes in regtest and devnet p2p/rpc ports
@@ -159,15 +159,15 @@ There are a few changes in existing RPC interfaces in this release:
 - added new `merkleRootQuorums` field in `getblock` RPC results
 - individual PRiVCY-specific fields which were used to display soft-fork progress in `getblockchaininfo` are replaced
  with the backported `statistics` object
-- `privatesend_balance` field is shown in all related RPC results regardless of the Lite Mode or PrivateSend state
+- `privcysend_balance` field is shown in all related RPC results regardless of the Lite Mode or PRiVCYSend state
 - added `pubKeyOperator` field for each masternode in `quorum info` RPC response
 
 There are also new RPC commands:
 - `getbestchainlock`
 - `getmerkleblocks`
-- `getprivatesendinfo`
+- `getprivcysendinfo`
 
-`getpoolinfo` was deprecated in favor of `getprivatesendinfo` and no longer returns any data.
+`getpoolinfo` was deprecated in favor of `getprivcysendinfo` and no longer returns any data.
 
 There are also new RPC commands backported from Bitcoin Core 0.15:
 - `abortrescan`
@@ -186,12 +186,12 @@ See `help command` in rpc for more info.
 Command-line options
 --------------------
 Changes in existing cmd-line options:
-- `--enableprivatesend` option has a new meaning now, see [PrivateSend](#privatesend) section for more info
+- `--enableprivcysend` option has a new meaning now, see [PRiVCYSend](#privcysend) section for more info
 
 New cmd-line options:
 - `--printcrashinfo`
 - `--syncmempool`
-- `--privatesendautostart`
+- `--privcysendautostart`
 
 Few cmd-line options are no longer supported:
 - `--alerts`
@@ -275,7 +275,7 @@ See detailed [set of changes](https://github.com/privcypay/privcy/compare/v0.14.
 - [`6e50a7b2a`](https://github.com/privcypay/privcy/commit/6e50a7b2a) Fix params.size() check in "protx list wallet" RPC (#3259)
 - [`1a1cec224`](https://github.com/privcypay/privcy/commit/1a1cec224) Fix pull request detection in .gitlab-ci.yml (#3256)
 - [`31afa9c0f`](https://github.com/privcypay/privcy/commit/31afa9c0f) Don't disconnect masternode connections when we have less then the desired amount of outbound nodes (#3255)
-- [`cecbbab3c`](https://github.com/privcypay/privcy/commit/cecbbab3c) move privatesend rpc methods from rpc/masternode.cpp to new rpc/privatesend.cpp (#3253)
+- [`cecbbab3c`](https://github.com/privcypay/privcy/commit/cecbbab3c) move privcysend rpc methods from rpc/masternode.cpp to new rpc/privcysend.cpp (#3253)
 - [`8e054f374`](https://github.com/privcypay/privcy/commit/8e054f374) Sync mempool from other nodes on start (#3251)
 - [`474f25b8d`](https://github.com/privcypay/privcy/commit/474f25b8d) Push islock invs when syncing mempool (#3250)
 - [`3b0f8ff8b`](https://github.com/privcypay/privcy/commit/3b0f8ff8b) Skip mnsync restrictions for whitelisted and manually added nodes (#3249)
@@ -348,7 +348,7 @@ See detailed [set of changes](https://github.com/privcypay/privcy/compare/v0.14.
 - [`24fee3051`](https://github.com/privcypay/privcy/commit/24fee3051) Add support for Gitlab CI (#3149)
 - [`1cbe280ad`](https://github.com/privcypay/privcy/commit/1cbe280ad) Qt: Remove old themes (#3141)
 - [`dcdf1f3a6`](https://github.com/privcypay/privcy/commit/dcdf1f3a6) Some refactoring for spork related functionality in tests (#3137)
-- [`411241471`](https://github.com/privcypay/privcy/commit/411241471) Introduce getprivatesendinfo and deprecate getpoolinfo (#3140)
+- [`411241471`](https://github.com/privcypay/privcy/commit/411241471) Introduce getprivcysendinfo and deprecate getpoolinfo (#3140)
 - [`152c10bc4`](https://github.com/privcypay/privcy/commit/152c10bc4) Various fixes for mixing queues (#3138)
 - [`e0c56246f`](https://github.com/privcypay/privcy/commit/e0c56246f) Fixes and refactorings related to using mnsync in tests (#3136)
 - [`f8e238c5b`](https://github.com/privcypay/privcy/commit/f8e238c5b) [Trivial] RPC help updates (#3134)
@@ -382,7 +382,7 @@ See detailed [set of changes](https://github.com/privcypay/privcy/compare/v0.14.
 - [`0d126c2ae`](https://github.com/privcypay/privcy/commit/0d126c2ae) Use chainparams factory for devnet (#3087)
 - [`ac90abe89`](https://github.com/privcypay/privcy/commit/ac90abe89) When mixing, always try to join an exsisting queue, only fall back to starting a new queue (#3085)
 - [`68d575dc0`](https://github.com/privcypay/privcy/commit/68d575dc0) Masternodes should have no wallet enabled (#3084)
-- [`6b5b70fab`](https://github.com/privcypay/privcy/commit/6b5b70fab) Remove liquidity provider privatesend (#3082)
+- [`6b5b70fab`](https://github.com/privcypay/privcy/commit/6b5b70fab) Remove liquidity provider privcysend (#3082)
 - [`0b2221ed6`](https://github.com/privcypay/privcy/commit/0b2221ed6) Clarify default max peer connections (#3081)
 - [`c22169d57`](https://github.com/privcypay/privcy/commit/c22169d57) Reduce non-debug PS log output (#3076)
 - [`41ae1c7e2`](https://github.com/privcypay/privcy/commit/41ae1c7e2) Add LDFLAGS_WRAP_EXCEPTIONS to privcy_fuzzy linking (#3075)
@@ -409,7 +409,7 @@ See detailed [set of changes](https://github.com/privcypay/privcy/compare/v0.14.
 - [`8d89350b8`](https://github.com/privcypay/privcy/commit/8d89350b8) Use less alarming fee warning note (#3038)
 - [`02f6188e8`](https://github.com/privcypay/privcy/commit/02f6188e8) Do not count 0-fee txes for fee estimation (#3037)
 - [`f0c73f5ce`](https://github.com/privcypay/privcy/commit/f0c73f5ce) Revert "Skip mempool.dat when wallet is starting in "zap" mode (#2782)"
-- [`be3bc48c9`](https://github.com/privcypay/privcy/commit/be3bc48c9) Fix broken link in PrivateSend info dialog (#3031)
+- [`be3bc48c9`](https://github.com/privcypay/privcy/commit/be3bc48c9) Fix broken link in PRiVCYSend info dialog (#3031)
 - [`acab8c552`](https://github.com/privcypay/privcy/commit/acab8c552) Add PRiVCY Core Group codesign certificate (#3027)
 - [`a1c4321e9`](https://github.com/privcypay/privcy/commit/a1c4321e9) Fix osslsigncode compile issue in gitian-build (#3026)
 - [`2f21e5551`](https://github.com/privcypay/privcy/commit/2f21e5551) Remove legacy InstantSend code (#3020)
@@ -424,7 +424,7 @@ See detailed [set of changes](https://github.com/privcypay/privcy/compare/v0.14.
 - [`5809c5c3d`](https://github.com/privcypay/privcy/commit/5809c5c3d) Implement "quorum memberof" (#3004)
 - [`63424fb26`](https://github.com/privcypay/privcy/commit/63424fb26) Fix 2 common Travis failures which happen when Travis has network issues (#3003)
 - [`09b017fc5`](https://github.com/privcypay/privcy/commit/09b017fc5) Only load signingActiveQuorumCount + 1 quorums into cache (#3002)
-- [`b75e1cebd`](https://github.com/privcypay/privcy/commit/b75e1cebd) Decouple lite mode and client-side PrivateSend (#2893)
+- [`b75e1cebd`](https://github.com/privcypay/privcy/commit/b75e1cebd) Decouple lite mode and client-side PRiVCYSend (#2893)
 - [`b9a738528`](https://github.com/privcypay/privcy/commit/b9a738528) Remove skipped denom from the list on tx commit (#2997)
 - [`5bdb2c0ce`](https://github.com/privcypay/privcy/commit/5bdb2c0ce) Revert "Show BIP9 progress in getblockchaininfo (#2435)"
 - [`b62db7618`](https://github.com/privcypay/privcy/commit/b62db7618) Revert " Add real timestamp to log output when mock time is enabled (#2604)"
@@ -434,7 +434,7 @@ See detailed [set of changes](https://github.com/privcypay/privcy/compare/v0.14.
 - [`6677a614a`](https://github.com/privcypay/privcy/commit/6677a614a) Run extended tests when Travis is started through cron (#2983)
 - [`d63202bdc`](https://github.com/privcypay/privcy/commit/d63202bdc) Should send "reject" when mixing queue is full (#2981)
 - [`8d5781f40`](https://github.com/privcypay/privcy/commit/8d5781f40) Stop reporting/processing the number of mixing participants in DSSTATUSUPDATE (#2980)
-- [`7334aa553`](https://github.com/privcypay/privcy/commit/7334aa553) adjust privatesend formatting and follow some best practices (#2979)
+- [`7334aa553`](https://github.com/privcypay/privcy/commit/7334aa553) adjust privcysend formatting and follow some best practices (#2979)
 - [`f14179ca0`](https://github.com/privcypay/privcy/commit/f14179ca0) [Tests] Remove unused variable and inline another variable in evo_deterministicmns_tests.cpp (#2978)
 - [`2756cb795`](https://github.com/privcypay/privcy/commit/2756cb795) remove spork 12 (#2754)
 - [`633231092`](https://github.com/privcypay/privcy/commit/633231092) Provide correct params to AcceptToMemoryPoolWithTime() in LoadMempool() (#2976)

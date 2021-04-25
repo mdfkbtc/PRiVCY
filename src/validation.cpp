@@ -1057,10 +1057,6 @@ bool ReadBlockFromDisk(CBlock& block, const CDiskBlockPos& pos, const Consensus:
         return error("%s: Deserialize or I/O error - %s at %s", __func__, e.what(), pos.ToString());
     }
 
-    // Check the header
-    if (!CheckProofOfWork(block.GetHash(), block.nBits, consensusParams))
-        return error("ReadBlockFromDisk: Errors in block header at %s", pos.ToString());
-
     return true;
 }
 
@@ -3308,8 +3304,22 @@ static bool FindUndoPos(CValidationState &state, int nFile, CDiskBlockPos &pos, 
 
 static bool CheckBlockHeader(const CBlockHeader& block, CValidationState& state, const Consensus::Params& consensusParams, bool fCheckPOW = true)
 {
+  // Get prev block index
+  CBlockIndex* pindexPrev = NULL;
+  int nHeight = 0;
+  BlockMap::iterator mi = mapBlockIndex.find(block.hashPrevBlock);
+  if (mi != mapBlockIndex.end()) {
+      pindexPrev = mi->second;
+      nHeight = pindexPrev->nHeight + 1;
+  }
+
+  // Skip headers validation until we're close to chaintip
+    if (Params().NetworkIDString() == CBaseChainParams::MAIN)
+      if (nHeight < SKIP_BLOCKHEADER_POW)
+        return true;
+
     // Check proof of work matches claimed amount
-    if (fCheckPOW && !CheckProofOfWork(block.GetHash(), block.nBits, consensusParams))
+    if (fCheckPOW && !CheckProofOfWork(block.GetHash(nHeight), block.nBits, consensusParams))
         return state.DoS(50, false, REJECT_INVALID, "high-hash", false, "proof of work failed");
 
     // Check DevNet

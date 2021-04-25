@@ -100,7 +100,7 @@ Upgrade instructions: https://docs.privcy.org/DIP3-masternode-upgrade
 DIP0004 - Simplified Verification of Deterministic Masternode Lists
 -------------------------------------------------------------------
 A verifiable and correct masternode list is foundational to many PRiVCY features, including verification
-of an InstantSend transaction, mixing in PrivateSend and many features of Evolution. The deterministic
+of an InstantSend transaction, mixing in PRiVCYSend and many features of Evolution. The deterministic
 masternode lists introduced by DIP0003 enable full derivation and verification of a masternode list via
 on-chain data. This, however, requires the full chain to be available to construct or verify this list.
 A SPV client does not have the full chain and thus would have to rely on a list provided by one or more
@@ -124,21 +124,21 @@ And finally, after DIP0003 activation your pool software must be able to produce
 Transaction https://github.com/privcypay/dips/blob/master/dip-0004.md#coinbase-special-transaction.
 Use `coinbase_payload` from `getblocktemplate` to get extra payload needed to construct this transaction.
 
-PrivateSend
+PRiVCYSend
 -----------
-With further refactoring of PrivateSend code it became possible to implement mixing in few parallel
+With further refactoring of PRiVCYSend code it became possible to implement mixing in few parallel
 mixing sessions at once from one single wallet. You can set number of mixing sessions via
-`privatesendsessions` cmd-line option or privcy.conf. You can pick any number of sessions between 1 and 10,
+`privcysendsessions` cmd-line option or privcy.conf. You can pick any number of sessions between 1 and 10,
 default is 4 which should be good enough for most users. For this feature to work you should also make
-sure that `privatesendmultisession` is set to `1` via cmd-line or `Enable PrivateSend multi-session` is
+sure that `privcysendmultisession` is set to `1` via cmd-line or `Enable PRiVCYSend multi-session` is
 enabled in GUI.
 
 Introducing parallel mixing sessions should speed mixing up which makes it reasonable to add a new
 mixing denom (0.00100001 PRIV) now while keeping all the old ones too. It also makes sense to allow more
 mixing rounds now, so the new default number of rounds is 4 and the maximum number of rounds is 16 now.
 
-You can also adjust rounds and amount via `setprivatesendrounds` and `setprivatesendamount` RPC commands
-which override corresponding cmd-line params (`privatesendrounds` and `privatesendamount` respectively).
+You can also adjust rounds and amount via `setprivcysendrounds` and `setprivcysendamount` RPC commands
+which override corresponding cmd-line params (`privcysendrounds` and `privcysendamount` respectively).
 
 NOTE: Introducing the new denom and a couple of other changes made it incompatible with mixing on
 masternodes running on pre-0.13 software. Please keep using 0.12.3 local wallet to mix your coins until
@@ -226,8 +226,8 @@ There are also new RPC commands:
 - `protx` (`list`, `info`, `diff`, `register`, `register_fund`, `register_prepare`,
 `register_submit`, `update_service`, `update_registrar`, `revoke`);
 - `bls generate`;
-- `setprivatesendrounds`;
-- `setprivatesendamount`.
+- `setprivcysendrounds`;
+- `setprivcysendamount`.
 
 See `help command` in rpc for more info.
 
@@ -237,7 +237,7 @@ Command-line options
 New cmd-line options:
 - `masternodeblsprivkey`;
 - `minsporkkeys`;
-- `privatesendsessions`;
+- `privcysendsessions`;
 - `zmqpubrawinstantsenddoublespend`;
 - `zmqpubhashinstantsenddoublespend`;
 - `zmqpubhashgovernancevote`;
@@ -346,7 +346,7 @@ See detailed [set of changes](https://github.com/privcypay/privcy/compare/v0.12.
 - [`1c2565804`](https://github.com/privcypay/privcy/commit/1c2565804) Refactor `masternode` and `gobject` RPCs to support `help command subCommand` syntax (#2240)
 - [`fb4d301a2`](https://github.com/privcypay/privcy/commit/fb4d301a2) Add extraPayloadSize/extraPayload fields to RPC help
 - [`2997d6d26`](https://github.com/privcypay/privcy/commit/2997d6d26) add compressed option to `masternode genkey` (#2232)
-- [`98ed90cbb`](https://github.com/privcypay/privcy/commit/98ed90cbb) adds rpc calls for `setprivatesendrounds` and `setprivatesendamount` (#2230)
+- [`98ed90cbb`](https://github.com/privcypay/privcy/commit/98ed90cbb) adds rpc calls for `setprivcysendrounds` and `setprivcysendamount` (#2230)
 - [`50eb98d90`](https://github.com/privcypay/privcy/commit/50eb98d90) Prepare for DIP3 operator reward payments and switch to array in getblocktemplate (#2216)
 - [`a959f60aa`](https://github.com/privcypay/privcy/commit/a959f60aa) De-duplicate "gobject vote-alias" and "gobject "vote-many" code (#2217)
 - [`566fa5ec3`](https://github.com/privcypay/privcy/commit/566fa5ec3) Add support for "help command subCommand" (#2210)
@@ -450,7 +450,7 @@ See detailed [set of changes](https://github.com/privcypay/privcy/compare/v0.12.
 - [`4d3518fe0`](https://github.com/privcypay/privcy/commit/4d3518fe0) Refactor MN payee logic in preparation for DIP3 (#2215)
 - [`d946f21bd`](https://github.com/privcypay/privcy/commit/d946f21bd) Masternode related refactorings in preparation of DIP3 (#2212)
 
-### PrivateSend
+### PRiVCYSend
 - [`07309f0ec`](https://github.com/privcypay/privcy/commit/07309f0ec) Allow up to MASTERNODE_MAX_MIXING_TXES (5) DSTXes per MN in a row (#2552)
 - [`ed53fce47`](https://github.com/privcypay/privcy/commit/ed53fce47) Revert "Apply similar logic to vecMasternodesUsed" (#2503)
 - [`69bffed72`](https://github.com/privcypay/privcy/commit/69bffed72) Do not sort resulting vector in SelectCoinsGroupedByAddresses (#2493)
@@ -463,7 +463,7 @@ See detailed [set of changes](https://github.com/privcypay/privcy/compare/v0.12.
 - [`23f169c44`](https://github.com/privcypay/privcy/commit/23f169c44) Drop custom PS logic for guessing fees etc. from SelectCoins (#2371)
 - [`f7b0b5759`](https://github.com/privcypay/privcy/commit/f7b0b5759) Pick rounds with the most inputs available to mix first (#2278)
 - [`727e940c0`](https://github.com/privcypay/privcy/commit/727e940c0) Fix recently introduced PS bugs (#2330)
-- [`85a958a36`](https://github.com/privcypay/privcy/commit/85a958a36) Drop dummy copy constructors in CPrivateSend*Session (#2305)
+- [`85a958a36`](https://github.com/privcypay/privcy/commit/85a958a36) Drop dummy copy constructors in CPRiVCYSend*Session (#2305)
 - [`c6a0c5541`](https://github.com/privcypay/privcy/commit/c6a0c5541) A couple of small fixes for mixing collaterals (#2294)
 - [`d192d642f`](https://github.com/privcypay/privcy/commit/d192d642f) Move heavy coin selection out of the loop in SubmitDenominate (#2274)
 - [`28e0476f4`](https://github.com/privcypay/privcy/commit/28e0476f4) Squash two logic branches in SubmitDenominate into one (#2270)
@@ -477,7 +477,7 @@ See detailed [set of changes](https://github.com/privcypay/privcy/compare/v0.12.
 - [`a83ab5501`](https://github.com/privcypay/privcy/commit/a83ab5501) Fix wallet lock check in DoAutomaticDenominating (#2196)
 - [`30fa8bc33`](https://github.com/privcypay/privcy/commit/30fa8bc33) Make sure pwalletMain is not null whenever it's used in PS client (#2190)
 - [`3c89983db`](https://github.com/privcypay/privcy/commit/3c89983db) Remove DarksendConfig (#2132)
-- [`43091a3ef`](https://github.com/privcypay/privcy/commit/43091a3ef) PrivateSend Enhancement: Up default round count to 4 and allow user to mix up to 16 rounds (#2128)
+- [`43091a3ef`](https://github.com/privcypay/privcy/commit/43091a3ef) PRiVCYSend Enhancement: Up default round count to 4 and allow user to mix up to 16 rounds (#2128)
 
 ### InstantSend
 - [`35550a3f9`](https://github.com/privcypay/privcy/commit/35550a3f9) Add quorumModifierHash to instant send lock vote (#2505)
@@ -536,7 +536,7 @@ See detailed [set of changes](https://github.com/privcypay/privcy/compare/v0.12.
 - [`cf2b547b7`](https://github.com/privcypay/privcy/commit/cf2b547b7) Implement tab for DIP3 MN list (#2454)
 - [`46462d682`](https://github.com/privcypay/privcy/commit/46462d682) Add a column for IS lock status on Transactions tab (#2433)
 - [`5ecd91b05`](https://github.com/privcypay/privcy/commit/5ecd91b05) Fix ps collateral/denom creation tx category confusion (#2430)
-- [`4a78b161f`](https://github.com/privcypay/privcy/commit/4a78b161f) PrivateSend spending txes should have "outgoing" icon on overview screen (#2396)
+- [`4a78b161f`](https://github.com/privcypay/privcy/commit/4a78b161f) PRiVCYSend spending txes should have "outgoing" icon on overview screen (#2396)
 - [`d7e210341`](https://github.com/privcypay/privcy/commit/d7e210341) Fixes inaccurate round count in CoinControlDialog (#2137)
 
 ### Cleanups/Tests/Docs/Other
@@ -575,7 +575,7 @@ See detailed [set of changes](https://github.com/privcypay/privcy/compare/v0.12.
 - [`e961c7134`](https://github.com/privcypay/privcy/commit/e961c7134) Translations 201811 (#2249)
 - [`f0df5bffa`](https://github.com/privcypay/privcy/commit/f0df5bffa) Clang evo folder and activemasternode.* (#2418)
 - [`98bdf35f9`](https://github.com/privcypay/privcy/commit/98bdf35f9) bump PS copyright (#2417)
-- [`e9bb822c1`](https://github.com/privcypay/privcy/commit/e9bb822c1) Clang format PrivateSend files (#2373)
+- [`e9bb822c1`](https://github.com/privcypay/privcy/commit/e9bb822c1) Clang format PRiVCYSend files (#2373)
 - [`bea590958`](https://github.com/privcypay/privcy/commit/bea590958) Fix auto-IS tests (#2414)
 - [`f03629d6d`](https://github.com/privcypay/privcy/commit/f03629d6d) Explicitly specify which branch of Wine to install (#2411)
 - [`5e829a3b1`](https://github.com/privcypay/privcy/commit/5e829a3b1) Update Chia bls-signature to latest version (#2409)
@@ -593,7 +593,7 @@ See detailed [set of changes](https://github.com/privcypay/privcy/compare/v0.12.
 - [`d1debfc26`](https://github.com/privcypay/privcy/commit/d1debfc26) Implement mt_pooled_secure_allocator and use it for BLS secure allocation (#2375)
 - [`0692de1c5`](https://github.com/privcypay/privcy/commit/0692de1c5) Fix prepare_masternodes/create_masternodes in PRiVCYTestFramework (#2382)
 - [`6433a944a`](https://github.com/privcypay/privcy/commit/6433a944a) [Trivial] typo Groupped -> Grouped (#2374)
-- [`59932401b`](https://github.com/privcypay/privcy/commit/59932401b) Change internal references of Darksend to PrivateSend (#2372)
+- [`59932401b`](https://github.com/privcypay/privcy/commit/59932401b) Change internal references of Darksend to PRiVCYSend (#2372)
 - [`e3046adb3`](https://github.com/privcypay/privcy/commit/e3046adb3) Clear devNetParams and mimic behavior of other param types (#2367)
 - [`de426e962`](https://github.com/privcypay/privcy/commit/de426e962) Give tail calls enough time to print errors (#2376)
 - [`0402240a2`](https://github.com/privcypay/privcy/commit/0402240a2) Bump CMAKE_CXX_STANDARD to 14 in CMakeLists.txt (#2377)
@@ -680,7 +680,7 @@ See detailed [set of changes](https://github.com/privcypay/privcy/compare/v0.12.
 - [`42c193df0`](https://github.com/privcypay/privcy/commit/42c193df0) replace map count/insert w/emplace in instantx.cpp (#2165)
 - [`fd70a1eb9`](https://github.com/privcypay/privcy/commit/fd70a1eb9) iterator cleanup in several places (#2164)
 - [`df1be90ce`](https://github.com/privcypay/privcy/commit/df1be90ce)  Update links to obsolete documentation (#2162)
-- [`448e92f4a`](https://github.com/privcypay/privcy/commit/448e92f4a) GetOutPointPrivateSendRounds readability (#2149)
+- [`448e92f4a`](https://github.com/privcypay/privcy/commit/448e92f4a) GetOutPointPRiVCYSendRounds readability (#2149)
 - [`6da2837bd`](https://github.com/privcypay/privcy/commit/6da2837bd) InstantSend Integration tests (#2141)
 - [`8ee9333bc`](https://github.com/privcypay/privcy/commit/8ee9333bc) remove boost dependency from PRiVCY-specific code (#2072)
 - [`a527845e4`](https://github.com/privcypay/privcy/commit/a527845e4) Bump to 0.12.4.0 pre-release (#2167)

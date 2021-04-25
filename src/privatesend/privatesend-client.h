@@ -5,13 +5,13 @@
 #ifndef PRIVATESENDCLIENT_H
 #define PRIVATESENDCLIENT_H
 
-#include <privatesend/privatesend-util.h>
-#include <privatesend/privatesend.h>
+#include <privcysend/privcysend-util.h>
+#include <privcysend/privcysend.h>
 #include <wallet/wallet.h>
 
 #include <evo/deterministicmns.h>
 
-class CPrivateSendClientManager;
+class CPRiVCYSendClientManager;
 class CConnman;
 class CNode;
 class UniValue;
@@ -54,7 +54,7 @@ static const int PRIVATESEND_KEYS_THRESHOLD_STOP = 50;
 static const int PRIVATESEND_RANDOM_ROUNDS = 3;
 
 // The main object for accessing mixing
-extern CPrivateSendClientManager privateSendClient;
+extern CPRiVCYSendClientManager privateSendClient;
 
 class CPendingDsaRequest
 {
@@ -62,18 +62,18 @@ private:
     static const int TIMEOUT = 15;
 
     CService addr;
-    CPrivateSendAccept dsa;
+    CPRiVCYSendAccept dsa;
     int64_t nTimeCreated;
 
 public:
     CPendingDsaRequest() :
         addr(CService()),
-        dsa(CPrivateSendAccept()),
+        dsa(CPRiVCYSendAccept()),
         nTimeCreated(0)
     {
     }
 
-    CPendingDsaRequest(const CService& addr_, const CPrivateSendAccept& dsa_) :
+    CPendingDsaRequest(const CService& addr_, const CPRiVCYSendAccept& dsa_) :
         addr(addr_),
         dsa(dsa_),
         nTimeCreated(GetTime())
@@ -81,7 +81,7 @@ public:
     }
 
     CService GetAddr() { return addr; }
-    CPrivateSendAccept GetDSA() { return dsa; }
+    CPRiVCYSendAccept GetDSA() { return dsa; }
     bool IsExpired() { return GetTime() - nTimeCreated > TIMEOUT; }
 
     friend bool operator==(const CPendingDsaRequest& a, const CPendingDsaRequest& b)
@@ -98,7 +98,7 @@ public:
     }
 };
 
-class CPrivateSendClientSession : public CPrivateSendBaseSession
+class CPRiVCYSendClientSession : public CPRiVCYSendBaseSession
 {
 private:
     std::vector<COutPoint> vecOutPointLocked;
@@ -131,7 +131,7 @@ private:
     bool SendDenominate(const std::vector<std::pair<CTxDSIn, CTxOut> >& vecPSInOutPairsIn, CConnman& connman);
 
     /// Process Masternode updates about the progress of mixing
-    void ProcessPoolStateUpdate(CPrivateSendStatusUpdate psssup);
+    void ProcessPoolStateUpdate(CPRiVCYSendStatusUpdate psssup);
     // Set the 'state' value, with some logging and capturing when the state changed
     void SetState(PoolState nStateNew);
 
@@ -140,12 +140,12 @@ private:
     /// As a client, check and sign the final transaction
     bool SignFinalTransaction(const CTransaction& finalTransactionNew, CNode* pnode, CConnman& connman);
 
-    void RelayIn(const CPrivateSendEntry& entry, CConnman& connman);
+    void RelayIn(const CPRiVCYSendEntry& entry, CConnman& connman);
 
     void SetNull();
 
 public:
-    CPrivateSendClientSession() :
+    CPRiVCYSendClientSession() :
         vecOutPointLocked(),
         strLastMessage(),
         strAutoDenomResult(),
@@ -181,14 +181,14 @@ public:
 
 /** Used to keep track of current status of mixing pool
  */
-class CPrivateSendClientManager : public CPrivateSendBaseManager
+class CPRiVCYSendClientManager : public CPRiVCYSendBaseManager
 {
 private:
     // Keep track of the used Masternodes
     std::vector<COutPoint> vecMasternodesUsed;
 
-    // TODO: or map<denom, CPrivateSendClientSession> ??
-    std::deque<CPrivateSendClientSession> deqSessions;
+    // TODO: or map<denom, CPRiVCYSendClientSession> ??
+    std::deque<CPRiVCYSendClientSession> deqSessions;
     mutable CCriticalSection cs_deqsessions;
 
     int nCachedLastSuccessBlock;
@@ -204,34 +204,34 @@ private:
     bool CheckAutomaticBackup();
 
 public:
-    int nPrivateSendSessions;
-    int nPrivateSendRounds;
-    int nPrivateSendRandomRounds;
-    int nPrivateSendAmount;
-    int nPrivateSendDenomsGoal;
-    int nPrivateSendDenomsHardCap;
-    bool fEnablePrivateSend;
-    bool fPrivateSendRunning;
-    bool fPrivateSendMultiSession;
+    int nPRiVCYSendSessions;
+    int nPRiVCYSendRounds;
+    int nPRiVCYSendRandomRounds;
+    int nPRiVCYSendAmount;
+    int nPRiVCYSendDenomsGoal;
+    int nPRiVCYSendDenomsHardCap;
+    bool fEnablePRiVCYSend;
+    bool fPRiVCYSendRunning;
+    bool fPRiVCYSendMultiSession;
 
     int nCachedNumBlocks;    // used for the overview screen
     bool fCreateAutoBackups; // builtin support for automatic backups
 
-    CPrivateSendClientManager() :
+    CPRiVCYSendClientManager() :
         vecMasternodesUsed(),
         deqSessions(),
         nCachedLastSuccessBlock(0),
         nMinBlocksToWait(1),
         strAutoDenomResult(),
         nCachedBlockHeight(0),
-        nPrivateSendRounds(DEFAULT_PRIVATESEND_ROUNDS),
-        nPrivateSendRandomRounds(PRIVATESEND_RANDOM_ROUNDS),
-        nPrivateSendAmount(DEFAULT_PRIVATESEND_AMOUNT),
-        nPrivateSendDenomsGoal(DEFAULT_PRIVATESEND_DENOMS_GOAL),
-        nPrivateSendDenomsHardCap(DEFAULT_PRIVATESEND_DENOMS_HARDCAP),
-        fEnablePrivateSend(false),
-        fPrivateSendRunning(false),
-        fPrivateSendMultiSession(DEFAULT_PRIVATESEND_MULTISESSION),
+        nPRiVCYSendRounds(DEFAULT_PRIVATESEND_ROUNDS),
+        nPRiVCYSendRandomRounds(PRIVATESEND_RANDOM_ROUNDS),
+        nPRiVCYSendAmount(DEFAULT_PRIVATESEND_AMOUNT),
+        nPRiVCYSendDenomsGoal(DEFAULT_PRIVATESEND_DENOMS_GOAL),
+        nPRiVCYSendDenomsHardCap(DEFAULT_PRIVATESEND_DENOMS_HARDCAP),
+        fEnablePRiVCYSend(false),
+        fPRiVCYSendRunning(false),
+        fPRiVCYSendMultiSession(DEFAULT_PRIVATESEND_MULTISESSION),
         nCachedNumBlocks(std::numeric_limits<int>::max()),
         fCreateAutoBackups(true)
     {

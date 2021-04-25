@@ -77,7 +77,7 @@ QT_TRANSLATE_NOOP("privcy-core", ""
 QT_TRANSLATE_NOOP("privcy-core", ""
 "Do not keep transactions in the mempool longer than <n> hours (default: %u)"),
 QT_TRANSLATE_NOOP("privcy-core", ""
-"Enable multiple PrivateSend mixing sessions per block, experimental (0-1, "
+"Enable multiple PRiVCYSend mixing sessions per block, experimental (0-1, "
 "default: %u)"),
 QT_TRANSLATE_NOOP("privcy-core", ""
 "Enable publish raw transactions of attempted InstantSend double spend in "
@@ -86,7 +86,7 @@ QT_TRANSLATE_NOOP("privcy-core", ""
 "Enable publish transaction hashes of attempted InstantSend double spend in "
 "<address>"),
 QT_TRANSLATE_NOOP("privcy-core", ""
-"Enable use of PrivateSend for funds stored in this wallet (0-1, default: %u)"),
+"Enable use of PRiVCYSend for funds stored in this wallet (0-1, default: %u)"),
 QT_TRANSLATE_NOOP("privcy-core", ""
 "Error loading %s: You can't enable HD on an already existing non-HD wallet"),
 QT_TRANSLATE_NOOP("privcy-core", ""
@@ -205,7 +205,7 @@ QT_TRANSLATE_NOOP("privcy-core", ""
 "Please contribute if you find %s useful. Visit %s for further information "
 "about the software."),
 QT_TRANSLATE_NOOP("privcy-core", ""
-"PrivateSend uses exact denominated amounts to send funds, you might simply "
+"PRiVCYSend uses exact denominated amounts to send funds, you might simply "
 "need to mix some more coins."),
 QT_TRANSLATE_NOOP("privcy-core", ""
 "Prune configured below the minimum of %d MiB.  Please use a higher number."),
@@ -302,9 +302,9 @@ QT_TRANSLATE_NOOP("privcy-core", ""
 "Try to create at least N inputs of each denominated amount (%u-%u, default: "
 "%u)"),
 QT_TRANSLATE_NOOP("privcy-core", ""
-"Unable to locate enough PrivateSend denominated funds for this transaction."),
+"Unable to locate enough PRiVCYSend denominated funds for this transaction."),
 QT_TRANSLATE_NOOP("privcy-core", ""
-"Unable to locate enough PrivateSend non-denominated funds for this "
+"Unable to locate enough PRiVCYSend non-denominated funds for this "
 "transaction."),
 QT_TRANSLATE_NOOP("privcy-core", ""
 "Unable to replay blocks. You will need to rebuild the database using -"
@@ -495,8 +495,8 @@ QT_TRANSLATE_NOOP("privcy-core", "KeePassHttp id for the established association
 QT_TRANSLATE_NOOP("privcy-core", "KeePassHttp key for AES encrypted communication with KeePass"),
 QT_TRANSLATE_NOOP("privcy-core", "Keep the transaction memory pool below <n> megabytes (default: %u)"),
 QT_TRANSLATE_NOOP("privcy-core", "Keypool ran out, please call keypoolrefill first"),
-QT_TRANSLATE_NOOP("privcy-core", "Last PrivateSend was too recent."),
-QT_TRANSLATE_NOOP("privcy-core", "Last successful PrivateSend action was too recent."),
+QT_TRANSLATE_NOOP("privcy-core", "Last PRiVCYSend was too recent."),
+QT_TRANSLATE_NOOP("privcy-core", "Last successful PRiVCYSend action was too recent."),
 QT_TRANSLATE_NOOP("privcy-core", "Listen for JSON-RPC connections on <port> (default: %u or testnet: %u)"),
 QT_TRANSLATE_NOOP("privcy-core", "Listen for connections on <port> (default: %u or testnet: %u)"),
 QT_TRANSLATE_NOOP("privcy-core", "Loading P2P addresses..."),
@@ -535,9 +535,9 @@ QT_TRANSLATE_NOOP("privcy-core", "Password for JSON-RPC connections"),
 QT_TRANSLATE_NOOP("privcy-core", "Prepend debug output with timestamp (default: %u)"),
 QT_TRANSLATE_NOOP("privcy-core", "Print this help message and exit"),
 QT_TRANSLATE_NOOP("privcy-core", "Print version and exit"),
-QT_TRANSLATE_NOOP("privcy-core", "PrivateSend is idle."),
-QT_TRANSLATE_NOOP("privcy-core", "PrivateSend options:"),
-QT_TRANSLATE_NOOP("privcy-core", "PrivateSend request incomplete:"),
+QT_TRANSLATE_NOOP("privcy-core", "PRiVCYSend is idle."),
+QT_TRANSLATE_NOOP("privcy-core", "PRiVCYSend options:"),
+QT_TRANSLATE_NOOP("privcy-core", "PRiVCYSend request incomplete:"),
 QT_TRANSLATE_NOOP("privcy-core", "Prune cannot be configured with a negative value."),
 QT_TRANSLATE_NOOP("privcy-core", "Prune mode is incompatible with -disablegovernance=false."),
 QT_TRANSLATE_NOOP("privcy-core", "Prune mode is incompatible with -txindex."),
@@ -571,14 +571,14 @@ QT_TRANSLATE_NOOP("privcy-core", "Specify connection timeout in milliseconds (mi
 QT_TRANSLATE_NOOP("privcy-core", "Specify data directory"),
 QT_TRANSLATE_NOOP("privcy-core", "Specify your own public address"),
 QT_TRANSLATE_NOOP("privcy-core", "Spend unconfirmed change when sending transactions (default: %u)"),
-QT_TRANSLATE_NOOP("privcy-core", "Start PrivateSend automatically (0-1, default: %u)"),
+QT_TRANSLATE_NOOP("privcy-core", "Start PRiVCYSend automatically (0-1, default: %u)"),
 QT_TRANSLATE_NOOP("privcy-core", "Starting network threads..."),
 QT_TRANSLATE_NOOP("privcy-core", "Submitted to masternode, waiting in queue %s"),
 QT_TRANSLATE_NOOP("privcy-core", "Sync mempool from other nodes on start (default: %u)"),
 QT_TRANSLATE_NOOP("privcy-core", "Synchronization finished"),
 QT_TRANSLATE_NOOP("privcy-core", "Synchronizing blockchain..."),
 QT_TRANSLATE_NOOP("privcy-core", "Synchronizing governance objects..."),
-QT_TRANSLATE_NOOP("privcy-core", "Target PrivateSend balance (%u-%u, default: %u)"),
+QT_TRANSLATE_NOOP("privcy-core", "Target PRiVCYSend balance (%u-%u, default: %u)"),
 QT_TRANSLATE_NOOP("privcy-core", "The source code is available from %s."),
 QT_TRANSLATE_NOOP("privcy-core", "The transaction amount is too small to pay the fee"),
 QT_TRANSLATE_NOOP("privcy-core", "The wallet will avoid paying less than the minimum relay fee."),

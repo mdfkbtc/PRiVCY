@@ -25,7 +25,7 @@
 
 #include <masternode/masternode-meta.h>
 #include <masternode/masternode-sync.h>
-#include <privatesend/privatesend.h>
+#include <privcysend/privcysend.h>
 #include <evo/deterministicmns.h>
 
 #include <memory>
@@ -3466,7 +3466,7 @@ void CConnman::RelayTransaction(const CTransaction& tx)
 {
     uint256 hash = tx.GetHash();
     int nInv = MSG_TX;
-    if (CPrivateSend::GetDSTX(hash)) {
+    if (CPRiVCYSend::GetDSTX(hash)) {
         nInv = MSG_DSTX;
     }
     CInv inv(nInv, hash);

@@ -55,13 +55,13 @@ public:
         DatabaseCache,          // int
         SpendZeroConfChange,    // bool
         ShowMasternodesTab,     // bool
-        PrivateSendEnabled,     // bool
+        PRiVCYSendEnabled,     // bool
         ShowAdvancedPSUI,       // bool
-        ShowPrivateSendPopups,  // bool
+        ShowPRiVCYSendPopups,  // bool
         LowKeysWarning,         // bool
-        PrivateSendRounds,      // int
-        PrivateSendAmount,      // int
-        PrivateSendMultiSession,// bool
+        PRiVCYSendRounds,      // int
+        PRiVCYSendAmount,      // int
+        PRiVCYSendMultiSession,// bool
         Listen,                 // bool
         OptionIDRowCount,
     };
@@ -85,7 +85,7 @@ public:
     bool getCoinControlFeatures() const { return fCoinControlFeatures; }
     bool getShowAdvancedPSUI() { return fShowAdvancedPSUI; }
     const QString& getOverriddenByCommandLine() { return strOverriddenByCommandLine; }
-    void emitPrivateSendEnabledChanged();
+    void emitPRiVCYSendEnabledChanged();
 
     /* Restart flag helper */
     void setRestartRequired(bool fRequired);

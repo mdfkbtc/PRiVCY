@@ -21,7 +21,7 @@
 #include <wallet/fees.h>
 #include <wallet/wallet.h>
 
-#include <privatesend/privatesend-client.h>
+#include <privcysend/privcysend-client.h>
 
 #include <QApplication>
 #include <QCheckBox>
@@ -225,8 +225,8 @@ void CoinControlDialog::buttonToggleLockClicked()
         for (int i = 0; i < ui->treeWidget->topLevelItemCount(); i++){
             item = ui->treeWidget->topLevelItem(i);
             COutPoint outpt(uint256S(item->data(COLUMN_ADDRESS, TxHashRole).toString().toStdString()), item->data(COLUMN_ADDRESS, VOutRole).toUInt());
-            // Don't toggle the lock state of partially mixed coins if they are not hidden in PrivateSend mode
-            if (coinControl()->IsUsingPrivateSend() && !fHideAdditional && !model->isFullyMixed(outpt)) {
+            // Don't toggle the lock state of partially mixed coins if they are not hidden in PRiVCYSend mode
+            if (coinControl()->IsUsingPRiVCYSend() && !fHideAdditional && !model->isFullyMixed(outpt)) {
                 continue;
             }
             if (model->isLockedCoin(uint256S(item->data(COLUMN_ADDRESS, TxHashRole).toString().toStdString()), item->data(COLUMN_ADDRESS, VOutRole).toUInt())){
@@ -566,8 +566,8 @@ void CoinControlDialog::updateLabels(WalletModel *model, QDialog* dialog)
         {
             nChange = nAmount - nPayAmount;
 
-            // PrivateSend Fee = overpay
-            if(coinControl()->IsUsingPrivateSend() && nChange > 0)
+            // PRiVCYSend Fee = overpay
+            if(coinControl()->IsUsingPRiVCYSend() && nChange > 0)
             {
                 nPayFee = std::max(nChange, nPayFee);
                 nChange = 0;
@@ -671,21 +671,21 @@ void CoinControlDialog::updateLabels(WalletModel *model, QDialog* dialog)
     }
 }
 
-void CoinControlDialog::usePrivateSend(bool fUsePrivateSend)
+void CoinControlDialog::usePRiVCYSend(bool fUsePRiVCYSend)
 {
-    CoinControlDialog::mode = fUsePrivateSend ? CoinControlDialog::Mode::PRIVATESEND : CoinControlDialog::Mode::NORMAL;
+    CoinControlDialog::mode = fUsePRiVCYSend ? CoinControlDialog::Mode::PRIVATESEND : CoinControlDialog::Mode::NORMAL;
 }
 
 CCoinControl* CoinControlDialog::coinControl()
 {
     if (CoinControlDialog::mode == CoinControlDialog::Mode::NORMAL) {
         static CCoinControl coinControlNormal;
-        coinControlNormal.UsePrivateSend(false);
+        coinControlNormal.UsePRiVCYSend(false);
         return &coinControlNormal;
     } else {
-        static CCoinControl coinControlPrivateSend;
-        coinControlPrivateSend.UsePrivateSend(true);
-        return &coinControlPrivateSend;
+        static CCoinControl coinControlPRiVCYSend;
+        coinControlPRiVCYSend.UsePRiVCYSend(true);
+        return &coinControlPRiVCYSend;
     }
 }
 
@@ -700,7 +700,7 @@ void CoinControlDialog::updateView()
     ui->radioTreeMode->setVisible(fNormalMode);
     ui->radioListMode->setVisible(fNormalMode);
 
-    if (!privateSendClient.fEnablePrivateSend) {
+    if (!privateSendClient.fEnablePRiVCYSend) {
         fHideAdditional = false;
         ui->hideButton->setVisible(false);
     }
@@ -711,12 +711,12 @@ void CoinControlDialog::updateView()
         if (fHideAdditional) {
             strHideButton = tr("Show all coins");
         } else {
-            strHideButton = tr("Hide PrivateSend coins");
+            strHideButton = tr("Hide PRiVCYSend coins");
         }
         break;
     case Mode::PRIVATESEND:
         if (fHideAdditional) {
-            strHideButton = tr("Show all PrivateSend coins");
+            strHideButton = tr("Show all PRiVCYSend coins");
         } else {
             strHideButton = tr("Show spendable coins only");
         }
@@ -769,16 +769,16 @@ void CoinControlDialog::updateView()
             bool fFullyMixed{false};
             CAmount nAmount = out.tx->tx->vout[out.i].nValue;
 
-            bool fPrivateSendAmount = CPrivateSend::IsDenominatedAmount(nAmount) || CPrivateSend::IsCollateralAmount(nAmount);
+            bool fPRiVCYSendAmount = CPRiVCYSend::IsDenominatedAmount(nAmount) || CPRiVCYSend::IsCollateralAmount(nAmount);
 
-            if (coinControl()->IsUsingPrivateSend()) {
+            if (coinControl()->IsUsingPRiVCYSend()) {
                 fFullyMixed = model->isFullyMixed(outpoint);
-                if ((fHideAdditional && !fFullyMixed) || (!fHideAdditional && !fPrivateSendAmount)) {
+                if ((fHideAdditional && !fFullyMixed) || (!fHideAdditional && !fPRiVCYSendAmount)) {
                     coinControl()->UnSelect(outpoint);
                     continue;
                 }
             } else {
-                if (fHideAdditional && fPrivateSendAmount) {
+                if (fHideAdditional && fPRiVCYSendAmount) {
                     coinControl()->UnSelect(outpoint);
                     continue;
                 }
@@ -833,8 +833,8 @@ void CoinControlDialog::updateView()
             itemOutput->setToolTip(COLUMN_DATE, GUIUtil::dateTimeStr(out.tx->GetTxTime()));
             itemOutput->setData(COLUMN_DATE, Qt::UserRole, QVariant((qlonglong)out.tx->GetTxTime()));
 
-            // PrivateSend rounds
-            int nRounds = model->getRealOutpointPrivateSendRounds(outpoint);
+            // PRiVCYSend rounds
+            int nRounds = model->getRealOutpointPRiVCYSendRounds(outpoint);
             if (nRounds >= 0 || LogAcceptCategory(BCLog::PRIVATESEND)) {
                 itemOutput->setText(COLUMN_PRIVATESEND_ROUNDS, QString::number(nRounds));
             } else {
@@ -866,7 +866,7 @@ void CoinControlDialog::updateView()
                 itemOutput->setCheckState(COLUMN_CHECKBOX, Qt::Checked);
             }
 
-            if (coinControl()->IsUsingPrivateSend() && !fHideAdditional && !fFullyMixed) {
+            if (coinControl()->IsUsingPRiVCYSend() && !fHideAdditional && !fFullyMixed) {
                 itemOutput->setDisabled(true);
             }
         }

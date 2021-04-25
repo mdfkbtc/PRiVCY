@@ -33,7 +33,7 @@ public:
 
     // PRiVCY Specific WalletInitInterface
     virtual void AutoLockMasternodeCollaterals() = 0;
-    virtual void InitPrivateSendSettings() = 0;
+    virtual void InitPRiVCYSendSettings() = 0;
     virtual void InitKeePass() = 0;
     virtual bool InitAutoBackup() = 0;
 

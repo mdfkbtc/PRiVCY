@@ -80,7 +80,7 @@ Experimental: `usehd`, `mnemonic`, `mnemonicpassphrase`, `hdseed`
 
 See `Help -> Command-line options` in Qt wallet or `privcyd --help` for more info.
 
-PrivateSend improvements
+PRiVCYSend improvements
 ------------------------
 
 Algorithm for selecting inputs was slightly changed in [`6067896ae`](https://github.com/privcypay/privcy/commit/6067896ae) ([#1248](https://github.com/privcypay/privcy/pull/1248)). This should allow user to get some mixed funds much faster.
@@ -169,18 +169,18 @@ Detailed [change log](https://github.com/privcypay/privcy/compare/v0.12.1.x...pr
 - [`4cac044d9`](https://github.com/privcypay/privcy/commit/4cac044d9) Merge #8944: Remove bogus assert on number of oubound connections. (#1685)
 - [`d23adcc0f`](https://github.com/privcypay/privcy/commit/d23adcc0f) Merge #10231: [Qt] Reduce a significant cs_main lock freeze (#1704)
 
-### PrivateSend:
+### PRiVCYSend:
 - [`6067896ae`](https://github.com/privcypay/privcy/commit/6067896ae) mix inputs with highest number of rounds first (#1248)
-- [`559f8421b`](https://github.com/privcypay/privcy/commit/559f8421b) Few fixes for PrivateSend (#1408)
+- [`559f8421b`](https://github.com/privcypay/privcy/commit/559f8421b) Few fixes for PRiVCYSend (#1408)
 - [`7242e2922`](https://github.com/privcypay/privcy/commit/7242e2922) Refactor PS (#1437)
-- [`68e858f8d`](https://github.com/privcypay/privcy/commit/68e858f8d) PrivateSend: dont waste keys from keypool on failure in CreateDenominated (#1473)
+- [`68e858f8d`](https://github.com/privcypay/privcy/commit/68e858f8d) PRiVCYSend: dont waste keys from keypool on failure in CreateDenominated (#1473)
 - [`2daea77a5`](https://github.com/privcypay/privcy/commit/2daea77a5) fix calculation of (unconfirmed) anonymizable balance (#1477)
-- [`029ee6494`](https://github.com/privcypay/privcy/commit/029ee6494) split CPrivateSend (#1492)
+- [`029ee6494`](https://github.com/privcypay/privcy/commit/029ee6494) split CPRiVCYSend (#1492)
 - [`739ef9a68`](https://github.com/privcypay/privcy/commit/739ef9a68) Expire confirmed DSTXes after ~1h since confirmation (#1499)
 - [`7abac068b`](https://github.com/privcypay/privcy/commit/7abac068b) fix MakeCollateralAmounts (#1500)
 - [`0f05e25c7`](https://github.com/privcypay/privcy/commit/0f05e25c7) fix a bug in CommitFinalTransaction (#1540)
 - [`82595b1b9`](https://github.com/privcypay/privcy/commit/82595b1b9) fix number of blocks to wait after successful mixing tx (#1597)
-- [`33e460f30`](https://github.com/privcypay/privcy/commit/33e460f30) Fix losing keys on PrivateSend (#1616)
+- [`33e460f30`](https://github.com/privcypay/privcy/commit/33e460f30) Fix losing keys on PRiVCYSend (#1616)
 - [`ea793a71f`](https://github.com/privcypay/privcy/commit/ea793a71f) Make sure mixing masternode follows bip69 before signing final mixing tx (#1510)
 - [`8c15f5f87`](https://github.com/privcypay/privcy/commit/8c15f5f87) speedup MakeCollateralAmounts by skiping denominated inputs early (#1631)
 - [`8e9289e12`](https://github.com/privcypay/privcy/commit/8e9289e12) Keep track of wallet UTXOs and use them for PS balances and rounds calculations (#1655)

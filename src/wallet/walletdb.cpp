@@ -168,12 +168,12 @@ bool WalletBatch::WriteAccountingEntry(const uint64_t nAccEntryNum, const CAccou
     return WriteIC(std::make_pair(std::string("acentry"), std::make_pair(acentry.strAccount, nAccEntryNum)), acentry);
 }
 
-bool WalletBatch::ReadPrivateSendSalt(uint256& salt)
+bool WalletBatch::ReadPRiVCYSendSalt(uint256& salt)
 {
     return m_batch.Read(std::string("ps_salt"), salt);
 }
 
-bool WalletBatch::WritePrivateSendSalt(const uint256& salt)
+bool WalletBatch::WritePRiVCYSendSalt(const uint256& salt)
 {
     return WriteIC(std::string("ps_salt"), salt);
 }

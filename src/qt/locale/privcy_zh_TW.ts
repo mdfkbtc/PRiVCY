@@ -392,7 +392,7 @@
         <translation>關於%1(&amp;A)</translation>
     </message>
     <message>
-        <source>PrivateSend coins to a PRiVCY address</source>
+        <source>PRiVCYSend coins to a PRiVCY address</source>
         <translation>用匿名發送的方式把資金發送到一個達世幣位址</translation>
     </message>
     <message>
@@ -556,11 +556,11 @@
         <translation>錢包 &lt;b&gt;未加密&lt;/b&gt;</translation>
     </message>
     <message>
-        <source>&amp;PrivateSend information</source>
+        <source>&amp;PRiVCYSend information</source>
         <translation>匿名發送資訊(&amp;P)</translation>
     </message>
     <message>
-        <source>Show the PrivateSend basic information</source>
+        <source>Show the PRiVCYSend basic information</source>
         <translation>顯示匿名發送基本信息</translation>
     </message>
     <message>
@@ -1054,12 +1054,12 @@
         <translation>重置所有在GUI 更改的設置</translation>
     </message>
     <message>
-        <source>PrivateSend information</source>
+        <source>PRiVCYSend information</source>
         <translation>匿名發送資訊</translation>
     </message>
     <message>
-        <source>&lt;h3&gt;PrivateSend Basics&lt;/h3&gt; PrivateSend gives you true financial privacy by obscuring the origins of your funds. All the PRiVCY in your wallet is comprised of different "inputs" which you can think of as separate, discrete coins.&lt;br&gt; PrivateSend uses an innovative process to mix your inputs with the inputs of two or more other people, without having your coins ever leave your wallet. You retain control of your money at all times.&lt;hr&gt; &lt;b&gt;The PrivateSend process works like this:&lt;/b&gt;&lt;ol type="1"&gt; &lt;li&gt;PrivateSend begins by breaking your transaction inputs down into standard denominations. These denominations are 0.001 PRIV, 0.01 PRIV, 0.1 PRIV, 1 PRIV and 10 PRIV -- sort of like the paper money you use every day.&lt;/li&gt; &lt;li&gt;Your wallet then sends requests to specially configured software nodes on the network, called "masternodes." These masternodes are informed then that you are interested in mixing a certain denomination. No identifiable information is sent to the masternodes, so they never know "who" you are.&lt;/li&gt; &lt;li&gt;When two or more other people send similar messages, indicating that they wish to mix the same denomination, a mixing session begins. The masternode mixes up the inputs and instructs all three users' wallets to pay the now-transformed input back to themselves. Your wallet pays that denomination directly to itself, but in a different address (called a change address).&lt;/li&gt; &lt;li&gt;In order to fully obscure your funds, your wallet must repeat this process a number of times with each denomination. Each time the process is completed, it's called a "round." Each round of PrivateSend makes it exponentially more difficult to determine where your funds originated.&lt;/li&gt; &lt;li&gt;This mixing process happens in the background without any intervention on your part. When you wish to make a transaction, your funds will already be mixed. No additional waiting is required.&lt;/li&gt; &lt;/ol&gt; &lt;hr&gt;&lt;b&gt;IMPORTANT:&lt;/b&gt; Your wallet only contains 1000 of these "change addresses." Every time a mixing event happens, up to 9 of your addresses are used up. This means those 1000 addresses last for about 100 mixing events. When 900 of them are used, your wallet must create more addresses. It can only do this, however, if you have automatic backups enabled.&lt;br&gt; Consequently, users who have backups disabled will also have PrivateSend disabled. &lt;hr&gt;For more information, see the &lt;a style="%1" href="https://docs.privcy.org/en/stable/wallets/privcycore/privatesend-instantsend.html"&gt;PrivateSend documentation&lt;/a&gt;.</source>
-        <translation>&lt;h3&gt;匿名發送基礎知識&lt;/h3&gt; 匿名發送通過隱藏您的資金來源為您提供真正的財務隱私。您的錢包中所有的達世幣都由不同的“輸入”組成，您可以將其視為分開的離散硬幣。&lt;br&gt; 匿名發送使用創新的方法將您的輸入與其他兩個人的輸入相結合，而過程中不會讓您的達世幣離開您的錢包。每時每刻，您仍然控制著您的錢。&lt;hr&gt; &lt;b&gt;匿名發送的運作原理如下:&lt;/b&gt;&lt;ol type="1"&gt; &lt;li&gt;匿名發送首先將您的交易分柝成多個標準面額的交易。這些標準面額分別為0.001 PRIV, 0.01 PRIV, 0.1 PRIV, 1 PRIV 和10 PRIV --有點像您每天使用的紙幣。&lt;/li&gt; &lt;li&gt;您的錢包然後發送請求到網絡上有專門配置的軟件節點，稱為“主節點”。這些主節點會收到您希望混合一些資金的通知。沒有可識別的信息發送到主節點，所以他們永遠不會知道你是"誰"。&lt;/li&gt; &lt;li&gt;當另外兩個人發送類似的消息時，表示希望混合相同的面額的話，混合會話就會開始。相關的主節點會混合這些輸入，並指示所有三個用戶的錢包將已經轉換了輸入的交易支付給自己。你的錢包直接支付給自己，但是付給不同的位址 (稱之為找零位址)。&lt;/li&gt; &lt;li&gt;為了完全掩蓋您的資金來源，您的錢包必須以每個面額來重複此過程數次。每次這個過程完成後，都稱之為一個 "循環"。每個循環的匿名發送都會令確定您的資金來源的工作倍加困難。&lt;/li&gt; &lt;li&gt;這種混合過程在後台進行，而不需要您進行任何操作。當您想進行交易時，您的資金將已被匿名處理。不需再花額外的時間等待。&lt;/li&gt; &lt;/ol&gt; &lt;hr&gt; &lt;b&gt; 重要:&lt;/b&gt; 您的錢包只能擁有1000個"找零位址。" 每次混合事件發生時，最多會使用9個找零位址。這意味著這1000個位址可以容許100次的混合事件。當其的中900個已經被使用後，您的錢包必須創建更多的位址。如果您啟用了自動備份，則只能夠這樣做。&lt;br&gt; 因此，禁用備份的用戶也將禁用匿名發送。&lt;hr&gt;如欲了解更多信息請參閱 &lt;a style="%1" href="https://docs.privcy.org/en/stable/wallets/privcycore/privatesend-instantsend.html"&gt;匿名發送文檔&lt;/a&gt;。</translation>
+        <source>&lt;h3&gt;PRiVCYSend Basics&lt;/h3&gt; PRiVCYSend gives you true financial privacy by obscuring the origins of your funds. All the PRiVCY in your wallet is comprised of different "inputs" which you can think of as separate, discrete coins.&lt;br&gt; PRiVCYSend uses an innovative process to mix your inputs with the inputs of two or more other people, without having your coins ever leave your wallet. You retain control of your money at all times.&lt;hr&gt; &lt;b&gt;The PRiVCYSend process works like this:&lt;/b&gt;&lt;ol type="1"&gt; &lt;li&gt;PRiVCYSend begins by breaking your transaction inputs down into standard denominations. These denominations are 0.001 PRIV, 0.01 PRIV, 0.1 PRIV, 1 PRIV and 10 PRIV -- sort of like the paper money you use every day.&lt;/li&gt; &lt;li&gt;Your wallet then sends requests to specially configured software nodes on the network, called "masternodes." These masternodes are informed then that you are interested in mixing a certain denomination. No identifiable information is sent to the masternodes, so they never know "who" you are.&lt;/li&gt; &lt;li&gt;When two or more other people send similar messages, indicating that they wish to mix the same denomination, a mixing session begins. The masternode mixes up the inputs and instructs all three users' wallets to pay the now-transformed input back to themselves. Your wallet pays that denomination directly to itself, but in a different address (called a change address).&lt;/li&gt; &lt;li&gt;In order to fully obscure your funds, your wallet must repeat this process a number of times with each denomination. Each time the process is completed, it's called a "round." Each round of PRiVCYSend makes it exponentially more difficult to determine where your funds originated.&lt;/li&gt; &lt;li&gt;This mixing process happens in the background without any intervention on your part. When you wish to make a transaction, your funds will already be mixed. No additional waiting is required.&lt;/li&gt; &lt;/ol&gt; &lt;hr&gt;&lt;b&gt;IMPORTANT:&lt;/b&gt; Your wallet only contains 1000 of these "change addresses." Every time a mixing event happens, up to 9 of your addresses are used up. This means those 1000 addresses last for about 100 mixing events. When 900 of them are used, your wallet must create more addresses. It can only do this, however, if you have automatic backups enabled.&lt;br&gt; Consequently, users who have backups disabled will also have PRiVCYSend disabled. &lt;hr&gt;For more information, see the &lt;a style="%1" href="https://docs.privcy.org/en/stable/wallets/privcycore/privcysend-instantsend.html"&gt;PRiVCYSend documentation&lt;/a&gt;.</source>
+        <translation>&lt;h3&gt;匿名發送基礎知識&lt;/h3&gt; 匿名發送通過隱藏您的資金來源為您提供真正的財務隱私。您的錢包中所有的達世幣都由不同的“輸入”組成，您可以將其視為分開的離散硬幣。&lt;br&gt; 匿名發送使用創新的方法將您的輸入與其他兩個人的輸入相結合，而過程中不會讓您的達世幣離開您的錢包。每時每刻，您仍然控制著您的錢。&lt;hr&gt; &lt;b&gt;匿名發送的運作原理如下:&lt;/b&gt;&lt;ol type="1"&gt; &lt;li&gt;匿名發送首先將您的交易分柝成多個標準面額的交易。這些標準面額分別為0.001 PRIV, 0.01 PRIV, 0.1 PRIV, 1 PRIV 和10 PRIV --有點像您每天使用的紙幣。&lt;/li&gt; &lt;li&gt;您的錢包然後發送請求到網絡上有專門配置的軟件節點，稱為“主節點”。這些主節點會收到您希望混合一些資金的通知。沒有可識別的信息發送到主節點，所以他們永遠不會知道你是"誰"。&lt;/li&gt; &lt;li&gt;當另外兩個人發送類似的消息時，表示希望混合相同的面額的話，混合會話就會開始。相關的主節點會混合這些輸入，並指示所有三個用戶的錢包將已經轉換了輸入的交易支付給自己。你的錢包直接支付給自己，但是付給不同的位址 (稱之為找零位址)。&lt;/li&gt; &lt;li&gt;為了完全掩蓋您的資金來源，您的錢包必須以每個面額來重複此過程數次。每次這個過程完成後，都稱之為一個 "循環"。每個循環的匿名發送都會令確定您的資金來源的工作倍加困難。&lt;/li&gt; &lt;li&gt;這種混合過程在後台進行，而不需要您進行任何操作。當您想進行交易時，您的資金將已被匿名處理。不需再花額外的時間等待。&lt;/li&gt; &lt;/ol&gt; &lt;hr&gt; &lt;b&gt; 重要:&lt;/b&gt; 您的錢包只能擁有1000個"找零位址。" 每次混合事件發生時，最多會使用9個找零位址。這意味著這1000個位址可以容許100次的混合事件。當其的中900個已經被使用後，您的錢包必須創建更多的位址。如果您啟用了自動備份，則只能夠這樣做。&lt;br&gt; 因此，禁用備份的用戶也將禁用匿名發送。&lt;hr&gt;如欲了解更多信息請參閱 &lt;a style="%1" href="https://docs.privcy.org/en/stable/wallets/privcycore/privcysend-instantsend.html"&gt;匿名發送文檔&lt;/a&gt;。</translation>
     </message>
 </context>
 <context>
@@ -1373,27 +1373,27 @@
         <translation>顯示主節點標籤頁</translation>
     </message>
     <message>
-        <source>Show additional information and buttons for PrivateSend on overview screen.</source>
+        <source>Show additional information and buttons for PRiVCYSend on overview screen.</source>
         <translation>在概覽屏幕上顯示匿名發送的其他信息和按鈕。</translation>
     </message>
     <message>
-        <source>Enable advanced PrivateSend interface</source>
+        <source>Enable advanced PRiVCYSend interface</source>
         <translation>啟用進階匿名發送界面</translation>
     </message>
     <message>
-        <source>Show warning dialog when PrivateSend detects that wallet has very low number of keys left.</source>
+        <source>Show warning dialog when PRiVCYSend detects that wallet has very low number of keys left.</source>
         <translation>當匿名發送檢測到錢包具有非常少的公鑰時，就顯示警告對話框。</translation>
     </message>
     <message>
-        <source>Warn if PrivateSend is running out of keys</source>
+        <source>Warn if PRiVCYSend is running out of keys</source>
         <translation>如果匿名發送用完公鑰就發出警告</translation>
     </message>
     <message>
-        <source>Whether to use experimental PrivateSend mode with multiple mixing sessions per block.&lt;br/&gt;Note: You must use this feature carefully.&lt;br/&gt;Make sure you always have recent wallet (auto)backup in a safe place!</source>
+        <source>Whether to use experimental PRiVCYSend mode with multiple mixing sessions per block.&lt;br/&gt;Note: You must use this feature carefully.&lt;br/&gt;Make sure you always have recent wallet (auto)backup in a safe place!</source>
         <translation>是否使用實驗性質的匿名發送模式，當中每個區塊都會有多個混合會話。.&lt;br/&gt;注意 : 您必須小心使用此功能。&lt;br/&gt; 確保你總是有最近的錢包 (自動) 備份在一個安全的地方！</translation>
     </message>
     <message>
-        <source>Enable PrivateSend &amp;multi-session</source>
+        <source>Enable PRiVCYSend &amp;multi-session</source>
         <translation>啟用匿名發送多重會話</translation>
     </message>
     <message>
@@ -1401,15 +1401,15 @@
         <translation>如果你關掉「可以花還沒確認的零錢」，那麼交易中找零的零錢&lt;br/&gt;就必須要等交易至少有一次確認後，才能夠使用。&lt;br/&gt;這也會影響餘額的計算方式。</translation>
     </message>
     <message>
-        <source>PrivateSend rounds to use</source>
+        <source>PRiVCYSend rounds to use</source>
         <translation>匿名發送的循環次數</translation>
     </message>
     <message>
-        <source>This amount acts as a threshold to turn off PrivateSend once it's reached.</source>
+        <source>This amount acts as a threshold to turn off PRiVCYSend once it's reached.</source>
         <translation>此金額為關閉匿名發送的門檻。</translation>
     </message>
     <message>
-        <source>Target PrivateSend balance</source>
+        <source>Target PRiVCYSend balance</source>
         <translation>目標匿名發送餘額</translation>
     </message>
     <message>
@@ -1477,11 +1477,11 @@
         <translation>開啟錢幣控制功能(&amp;C)</translation>
     </message>
     <message>
-        <source>Show system popups for PrivateSend mixing transactions&lt;br/&gt;just like for all other transaction types.</source>
+        <source>Show system popups for PRiVCYSend mixing transactions&lt;br/&gt;just like for all other transaction types.</source>
         <translation>顯示匿名發送混合交易的系統彈出窗口 &lt;br/&gt;就像所有其他交易類型一樣。</translation>
     </message>
     <message>
-        <source>Show popups for PrivateSend transactions</source>
+        <source>Show popups for PRiVCYSend transactions</source>
         <translation>顯示匿名發送交易的彈出式窗口</translation>
     </message>
     <message>
@@ -1694,7 +1694,7 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>能夠花費：</translation>
     </message>
     <message>
-        <source>PrivateSend</source>
+        <source>PRiVCYSend</source>
         <translation>匿名發送</translation>
     </message>
     <message>
@@ -1734,7 +1734,7 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>啟動/停止混合</translation>
     </message>
     <message>
-        <source>PrivateSend Balance:</source>
+        <source>PRiVCYSend Balance:</source>
         <translation>匿名發送餘額:</translation>
     </message>
     <message>
@@ -1838,15 +1838,15 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>警告! 無法補充公鑰池，請解鎖您的錢包。</translation>
     </message>
     <message>
-        <source>If you don't want to see internal PrivateSend fees/transactions select "Most Common" as Type on the "Transactions" tab.</source>
+        <source>If you don't want to see internal PRiVCYSend fees/transactions select "Most Common" as Type on the "Transactions" tab.</source>
         <translation>如果你不希望看到內部匿名發送手續費/交易，請在"交易"種類標籤中選擇 "最常用的" 。</translation>
     </message>
     <message>
-        <source>PrivateSend requires at least %1 to use.</source>
+        <source>PRiVCYSend requires at least %1 to use.</source>
         <translation>匿名發送要求至少 %1 才能使用</translation>
     </message>
     <message>
-        <source>Wallet is locked and user declined to unlock. Disabling PrivateSend.</source>
+        <source>Wallet is locked and user declined to unlock. Disabling PRiVCYSend.</source>
         <translation>錢包被鎖定，用戶拒絕解鎖。正在停用匿名發送。</translation>
     </message>
 </context>
@@ -2910,11 +2910,11 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>&lt;b&gt;(在 %2 中 %1 個項目顯示出來)&lt;/b&gt;</translation>
     </message>
     <message>
-        <source>Confirm the PrivateSend action</source>
+        <source>Confirm the PRiVCYSend action</source>
         <translation>確認匿名發送的動作</translation>
     </message>
     <message>
-        <source>PrivateSend funds only</source>
+        <source>PRiVCYSend funds only</source>
         <translation>只限匿名發送資金</translation>
     </message>
     <message>
@@ -2922,7 +2922,7 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>任何可用資金</translation>
     </message>
     <message>
-        <source>(PrivateSend transactions have higher fees usually due to no change output being allowed)</source>
+        <source>(PRiVCYSend transactions have higher fees usually due to no change output being allowed)</source>
         <translation>(由於不允許更改輸出，匿名發送的交易費用會較高)</translation>
     </message>
     <message>
@@ -2938,7 +2938,7 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation><numerusform>此交易將消耗 %n 個輸入</numerusform></translation>
     </message>
     <message>
-        <source>Warning: Using PrivateSend with %1 or more inputs can harm your privacy and is not recommended</source>
+        <source>Warning: Using PRiVCYSend with %1 or more inputs can harm your privacy and is not recommended</source>
         <translation>警告: 將匿名發送資金與 %1 或更多輸入配合使用會損害您的隱私，因此不建議使用</translation>
     </message>
     <message>
@@ -3513,7 +3513,7 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>收款來自</translation>
     </message>
     <message>
-        <source>Received via PrivateSend</source>
+        <source>Received via PRiVCYSend</source>
         <translation>經由匿名發送收到</translation>
     </message>
     <message>
@@ -3529,19 +3529,19 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>開採所得</translation>
     </message>
     <message>
-        <source>PrivateSend Denominate</source>
+        <source>PRiVCYSend Denominate</source>
         <translation>匿名發送除名</translation>
     </message>
     <message>
-        <source>PrivateSend Collateral Payment</source>
+        <source>PRiVCYSend Collateral Payment</source>
         <translation>匿名發送抵押品付款</translation>
     </message>
     <message>
-        <source>PrivateSend Make Collateral Inputs</source>
+        <source>PRiVCYSend Make Collateral Inputs</source>
         <translation>用作匿名發送抵押品的輸入</translation>
     </message>
     <message>
-        <source>PrivateSend Create Denominations</source>
+        <source>PRiVCYSend Create Denominations</source>
         <translation>匿名發送產生的除名資金</translation>
     </message>
     <message>
@@ -3624,19 +3624,19 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>付款給</translation>
     </message>
     <message>
-        <source>PrivateSend Make Collateral Inputs</source>
+        <source>PRiVCYSend Make Collateral Inputs</source>
         <translation>用作匿名發送抵押品的輸入</translation>
     </message>
     <message>
-        <source>PrivateSend Create Denominations</source>
+        <source>PRiVCYSend Create Denominations</source>
         <translation>匿名發送產生的除名資金</translation>
     </message>
     <message>
-        <source>PrivateSend Denominate</source>
+        <source>PRiVCYSend Denominate</source>
         <translation>匿名發送除名</translation>
     </message>
     <message>
-        <source>PrivateSend Collateral Payment</source>
+        <source>PRiVCYSend Collateral Payment</source>
         <translation>匿名發送抵押品付款</translation>
     </message>
     <message>
@@ -4063,7 +4063,7 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>覆蓋最小叉勺簽名來改變叉勺值。只對regtest和devnet有用。在mainnet或testnet上使用它的話將封鎖你。</translation>
     </message>
     <message>
-        <source>PrivateSend uses exact denominated amounts to send funds, you might simply need to mix some more coins.</source>
+        <source>PRiVCYSend uses exact denominated amounts to send funds, you might simply need to mix some more coins.</source>
         <translation>匿名發送要求使用準確的已除名資金來發送，你可能需要再匿名處理一些資金。</translation>
     </message>
     <message>
@@ -4419,7 +4419,7 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>在內存池中的交易不要存放超過 &lt;n&gt; 小時 (預設值: %u)</translation>
     </message>
     <message>
-        <source>Enable multiple PrivateSend mixing sessions per block, experimental (0-1, default: %u)</source>
+        <source>Enable multiple PRiVCYSend mixing sessions per block, experimental (0-1, default: %u)</source>
         <translation>允許在每個區塊中使用多用匿名發送的會話，實驗性功能 (0-1，預設值 : %u)</translation>
     </message>
     <message>
@@ -4523,7 +4523,7 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>嘗試創建每個面額的至少為 N 的輸入 (%u-%u, 預設值: %u)</translation>
     </message>
     <message>
-        <source>Unable to locate enough PrivateSend denominated funds for this transaction.</source>
+        <source>Unable to locate enough PRiVCYSend denominated funds for this transaction.</source>
         <translation>在本之交易中，無法找到足夠的匿名發送已除名資金。</translation>
     </message>
     <message>
@@ -4715,11 +4715,11 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>把交易內存池限制在 &lt;n&gt; MB 以下(預設值: %u)</translation>
     </message>
     <message>
-        <source>Last PrivateSend was too recent.</source>
+        <source>Last PRiVCYSend was too recent.</source>
         <translation>距離上一次匿名發送的時間過短。</translation>
     </message>
     <message>
-        <source>Last successful PrivateSend action was too recent.</source>
+        <source>Last successful PRiVCYSend action was too recent.</source>
         <translation>距離上一次成功送出匿名發送的時間過短。</translation>
     </message>
     <message>
@@ -4803,15 +4803,15 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>列印版本並退出</translation>
     </message>
     <message>
-        <source>PrivateSend is idle.</source>
+        <source>PRiVCYSend is idle.</source>
         <translation>匿名發送處於閒置狀態。</translation>
     </message>
     <message>
-        <source>PrivateSend options:</source>
+        <source>PRiVCYSend options:</source>
         <translation>匿名發送選項:</translation>
     </message>
     <message>
-        <source>PrivateSend request incomplete:</source>
+        <source>PRiVCYSend request incomplete:</source>
         <translation>未完成匿名發送請求:</translation>
     </message>
     <message>
@@ -4863,7 +4863,7 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>正在同步區塊鏈...</translation>
     </message>
     <message>
-        <source>Target PrivateSend balance (%u-%u, default: %u)</source>
+        <source>Target PRiVCYSend balance (%u-%u, default: %u)</source>
         <translation>目標匿名發送餘額 (%u-%u, 預設值: %u)</translation>
     </message>
     <message>
@@ -4991,7 +4991,7 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>依據 MIT 軟體授權條款散布，詳情請見附帶的 %s 檔案或是 %s</translation>
     </message>
     <message>
-        <source>Enable use of PrivateSend for funds stored in this wallet (0-1, default: %u)</source>
+        <source>Enable use of PRiVCYSend for funds stored in this wallet (0-1, default: %u)</source>
         <translation>對存儲在此錢包中的資金啟用匿名發送 (0-1, 預設值: %u)</translation>
     </message>
     <message>
@@ -5055,7 +5055,7 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>此產品包含了由 OpenSSL Project 所開發的 OpenSSL Toolkit 軟體 %s, 由 Eric Young 撰寫的加解密軟體，以及由 Thomas Bernard 所撰寫的 UPnP 軟體。</translation>
     </message>
     <message>
-        <source>Unable to locate enough PrivateSend non-denominated funds for this transaction.</source>
+        <source>Unable to locate enough PRiVCYSend non-denominated funds for this transaction.</source>
         <translation>在本之交易中，無法找到足夠的匿名發送未除名資金。</translation>
     </message>
     <message>
@@ -5271,7 +5271,7 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>指定自己的公開位址</translation>
     </message>
     <message>
-        <source>Start PrivateSend automatically (0-1, default: %u)</source>
+        <source>Start PRiVCYSend automatically (0-1, default: %u)</source>
         <translation>自動啟動匿名發送 (0-1, 預設值: %u)</translation>
     </message>
     <message>

@@ -149,10 +149,10 @@ BITCOIN_CORE_H = \
   evo/providertx.h \
   evo/simplifiedmns.h \
   evo/specialtx.h \
-  privatesend/privatesend.h \
-  privatesend/privatesend-client.h \
-  privatesend/privatesend-server.h \
-  privatesend/privatesend-util.h \
+  privcysend/privcysend.h \
+  privcysend/privcysend-client.h \
+  privcysend/privcysend-server.h \
+  privcysend/privcysend-util.h \
   dsnotificationinterface.h \
   governance/governance.h \
   governance/governance-classes.h \
@@ -330,8 +330,8 @@ libprivcy_server_a_SOURCES = \
   policy/fees.cpp \
   policy/policy.cpp \
   pow.cpp \
-  privatesend/privatesend.cpp \
-  privatesend/privatesend-server.cpp \
+  privcysend/privcysend.cpp \
+  privcysend/privcysend-server.cpp \
   rest.cpp \
   rpc/blockchain.cpp \
   rpc/masternode.cpp \
@@ -344,7 +344,7 @@ libprivcy_server_a_SOURCES = \
   rpc/rpcquorums.cpp \
   rpc/safemode.cpp \
   rpc/server.cpp \
-  rpc/privatesend.cpp \
+  rpc/privcysend.cpp \
   script/sigcache.cpp \
   script/ismine.cpp \
   spork.cpp \
@@ -374,8 +374,8 @@ libprivcy_wallet_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
 libprivcy_wallet_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libprivcy_wallet_a_SOURCES = \
   keepass.cpp \
-  privatesend/privatesend-client.cpp \
-  privatesend/privatesend-util.cpp \
+  privcysend/privcysend-client.cpp \
+  privcysend/privcysend-util.cpp \
   wallet/crypter.cpp \
   wallet/db.cpp \
   wallet/fees.cpp \

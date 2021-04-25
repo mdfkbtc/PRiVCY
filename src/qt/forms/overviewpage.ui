@@ -352,7 +352,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QFrame" name="framePrivateSend">
+        <widget class="QFrame" name="framePRiVCYSend">
          <property name="layoutDirection">
           <enum>Qt::LeftToRight</enum>
          </property>
@@ -366,14 +366,14 @@
           <item>
            <layout class="QHBoxLayout" name="horizontalLayout_5">
             <item>
-             <widget class="QLabel" name="labelPrivateSendHeader">
+             <widget class="QLabel" name="labelPRiVCYSendHeader">
               <property name="text">
-               <string>PrivateSend</string>
+               <string>PRiVCYSend</string>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="QLabel" name="labelPrivateSendSyncStatus">
+             <widget class="QLabel" name="labelPRiVCYSendSyncStatus">
               <property name="toolTip">
                <string>The displayed information may be out of date. Your wallet automatically synchronizes with the PRiVCY network after a connection is established, but this process has not completed yet.</string>
               </property>
@@ -412,14 +412,14 @@
              <number>12</number>
             </property>
             <item row="0" column="0">
-             <widget class="QLabel" name="labelPrivateSendEnabledText">
+             <widget class="QLabel" name="labelPRiVCYSendEnabledText">
               <property name="text">
                <string>Status:</string>
               </property>
              </widget>
             </item>
             <item row="0" column="1">
-             <widget class="QLabel" name="labelPrivateSendEnabled">
+             <widget class="QLabel" name="labelPRiVCYSendEnabled">
               <property name="text">
                <string>Enabled/Disabled</string>
               </property>
@@ -448,7 +448,7 @@
             <item row="2" column="0">
              <widget class="QLabel" name="labelAnonymizedText">
               <property name="text">
-               <string>PrivateSend Balance:</string>
+               <string>PRiVCYSend Balance:</string>
               </property>
              </widget>
             </item>
@@ -516,7 +516,7 @@
                </spacer>
               </item>
               <item>
-               <widget class="QPushButton" name="togglePrivateSend">
+               <widget class="QPushButton" name="togglePRiVCYSend">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
                   <horstretch>0</horstretch>

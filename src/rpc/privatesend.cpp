@@ -4,16 +4,16 @@
 
 #include <validation.h>
 #ifdef ENABLE_WALLET
-#include <privatesend/privatesend-client.h>
+#include <privcysend/privcysend-client.h>
 #endif // ENABLE_WALLET
-#include <privatesend/privatesend-server.h>
+#include <privcysend/privcysend-server.h>
 #include <rpc/server.h>
 #include <rpc/safemode.h>
 
 #include <univalue.h>
 
 #ifdef ENABLE_WALLET
-UniValue privatesend(const JSONRPCRequest& request)
+UniValue privcysend(const JSONRPCRequest& request)
 {
     CWallet* const pwallet = GetWalletForJSONRPCRequest(request);
     if (!EnsureWalletIsAvailable(pwallet, request.fHelp))
@@ -21,7 +21,7 @@ UniValue privatesend(const JSONRPCRequest& request)
 
     if (request.fHelp || request.params.size() != 1)
         throw std::runtime_error(
-            "privatesend \"command\"\n"
+            "privcysend \"command\"\n"
             "\nArguments:\n"
             "1. \"command\"        (string or set of strings, required) The command to execute\n"
             "\nAvailable commands:\n"
@@ -35,12 +35,12 @@ UniValue privatesend(const JSONRPCRequest& request)
     if (fMasternodeMode)
         throw JSONRPCError(RPC_INTERNAL_ERROR, "Client-side mixing is not supported on masternodes");
 
-    if (!privateSendClient.fEnablePrivateSend) {
-        if (!gArgs.GetBoolArg("-enableprivatesend", true)) {
+    if (!privateSendClient.fEnablePRiVCYSend) {
+        if (!gArgs.GetBoolArg("-enableprivcysend", true)) {
             // otherwise it's on by default, unless cmd line option says otherwise
-            throw JSONRPCError(RPC_INTERNAL_ERROR, "Mixing is disabled via -enableprivatesend=0 command line option, remove it to enable mixing again");
+            throw JSONRPCError(RPC_INTERNAL_ERROR, "Mixing is disabled via -enableprivcysend=0 command line option, remove it to enable mixing again");
         } else {
-            // not enableprivatesend=false case,
+            // not enableprivcysend=false case,
             // most likely something bad happened and we disabled it while running the wallet
             throw JSONRPCError(RPC_INTERNAL_ERROR, "Mixing is disabled due to some internal error");
         }
@@ -53,13 +53,13 @@ UniValue privatesend(const JSONRPCRequest& request)
                 throw JSONRPCError(RPC_WALLET_UNLOCK_NEEDED, "Error: Please unlock wallet for mixing with walletpassphrase first.");
         }
 
-        privateSendClient.fPrivateSendRunning = true;
+        privateSendClient.fPRiVCYSendRunning = true;
         bool result = privateSendClient.DoAutomaticDenominating(*g_connman);
         return "Mixing " + (result ? "started successfully" : ("start failed: " + privateSendClient.GetStatuses() + ", will retry"));
     }
 
     if (request.params[0].get_str() == "stop") {
-        privateSendClient.fPrivateSendRunning = false;
+        privateSendClient.fPRiVCYSendRunning = false;
         return "Mixing was stopped";
     }
 
@@ -68,7 +68,7 @@ UniValue privatesend(const JSONRPCRequest& request)
         return "Mixing was reset";
     }
 
-    return "Unknown command, please see \"help privatesend\"";
+    return "Unknown command, please see \"help privcysend\"";
 }
 #endif // ENABLE_WALLET
 
@@ -76,24 +76,24 @@ UniValue getpoolinfo(const JSONRPCRequest& request)
 {
     throw std::runtime_error(
             "getpoolinfo\n"
-            "DEPRECATED. Please use getprivatesendinfo instead.\n"
+            "DEPRECATED. Please use getprivcysendinfo instead.\n"
     );
 }
 
-UniValue getprivatesendinfo(const JSONRPCRequest& request)
+UniValue getprivcysendinfo(const JSONRPCRequest& request)
 {
     if (request.fHelp || request.params.size() != 0) {
         throw std::runtime_error(
-                "getprivatesendinfo\n"
-                "Returns an object containing an information about PrivateSend settings and state.\n"
+                "getprivcysendinfo\n"
+                "Returns an object containing an information about PRiVCYSend settings and state.\n"
                 "\nResult (for regular nodes):\n"
                 "{\n"
                 "  \"enabled\": true|false,             (bool) Whether mixing functionality is enabled\n"
                 "  \"running\": true|false,             (bool) Whether mixing is currently running\n"
-                "  \"multisession\": true|false,        (bool) Whether PrivateSend Multisession option is enabled\n"
+                "  \"multisession\": true|false,        (bool) Whether PRiVCYSend Multisession option is enabled\n"
                 "  \"max_sessions\": xxx,               (numeric) How many parallel mixing sessions can there be at once\n"
                 "  \"max_rounds\": xxx,                 (numeric) How many rounds to mix\n"
-                "  \"max_amount\": xxx,                 (numeric) Target PrivateSend balance in " + CURRENCY_UNIT + "\n"
+                "  \"max_amount\": xxx,                 (numeric) Target PRiVCYSend balance in " + CURRENCY_UNIT + "\n"
                 "  \"denoms_goal\": xxx,                (numeric) How many inputs of each denominated amount to target\n"
                 "  \"denoms_hardcap\": xxx,             (numeric) Maximum limit of how many inputs of each denominated amount to create\n"
                 "  \"queue_size\": xxx,                 (numeric) How many queues there are currently on the network\n"
@@ -120,8 +120,8 @@ UniValue getprivatesendinfo(const JSONRPCRequest& request)
                 "  \"entries_count\": xxx,              (numeric) The number of entries in the mixing session\n"
                 "}\n"
                 "\nExamples:\n"
-                + HelpExampleCli("getprivatesendinfo", "")
-                + HelpExampleRpc("getprivatesendinfo", "")
+                + HelpExampleCli("getprivcysendinfo", "")
+                + HelpExampleRpc("getprivcysendinfo", "")
         );
     }
 
@@ -153,13 +153,13 @@ static const CRPCCommand commands[] =
     { //  category              name                      actor (function)         argNames
         //  --------------------- ------------------------  ---------------------------------
         { "privcy",               "getpoolinfo",            &getpoolinfo,            {} },
-        { "privcy",               "getprivatesendinfo",     &getprivatesendinfo,     {} },
+        { "privcy",               "getprivcysendinfo",     &getprivcysendinfo,     {} },
 #ifdef ENABLE_WALLET
-        { "privcy",               "privatesend",            &privatesend,            {} },
+        { "privcy",               "privcysend",            &privcysend,            {} },
 #endif // ENABLE_WALLET
 };
 
-void RegisterPrivateSendRPCCommands(CRPCTable &t)
+void RegisterPRiVCYSendRPCCommands(CRPCTable &t)
 {
     for (unsigned int vcidx = 0; vcidx < ARRAYLEN(commands); vcidx++)
         t.appendCommand(commands[vcidx].name, &commands[vcidx]);

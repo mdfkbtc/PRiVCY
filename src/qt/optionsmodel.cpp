@@ -22,7 +22,7 @@
 #include <wallet/wallet.h>
 #include <wallet/walletdb.h>
 
-#include <privatesend/privatesend-client.h>
+#include <privcysend/privcysend-client.h>
 #endif
 
 #include <QNetworkProxy>
@@ -112,20 +112,20 @@ void OptionsModel::Init(bool resetSettings)
     if (!settings.contains("digits"))
         settings.setValue("digits", "2");
 
-    // PrivateSend
-    if (!settings.contains("fPrivateSendEnabled")) {
-        settings.setValue("fPrivateSendEnabled", true);
+    // PRiVCYSend
+    if (!settings.contains("fPRiVCYSendEnabled")) {
+        settings.setValue("fPRiVCYSendEnabled", true);
     }
-    if (!gArgs.SoftSetBoolArg("-enableprivatesend", settings.value("fPrivateSendEnabled").toBool())) {
-        addOverriddenOption("-enableprivatesend");
+    if (!gArgs.SoftSetBoolArg("-enableprivcysend", settings.value("fPRiVCYSendEnabled").toBool())) {
+        addOverriddenOption("-enableprivcysend");
     }
 
     if (!settings.contains("fShowAdvancedPSUI"))
         settings.setValue("fShowAdvancedPSUI", false);
     fShowAdvancedPSUI = settings.value("fShowAdvancedPSUI", false).toBool();
 
-    if (!settings.contains("fShowPrivateSendPopups"))
-        settings.setValue("fShowPrivateSendPopups", true);
+    if (!settings.contains("fShowPRiVCYSendPopups"))
+        settings.setValue("fShowPRiVCYSendPopups", true);
 
     if (!settings.contains("fLowKeysWarning"))
         settings.setValue("fLowKeysWarning", true);
@@ -157,29 +157,29 @@ void OptionsModel::Init(bool resetSettings)
     if (!gArgs.SoftSetBoolArg("-spendzeroconfchange", settings.value("bSpendZeroConfChange").toBool()))
         addOverriddenOption("-spendzeroconfchange");
 
-    // PrivateSend
-    if (!settings.contains("nPrivateSendRounds"))
-        settings.setValue("nPrivateSendRounds", DEFAULT_PRIVATESEND_ROUNDS);
-    if (!gArgs.SoftSetArg("-privatesendrounds", settings.value("nPrivateSendRounds").toString().toStdString()))
-        addOverriddenOption("-privatesendrounds");
-    privateSendClient.nPrivateSendRounds = settings.value("nPrivateSendRounds").toInt();
+    // PRiVCYSend
+    if (!settings.contains("nPRiVCYSendRounds"))
+        settings.setValue("nPRiVCYSendRounds", DEFAULT_PRIVATESEND_ROUNDS);
+    if (!gArgs.SoftSetArg("-privcysendrounds", settings.value("nPRiVCYSendRounds").toString().toStdString()))
+        addOverriddenOption("-privcysendrounds");
+    privateSendClient.nPRiVCYSendRounds = settings.value("nPRiVCYSendRounds").toInt();
 
-    if (!settings.contains("nPrivateSendAmount")) {
+    if (!settings.contains("nPRiVCYSendAmount")) {
         // for migration from old settings
         if (!settings.contains("nAnonymizePRiVCYAmount"))
-            settings.setValue("nPrivateSendAmount", DEFAULT_PRIVATESEND_AMOUNT);
+            settings.setValue("nPRiVCYSendAmount", DEFAULT_PRIVATESEND_AMOUNT);
         else
-            settings.setValue("nPrivateSendAmount", settings.value("nAnonymizePRiVCYAmount").toInt());
+            settings.setValue("nPRiVCYSendAmount", settings.value("nAnonymizePRiVCYAmount").toInt());
     }
-    if (!gArgs.SoftSetArg("-privatesendamount", settings.value("nPrivateSendAmount").toString().toStdString()))
-        addOverriddenOption("-privatesendamount");
-    privateSendClient.nPrivateSendAmount = settings.value("nPrivateSendAmount").toInt();
+    if (!gArgs.SoftSetArg("-privcysendamount", settings.value("nPRiVCYSendAmount").toString().toStdString()))
+        addOverriddenOption("-privcysendamount");
+    privateSendClient.nPRiVCYSendAmount = settings.value("nPRiVCYSendAmount").toInt();
 
-    if (!settings.contains("fPrivateSendMultiSession"))
-        settings.setValue("fPrivateSendMultiSession", DEFAULT_PRIVATESEND_MULTISESSION);
-    if (!gArgs.SoftSetBoolArg("-privatesendmultisession", settings.value("fPrivateSendMultiSession").toBool()))
-        addOverriddenOption("-privatesendmultisession");
-    privateSendClient.fPrivateSendMultiSession = settings.value("fPrivateSendMultiSession").toBool();
+    if (!settings.contains("fPRiVCYSendMultiSession"))
+        settings.setValue("fPRiVCYSendMultiSession", DEFAULT_PRIVATESEND_MULTISESSION);
+    if (!gArgs.SoftSetBoolArg("-privcysendmultisession", settings.value("fPRiVCYSendMultiSession").toBool()))
+        addOverriddenOption("-privcysendmultisession");
+    privateSendClient.fPRiVCYSendMultiSession = settings.value("fPRiVCYSendMultiSession").toBool();
 #endif
 
     // Network
@@ -337,20 +337,20 @@ QVariant OptionsModel::data(const QModelIndex & index, int role) const
             return settings.value("bSpendZeroConfChange");
         case ShowMasternodesTab:
             return settings.value("fShowMasternodesTab");
-        case PrivateSendEnabled:
-            return settings.value("fPrivateSendEnabled");
+        case PRiVCYSendEnabled:
+            return settings.value("fPRiVCYSendEnabled");
         case ShowAdvancedPSUI:
             return fShowAdvancedPSUI;
-        case ShowPrivateSendPopups:
-            return settings.value("fShowPrivateSendPopups");
+        case ShowPRiVCYSendPopups:
+            return settings.value("fShowPRiVCYSendPopups");
         case LowKeysWarning:
             return settings.value("fLowKeysWarning");
-        case PrivateSendRounds:
-            return settings.value("nPrivateSendRounds");
-        case PrivateSendAmount:
-            return settings.value("nPrivateSendAmount");
-        case PrivateSendMultiSession:
-            return settings.value("fPrivateSendMultiSession");
+        case PRiVCYSendRounds:
+            return settings.value("nPRiVCYSendRounds");
+        case PRiVCYSendAmount:
+            return settings.value("nPRiVCYSendAmount");
+        case PRiVCYSendMultiSession:
+            return settings.value("fPRiVCYSendMultiSession");
 #endif
         case DisplayUnit:
             return nDisplayUnit;
@@ -490,9 +490,9 @@ bool OptionsModel::setData(const QModelIndex & index, const QVariant & value, in
                 setRestartRequired(true);
             }
             break;
-        case PrivateSendEnabled:
-            if (settings.value("fPrivateSendEnabled") != value) {
-                settings.setValue("fPrivateSendEnabled", value.toBool());
+        case PRiVCYSendEnabled:
+            if (settings.value("fPRiVCYSendEnabled") != value) {
+                settings.setValue("fPRiVCYSendEnabled", value.toBool());
                 Q_EMIT privateSendEnabledChanged();
             }
             break;
@@ -503,33 +503,33 @@ bool OptionsModel::setData(const QModelIndex & index, const QVariant & value, in
                 Q_EMIT advancedPSUIChanged(fShowAdvancedPSUI);
             }
             break;
-        case ShowPrivateSendPopups:
-            settings.setValue("fShowPrivateSendPopups", value);
+        case ShowPRiVCYSendPopups:
+            settings.setValue("fShowPRiVCYSendPopups", value);
             break;
         case LowKeysWarning:
             settings.setValue("fLowKeysWarning", value);
             break;
-        case PrivateSendRounds:
-            if (settings.value("nPrivateSendRounds") != value)
+        case PRiVCYSendRounds:
+            if (settings.value("nPRiVCYSendRounds") != value)
             {
-                privateSendClient.nPrivateSendRounds = value.toInt();
-                settings.setValue("nPrivateSendRounds", privateSendClient.nPrivateSendRounds);
+                privateSendClient.nPRiVCYSendRounds = value.toInt();
+                settings.setValue("nPRiVCYSendRounds", privateSendClient.nPRiVCYSendRounds);
                 Q_EMIT privateSendRoundsChanged();
             }
             break;
-        case PrivateSendAmount:
-            if (settings.value("nPrivateSendAmount") != value)
+        case PRiVCYSendAmount:
+            if (settings.value("nPRiVCYSendAmount") != value)
             {
-                privateSendClient.nPrivateSendAmount = value.toInt();
-                settings.setValue("nPrivateSendAmount", privateSendClient.nPrivateSendAmount);
+                privateSendClient.nPRiVCYSendAmount = value.toInt();
+                settings.setValue("nPRiVCYSendAmount", privateSendClient.nPRiVCYSendAmount);
                 Q_EMIT privateSentAmountChanged();
             }
             break;
-        case PrivateSendMultiSession:
-            if (settings.value("fPrivateSendMultiSession") != value)
+        case PRiVCYSendMultiSession:
+            if (settings.value("fPRiVCYSendMultiSession") != value)
             {
-                privateSendClient.fPrivateSendMultiSession = value.toBool();
-                settings.setValue("fPrivateSendMultiSession", privateSendClient.fPrivateSendMultiSession);
+                privateSendClient.fPRiVCYSendMultiSession = value.toBool();
+                settings.setValue("fPRiVCYSendMultiSession", privateSendClient.fPRiVCYSendMultiSession);
             }
             break;
 #endif
@@ -650,7 +650,7 @@ bool OptionsModel::getProxySettings(QNetworkProxy& proxy) const
     return false;
 }
 
-void OptionsModel::emitPrivateSendEnabledChanged()
+void OptionsModel::emitPRiVCYSendEnabledChanged()
 {
     Q_EMIT privateSendEnabledChanged();
 }

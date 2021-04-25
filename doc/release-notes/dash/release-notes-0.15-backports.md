@@ -645,7 +645,7 @@
 - [`f8c5a14f3`](https://github.com/privcypay/privcy/commit/f8c5a14f3) Merge #9942: Refactor CBlockPolicyEstimator
 - [`8675a5064`](https://github.com/privcypay/privcy/commit/8675a5064) Add TODO comment about need to remove compatibility code
 - [`617c4a4cc`](https://github.com/privcypay/privcy/commit/617c4a4cc) Use mapDSTX.find() instead of count() and []
-- [`8df25bbfe`](https://github.com/privcypay/privcy/commit/8df25bbfe) Call and implemente new signals in CPrivateSend
+- [`8df25bbfe`](https://github.com/privcypay/privcy/commit/8df25bbfe) Call and implemente new signals in CPRiVCYSend
 - [`816efa9cd`](https://github.com/privcypay/privcy/commit/816efa9cd) Add missing directories to CMakeLists.txt and sort the list
 - [`715a3e951`](https://github.com/privcypay/privcy/commit/715a3e951) Move updating of txFirstSeenTime into TransactionAddedToMempool and BlockConnected
 - [`a61127e1a`](https://github.com/privcypay/privcy/commit/a61127e1a) Move filling of blockTxs into BlockConnected

@@ -56,7 +56,7 @@
 #include <masternode/masternode-utils.h>
 #include <messagesigner.h>
 #include <netfulfilledman.h>
-#include <privatesend/privatesend-server.h>
+#include <privcysend/privcysend-server.h>
 #include <spork.h>
 #include <warnings.h>
 #include <walletinitinterface.h>
@@ -111,9 +111,9 @@ public:
     void Stop() override {}
     void Close() override {}
 
-    // PRiVCY Specific WalletInitInterface InitPrivateSendSettings
+    // PRiVCY Specific WalletInitInterface InitPRiVCYSendSettings
     void AutoLockMasternodeCollaterals() override {}
-    void InitPrivateSendSettings() override {}
+    void InitPRiVCYSendSettings() override {}
     void InitKeePass() override {}
     bool InitAutoBackup() override {return true;}
 };
@@ -2116,10 +2116,10 @@ bool AppInitMain()
         activeMasternodeInfo.blsPubKeyOperator = std::make_unique<CBLSPublicKey>();
     }
 
-    // ********************************************************* Step 10b: setup PrivateSend
+    // ********************************************************* Step 10b: setup PRiVCYSend
 
-    g_wallet_init_interface->InitPrivateSendSettings();
-    CPrivateSend::InitStandardDenominations();
+    g_wallet_init_interface->InitPRiVCYSendSettings();
+    CPRiVCYSend::InitStandardDenominations();
 
     // ********************************************************* Step 10b: Load cache data
 
@@ -2190,7 +2190,7 @@ bool AppInitMain()
     }
 
     if (fMasternodeMode) {
-        scheduler.scheduleEvery(boost::bind(&CPrivateSendServer::DoMaintenance, boost::ref(privateSendServer), boost::ref(*g_connman)), 1 * 1000);
+        scheduler.scheduleEvery(boost::bind(&CPRiVCYSendServer::DoMaintenance, boost::ref(privateSendServer), boost::ref(*g_connman)), 1 * 1000);
     }
 
     llmq::StartLLMQSystem();

@@ -392,8 +392,8 @@
         <translation>&amp;เกี่ยวกับ %1</translation>
     </message>
     <message>
-        <source>PrivateSend coins to a PRiVCY address</source>
-        <translation>PrivateSend เหรียญไปที่ที่อยู่ PRiVCY</translation>
+        <source>PRiVCYSend coins to a PRiVCY address</source>
+        <translation>PRiVCYSend เหรียญไปที่ที่อยู่ PRiVCY</translation>
     </message>
     <message>
         <source>Modify configuration options for %1</source>
@@ -556,12 +556,12 @@
         <translation>กระเป๋าสตางค์ &lt;b&gt;ไม่ได้ถูกเข้ารหัส&lt;/b&gt;</translation>
     </message>
     <message>
-        <source>&amp;PrivateSend information</source>
-        <translation>&amp;ข้อมูล PrivateSend</translation>
+        <source>&amp;PRiVCYSend information</source>
+        <translation>&amp;ข้อมูล PRiVCYSend</translation>
     </message>
     <message>
-        <source>Show the PrivateSend basic information</source>
-        <translation>แสดงข้อมูลพื้นฐานของ PrivateSend</translation>
+        <source>Show the PRiVCYSend basic information</source>
+        <translation>แสดงข้อมูลพื้นฐานของ PRiVCYSend</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -1054,12 +1054,12 @@
         <translation>รีเซตการเปลี่ยนการตั้งค่าทั้งหมดใน GUI</translation>
     </message>
     <message>
-        <source>PrivateSend information</source>
-        <translation>ข้อมูล PrivateSend</translation>
+        <source>PRiVCYSend information</source>
+        <translation>ข้อมูล PRiVCYSend</translation>
     </message>
     <message>
-        <source>&lt;h3&gt;PrivateSend Basics&lt;/h3&gt; PrivateSend gives you true financial privacy by obscuring the origins of your funds. All the PRiVCY in your wallet is comprised of different "inputs" which you can think of as separate, discrete coins.&lt;br&gt; PrivateSend uses an innovative process to mix your inputs with the inputs of two or more other people, without having your coins ever leave your wallet. You retain control of your money at all times.&lt;hr&gt; &lt;b&gt;The PrivateSend process works like this:&lt;/b&gt;&lt;ol type="1"&gt; &lt;li&gt;PrivateSend begins by breaking your transaction inputs down into standard denominations. These denominations are 0.001 PRIV, 0.01 PRIV, 0.1 PRIV, 1 PRIV and 10 PRIV -- sort of like the paper money you use every day.&lt;/li&gt; &lt;li&gt;Your wallet then sends requests to specially configured software nodes on the network, called "masternodes." These masternodes are informed then that you are interested in mixing a certain denomination. No identifiable information is sent to the masternodes, so they never know "who" you are.&lt;/li&gt; &lt;li&gt;When two or more other people send similar messages, indicating that they wish to mix the same denomination, a mixing session begins. The masternode mixes up the inputs and instructs all three users' wallets to pay the now-transformed input back to themselves. Your wallet pays that denomination directly to itself, but in a different address (called a change address).&lt;/li&gt; &lt;li&gt;In order to fully obscure your funds, your wallet must repeat this process a number of times with each denomination. Each time the process is completed, it's called a "round." Each round of PrivateSend makes it exponentially more difficult to determine where your funds originated.&lt;/li&gt; &lt;li&gt;This mixing process happens in the background without any intervention on your part. When you wish to make a transaction, your funds will already be mixed. No additional waiting is required.&lt;/li&gt; &lt;/ol&gt; &lt;hr&gt;&lt;b&gt;IMPORTANT:&lt;/b&gt; Your wallet only contains 1000 of these "change addresses." Every time a mixing event happens, up to 9 of your addresses are used up. This means those 1000 addresses last for about 100 mixing events. When 900 of them are used, your wallet must create more addresses. It can only do this, however, if you have automatic backups enabled.&lt;br&gt; Consequently, users who have backups disabled will also have PrivateSend disabled. &lt;hr&gt;For more information, see the &lt;a style="%1" href="https://docs.privcy.org/en/stable/wallets/privcycore/privatesend-instantsend.html"&gt;PrivateSend documentation&lt;/a&gt;.</source>
-        <translation>&lt;h3&gt;ข้อมูลเบื้องต้นเกี่ยวกับ PrivateSend &lt;/h3&gt;PrivateSendให้ความเป็นส่วนตัวทางการเงินที่แท้จริงโดยการปิดบังต้นกำเนิดของเงินทุนของคุณ PRiVCY ทั้งหมดในกระเป๋าเงินของคุณประกอบด้วย &amp;quot;อินพุต&amp;quot; ที่แตกต่างกันซึ่งคุณสามารถแยกเหรียญออกจากกัน ได้&lt;br&gt;PrivateSend ใช้กระบวนการที่เป็นนวัตกรรมในการผสมผสานอินพุตของคุณกับอินพุตของคนอื่น ๆ สองคน โดยไม่ต้องเก็บเหรียญไว้ในกระเป๋าอิเลกทรอนิกส์ของคุณ และคุณสามารถควบคุมเงินของคุณได้ตลอดเวลา&lt;hr&gt; &lt;b&gt;กระบวนการของ PrivateSendจะทำงานดังต่อไปนี้: &lt;/b&gt;&lt;ol type="1"&gt;&lt;li&gt; PrivareSend จะเริ่มต้นด้วยการทำธุรกรรมของคุณให้เป็นหน่วยเงินตรามาตรฐาน หน่วยเงินตราเหล่านี้คือ 0.001 PRIV 0.01 PRIV 0.1 PRIV 1 PRIV และ 10 PRIV – ดั่งเช่นเงินสดที่คุณใช้ในทุก ๆ วัน &lt;/li&gt;&lt;li&gt; กระเป๋าเงินอิเลกทรอนิกส์ของคุณจะส่งคำขอไปยังซอฟต์แวร์ที่กำหนดค่าพิเศษในเครือข่ายที่เรียกว่า "masternodes" masternodes เหล่านี้จะได้รับแจ้งว่าคุณมีความสนใจในผสมเงินตราบางอย่าง แตจะไม่มีการส่งข้อมูลที่ระบุตัวตนไปยัง masternodes ดังนั้นพวกเขาจึงไม่เคยรู้ว่า "คุณ" คือใคร &lt;/li&gt;&lt;li&gt;  เมื่อมีคนอื่นสองคนส่งข้อความที่คล้ายกัน ซึ่งบ่งชี้ว่าพวกเขาต้องการผสมหน่วยเงินตราเดียวกัน กระบวนการผสมก็จะเริ่มต้นขึ้น masternode จะรวมอินพุตและสั่งให้กระเป๋าเงินอิเลกทรอนิกส์ของผู้ใช้ทั้งสามคนจ่ายอินพุตที่แปลงตอนนี้กลับคืนสู่ตัวเอง กระเป๋าเงินของคุณจ่ายเงินให้กับตัวเองโดยตรง แต่ในที่อยู่บัญชี (Address) อื่น เรียกว่า “change address” &lt;/li&gt;&lt;li&gt; เพื่อที่จะบดบังเงินทุนของคุณอย่างเต็มที่ กระเป๋าเงินของคุณจะต้องทำซ้ำขั้นตอนนี้หลายครั้งในแต่ละสกุลเงิน ทุกครั้งที่กระบวนการเสร็จสิ้นจะเรียกว่า "รอบ" สำหรับPrivateSend แต่ละรอบทำให้ยากต่อการระบุว่าเงินของคุณมาจากแหล่งใด &lt;/li&gt;&lt;li&gt; กระบวนการผสมนี้เกิดขึ้นในกระบวนการหลังบ้าน โดยไม่มีการแทรกแซงในส่วนของคุณ เมื่อคุณต้องการทำธุรกรรม เงินของคุณจะถูกผสมกันแล้ว ไม่จำเป็นต้องรออีก&lt;/li&gt;&lt;/ol&gt;&lt;hr&gt;&lt;b&gt; ข้อสำคัญ: &lt;/b&gt;กระเป๋าเงินของคุณมี "change address" เพียง 1000 รายการเท่านั้น ทุกครั้งที่มีกระบวนการผสมเงินตราเกินขึ้น change address ของคุณจะถูกใช้ไปสูงสุด 9 รายการ ซึ่งหมายความว่า 1000 ที่อยู่เหล่านั้นมีอายุการใช้งานประมาณ 100 ครั้ง เมื่อใช้ 900 รายการกระเป๋าเงินของคุณจะต้องสร้างที่อยู่เพิ่มเติม อย่างไรก็ตาม กระบวนการนี้สามารถทำได้ก็ต่อเมื่อคุณเปิดใช้งานการสำรองข้อมูลอัตโนมัติ &lt;br&gt;ดังนั้นผู้ใช้ที่ปิดใช้งานการสำรองข้อมูลระบบ PrivateSend ก็จะถูกปิดใช้งานด้วย&lt;hr&gt;สำหรับข้อมูลเพิ่มเติมโปรดดูที่ &lt;a style="%1" href="https://docs.privcy.org/en/stable/wallets/privcycore/privatesend-instantsend.html"&gt;เอกสารอ้างอิงของ PrivateSend &lt;/a&gt;</translation>
+        <source>&lt;h3&gt;PRiVCYSend Basics&lt;/h3&gt; PRiVCYSend gives you true financial privacy by obscuring the origins of your funds. All the PRiVCY in your wallet is comprised of different "inputs" which you can think of as separate, discrete coins.&lt;br&gt; PRiVCYSend uses an innovative process to mix your inputs with the inputs of two or more other people, without having your coins ever leave your wallet. You retain control of your money at all times.&lt;hr&gt; &lt;b&gt;The PRiVCYSend process works like this:&lt;/b&gt;&lt;ol type="1"&gt; &lt;li&gt;PRiVCYSend begins by breaking your transaction inputs down into standard denominations. These denominations are 0.001 PRIV, 0.01 PRIV, 0.1 PRIV, 1 PRIV and 10 PRIV -- sort of like the paper money you use every day.&lt;/li&gt; &lt;li&gt;Your wallet then sends requests to specially configured software nodes on the network, called "masternodes." These masternodes are informed then that you are interested in mixing a certain denomination. No identifiable information is sent to the masternodes, so they never know "who" you are.&lt;/li&gt; &lt;li&gt;When two or more other people send similar messages, indicating that they wish to mix the same denomination, a mixing session begins. The masternode mixes up the inputs and instructs all three users' wallets to pay the now-transformed input back to themselves. Your wallet pays that denomination directly to itself, but in a different address (called a change address).&lt;/li&gt; &lt;li&gt;In order to fully obscure your funds, your wallet must repeat this process a number of times with each denomination. Each time the process is completed, it's called a "round." Each round of PRiVCYSend makes it exponentially more difficult to determine where your funds originated.&lt;/li&gt; &lt;li&gt;This mixing process happens in the background without any intervention on your part. When you wish to make a transaction, your funds will already be mixed. No additional waiting is required.&lt;/li&gt; &lt;/ol&gt; &lt;hr&gt;&lt;b&gt;IMPORTANT:&lt;/b&gt; Your wallet only contains 1000 of these "change addresses." Every time a mixing event happens, up to 9 of your addresses are used up. This means those 1000 addresses last for about 100 mixing events. When 900 of them are used, your wallet must create more addresses. It can only do this, however, if you have automatic backups enabled.&lt;br&gt; Consequently, users who have backups disabled will also have PRiVCYSend disabled. &lt;hr&gt;For more information, see the &lt;a style="%1" href="https://docs.privcy.org/en/stable/wallets/privcycore/privcysend-instantsend.html"&gt;PRiVCYSend documentation&lt;/a&gt;.</source>
+        <translation>&lt;h3&gt;ข้อมูลเบื้องต้นเกี่ยวกับ PRiVCYSend &lt;/h3&gt;PRiVCYSendให้ความเป็นส่วนตัวทางการเงินที่แท้จริงโดยการปิดบังต้นกำเนิดของเงินทุนของคุณ PRiVCY ทั้งหมดในกระเป๋าเงินของคุณประกอบด้วย &amp;quot;อินพุต&amp;quot; ที่แตกต่างกันซึ่งคุณสามารถแยกเหรียญออกจากกัน ได้&lt;br&gt;PRiVCYSend ใช้กระบวนการที่เป็นนวัตกรรมในการผสมผสานอินพุตของคุณกับอินพุตของคนอื่น ๆ สองคน โดยไม่ต้องเก็บเหรียญไว้ในกระเป๋าอิเลกทรอนิกส์ของคุณ และคุณสามารถควบคุมเงินของคุณได้ตลอดเวลา&lt;hr&gt; &lt;b&gt;กระบวนการของ PRiVCYSendจะทำงานดังต่อไปนี้: &lt;/b&gt;&lt;ol type="1"&gt;&lt;li&gt; PrivareSend จะเริ่มต้นด้วยการทำธุรกรรมของคุณให้เป็นหน่วยเงินตรามาตรฐาน หน่วยเงินตราเหล่านี้คือ 0.001 PRIV 0.01 PRIV 0.1 PRIV 1 PRIV และ 10 PRIV – ดั่งเช่นเงินสดที่คุณใช้ในทุก ๆ วัน &lt;/li&gt;&lt;li&gt; กระเป๋าเงินอิเลกทรอนิกส์ของคุณจะส่งคำขอไปยังซอฟต์แวร์ที่กำหนดค่าพิเศษในเครือข่ายที่เรียกว่า "masternodes" masternodes เหล่านี้จะได้รับแจ้งว่าคุณมีความสนใจในผสมเงินตราบางอย่าง แตจะไม่มีการส่งข้อมูลที่ระบุตัวตนไปยัง masternodes ดังนั้นพวกเขาจึงไม่เคยรู้ว่า "คุณ" คือใคร &lt;/li&gt;&lt;li&gt;  เมื่อมีคนอื่นสองคนส่งข้อความที่คล้ายกัน ซึ่งบ่งชี้ว่าพวกเขาต้องการผสมหน่วยเงินตราเดียวกัน กระบวนการผสมก็จะเริ่มต้นขึ้น masternode จะรวมอินพุตและสั่งให้กระเป๋าเงินอิเลกทรอนิกส์ของผู้ใช้ทั้งสามคนจ่ายอินพุตที่แปลงตอนนี้กลับคืนสู่ตัวเอง กระเป๋าเงินของคุณจ่ายเงินให้กับตัวเองโดยตรง แต่ในที่อยู่บัญชี (Address) อื่น เรียกว่า “change address” &lt;/li&gt;&lt;li&gt; เพื่อที่จะบดบังเงินทุนของคุณอย่างเต็มที่ กระเป๋าเงินของคุณจะต้องทำซ้ำขั้นตอนนี้หลายครั้งในแต่ละสกุลเงิน ทุกครั้งที่กระบวนการเสร็จสิ้นจะเรียกว่า "รอบ" สำหรับPRiVCYSend แต่ละรอบทำให้ยากต่อการระบุว่าเงินของคุณมาจากแหล่งใด &lt;/li&gt;&lt;li&gt; กระบวนการผสมนี้เกิดขึ้นในกระบวนการหลังบ้าน โดยไม่มีการแทรกแซงในส่วนของคุณ เมื่อคุณต้องการทำธุรกรรม เงินของคุณจะถูกผสมกันแล้ว ไม่จำเป็นต้องรออีก&lt;/li&gt;&lt;/ol&gt;&lt;hr&gt;&lt;b&gt; ข้อสำคัญ: &lt;/b&gt;กระเป๋าเงินของคุณมี "change address" เพียง 1000 รายการเท่านั้น ทุกครั้งที่มีกระบวนการผสมเงินตราเกินขึ้น change address ของคุณจะถูกใช้ไปสูงสุด 9 รายการ ซึ่งหมายความว่า 1000 ที่อยู่เหล่านั้นมีอายุการใช้งานประมาณ 100 ครั้ง เมื่อใช้ 900 รายการกระเป๋าเงินของคุณจะต้องสร้างที่อยู่เพิ่มเติม อย่างไรก็ตาม กระบวนการนี้สามารถทำได้ก็ต่อเมื่อคุณเปิดใช้งานการสำรองข้อมูลอัตโนมัติ &lt;br&gt;ดังนั้นผู้ใช้ที่ปิดใช้งานการสำรองข้อมูลระบบ PRiVCYSend ก็จะถูกปิดใช้งานด้วย&lt;hr&gt;สำหรับข้อมูลเพิ่มเติมโปรดดูที่ &lt;a style="%1" href="https://docs.privcy.org/en/stable/wallets/privcycore/privcysend-instantsend.html"&gt;เอกสารอ้างอิงของ PRiVCYSend &lt;/a&gt;</translation>
     </message>
 </context>
 <context>
@@ -1373,44 +1373,44 @@
         <translation>แสดงแถบ Masternodes</translation>
     </message>
     <message>
-        <source>Show additional information and buttons for PrivateSend on overview screen.</source>
-        <translation>แสดงข้อมูลเพิ่มเติมและปุ่มสำหรับ PrivateSend บนหน้าจอ</translation>
+        <source>Show additional information and buttons for PRiVCYSend on overview screen.</source>
+        <translation>แสดงข้อมูลเพิ่มเติมและปุ่มสำหรับ PRiVCYSend บนหน้าจอ</translation>
     </message>
     <message>
-        <source>Enable advanced PrivateSend interface</source>
-        <translation>เปิดใช้งานอินเทอร์เฟซขั้นสูงของ PrivateSend</translation>
+        <source>Enable advanced PRiVCYSend interface</source>
+        <translation>เปิดใช้งานอินเทอร์เฟซขั้นสูงของ PRiVCYSend</translation>
     </message>
     <message>
-        <source>Show warning dialog when PrivateSend detects that wallet has very low number of keys left.</source>
-        <translation>แสดงข้อความแจ้งเตือนเมื่อ PrivateSend ตรวจพบว่ากระเป๋าสตางค์มีจำนวนคีย์ที่เหลืออยู่ต่ำมาก</translation>
+        <source>Show warning dialog when PRiVCYSend detects that wallet has very low number of keys left.</source>
+        <translation>แสดงข้อความแจ้งเตือนเมื่อ PRiVCYSend ตรวจพบว่ากระเป๋าสตางค์มีจำนวนคีย์ที่เหลืออยู่ต่ำมาก</translation>
     </message>
     <message>
-        <source>Warn if PrivateSend is running out of keys</source>
-        <translation>แจ้งเตือนหากคีย์ PrivateSend กำลังจะหมด</translation>
+        <source>Warn if PRiVCYSend is running out of keys</source>
+        <translation>แจ้งเตือนหากคีย์ PRiVCYSend กำลังจะหมด</translation>
     </message>
     <message>
-        <source>Whether to use experimental PrivateSend mode with multiple mixing sessions per block.&lt;br/&gt;Note: You must use this feature carefully.&lt;br/&gt;Make sure you always have recent wallet (auto)backup in a safe place!</source>
-        <translation>ไม่ว่าจะใช้โหมด PrivateSend แบบทดลองกับการผสมหลายเซสชันต่อบล็อกหรือไม่&lt;br/&gt;หมายเหตุ: คุณต้องใช้คุณลักษณะนี้อย่างระมัดระวัง&lt;br/&gt;ตรวจสอบให้แน่ใจว่าคุณได้สำรองข้อมูล wallet (อัตโนมัติ) ไว้ในที่ปลอดภัยทุกครั้ง!</translation>
+        <source>Whether to use experimental PRiVCYSend mode with multiple mixing sessions per block.&lt;br/&gt;Note: You must use this feature carefully.&lt;br/&gt;Make sure you always have recent wallet (auto)backup in a safe place!</source>
+        <translation>ไม่ว่าจะใช้โหมด PRiVCYSend แบบทดลองกับการผสมหลายเซสชันต่อบล็อกหรือไม่&lt;br/&gt;หมายเหตุ: คุณต้องใช้คุณลักษณะนี้อย่างระมัดระวัง&lt;br/&gt;ตรวจสอบให้แน่ใจว่าคุณได้สำรองข้อมูล wallet (อัตโนมัติ) ไว้ในที่ปลอดภัยทุกครั้ง!</translation>
     </message>
     <message>
-        <source>Enable PrivateSend &amp;multi-session</source>
-        <translation>เปิดใช้งาน PrivateSend &amp;multi-session</translation>
+        <source>Enable PRiVCYSend &amp;multi-session</source>
+        <translation>เปิดใช้งาน PRiVCYSend &amp;multi-session</translation>
     </message>
     <message>
         <source>If you disable the spending of unconfirmed change, the change from a transaction&lt;br/&gt;cannot be used until that transaction has at least one confirmation.&lt;br/&gt;This also affects how your balance is computed.</source>
         <translation>ถ้าหากคุณปิดการใช้จ่ายในการเปลี่ยนแปลงที่ไม่ได้รับการยืนยัน การเปลี่ยนแปลงจากธุรกรรม&lt;br/&gt;จะไม่สามารถใช้ได้จนกว่ารายการดังกล่าวจะมีการยืนยันอย่างน้อยหนึ่งรายการ&lt;br/&gt;นอกจากนี้ยังมีผลต่อการคำนวณยอดคงเหลือของคุณอีกด้วย</translation>
     </message>
     <message>
-        <source>PrivateSend rounds to use</source>
-        <translation>จำนวนรอบ PrivateSend ที่ใช้</translation>
+        <source>PRiVCYSend rounds to use</source>
+        <translation>จำนวนรอบ PRiVCYSend ที่ใช้</translation>
     </message>
     <message>
-        <source>This amount acts as a threshold to turn off PrivateSend once it's reached.</source>
-        <translation>จำนวนนี้ทำหน้าที่เป็นเกณฑ์เพื่อปิดการใช้งาน PrivateSend เมื่อถึงขีดจำกัดแล้ว</translation>
+        <source>This amount acts as a threshold to turn off PRiVCYSend once it's reached.</source>
+        <translation>จำนวนนี้ทำหน้าที่เป็นเกณฑ์เพื่อปิดการใช้งาน PRiVCYSend เมื่อถึงขีดจำกัดแล้ว</translation>
     </message>
     <message>
-        <source>Target PrivateSend balance</source>
-        <translation>ยอดเงินคงเหลือที่กำหนดไว้ในการทำธุรกรรมแบบ PrivateSend</translation>
+        <source>Target PRiVCYSend balance</source>
+        <translation>ยอดเงินคงเหลือที่กำหนดไว้ในการทำธุรกรรมแบบ PRiVCYSend</translation>
     </message>
     <message>
         <source>Automatically open the PRiVCY Core client port on the router. This only works when your router supports UPnP and it is enabled.</source>
@@ -1477,12 +1477,12 @@
         <translation>เปิดใช้เหรียญ &amp;รูปแบบการควบคุม</translation>
     </message>
     <message>
-        <source>Show system popups for PrivateSend mixing transactions&lt;br/&gt;just like for all other transaction types.</source>
-        <translation>แสดงระบบป๊อปอัพสำหรับทำธุรกรรมผสม PrivateSend &lt;br/&gt; เช่นเดียวกับทำธุรกรรมแบบประเภทอื่นๆ</translation>
+        <source>Show system popups for PRiVCYSend mixing transactions&lt;br/&gt;just like for all other transaction types.</source>
+        <translation>แสดงระบบป๊อปอัพสำหรับทำธุรกรรมผสม PRiVCYSend &lt;br/&gt; เช่นเดียวกับทำธุรกรรมแบบประเภทอื่นๆ</translation>
     </message>
     <message>
-        <source>Show popups for PrivateSend transactions</source>
-        <translation>แสดงป๊อปอัปสำหรับธุรกรรม PrivateSend</translation>
+        <source>Show popups for PRiVCYSend transactions</source>
+        <translation>แสดงป๊อปอัปสำหรับธุรกรรม PRiVCYSend</translation>
     </message>
     <message>
         <source>&amp;Spend unconfirmed change</source>
@@ -1694,7 +1694,7 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>ที่สามารถใช้ได้: </translation>
     </message>
     <message>
-        <source>PrivateSend</source>
+        <source>PRiVCYSend</source>
         <translation>การส่งแบบส่วนตัว</translation>
     </message>
     <message>
@@ -1734,8 +1734,8 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>เริ่ม / หยุดการผสม</translation>
     </message>
     <message>
-        <source>PrivateSend Balance:</source>
-        <translation>PrivateSend ยอดคงเหลือ : </translation>
+        <source>PRiVCYSend Balance:</source>
+        <translation>PRiVCYSend ยอดคงเหลือ : </translation>
     </message>
     <message>
         <source>The denominations you submitted to the Masternode.&lt;br&gt;To mix, other users must submit the exact same denominations.</source>
@@ -1838,16 +1838,16 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>คำเตือน! ไม่สามารถเติม keypool ได้ โปรดปลดล็อกกระเป๋าสตางค์ของคุณ</translation>
     </message>
     <message>
-        <source>If you don't want to see internal PrivateSend fees/transactions select "Most Common" as Type on the "Transactions" tab.</source>
-        <translation>หากคุณไม่ต้องการเห็นค่าธรรมเนียม PrivateSend / ธุรกรรม  ให้เลือก "Most Common" เป็นประเภท "Transactions"</translation>
+        <source>If you don't want to see internal PRiVCYSend fees/transactions select "Most Common" as Type on the "Transactions" tab.</source>
+        <translation>หากคุณไม่ต้องการเห็นค่าธรรมเนียม PRiVCYSend / ธุรกรรม  ให้เลือก "Most Common" เป็นประเภท "Transactions"</translation>
     </message>
     <message>
-        <source>PrivateSend requires at least %1 to use.</source>
-        <translation>PrivateSend ต้องการอย่างน้อย %1 เพื่อใช้งาน</translation>
+        <source>PRiVCYSend requires at least %1 to use.</source>
+        <translation>PRiVCYSend ต้องการอย่างน้อย %1 เพื่อใช้งาน</translation>
     </message>
     <message>
-        <source>Wallet is locked and user declined to unlock. Disabling PrivateSend.</source>
-        <translation>กระเป๋าสตางค์ถูกล็อกและผู้ใช้ปฏิเสธที่จะปลดล็อก กำลังปิดใช้งาน PrivateSend</translation>
+        <source>Wallet is locked and user declined to unlock. Disabling PRiVCYSend.</source>
+        <translation>กระเป๋าสตางค์ถูกล็อกและผู้ใช้ปฏิเสธที่จะปลดล็อก กำลังปิดใช้งาน PRiVCYSend</translation>
     </message>
 </context>
 <context>
@@ -2910,20 +2910,20 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>&lt;b&gt;(%1 of %2 รายการที่แสดง)&lt;/b&gt;</translation>
     </message>
     <message>
-        <source>Confirm the PrivateSend action</source>
-        <translation>ยืนยันการดำเนินการ PrivateSend</translation>
+        <source>Confirm the PRiVCYSend action</source>
+        <translation>ยืนยันการดำเนินการ PRiVCYSend</translation>
     </message>
     <message>
-        <source>PrivateSend funds only</source>
-        <translation>ทำธุรกรรมแบบ PrivateSend เฉพาะในกองทุนเท่านั้น</translation>
+        <source>PRiVCYSend funds only</source>
+        <translation>ทำธุรกรรมแบบ PRiVCYSend เฉพาะในกองทุนเท่านั้น</translation>
     </message>
     <message>
         <source>any available funds</source>
         <translation>เงินทุนที่มีอยู่</translation>
     </message>
     <message>
-        <source>(PrivateSend transactions have higher fees usually due to no change output being allowed)</source>
-        <translation>(การทำธุรกรรมแบบปกปิดข้อมูล PrivateSend มีค่าธรรมเนียมสูงขึ้นเนื่องมาจากไม่มีการให้ผลลัพธ์ที่เปลี่ยนแปลง)</translation>
+        <source>(PRiVCYSend transactions have higher fees usually due to no change output being allowed)</source>
+        <translation>(การทำธุรกรรมแบบปกปิดข้อมูล PRiVCYSend มีค่าธรรมเนียมสูงขึ้นเนื่องมาจากไม่มีการให้ผลลัพธ์ที่เปลี่ยนแปลง)</translation>
     </message>
     <message>
         <source>Transaction size: %1</source>
@@ -2938,8 +2938,8 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation><numerusform>ธุรกรรมนี้จะถูกป้อนเข้าไป %n</numerusform></translation>
     </message>
     <message>
-        <source>Warning: Using PrivateSend with %1 or more inputs can harm your privacy and is not recommended</source>
-        <translation>คำเตือน: การใช้ธุรกรรมแบบบปกปิดข้อมูล PrivateSend ด้วยการนำเข้าข้อมูล %1 หรือมากกว่า สามารถสร้างความเสียหายต่อความเป็นส่วนตัวของคุณได้ ไม่แนะนำ</translation>
+        <source>Warning: Using PRiVCYSend with %1 or more inputs can harm your privacy and is not recommended</source>
+        <translation>คำเตือน: การใช้ธุรกรรมแบบบปกปิดข้อมูล PRiVCYSend ด้วยการนำเข้าข้อมูล %1 หรือมากกว่า สามารถสร้างความเสียหายต่อความเป็นส่วนตัวของคุณได้ ไม่แนะนำ</translation>
     </message>
     <message>
         <source>Confirm send coins</source>
@@ -3513,8 +3513,8 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>ได้รับจาก</translation>
     </message>
     <message>
-        <source>Received via PrivateSend</source>
-        <translation>ได้รับผ่าน PrivateSend</translation>
+        <source>Received via PRiVCYSend</source>
+        <translation>ได้รับผ่าน PRiVCYSend</translation>
     </message>
     <message>
         <source>Sent to</source>
@@ -3529,20 +3529,20 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>Mined</translation>
     </message>
     <message>
-        <source>PrivateSend Denominate</source>
-        <translation>PrivateSend Denominate</translation>
+        <source>PRiVCYSend Denominate</source>
+        <translation>PRiVCYSend Denominate</translation>
     </message>
     <message>
-        <source>PrivateSend Collateral Payment</source>
-        <translation>หลักประกันการชำระเงิน PrivateSend </translation>
+        <source>PRiVCYSend Collateral Payment</source>
+        <translation>หลักประกันการชำระเงิน PRiVCYSend </translation>
     </message>
     <message>
-        <source>PrivateSend Make Collateral Inputs</source>
-        <translation>PrivateSend สร้างการป้อนข้อมูลหลักประกัน</translation>
+        <source>PRiVCYSend Make Collateral Inputs</source>
+        <translation>PRiVCYSend สร้างการป้อนข้อมูลหลักประกัน</translation>
     </message>
     <message>
-        <source>PrivateSend Create Denominations</source>
-        <translation>PrivateSend สร้างหน่วยเงิน</translation>
+        <source>PRiVCYSend Create Denominations</source>
+        <translation>PRiVCYSend สร้างหน่วยเงิน</translation>
     </message>
     <message>
         <source>watch-only</source>
@@ -3624,20 +3624,20 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>ส่งถึง</translation>
     </message>
     <message>
-        <source>PrivateSend Make Collateral Inputs</source>
-        <translation>PrivateSend สร้างการป้อนข้อมูลหลักประกัน</translation>
+        <source>PRiVCYSend Make Collateral Inputs</source>
+        <translation>PRiVCYSend สร้างการป้อนข้อมูลหลักประกัน</translation>
     </message>
     <message>
-        <source>PrivateSend Create Denominations</source>
-        <translation>PrivateSend สร้างหน่วยเงิน</translation>
+        <source>PRiVCYSend Create Denominations</source>
+        <translation>PRiVCYSend สร้างหน่วยเงิน</translation>
     </message>
     <message>
-        <source>PrivateSend Denominate</source>
-        <translation>PrivateSend Denominate</translation>
+        <source>PRiVCYSend Denominate</source>
+        <translation>PRiVCYSend Denominate</translation>
     </message>
     <message>
-        <source>PrivateSend Collateral Payment</source>
-        <translation>PrivateSend หลักประกันการชำระเงิน</translation>
+        <source>PRiVCYSend Collateral Payment</source>
+        <translation>PRiVCYSend หลักประกันการชำระเงิน</translation>
     </message>
     <message>
         <source>To yourself</source>
@@ -4059,8 +4059,8 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>ยกเลิกจำนวนขั้นต่ำ spork signers เพื่อเปลี่ยนจำนวน  มีประโยชน์สำหรับ regtest และ devnet เท่านั้น หากใช้สิ่งนี้บน mainnet หรือ testnet  คุณจะถูกแบน</translation>
     </message>
     <message>
-        <source>PrivateSend uses exact denominated amounts to send funds, you might simply need to mix some more coins.</source>
-        <translation>การทำธุรกรรมแบบปกปิดข้อมูล PrivateSend ใช้จำนวนเงินตามสกุลเงินที่แน่นอน คุณอาจเพียงต้องผสมเหรียญเพิ่มเติม</translation>
+        <source>PRiVCYSend uses exact denominated amounts to send funds, you might simply need to mix some more coins.</source>
+        <translation>การทำธุรกรรมแบบปกปิดข้อมูล PRiVCYSend ใช้จำนวนเงินตามสกุลเงินที่แน่นอน คุณอาจเพียงต้องผสมเหรียญเพิ่มเติม</translation>
     </message>
     <message>
         <source>Reduce storage requirements by enabling pruning (deleting) of old blocks. This allows the pruneblockchain RPC to be called to delete specific blocks, and enables automatic pruning of old blocks if a target size in MiB is provided. This mode is incompatible with -txindex, -rescan and -disablegovernance=false. Warning: Reverting this setting requires re-downloading the entire blockchain. (default: 0 = disable pruning blocks, 1 = allow manual pruning via RPC, &gt;=%u = automatically prune block files to stay under the specified target size in MiB)</source>
@@ -4415,8 +4415,8 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>อย่าเก็บธุรกรรมไว้ใน mempool นานกว่า &lt;n&gt; ชั่วโมง (ค่าเริ่มต้น: %u)</translation>
     </message>
     <message>
-        <source>Enable multiple PrivateSend mixing sessions per block, experimental (0-1, default: %u)</source>
-        <translation>เปิดใช้งานเซสชันการผสม PrivateSend ต่อบล็อค (0-1 ค่าดีฟอลต์: %u)</translation>
+        <source>Enable multiple PRiVCYSend mixing sessions per block, experimental (0-1, default: %u)</source>
+        <translation>เปิดใช้งานเซสชันการผสม PRiVCYSend ต่อบล็อค (0-1 ค่าดีฟอลต์: %u)</translation>
     </message>
     <message>
         <source>Execute command when a wallet InstantSend transaction is successfully locked (%s in cmd is replaced by TxID)</source>
@@ -4519,8 +4519,8 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>พยายามที่จะสร้างอย่างน้อย N ป้อนจำนวนเงินของแต่ละสกุล (%u-%u, default: %u)</translation>
     </message>
     <message>
-        <source>Unable to locate enough PrivateSend denominated funds for this transaction.</source>
-        <translation>ไม่สามารถหาเงินได้เพียงพอสำหรับ PrivateSend สำหรับธุรกรรมนี้</translation>
+        <source>Unable to locate enough PRiVCYSend denominated funds for this transaction.</source>
+        <translation>ไม่สามารถหาเงินได้เพียงพอสำหรับ PRiVCYSend สำหรับธุรกรรมนี้</translation>
     </message>
     <message>
         <source>Unsupported argument -socks found. Setting SOCKS version isn't possible anymore, only SOCKS5 proxies are supported.</source>
@@ -4548,7 +4548,7 @@ https://www.transifex.com/projects/p/privcy/</translation>
     </message>
     <message>
         <source>Warning: Unknown block versions being mined! It's possible unknown rules are in effect</source>
-        <translation>คำเตือน: ไม่สามารถหาเงิน PrivateSend ที่ระบุได้เพียงพอสำหรับธุรกรรมนี้</translation>
+        <translation>คำเตือน: ไม่สามารถหาเงิน PRiVCYSend ที่ระบุได้เพียงพอสำหรับธุรกรรมนี้</translation>
     </message>
     <message>
         <source>You need to rebuild the database using -reindex to change -timestampindex</source>
@@ -4711,12 +4711,12 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>เก็บหน่วยความจำธุรกรรมไว้ต่ำกว่า 1 เมกะไบต์ (ค่าเริ่มต้น: %u)</translation>
     </message>
     <message>
-        <source>Last PrivateSend was too recent.</source>
-        <translation>PrivateSend ล่าสุดเป็นข้อมูลล่าสุด</translation>
+        <source>Last PRiVCYSend was too recent.</source>
+        <translation>PRiVCYSend ล่าสุดเป็นข้อมูลล่าสุด</translation>
     </message>
     <message>
-        <source>Last successful PrivateSend action was too recent.</source>
-        <translation>การกระทำ PrivateSend ที่ประสบความสำเร็จล่าสุดเป็นข้อมูลล่าสุด</translation>
+        <source>Last successful PRiVCYSend action was too recent.</source>
+        <translation>การกระทำ PRiVCYSend ที่ประสบความสำเร็จล่าสุดเป็นข้อมูลล่าสุด</translation>
     </message>
     <message>
         <source>Loading block index...</source>
@@ -4799,16 +4799,16 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>พิมพ์เวอร์ชันแล้วออกโปรแกรม</translation>
     </message>
     <message>
-        <source>PrivateSend is idle.</source>
-        <translation>PrivateSend ไม่ได้ใช้งาน</translation>
+        <source>PRiVCYSend is idle.</source>
+        <translation>PRiVCYSend ไม่ได้ใช้งาน</translation>
     </message>
     <message>
-        <source>PrivateSend options:</source>
-        <translation>ตัวเลือก PrivateSend:</translation>
+        <source>PRiVCYSend options:</source>
+        <translation>ตัวเลือก PRiVCYSend:</translation>
     </message>
     <message>
-        <source>PrivateSend request incomplete:</source>
-        <translation>คำขอ PrivateSend ไม่สมบูรณ์:</translation>
+        <source>PRiVCYSend request incomplete:</source>
+        <translation>คำขอ PRiVCYSend ไม่สมบูรณ์:</translation>
     </message>
     <message>
         <source>Prune cannot be configured with a negative value.</source>
@@ -4859,8 +4859,8 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>กำลังซิงโครไนซ์ blockchain...</translation>
     </message>
     <message>
-        <source>Target PrivateSend balance (%u-%u, default: %u)</source>
-        <translation>ยอดเงินคงเหลือที่กำหนดไว้ในการทำธุรกรรมแบบ PrivateSend (%u-%u, ค่าเริ่มต้น: %u)</translation>
+        <source>Target PRiVCYSend balance (%u-%u, default: %u)</source>
+        <translation>ยอดเงินคงเหลือที่กำหนดไว้ในการทำธุรกรรมแบบ PRiVCYSend (%u-%u, ค่าเริ่มต้น: %u)</translation>
     </message>
     <message>
         <source>The wallet will avoid paying less than the minimum relay fee.</source>
@@ -4987,8 +4987,8 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>เผยแพร่ภายใต้ใบอนุญาตซอฟต์แวร์ MIT โปรดดูที่ไฟล์ที่แนบมา %s หรือ %s</translation>
     </message>
     <message>
-        <source>Enable use of PrivateSend for funds stored in this wallet (0-1, default: %u)</source>
-        <translation>เปิดใช้งาน PrivateSend สำหรับเก็บเงินไว้ในกระเป๋าสตางค์นี้ (0-1 ค่าเริ่มต้น: %u)</translation>
+        <source>Enable use of PRiVCYSend for funds stored in this wallet (0-1, default: %u)</source>
+        <translation>เปิดใช้งาน PRiVCYSend สำหรับเก็บเงินไว้ในกระเป๋าสตางค์นี้ (0-1 ค่าเริ่มต้น: %u)</translation>
     </message>
     <message>
         <source>Error loading %s: You can't enable HD on an already existing non-HD wallet</source>
@@ -5051,8 +5051,8 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>ผลิตภัณฑ์นี้รวมถึงซอฟต์แวร์ที่พัฒนาโดย OpenSSL Project เพื่อใช้ใน OpenSSL Toolkit %s และซอฟต์แวร์เข้ารหัสที่เขียนขึ้นโดย Eric Young และซอฟต์แวร์ UPnP ที่เขียนโดย Thomas Bernard</translation>
     </message>
     <message>
-        <source>Unable to locate enough PrivateSend non-denominated funds for this transaction.</source>
-        <translation>ไม่สามารถหาเงินทุนที่ไม่ใช่สกุลเงินที่ระบุ PrivateSend ได้มากพอสำหรับธุรกรรมนี้</translation>
+        <source>Unable to locate enough PRiVCYSend non-denominated funds for this transaction.</source>
+        <translation>ไม่สามารถหาเงินทุนที่ไม่ใช่สกุลเงินที่ระบุ PRiVCYSend ได้มากพอสำหรับธุรกรรมนี้</translation>
     </message>
     <message>
         <source>Unable to replay blocks. You will need to rebuild the database using -reindex-chainstate.</source>
@@ -5267,8 +5267,8 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>กำหนดที่อยู่สาธารณะของคุณเอง</translation>
     </message>
     <message>
-        <source>Start PrivateSend automatically (0-1, default: %u)</source>
-        <translation>เริ่มต้น PrivateSend อัตโนมัติ (0-1, ค่าดีฟอลต์: %u)</translation>
+        <source>Start PRiVCYSend automatically (0-1, default: %u)</source>
+        <translation>เริ่มต้น PRiVCYSend อัตโนมัติ (0-1, ค่าดีฟอลต์: %u)</translation>
     </message>
     <message>
         <source>Starting network threads...</source>

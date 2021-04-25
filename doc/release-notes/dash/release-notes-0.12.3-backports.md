@@ -936,7 +936,7 @@
 - [`d6a0de72a`](https://github.com/privcypay/privcy/commit/d6a0de72a) fix splashscreen (shrink titleCopyrightVSpace)
 - [`af5aece96`](https://github.com/privcypay/privcy/commit/af5aece96) make CopyrightHolders more generic
 - [`4e0bb527d`](https://github.com/privcypay/privcy/commit/4e0bb527d) Merge #8373: Fix OSX non-deterministic dmg
-- [`51ca0d5b4`](https://github.com/privcypay/privcy/commit/51ca0d5b4) Move privatesend to rpcwallet.cpp as well after Bitcoin #7307 was backported
+- [`51ca0d5b4`](https://github.com/privcypay/privcy/commit/51ca0d5b4) Move privcysend to rpcwallet.cpp as well after Bitcoin #7307 was backported
 - [`02785c858`](https://github.com/privcypay/privcy/commit/02785c858) Disable check-doc.py for now until all backported PRs are merged and docs fixed
 - [`48eddeea2`](https://github.com/privcypay/privcy/commit/48eddeea2) Merge #7455: [travis] Exit early when check-doc.py fails
 - [`07338feae`](https://github.com/privcypay/privcy/commit/07338feae) Merge #7620: [travis] Only run check-doc.py once

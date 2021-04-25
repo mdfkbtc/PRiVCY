@@ -392,8 +392,8 @@
         <translation>&amp;О %1</translation>
     </message>
     <message>
-        <source>PrivateSend coins to a PRiVCY address</source>
-        <translation>Отправить монеты на PRiVCY адрес с помощью PrivateSend</translation>
+        <source>PRiVCYSend coins to a PRiVCY address</source>
+        <translation>Отправить монеты на PRiVCY адрес с помощью PRiVCYSend</translation>
     </message>
     <message>
         <source>Modify configuration options for %1</source>
@@ -556,12 +556,12 @@
         <translation>Кошелек &lt;b&gt;не зашифрован&lt;/b&gt;</translation>
     </message>
     <message>
-        <source>&amp;PrivateSend information</source>
-        <translation>Информация о &amp;PrivateSend</translation>
+        <source>&amp;PRiVCYSend information</source>
+        <translation>Информация о &amp;PRiVCYSend</translation>
     </message>
     <message>
-        <source>Show the PrivateSend basic information</source>
-        <translation>Показать краткую информацию о PrivateSend</translation>
+        <source>Show the PRiVCYSend basic information</source>
+        <translation>Показать краткую информацию о PRiVCYSend</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -901,12 +901,12 @@
         <translation>Показать все монеты</translation>
     </message>
     <message>
-        <source>Hide PrivateSend coins</source>
-        <translation>Скрыть PrivateSend монеты</translation>
+        <source>Hide PRiVCYSend coins</source>
+        <translation>Скрыть PRiVCYSend монеты</translation>
     </message>
     <message>
-        <source>Show all PrivateSend coins</source>
-        <translation>Показать все PrivateSend монеты</translation>
+        <source>Show all PRiVCYSend coins</source>
+        <translation>Показать все PRiVCYSend монеты</translation>
     </message>
     <message>
         <source>Show spendable coins only</source>
@@ -1078,12 +1078,12 @@
         <translation>Сбросить все настройки, измененные через графический интерфейс</translation>
     </message>
     <message>
-        <source>PrivateSend information</source>
-        <translation>Информация о PrivateSend</translation>
+        <source>PRiVCYSend information</source>
+        <translation>Информация о PRiVCYSend</translation>
     </message>
     <message>
-        <source>&lt;h3&gt;PrivateSend Basics&lt;/h3&gt; PrivateSend gives you true financial privacy by obscuring the origins of your funds. All the PRiVCY in your wallet is comprised of different "inputs" which you can think of as separate, discrete coins.&lt;br&gt; PrivateSend uses an innovative process to mix your inputs with the inputs of two or more other people, without having your coins ever leave your wallet. You retain control of your money at all times.&lt;hr&gt; &lt;b&gt;The PrivateSend process works like this:&lt;/b&gt;&lt;ol type="1"&gt; &lt;li&gt;PrivateSend begins by breaking your transaction inputs down into standard denominations. These denominations are 0.001 PRIV, 0.01 PRIV, 0.1 PRIV, 1 PRIV and 10 PRIV -- sort of like the paper money you use every day.&lt;/li&gt; &lt;li&gt;Your wallet then sends requests to specially configured software nodes on the network, called "masternodes." These masternodes are informed then that you are interested in mixing a certain denomination. No identifiable information is sent to the masternodes, so they never know "who" you are.&lt;/li&gt; &lt;li&gt;When two or more other people send similar messages, indicating that they wish to mix the same denomination, a mixing session begins. The masternode mixes up the inputs and instructs all three users' wallets to pay the now-transformed input back to themselves. Your wallet pays that denomination directly to itself, but in a different address (called a change address).&lt;/li&gt; &lt;li&gt;In order to fully obscure your funds, your wallet must repeat this process a number of times with each denomination. Each time the process is completed, it's called a "round." Each round of PrivateSend makes it exponentially more difficult to determine where your funds originated.&lt;/li&gt; &lt;li&gt;This mixing process happens in the background without any intervention on your part. When you wish to make a transaction, your funds will already be mixed. No additional waiting is required.&lt;/li&gt; &lt;/ol&gt; &lt;hr&gt;&lt;b&gt;IMPORTANT:&lt;/b&gt; Your wallet only contains 1000 of these "change addresses." Every time a mixing event happens, up to 9 of your addresses are used up. This means those 1000 addresses last for about 100 mixing events. When 900 of them are used, your wallet must create more addresses. It can only do this, however, if you have automatic backups enabled.&lt;br&gt; Consequently, users who have backups disabled will also have PrivateSend disabled. &lt;hr&gt;For more information, see the &lt;a style="%1" href="https://docs.privcy.org/en/stable/wallets/privcycore/privatesend-instantsend.html"&gt;PrivateSend documentation&lt;/a&gt;.</source>
-        <translation>&lt;h3&gt;Основы PrivateSend&lt;/h3&gt;PrivateSend позволяет Вам получить настоящую финансовую конфиденциальность за счет скрытия источников Ваших средств. Все PRiVCY в  Вашем кошельке состоят из различных "входов", Вы можете думать о них как об отдельных монетах.&lt;br&gt;PrivateSend использует инновационный процесс для перемешивания Ваших входов со входами еще двоих или более человек, но при этом Ваши монеты никогда не покидают Ваш кошелек. Вы сохраняете контроль над Вашими деньгами на протяжении всего времени.&lt;hr&gt; &lt;b&gt;PrivateSend работает так:&lt;/b&gt;&lt;ol type="1"&gt; &lt;li&gt;PrivateSend начинается с разбиения Ваших входов транзакций на стандартные номиналы. Такими номиналами являются 0.001 PRIV, 0.01 PRIV, 0.1 PRIV, 1 PRIV и 10 PRIV -- что-то вроде купюр, которыми вы пользуетесь каждый день.&lt;/li&gt; &lt;li&gt;Ваш кошелек затем отправляет запросы к особым образом настроенным сетевым узлам, называемым "мастернодами". Эти мастерноды знают только то, что Вы хотите перемешать определенные номиналы. Никакой идентифицирующей информации мастернодам не отправляется, так что они не знают "кто" Вы конкретно.&lt;/li&gt; &lt;li&gt;Сессия перемешивания начинается тогда, когда еще двое или более человек отправляют схожее сообщение, подтверждающее, что они хотят перемешать точно такой же номинал. Мастернода перемешивает входы и просит кошельки всех пользователей осуществить платежи по ним. Ваш кошелек осуществляет выплату самому себе, но на другой адрес (тоже из вашего кошелька).&lt;/li&gt; &lt;li&gt;Для скрытия Ваших средств кошелек должен повторить этот процесс несколько раз с каждым номиналом. Каждый раз, когда такой процесс завершается, называется "раундом". С каждым раундом PrivateSend становится экспоненциально сложнее определить откуда поступили средства.&lt;/li&gt; &lt;li&gt;Процесс перемешивания выполняется в фоне, без участия пользователя. Когда Вы захотите провести транзакцию, средства уже будут перемешаны. Дополнительно ждать не требуется.&lt;/li&gt; &lt;/ol&gt; &lt;hr&gt;&lt;b&gt;ВАЖНО:&lt;/b&gt; Ваш кошелек содержит 1000 адресов. Каждое перемешивание использует до 9 из этих адресов. Это означает, что 1000 адресов хватит примерно на 100 перемешиваний. Когда 900 адресов будут уже использованы, Ваш кошелек должен создать новые адреса. Однако, он может сделать это, только если у Вас включены автоматические резервные копии.&lt;br&gt;Соответственно, пользователям с отключенным резервным копированием PrivateSend не доступен. &lt;hr&gt;Дополнительная информация доступна в  &lt;a style="%1" href="https://docs.privcy.org/en/stable/wallets/privcycore/privatesend-instantsend.html"&gt;документации PrivateSend&lt;/a&gt;.</translation>
+        <source>&lt;h3&gt;PRiVCYSend Basics&lt;/h3&gt; PRiVCYSend gives you true financial privacy by obscuring the origins of your funds. All the PRiVCY in your wallet is comprised of different "inputs" which you can think of as separate, discrete coins.&lt;br&gt; PRiVCYSend uses an innovative process to mix your inputs with the inputs of two or more other people, without having your coins ever leave your wallet. You retain control of your money at all times.&lt;hr&gt; &lt;b&gt;The PRiVCYSend process works like this:&lt;/b&gt;&lt;ol type="1"&gt; &lt;li&gt;PRiVCYSend begins by breaking your transaction inputs down into standard denominations. These denominations are 0.001 PRIV, 0.01 PRIV, 0.1 PRIV, 1 PRIV and 10 PRIV -- sort of like the paper money you use every day.&lt;/li&gt; &lt;li&gt;Your wallet then sends requests to specially configured software nodes on the network, called "masternodes." These masternodes are informed then that you are interested in mixing a certain denomination. No identifiable information is sent to the masternodes, so they never know "who" you are.&lt;/li&gt; &lt;li&gt;When two or more other people send similar messages, indicating that they wish to mix the same denomination, a mixing session begins. The masternode mixes up the inputs and instructs all three users' wallets to pay the now-transformed input back to themselves. Your wallet pays that denomination directly to itself, but in a different address (called a change address).&lt;/li&gt; &lt;li&gt;In order to fully obscure your funds, your wallet must repeat this process a number of times with each denomination. Each time the process is completed, it's called a "round." Each round of PRiVCYSend makes it exponentially more difficult to determine where your funds originated.&lt;/li&gt; &lt;li&gt;This mixing process happens in the background without any intervention on your part. When you wish to make a transaction, your funds will already be mixed. No additional waiting is required.&lt;/li&gt; &lt;/ol&gt; &lt;hr&gt;&lt;b&gt;IMPORTANT:&lt;/b&gt; Your wallet only contains 1000 of these "change addresses." Every time a mixing event happens, up to 9 of your addresses are used up. This means those 1000 addresses last for about 100 mixing events. When 900 of them are used, your wallet must create more addresses. It can only do this, however, if you have automatic backups enabled.&lt;br&gt; Consequently, users who have backups disabled will also have PRiVCYSend disabled. &lt;hr&gt;For more information, see the &lt;a style="%1" href="https://docs.privcy.org/en/stable/wallets/privcycore/privcysend-instantsend.html"&gt;PRiVCYSend documentation&lt;/a&gt;.</source>
+        <translation>&lt;h3&gt;Основы PRiVCYSend&lt;/h3&gt;PRiVCYSend позволяет Вам получить настоящую финансовую конфиденциальность за счет скрытия источников Ваших средств. Все PRiVCY в  Вашем кошельке состоят из различных "входов", Вы можете думать о них как об отдельных монетах.&lt;br&gt;PRiVCYSend использует инновационный процесс для перемешивания Ваших входов со входами еще двоих или более человек, но при этом Ваши монеты никогда не покидают Ваш кошелек. Вы сохраняете контроль над Вашими деньгами на протяжении всего времени.&lt;hr&gt; &lt;b&gt;PRiVCYSend работает так:&lt;/b&gt;&lt;ol type="1"&gt; &lt;li&gt;PRiVCYSend начинается с разбиения Ваших входов транзакций на стандартные номиналы. Такими номиналами являются 0.001 PRIV, 0.01 PRIV, 0.1 PRIV, 1 PRIV и 10 PRIV -- что-то вроде купюр, которыми вы пользуетесь каждый день.&lt;/li&gt; &lt;li&gt;Ваш кошелек затем отправляет запросы к особым образом настроенным сетевым узлам, называемым "мастернодами". Эти мастерноды знают только то, что Вы хотите перемешать определенные номиналы. Никакой идентифицирующей информации мастернодам не отправляется, так что они не знают "кто" Вы конкретно.&lt;/li&gt; &lt;li&gt;Сессия перемешивания начинается тогда, когда еще двое или более человек отправляют схожее сообщение, подтверждающее, что они хотят перемешать точно такой же номинал. Мастернода перемешивает входы и просит кошельки всех пользователей осуществить платежи по ним. Ваш кошелек осуществляет выплату самому себе, но на другой адрес (тоже из вашего кошелька).&lt;/li&gt; &lt;li&gt;Для скрытия Ваших средств кошелек должен повторить этот процесс несколько раз с каждым номиналом. Каждый раз, когда такой процесс завершается, называется "раундом". С каждым раундом PRiVCYSend становится экспоненциально сложнее определить откуда поступили средства.&lt;/li&gt; &lt;li&gt;Процесс перемешивания выполняется в фоне, без участия пользователя. Когда Вы захотите провести транзакцию, средства уже будут перемешаны. Дополнительно ждать не требуется.&lt;/li&gt; &lt;/ol&gt; &lt;hr&gt;&lt;b&gt;ВАЖНО:&lt;/b&gt; Ваш кошелек содержит 1000 адресов. Каждое перемешивание использует до 9 из этих адресов. Это означает, что 1000 адресов хватит примерно на 100 перемешиваний. Когда 900 адресов будут уже использованы, Ваш кошелек должен создать новые адреса. Однако, он может сделать это, только если у Вас включены автоматические резервные копии.&lt;br&gt;Соответственно, пользователям с отключенным резервным копированием PRiVCYSend не доступен. &lt;hr&gt;Дополнительная информация доступна в  &lt;a style="%1" href="https://docs.privcy.org/en/stable/wallets/privcycore/privcysend-instantsend.html"&gt;документации PRiVCYSend&lt;/a&gt;.</translation>
     </message>
 </context>
 <context>
@@ -1397,44 +1397,44 @@
         <translation>Показывать вкладку с мастернодами</translation>
     </message>
     <message>
-        <source>Show additional information and buttons for PrivateSend on overview screen.</source>
-        <translation>Показывать дополнительную информацию и кнопки для PrivateSend на обзорной вкладке.</translation>
+        <source>Show additional information and buttons for PRiVCYSend on overview screen.</source>
+        <translation>Показывать дополнительную информацию и кнопки для PRiVCYSend на обзорной вкладке.</translation>
     </message>
     <message>
-        <source>Enable advanced PrivateSend interface</source>
-        <translation>Включить расширенный интерфейс PrivateSend</translation>
+        <source>Enable advanced PRiVCYSend interface</source>
+        <translation>Включить расширенный интерфейс PRiVCYSend</translation>
     </message>
     <message>
-        <source>Show warning dialog when PrivateSend detects that wallet has very low number of keys left.</source>
-        <translation>Показывать предупреждение, когда PrivateSend обнаружит, что в кошельке осталось слишком мало ключей.</translation>
+        <source>Show warning dialog when PRiVCYSend detects that wallet has very low number of keys left.</source>
+        <translation>Показывать предупреждение, когда PRiVCYSend обнаружит, что в кошельке осталось слишком мало ключей.</translation>
     </message>
     <message>
-        <source>Warn if PrivateSend is running out of keys</source>
-        <translation>Предупредить, если кончаются ключи для PrivateSend</translation>
+        <source>Warn if PRiVCYSend is running out of keys</source>
+        <translation>Предупредить, если кончаются ключи для PRiVCYSend</translation>
     </message>
     <message>
-        <source>Whether to use experimental PrivateSend mode with multiple mixing sessions per block.&lt;br/&gt;Note: You must use this feature carefully.&lt;br/&gt;Make sure you always have recent wallet (auto)backup in a safe place!</source>
-        <translation>Использовать или нет экспериментальный режим PrivateSend с множественным перемешивание за один блок.&lt;br/&gt;Примечание: Используйте с осторожностью.&lt;br/&gt;Убедитесь, что у вас всегда есть (автоматический) бэкап в безопасном месте!</translation>
+        <source>Whether to use experimental PRiVCYSend mode with multiple mixing sessions per block.&lt;br/&gt;Note: You must use this feature carefully.&lt;br/&gt;Make sure you always have recent wallet (auto)backup in a safe place!</source>
+        <translation>Использовать или нет экспериментальный режим PRiVCYSend с множественным перемешивание за один блок.&lt;br/&gt;Примечание: Используйте с осторожностью.&lt;br/&gt;Убедитесь, что у вас всегда есть (автоматический) бэкап в безопасном месте!</translation>
     </message>
     <message>
-        <source>Enable PrivateSend &amp;multi-session</source>
-        <translation>Включить &amp;мульти-сессионный PrivateSend</translation>
+        <source>Enable PRiVCYSend &amp;multi-session</source>
+        <translation>Включить &amp;мульти-сессионный PRiVCYSend</translation>
     </message>
     <message>
         <source>If you disable the spending of unconfirmed change, the change from a transaction&lt;br/&gt;cannot be used until that transaction has at least one confirmation.&lt;br/&gt;This also affects how your balance is computed.</source>
         <translation>При отключении траты неподтверждённой сдачи, сдача от транзакции&lt;br/&gt;не может быть использована до тех пор, пока у этой транзакции не будет хотя бы одно подтверждение.&lt;br/&gt;Это также влияет на то, как рассчитывается Ваш баланс.</translation>
     </message>
     <message>
-        <source>PrivateSend rounds to use</source>
-        <translation>Количество раундов PrivateSend</translation>
+        <source>PRiVCYSend rounds to use</source>
+        <translation>Количество раундов PRiVCYSend</translation>
     </message>
     <message>
-        <source>This amount acts as a threshold to turn off PrivateSend once it's reached.</source>
-        <translation>Это пороговое значение, при достижении которого PrivateSend отключается.</translation>
+        <source>This amount acts as a threshold to turn off PRiVCYSend once it's reached.</source>
+        <translation>Это пороговое значение, при достижении которого PRiVCYSend отключается.</translation>
     </message>
     <message>
-        <source>Target PrivateSend balance</source>
-        <translation>Целевой баланс PrivateSend</translation>
+        <source>Target PRiVCYSend balance</source>
+        <translation>Целевой баланс PRiVCYSend</translation>
     </message>
     <message>
         <source>Automatically open the PRiVCY Core client port on the router. This only works when your router supports UPnP and it is enabled.</source>
@@ -1501,12 +1501,12 @@
         <translation>Включить функции &amp;контроля монет</translation>
     </message>
     <message>
-        <source>Show system popups for PrivateSend mixing transactions&lt;br/&gt;just like for all other transaction types.</source>
-        <translation>Показывать всплывающие уведомления для транзакций перемешивания PrivateSend&lt;br/&gt;также как для всех остальных типов транзакций.</translation>
+        <source>Show system popups for PRiVCYSend mixing transactions&lt;br/&gt;just like for all other transaction types.</source>
+        <translation>Показывать всплывающие уведомления для транзакций перемешивания PRiVCYSend&lt;br/&gt;также как для всех остальных типов транзакций.</translation>
     </message>
     <message>
-        <source>Show popups for PrivateSend transactions</source>
-        <translation>Показывать всплывающие уведомления для транзакций PrivateSend</translation>
+        <source>Show popups for PRiVCYSend transactions</source>
+        <translation>Показывать всплывающие уведомления для транзакций PRiVCYSend</translation>
     </message>
     <message>
         <source>&amp;Spend unconfirmed change</source>
@@ -1718,8 +1718,8 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>Для расхода:</translation>
     </message>
     <message>
-        <source>PrivateSend</source>
-        <translation>PrivateSend</translation>
+        <source>PRiVCYSend</source>
+        <translation>PRiVCYSend</translation>
     </message>
     <message>
         <source>Status:</source>
@@ -1758,8 +1758,8 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>Начать/остановить автоматическое перемешивание</translation>
     </message>
     <message>
-        <source>PrivateSend Balance:</source>
-        <translation>Баланс PrivateSend:</translation>
+        <source>PRiVCYSend Balance:</source>
+        <translation>Баланс PRiVCYSend:</translation>
     </message>
     <message>
         <source>The denominations you submitted to the Masternode.&lt;br&gt;To mix, other users must submit the exact same denominations.</source>
@@ -1862,16 +1862,16 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>ВНИМАНИЕ! Ну удалось обновить пул ключей, пожалуйста, разблокируйте кошелек.</translation>
     </message>
     <message>
-        <source>If you don't want to see internal PrivateSend fees/transactions select "Most Common" as Type on the "Transactions" tab.</source>
-        <translation>Если Вы не хотите видеть внутренние транзакции/комиссии от работы PrivateSend, выберите Тип "Наиболее общие" на закладке "Транзакции".</translation>
+        <source>If you don't want to see internal PRiVCYSend fees/transactions select "Most Common" as Type on the "Transactions" tab.</source>
+        <translation>Если Вы не хотите видеть внутренние транзакции/комиссии от работы PRiVCYSend, выберите Тип "Наиболее общие" на закладке "Транзакции".</translation>
     </message>
     <message>
-        <source>PrivateSend requires at least %1 to use.</source>
-        <translation>Для работы PrivateSend требуется минимум %1.</translation>
+        <source>PRiVCYSend requires at least %1 to use.</source>
+        <translation>Для работы PRiVCYSend требуется минимум %1.</translation>
     </message>
     <message>
-        <source>Wallet is locked and user declined to unlock. Disabling PrivateSend.</source>
-        <translation>Бумажник заблокирован и пользователь отказался его разблокировать. PrivateSend будет выключен.</translation>
+        <source>Wallet is locked and user declined to unlock. Disabling PRiVCYSend.</source>
+        <translation>Бумажник заблокирован и пользователь отказался его разблокировать. PRiVCYSend будет выключен.</translation>
     </message>
 </context>
 <context>
@@ -2938,20 +2938,20 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>&lt;b&gt;(показано записей: %1 из %2)&lt;/b&gt;</translation>
     </message>
     <message>
-        <source>Confirm the PrivateSend action</source>
-        <translation>Подтвердить отправку с помощью PrivateSend</translation>
+        <source>Confirm the PRiVCYSend action</source>
+        <translation>Подтвердить отправку с помощью PRiVCYSend</translation>
     </message>
     <message>
-        <source>PrivateSend funds only</source>
-        <translation>только средства PrivateSend</translation>
+        <source>PRiVCYSend funds only</source>
+        <translation>только средства PRiVCYSend</translation>
     </message>
     <message>
         <source>any available funds</source>
         <translation>любые доступные средства</translation>
     </message>
     <message>
-        <source>(PrivateSend transactions have higher fees usually due to no change output being allowed)</source>
-        <translation>(комиссии у транзакций PrivateSend как правило выше поскольку у них отсутствует сдача)</translation>
+        <source>(PRiVCYSend transactions have higher fees usually due to no change output being allowed)</source>
+        <translation>(комиссии у транзакций PRiVCYSend как правило выше поскольку у них отсутствует сдача)</translation>
     </message>
     <message>
         <source>Transaction size: %1</source>
@@ -2966,8 +2966,8 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation><numerusform>Эта транзакция израсходует %n вход</numerusform><numerusform>Эта транзакция израсходует %n входов</numerusform><numerusform>Эта транзакция израсходует %n входов</numerusform><numerusform>Эта транзакция израсходует %n входов</numerusform></translation>
     </message>
     <message>
-        <source>Warning: Using PrivateSend with %1 or more inputs can harm your privacy and is not recommended</source>
-        <translation>Внимание: Использование транзакции PrivateSend с %1 и более входами может повредить вашей приватности и потому не рекомендуется</translation>
+        <source>Warning: Using PRiVCYSend with %1 or more inputs can harm your privacy and is not recommended</source>
+        <translation>Внимание: Использование транзакции PRiVCYSend с %1 и более входами может повредить вашей приватности и потому не рекомендуется</translation>
     </message>
     <message>
         <source>Confirm send coins</source>
@@ -3569,8 +3569,8 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>Получено от</translation>
     </message>
     <message>
-        <source>Received via PrivateSend</source>
-        <translation>Получено через PrivateSend</translation>
+        <source>Received via PRiVCYSend</source>
+        <translation>Получено через PRiVCYSend</translation>
     </message>
     <message>
         <source>Sent to</source>
@@ -3585,20 +3585,20 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>Добыто</translation>
     </message>
     <message>
-        <source>PrivateSend Denominate</source>
-        <translation>Перемешивание PrivateSend</translation>
+        <source>PRiVCYSend Denominate</source>
+        <translation>Перемешивание PRiVCYSend</translation>
     </message>
     <message>
-        <source>PrivateSend Collateral Payment</source>
-        <translation>Обеспечительный платеж PrivateSend</translation>
+        <source>PRiVCYSend Collateral Payment</source>
+        <translation>Обеспечительный платеж PRiVCYSend</translation>
     </message>
     <message>
-        <source>PrivateSend Make Collateral Inputs</source>
-        <translation>Создание обеспечительных монет для PrivateSend</translation>
+        <source>PRiVCYSend Make Collateral Inputs</source>
+        <translation>Создание обеспечительных монет для PRiVCYSend</translation>
     </message>
     <message>
-        <source>PrivateSend Create Denominations</source>
-        <translation>Создание номиналов для PrivateSend</translation>
+        <source>PRiVCYSend Create Denominations</source>
+        <translation>Создание номиналов для PRiVCYSend</translation>
     </message>
     <message>
         <source>watch-only</source>
@@ -3680,20 +3680,20 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>Отправлено на</translation>
     </message>
     <message>
-        <source>PrivateSend Make Collateral Inputs</source>
-        <translation>Создание обеспечительных монет для PrivateSend</translation>
+        <source>PRiVCYSend Make Collateral Inputs</source>
+        <translation>Создание обеспечительных монет для PRiVCYSend</translation>
     </message>
     <message>
-        <source>PrivateSend Create Denominations</source>
-        <translation>Создание номиналов для PrivateSend</translation>
+        <source>PRiVCYSend Create Denominations</source>
+        <translation>Создание номиналов для PRiVCYSend</translation>
     </message>
     <message>
-        <source>PrivateSend Denominate</source>
-        <translation>Перемешивание PrivateSend</translation>
+        <source>PRiVCYSend Denominate</source>
+        <translation>Перемешивание PRiVCYSend</translation>
     </message>
     <message>
-        <source>PrivateSend Collateral Payment</source>
-        <translation>Обеспечительный платеж PrivateSend</translation>
+        <source>PRiVCYSend Collateral Payment</source>
+        <translation>Обеспечительный платеж PRiVCYSend</translation>
     </message>
     <message>
         <source>To yourself</source>
@@ -4119,8 +4119,8 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>Установить новый минимум количества подписантов спорков. Полезно только для regtest и devnet. Использование этого параметра на mainnet или testnet приведет к блокировке.</translation>
     </message>
     <message>
-        <source>PrivateSend uses exact denominated amounts to send funds, you might simply need to mix some more coins.</source>
-        <translation>При отправке PrivateSend использует только деноминированные средства, возможно, Вам просто нужно перемешать немного больше монет.</translation>
+        <source>PRiVCYSend uses exact denominated amounts to send funds, you might simply need to mix some more coins.</source>
+        <translation>При отправке PRiVCYSend использует только деноминированные средства, возможно, Вам просто нужно перемешать немного больше монет.</translation>
     </message>
     <message>
         <source>Reduce storage requirements by enabling pruning (deleting) of old blocks. This allows the pruneblockchain RPC to be called to delete specific blocks, and enables automatic pruning of old blocks if a target size in MiB is provided. This mode is incompatible with -txindex, -rescan and -disablegovernance=false. Warning: Reverting this setting requires re-downloading the entire blockchain. (default: 0 = disable pruning blocks, 1 = allow manual pruning via RPC, &gt;=%u = automatically prune block files to stay under the specified target size in MiB)</source>
@@ -4475,8 +4475,8 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>Не хранить транзакции в пуле памяти дольше чем &lt;n&gt; часов (по умолчанию: %u)</translation>
     </message>
     <message>
-        <source>Enable multiple PrivateSend mixing sessions per block, experimental (0-1, default: %u)</source>
-        <translation>Включить множественное перемешивание PrivateSend за один блок (0-1, по умолчанию: %u)</translation>
+        <source>Enable multiple PRiVCYSend mixing sessions per block, experimental (0-1, default: %u)</source>
+        <translation>Включить множественное перемешивание PRiVCYSend за один блок (0-1, по умолчанию: %u)</translation>
     </message>
     <message>
         <source>Execute command when a wallet InstantSend transaction is successfully locked (%s in cmd is replaced by TxID)</source>
@@ -4579,8 +4579,8 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>Пытаться создать как минимум N входов для каждого номинала (%u-%u, по умолчанию: %u)</translation>
     </message>
     <message>
-        <source>Unable to locate enough PrivateSend denominated funds for this transaction.</source>
-        <translation>Не удалось обнаружить достаточных для выполнения этой транзакции номиналов PrivateSend.</translation>
+        <source>Unable to locate enough PRiVCYSend denominated funds for this transaction.</source>
+        <translation>Не удалось обнаружить достаточных для выполнения этой транзакции номиналов PRiVCYSend.</translation>
     </message>
     <message>
         <source>Unsupported argument -socks found. Setting SOCKS version isn't possible anymore, only SOCKS5 proxies are supported.</source>
@@ -4771,12 +4771,12 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>Держать размер пула памяти транзакций ниже &lt;n&gt; мегабайт (по умолчанию: %u)</translation>
     </message>
     <message>
-        <source>Last PrivateSend was too recent.</source>
-        <translation>Последнее действие PrivateSend было слишком недавно.</translation>
+        <source>Last PRiVCYSend was too recent.</source>
+        <translation>Последнее действие PRiVCYSend было слишком недавно.</translation>
     </message>
     <message>
-        <source>Last successful PrivateSend action was too recent.</source>
-        <translation>Последнее успешное действие PrivateSend было слишком недавно.</translation>
+        <source>Last successful PRiVCYSend action was too recent.</source>
+        <translation>Последнее успешное действие PRiVCYSend было слишком недавно.</translation>
     </message>
     <message>
         <source>Loading block index...</source>
@@ -4859,16 +4859,16 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>Вывести версию и выйти</translation>
     </message>
     <message>
-        <source>PrivateSend is idle.</source>
-        <translation>PrivateSend в режиме ожидания.</translation>
+        <source>PRiVCYSend is idle.</source>
+        <translation>PRiVCYSend в режиме ожидания.</translation>
     </message>
     <message>
-        <source>PrivateSend options:</source>
-        <translation>Опции PrivateSend:</translation>
+        <source>PRiVCYSend options:</source>
+        <translation>Опции PRiVCYSend:</translation>
     </message>
     <message>
-        <source>PrivateSend request incomplete:</source>
-        <translation>Запрос PrivateSend не завершен:</translation>
+        <source>PRiVCYSend request incomplete:</source>
+        <translation>Запрос PRiVCYSend не завершен:</translation>
     </message>
     <message>
         <source>Prune cannot be configured with a negative value.</source>
@@ -4919,8 +4919,8 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>Синхронизация блокчейна...</translation>
     </message>
     <message>
-        <source>Target PrivateSend balance (%u-%u, default: %u)</source>
-        <translation>Целевой баланс PrivateSend (%u-%u, по умолчанию: %u)</translation>
+        <source>Target PRiVCYSend balance (%u-%u, default: %u)</source>
+        <translation>Целевой баланс PRiVCYSend (%u-%u, по умолчанию: %u)</translation>
     </message>
     <message>
         <source>The wallet will avoid paying less than the minimum relay fee.</source>
@@ -5047,8 +5047,8 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>Распространяется под лицензией на программное обеспечение MIT, смотрите прилагаемый файл %s или %s.</translation>
     </message>
     <message>
-        <source>Enable use of PrivateSend for funds stored in this wallet (0-1, default: %u)</source>
-        <translation>Разрешить перемешивание PrivateSend для средств, хранящихся в этом кошельке (0-1, по умолчанию: %u)</translation>
+        <source>Enable use of PRiVCYSend for funds stored in this wallet (0-1, default: %u)</source>
+        <translation>Разрешить перемешивание PRiVCYSend для средств, хранящихся в этом кошельке (0-1, по умолчанию: %u)</translation>
     </message>
     <message>
         <source>Error loading %s: You can't enable HD on an already existing non-HD wallet</source>
@@ -5111,7 +5111,7 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>Этот продукт включает ПО, разработанное проектом OpenSSL Project для использования в OpenSSL Toolkit %s, криптографическое ПО, написанное Eric Young и ПО для работы с UPnP, написанное Thomas Bernard.</translation>
     </message>
     <message>
-        <source>Unable to locate enough PrivateSend non-denominated funds for this transaction.</source>
+        <source>Unable to locate enough PRiVCYSend non-denominated funds for this transaction.</source>
         <translation>Не удалось обнаружить достаточных для выполнения этой транзакции неденоминированных средств.</translation>
     </message>
     <message>
@@ -5327,8 +5327,8 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>Укажите Ваш собственный публичный адрес</translation>
     </message>
     <message>
-        <source>Start PrivateSend automatically (0-1, default: %u)</source>
-        <translation>Запускать PrivateSend автоматически (0-1, по умолчанию: %u)</translation>
+        <source>Start PRiVCYSend automatically (0-1, default: %u)</source>
+        <translation>Запускать PRiVCYSend автоматически (0-1, по умолчанию: %u)</translation>
     </message>
     <message>
         <source>Starting network threads...</source>

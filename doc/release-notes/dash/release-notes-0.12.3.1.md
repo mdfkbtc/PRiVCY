@@ -83,10 +83,10 @@ which should lower network traffic and CPU usage. Handling of triggers was also 
 
 `SPORK_13_OLD_SUPERBLOCK_FLAG` was removed now as it was unused since some time.
 
-PrivateSend improvements
+PRiVCYSend improvements
 ------------------------
 
-PrivateSend collaterals are no longer required to be N times of the PrivateSend fee (PSF), instead any input
+PRiVCYSend collaterals are no longer required to be N times of the PRiVCYSend fee (PSF), instead any input
 which is greater or equal 1 PSF but less or equal 4 PSF can be used as a collateral. Inputs that are greater or
 equal 1 PSF but strictly less than 2 PSF will be used in collaterals with OP_RETURN outputs. Note that such
 inputs will be consumed completely, with no change outputs at all. This should lower number of inputs wallet
@@ -94,7 +94,7 @@ would need to take care of, improve privacy by eliminating the case where user a
 non-private inputs together and also decrease global UTXO set size.
 
 It might feel that thanks to this change mixing fees are going to be slightly higher on average if have lots of
-such small inputs. However, you need to keep in mind that creating new PrivateSend collaterals cost some fee too
+such small inputs. However, you need to keep in mind that creating new PRiVCYSend collaterals cost some fee too
 and since such small inputs were not used at all you'd need more txes to create such collaterals. So in general,
 we believe average mixing fees should stay mostly the same.
 
@@ -112,7 +112,7 @@ Support for pruned nodes in Lite Mode
 It is now possible to run a pruned node which stores only some recent blocks and not the whole blockchain.
 However this option is only available in so called Lite Mode. In this mode, PRiVCY specific features are disabled, meaning
 that such nodes won't fully validate the blockchain (masternode payments and superblocks).
-PrivateSend and InstantSend functions are also disabled on such nodes. Such nodes are comparable to SPV-like nodes
+PRiVCYSend and InstantSend functions are also disabled on such nodes. Such nodes are comparable to SPV-like nodes
 in terms of security and validation - it relies a lot on surrounding nodes, so please keep this in mind if you decide to
 use it for something.
 
@@ -133,7 +133,7 @@ If you rely on the old output format, you can still specify an additional parame
 - `getchaintips` now shows the block fork occurred in `forkpoint` field;
 - `getrawmempool`'s has InstantSend-related info (`instantsend` and `instantlock`);
 - `getgovernanceinfo` has new field `sentinelpingmaxseconds`;
-- `getwalletinfo` now shows PrivateSend balance in `privatesend_balance` field;
+- `getwalletinfo` now shows PRiVCYSend balance in `privcysend_balance` field;
 - `sendrawtransaction` no longer bypasses transaction policy limits by default.
 - `dumphdinfo` should throw an error when wallet isn't HD now
 
@@ -240,15 +240,15 @@ See detailed [change log](https://github.com/privcypay/privcy/compare/v0.12.2.3.
 - [`7d5223b5e`](https://github.com/privcypay/privcy/commit/7d5223b5e) Network-specific thresholds for required confirmations (IS) (#1962)
 - [`2c04504f1`](https://github.com/privcypay/privcy/commit/2c04504f1) Refactor IS votes processing (#1951)
 
-### PrivateSend:
+### PRiVCYSend:
 - [`0d5426343`](https://github.com/privcypay/privcy/commit/0d5426343) Fix an edge case in PrepareDenominate (#2138)
 - [`8e129877a`](https://github.com/privcypay/privcy/commit/8e129877a) Partially revert 1922 (#2108)
-- [`fcac40ab4`](https://github.com/privcypay/privcy/commit/fcac40ab4) RPC: fix wallet lock check in `privatesend start` (#2102)
+- [`fcac40ab4`](https://github.com/privcypay/privcy/commit/fcac40ab4) RPC: fix wallet lock check in `privcysend start` (#2102)
 - [`dbbedc031`](https://github.com/privcypay/privcy/commit/dbbedc031) Fix JoinExistingQueue bug (#2100)
 - [`7ac4b972a`](https://github.com/privcypay/privcy/commit/7ac4b972a) Require all participants to submit equal number of inputs (#2075)
 - [`d1bf615f3`](https://github.com/privcypay/privcy/commit/d1bf615f3) No POOL_STATE_ERROR or POOL_STATE_SUCCESS on masternodes (#2009)
 - [`d03adb7c3`](https://github.com/privcypay/privcy/commit/d03adb7c3) Check if in masternode mode first and only then do the job (or not) (#2008)
-- [`ddff32b96`](https://github.com/privcypay/privcy/commit/ddff32b96) Fix TransactionRecord::PrivateSendMakeCollaterals tx type (#1996)
+- [`ddff32b96`](https://github.com/privcypay/privcy/commit/ddff32b96) Fix TransactionRecord::PRiVCYSendMakeCollaterals tx type (#1996)
 - [`4f978a263`](https://github.com/privcypay/privcy/commit/4f978a263) Drop Nx requirements for PS collaterals (#1995)
 - [`a44f48743`](https://github.com/privcypay/privcy/commit/a44f48743) Allow data outputs in PS collaterals (#1984)
 - [`ef9a9f2d6`](https://github.com/privcypay/privcy/commit/ef9a9f2d6) Fix unlocking error on "Start Mixing" (#1941)
@@ -256,7 +256,7 @@ See detailed [change log](https://github.com/privcypay/privcy/compare/v0.12.2.3.
 - [`d7f55d508`](https://github.com/privcypay/privcy/commit/d7f55d508) Switch nTimeLastSuccessfulStep from GetTimeMillis() to GetTime() (#1923)
 - [`204b1fe99`](https://github.com/privcypay/privcy/commit/204b1fe99) Drop unnecessary AcceptToMemoryPool in PS (and corresponding cs-main locks), just relay what we have (#1922)
 - [`271c249e1`](https://github.com/privcypay/privcy/commit/271c249e1) Skip next mn payments winners when selecting a MN to mix on (#1921)
-- [`ca89c7b87`](https://github.com/privcypay/privcy/commit/ca89c7b87) [Trivial] Update PrivateSend denominations in comments / typo fixes (#1910)
+- [`ca89c7b87`](https://github.com/privcypay/privcy/commit/ca89c7b87) [Trivial] Update PRiVCYSend denominations in comments / typo fixes (#1910)
 - [`b1817dd93`](https://github.com/privcypay/privcy/commit/b1817dd93) Introduce CDarksendAccept class (for DSACCEPT messages) (#1875)
 - [`d69ad9d61`](https://github.com/privcypay/privcy/commit/d69ad9d61) Skip existing masternode conections on mixing (#1833)
 - [`1d620d1f9`](https://github.com/privcypay/privcy/commit/1d620d1f9) Fix calls to AcceptToMemoryPool in PS submodules (#1823)
@@ -300,7 +300,7 @@ See detailed [change log](https://github.com/privcypay/privcy/compare/v0.12.2.3.
 - [`0260821f8`](https://github.com/privcypay/privcy/commit/0260821f8) fix SelectCoinsByDenominations (#2074)
 - [`b7bd96e2b`](https://github.com/privcypay/privcy/commit/b7bd96e2b) Clarify the warning displayed when encrypting HD wallet (#2002)
 - [`4930bb9f5`](https://github.com/privcypay/privcy/commit/4930bb9f5) Don't hold cs_storage in CKeyHolderStorage while calling functions which might lock cs_wallet (#2000)
-- [`4d442376e`](https://github.com/privcypay/privcy/commit/4d442376e) Limit the scope of cs_wallet lock in CPrivateSendClient::PrepareDenominate() (#1997)
+- [`4d442376e`](https://github.com/privcypay/privcy/commit/4d442376e) Limit the scope of cs_wallet lock in CPRiVCYSendClient::PrepareDenominate() (#1997)
 - [`1d32d1c32`](https://github.com/privcypay/privcy/commit/1d32d1c32) Add missing includes required for compilation with --disable-wallet flag (#1991)
 - [`3f0c8723e`](https://github.com/privcypay/privcy/commit/3f0c8723e) Slightly refactor AutoBackupWallet (#1927)
 - [`9965d51bb`](https://github.com/privcypay/privcy/commit/9965d51bb) Avoid reference leakage in CKeyHolderStorage::AddKey (#1840)
@@ -325,7 +325,7 @@ See detailed [change log](https://github.com/privcypay/privcy/compare/v0.12.2.3.
 - [`4bc4a7dac`](https://github.com/privcypay/privcy/commit/4bc4a7dac) Fix `debug` rpc (#1897)
 - [`063bc5542`](https://github.com/privcypay/privcy/commit/063bc5542) Fix `masternode list` (#1893)
 - [`5a5f61872`](https://github.com/privcypay/privcy/commit/5a5f61872) Shorten MN outpoint output from getvotes (#1871)
-- [`86d33b276`](https://github.com/privcypay/privcy/commit/86d33b276) Remove double registration of "privatesend" RPC (#1853)
+- [`86d33b276`](https://github.com/privcypay/privcy/commit/86d33b276) Remove double registration of "privcysend" RPC (#1853)
 - [`c2de362b9`](https://github.com/privcypay/privcy/commit/c2de362b9) Actually honor fMiningRequiresPeers in getblocktemplate (#1844)
 - [`1cffb8a7e`](https://github.com/privcypay/privcy/commit/1cffb8a7e) Include p2pk into addressindex (#1839)
 
@@ -416,7 +416,7 @@ See detailed [change log](https://github.com/privcypay/privcy/compare/v0.12.2.3.
 - [`d5ef77ba9`](https://github.com/privcypay/privcy/commit/d5ef77ba9) Refactor: use constant refs and `Ret` suffix (#1928)
 - [`2e04864b2`](https://github.com/privcypay/privcy/commit/2e04864b2) Replace boost::lexical_cast<int> with atoi (#1926)
 - [`0f4d963ba`](https://github.com/privcypay/privcy/commit/0f4d963ba) Add DSHA256 and X11 benchmarks, refactor names of other algo benchmarks to group them together (#1925)
-- [`4528c735f`](https://github.com/privcypay/privcy/commit/4528c735f) Replace some instantsend/privatesend magic numbers with constants (#1924)
+- [`4528c735f`](https://github.com/privcypay/privcy/commit/4528c735f) Replace some instantsend/privcysend magic numbers with constants (#1924)
 - [`120893c63`](https://github.com/privcypay/privcy/commit/120893c63) Update timeLastMempoolReq when responding to MEMPOOL request (#1904)
 - [`bb20b4e7b`](https://github.com/privcypay/privcy/commit/bb20b4e7b) Few cleanups after backporting (#1903)
 - [`a7fa07a30`](https://github.com/privcypay/privcy/commit/a7fa07a30) Drop BOOST_FOREACH and use references in loops (const ref where applicable, PRiVCY code only) (#1899)

@@ -39,9 +39,9 @@
 #include <masternode/masternode-sync.h>
 #include <masternode/masternode-meta.h>
 #ifdef ENABLE_WALLET
-#include <privatesend/privatesend-client.h>
+#include <privcysend/privcysend-client.h>
 #endif // ENABLE_WALLET
-#include <privatesend/privatesend-server.h>
+#include <privcysend/privcysend-server.h>
 
 #include <evo/deterministicmns.h>
 #include <evo/mnauth.h>
@@ -1292,7 +1292,7 @@ bool static AlreadyHave(const CInv& inv) EXCLUSIVE_LOCKS_REQUIRED(cs_main)
             bool fIgnoreRecentRejects = llmq::quorumInstantSendManager->IsLocked(inv.hash) || inv.type == MSG_DSTX;
 
             return (!fIgnoreRecentRejects && recentRejects->contains(inv.hash)) ||
-                   (inv.type == MSG_DSTX && static_cast<bool>(CPrivateSend::GetDSTX(inv.hash))) ||
+                   (inv.type == MSG_DSTX && static_cast<bool>(CPRiVCYSend::GetDSTX(inv.hash))) ||
                    mempool.exists(inv.hash) ||
                    pcoinsTip->HaveCoinInCache(COutPoint(inv.hash, 0)) || // Best effort: only try output 0 and 1
                    pcoinsTip->HaveCoinInCache(COutPoint(inv.hash, 1)) ||
@@ -1540,9 +1540,9 @@ void static ProcessGetData(CNode* pfrom, const CChainParams& chainparams, CConnm
             // Send stream from relay memory
             bool push = false;
             if (inv.type == MSG_TX || inv.type == MSG_DSTX) {
-                CPrivateSendBroadcastTx dstx;
+                CPRiVCYSendBroadcastTx dstx;
                 if (inv.type == MSG_DSTX) {
-                    dstx = CPrivateSend::GetDSTX(inv.hash);
+                    dstx = CPRiVCYSend::GetDSTX(inv.hash);
                 }
                 auto mi = mapRelay.find(inv.hash);
                 if (mi != mapRelay.end()) {
@@ -2300,10 +2300,10 @@ bool static ProcessMessage(CNode* pfrom, const std::string& strCommand, CDataStr
         }
 
         if (pfrom->nVersion >= SENDDSQUEUE_PROTO_VERSION) {
-            // Tell our peer that he should send us PrivateSend queue messages
+            // Tell our peer that he should send us PRiVCYSend queue messages
             connman->PushMessage(pfrom, msgMaker.Make(NetMsgType::SENDDSQUEUE, true));
         } else {
-            // older nodes do not support SENDDSQUEUE and expect us to always send PrivateSend queue messages
+            // older nodes do not support SENDDSQUEUE and expect us to always send PRiVCYSend queue messages
             // TODO we can remove this compatibility code in 0.15.0
             pfrom->fSendDSQueue = true;
         }
@@ -2715,7 +2715,7 @@ bool static ProcessMessage(CNode* pfrom, const std::string& strCommand, CDataStr
         }
 
         CTransactionRef ptx;
-        CPrivateSendBroadcastTx dstx;
+        CPRiVCYSendBroadcastTx dstx;
         int nInvType = MSG_TX;
 
         // Read data and assign inv type
@@ -2746,7 +2746,7 @@ bool static ProcessMessage(CNode* pfrom, const std::string& strCommand, CDataStr
                 LogPrint(BCLog::PRIVATESEND, "DSTX -- Invalid DSTX structure: %s\n", hashTx.ToString());
                 return false;
             }
-            if(CPrivateSend::GetDSTX(hashTx)) {
+            if(CPRiVCYSend::GetDSTX(hashTx)) {
                 LogPrint(BCLog::PRIVATESEND, "DSTX -- Already have %s, skipping...\n", hashTx.ToString());
                 return true; // not an error
             }
@@ -2797,7 +2797,7 @@ bool static ProcessMessage(CNode* pfrom, const std::string& strCommand, CDataStr
             if (nInvType == MSG_DSTX) {
                 LogPrint(BCLog::PRIVATESEND, "DSTX -- Masternode transaction accepted, txid=%s, peer=%d\n",
                          tx.GetHash().ToString(), pfrom->GetId());
-                CPrivateSend::AddDSTX(dstx);
+                CPRiVCYSend::AddDSTX(dstx);
             }
 
             mempool.check(pcoinsTip.get());
@@ -4138,7 +4138,7 @@ bool PeerLogicValidation::SendMessages(CNode* pto, std::atomic<bool>& interruptM
                 for (const auto& txinfo : vtxinfo) {
                     const uint256& hash = txinfo.tx->GetHash();
                     int nInvType = MSG_TX;
-                    if (CPrivateSend::GetDSTX(hash)) {
+                    if (CPRiVCYSend::GetDSTX(hash)) {
                         nInvType = MSG_DSTX;
                     }
                     CInv inv(nInvType, hash);
@@ -4208,7 +4208,7 @@ bool PeerLogicValidation::SendMessages(CNode* pto, std::atomic<bool>& interruptM
                     if (pto->pfilter && !pto->pfilter->IsRelevantAndUpdate(*txinfo.tx)) continue;
                     // Send
                     int nInvType = MSG_TX;
-                    if (CPrivateSend::GetDSTX(hash)) {
+                    if (CPRiVCYSend::GetDSTX(hash)) {
                         nInvType = MSG_DSTX;
                     }
                     vInv.push_back(CInv(nInvType, hash));

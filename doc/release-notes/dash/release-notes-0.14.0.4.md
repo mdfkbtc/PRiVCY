@@ -78,11 +78,11 @@ nodes (without txindex) can ignore the issue as they are not involved in active 
 Another issue fixed in this release is the re-requesting of transactions after an InstantSend lock invalidated
 a conflicting transaction.
 
-Multiple improvements to PrivateSend
+Multiple improvements to PRiVCYSend
 ------------------------------------
 
-Multiple improvements to PrivateSend are introduced in this release, leading to faster mixing and more
-reasonable selection of UTXOs when sending PrivateSend funds.
+Multiple improvements to PRiVCYSend are introduced in this release, leading to faster mixing and more
+reasonable selection of UTXOs when sending PRiVCYSend funds.
 
 Fix for CVE-2017-18350
 ----------------------

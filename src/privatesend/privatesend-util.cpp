@@ -5,7 +5,7 @@
 #include <consensus/validation.h>
 #include <policy/fees.h>
 #include <policy/policy.h>
-#include <privatesend/privatesend-util.h>
+#include <privcysend/privcysend-util.h>
 #include <script/sign.h>
 #include <validation.h>
 #include <wallet/fees.h>

@@ -65,12 +65,12 @@ private:
     std::unique_ptr<TransactionFilterProxy> filter;
 
     void SetupTransactionList(int nNumItems);
-    void DisablePrivateSendCompletely();
+    void DisablePRiVCYSendCompletely();
 
 private Q_SLOTS:
-    void togglePrivateSend();
+    void togglePRiVCYSend();
     void updateDisplayUnit();
-    void updatePrivateSendProgress();
+    void updatePRiVCYSendProgress();
     void updateAdvancedPSUI(bool fShowAdvancedPSUI);
     void handleTransactionClicked(const QModelIndex &index);
     void updateAlerts(const QString &warnings);

@@ -27,7 +27,7 @@
 #include <wallet/walletdb.h> // for BackupWallet
 
 #include <spork.h>
-#include <privatesend/privatesend-client.h>
+#include <privcysend/privcysend-client.h>
 #include <llmq/quorums_instantsend.h>
 
 #include <stdint.h>
@@ -51,7 +51,7 @@ WalletModel::WalletModel(CWallet* _wallet, OptionsModel* _optionsModel, QObject*
     cachedEncryptionStatus(Unencrypted),
     cachedNumBlocks(0),
     cachedNumISLocks(0),
-    cachedPrivateSendRounds(0)
+    cachedPRiVCYSendRounds(0)
 {
     fHaveWatchOnly = wallet->HaveWatchOnly();
     fForceCheckBalanceChanged = false;
@@ -159,13 +159,13 @@ void WalletModel::pollBalanceChanged()
     if(!lockWallet)
         return;
 
-    if(fForceCheckBalanceChanged || chainActive.Height() != cachedNumBlocks || privateSendClient.nPrivateSendRounds != cachedPrivateSendRounds)
+    if(fForceCheckBalanceChanged || chainActive.Height() != cachedNumBlocks || privateSendClient.nPRiVCYSendRounds != cachedPRiVCYSendRounds)
     {
         fForceCheckBalanceChanged = false;
 
         // Balance and number of transactions might have changed
         cachedNumBlocks = chainActive.Height();
-        cachedPrivateSendRounds = privateSendClient.nPrivateSendRounds;
+        cachedPRiVCYSendRounds = privateSendClient.nPRiVCYSendRounds;
 
         checkBalanceChanged();
         if(transactionTableModel)
@@ -229,9 +229,9 @@ int WalletModel::getNumISLocks() const
     return cachedNumISLocks;
 }
 
-int WalletModel::getRealOutpointPrivateSendRounds(const COutPoint& outpoint) const
+int WalletModel::getRealOutpointPRiVCYSendRounds(const COutPoint& outpoint) const
 {
-    return wallet->GetRealOutpointPrivateSendRounds(outpoint);
+    return wallet->GetRealOutpointPRiVCYSendRounds(outpoint);
 }
 
 bool WalletModel::isFullyMixed(const COutPoint& outpoint) const

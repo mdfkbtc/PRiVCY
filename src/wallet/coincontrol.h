@@ -100,12 +100,12 @@ public:
 
     // PRiVCY-specific helpers
 
-    void UsePrivateSend(bool fUsePrivateSend)
+    void UsePRiVCYSend(bool fUsePRiVCYSend)
     {
-        nCoinType = fUsePrivateSend ? CoinType::ONLY_FULLY_MIXED : CoinType::ALL_COINS;
+        nCoinType = fUsePRiVCYSend ? CoinType::ONLY_FULLY_MIXED : CoinType::ALL_COINS;
     }
 
-    bool IsUsingPrivateSend() const
+    bool IsUsingPRiVCYSend() const
     {
         return nCoinType == CoinType::ONLY_FULLY_MIXED;
     }

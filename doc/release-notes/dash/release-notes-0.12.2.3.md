@@ -61,7 +61,7 @@ Fix -liquidityprovider option
 -----------------------------
 
 Turned out that liquidityprovider mixing mode practically stopped working after
-recent improvements in the PrivateSend mixing algorithm due to a suboptimal
+recent improvements in the PRiVCYSend mixing algorithm due to a suboptimal
 looping which occurs only in this mode (due to a huge number of rounds). To fix
 the issue a small part of the mixing algorithm was reverted to a pre-0.12.2 one
 for this mode only. Regular users were not affected by the issue in any way and
@@ -82,7 +82,7 @@ See detailed [change log](https://github.com/privcypay/privcy/compare/v0.12.2.2.
 - [`068b20bc7`](https://github.com/privcypay/privcy/commit/068b20bc7) Merge #8256: BUG: bitcoin-qt crash
 - [`f71ab1daf`](https://github.com/privcypay/privcy/commit/f71ab1daf) Merge #11847: Fixes compatibility with boost 1.66 (#1836)
 
-### PrivateSend:
+### PRiVCYSend:
 - [`fa5fc418a`](https://github.com/privcypay/privcy/commit/fa5fc418a) Fix -liquidityprovider option (#1829)
 - [`d261575b4`](https://github.com/privcypay/privcy/commit/d261575b4) Skip existing masternode conections on mixing (#1833)
 - [`21a10057d`](https://github.com/privcypay/privcy/commit/21a10057d) Protect CKeyHolderStorage via mutex (#1834)

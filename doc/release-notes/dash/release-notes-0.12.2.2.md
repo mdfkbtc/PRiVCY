@@ -68,7 +68,7 @@ InstantSend fix
 
 InstantSend should work with multisig addresses now.
 
-PrivateSend fix
+PRiVCYSend fix
 ---------------
 
 Some internal data structures were not cleared properly, which could lead
@@ -158,8 +158,8 @@ See detailed [change log](https://github.com/privcypay/privcy/compare/v0.12.2.1.
 ### Masternodes:
 - [`312663b4b`](https://github.com/privcypay/privcy/commit/312663b4b) Remove support for local masternodes (#1706)
 
-### PrivateSend:
-- [`7e96af4e6`](https://github.com/privcypay/privcy/commit/7e96af4e6) Refactor PrivateSend (#1735)
+### PRiVCYSend:
+- [`7e96af4e6`](https://github.com/privcypay/privcy/commit/7e96af4e6) Refactor PRiVCYSend (#1735)
 - [`f4502099a`](https://github.com/privcypay/privcy/commit/f4502099a) make CheckDSTXes() private, execute it on both client and server (#1736)
 
 ### InstantSend:

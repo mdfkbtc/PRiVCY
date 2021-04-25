@@ -392,7 +392,7 @@
         <translation>%1 정보(&amp;A)</translation>
     </message>
     <message>
-        <source>PrivateSend coins to a PRiVCY address</source>
+        <source>PRiVCYSend coins to a PRiVCY address</source>
         <translation>프라이빗샌드 코인을 대시 주소로</translation>
     </message>
     <message>
@@ -556,11 +556,11 @@
         <translation>지갑이 &lt;b&gt;복호화&lt;/b&gt; 되었습니다</translation>
     </message>
     <message>
-        <source>&amp;PrivateSend information</source>
+        <source>&amp;PRiVCYSend information</source>
         <translation>프라이빗샌드 정보(&amp;P)</translation>
     </message>
     <message>
-        <source>Show the PrivateSend basic information</source>
+        <source>Show the PRiVCYSend basic information</source>
         <translation>프라이빗샌드에 대한 기본적인 정보를 보여줍니다.</translation>
     </message>
     <message>
@@ -1054,12 +1054,12 @@
         <translation>GUI를 통해 수정된 모든 설정을 초기화</translation>
     </message>
     <message>
-        <source>PrivateSend information</source>
+        <source>PRiVCYSend information</source>
         <translation>프라이빗샌드 정보</translation>
     </message>
     <message>
-        <source>&lt;h3&gt;PrivateSend Basics&lt;/h3&gt; PrivateSend gives you true financial privacy by obscuring the origins of your funds. All the PRiVCY in your wallet is comprised of different "inputs" which you can think of as separate, discrete coins.&lt;br&gt; PrivateSend uses an innovative process to mix your inputs with the inputs of two or more other people, without having your coins ever leave your wallet. You retain control of your money at all times.&lt;hr&gt; &lt;b&gt;The PrivateSend process works like this:&lt;/b&gt;&lt;ol type="1"&gt; &lt;li&gt;PrivateSend begins by breaking your transaction inputs down into standard denominations. These denominations are 0.001 PRIV, 0.01 PRIV, 0.1 PRIV, 1 PRIV and 10 PRIV -- sort of like the paper money you use every day.&lt;/li&gt; &lt;li&gt;Your wallet then sends requests to specially configured software nodes on the network, called "masternodes." These masternodes are informed then that you are interested in mixing a certain denomination. No identifiable information is sent to the masternodes, so they never know "who" you are.&lt;/li&gt; &lt;li&gt;When two or more other people send similar messages, indicating that they wish to mix the same denomination, a mixing session begins. The masternode mixes up the inputs and instructs all three users' wallets to pay the now-transformed input back to themselves. Your wallet pays that denomination directly to itself, but in a different address (called a change address).&lt;/li&gt; &lt;li&gt;In order to fully obscure your funds, your wallet must repeat this process a number of times with each denomination. Each time the process is completed, it's called a "round." Each round of PrivateSend makes it exponentially more difficult to determine where your funds originated.&lt;/li&gt; &lt;li&gt;This mixing process happens in the background without any intervention on your part. When you wish to make a transaction, your funds will already be mixed. No additional waiting is required.&lt;/li&gt; &lt;/ol&gt; &lt;hr&gt;&lt;b&gt;IMPORTANT:&lt;/b&gt; Your wallet only contains 1000 of these "change addresses." Every time a mixing event happens, up to 9 of your addresses are used up. This means those 1000 addresses last for about 100 mixing events. When 900 of them are used, your wallet must create more addresses. It can only do this, however, if you have automatic backups enabled.&lt;br&gt; Consequently, users who have backups disabled will also have PrivateSend disabled. &lt;hr&gt;For more information, see the &lt;a style="%1" href="https://docs.privcy.org/en/stable/wallets/privcycore/privatesend-instantsend.html"&gt;PrivateSend documentation&lt;/a&gt;.</source>
-        <translation>&lt;h3&gt;프라이빗샌드에 관한 기본 정보&lt;/h3&gt; 프라이빗 샌드는 당신의 자금 출처를 가려 진정한 재정적 프라이버시를 보장합니다. 당신의 지갑에 보관된 모든 대시는 각기 다른 ‘입력값’으로 구성되어 있습니다. 쉽게 생각하면 별도의 분리된 동전으로 구성되어 있다고 볼 수 있습니다.&lt;br&gt; 프라이빗샌드는 당신의 코인이 지갑을 떠나지 않고도 그 입력값을 다른 두 사람의 입력값과 섞는 혁신적인 방식을 사용합니다. 이로써 당신의 자금은 언제나 당신의 통제 하에 있습니다.&lt;hr&gt;&lt;b&gt; 프라이빗샌드는 다음과 같은 방식으로 작동합니다.&lt;/b&gt;&lt;ol type="1"&gt;&lt;li&gt; 프라이빗샌드는 당신의 거래 입력값을 표준 단위로 쪼개는 것으로 시작합니다. 이렇게 분할하는 단위는 0.001대시, 0.01대시, 0.1대시, 1대시 혹은 10대시 입니다 - 귀하가 일상적으로 사용하는 지폐와 비슷하다고 생각하셔도 좋습니다. &lt;/li&gt;&lt;li&gt;이후 당신의 지갑은 ‘마스터노드’라고 불리는 네트워크의 특수 구성 소프트웨어 노드에 요청을 전송합니다. 이로써 이들 마스터노드는 당신이 특정 금액을 믹싱하고자 한다는 정보를 수신합니다. 마스터노드에는 당신의 개인 정보를 식별할 수 있는 어떤 내용도 전송되지 않습니다. 즉 당신이 ‘누구’인지 알 수 있는 방법은 없습니다.&lt;/li&gt;&lt;li&gt; 두 명의 다른 사람이 비슷한 메시지를 보내어 그들 역시 같은 단위의 금액을 믹싱하고 싶다는 정보를 표시하면 믹싱 세션이 시작됩니다. 마스터노드는 이들 입력값을 믹싱하여 세 사용자의 지갑에 변환된 입력을 지불하도록 지시합니다. 당신의 지갑은 해당 입력값을 지불하지만, 지불되는 주소는 '변경 주소'라고 불리는 다른 주소로 보내집니다.&lt;/li&gt;&lt;li&gt; 당신의 자금을 완전히 가리기 위해서, 당신의 지갑은 이 과정을 각 대시 분할 단위만큼 여러번 반복합니다. 이러한 반복을 ‘라운드’라고 부릅니다. 프라이빗샌드의 각 라운드가 진행됨에 따라 당신이 송금하고자 하는 자금의 출처는 기하급수적으로 높은 수준으로 가려집니다.&lt;/li&gt;&lt;li&gt; 이 믹싱 과정은 당신이 개입할 필요 없이 백그라운드에서 진행됩니다. 당신이 거래를 원하시는 경우, 당신의 자금은 이미 믹싱을 진행하는 중입니다. 추가적으로 대기할 필요 역시 없습니다. &lt;/li&gt;&lt;/ol&gt;&lt;hr&gt;&lt;b&gt;중요:&lt;/b&gt; 당신의 지갑은 1,000개의 ‘변경 주소’만을 가지고 있습니다. 믹싱을 실행할 때마다 최대 9개의 주소가 사용됩니다. 이는 곧 이들 1000개의 주소가 약 100개의 믹싱 작업을 위해 사용될 수 있다는 것을 의미합니다. 전체 1,000개의 주소 중 900개가 사용된 경우 당신의 지갑은 더 많은 주소를 만들어야 합니다. 그러나 이 작업은 당신이 자동 백업을 설정한 경우에만 수행됩니다. &lt;br&gt;따라서 백업이 비활성화된 사용자는 프라이빗샌드 역시 비활성화 됩니다. &lt;hr&gt;더 많은 정보를 위해서는 다음을 참조하세요 &lt;a style="%1" href="https://docs.privcy.org/en/stable/wallets/privcycore/privatesend-instantsend.html"&gt;프라이빗샌드 설명서&lt;/a&gt;. </translation>
+        <source>&lt;h3&gt;PRiVCYSend Basics&lt;/h3&gt; PRiVCYSend gives you true financial privacy by obscuring the origins of your funds. All the PRiVCY in your wallet is comprised of different "inputs" which you can think of as separate, discrete coins.&lt;br&gt; PRiVCYSend uses an innovative process to mix your inputs with the inputs of two or more other people, without having your coins ever leave your wallet. You retain control of your money at all times.&lt;hr&gt; &lt;b&gt;The PRiVCYSend process works like this:&lt;/b&gt;&lt;ol type="1"&gt; &lt;li&gt;PRiVCYSend begins by breaking your transaction inputs down into standard denominations. These denominations are 0.001 PRIV, 0.01 PRIV, 0.1 PRIV, 1 PRIV and 10 PRIV -- sort of like the paper money you use every day.&lt;/li&gt; &lt;li&gt;Your wallet then sends requests to specially configured software nodes on the network, called "masternodes." These masternodes are informed then that you are interested in mixing a certain denomination. No identifiable information is sent to the masternodes, so they never know "who" you are.&lt;/li&gt; &lt;li&gt;When two or more other people send similar messages, indicating that they wish to mix the same denomination, a mixing session begins. The masternode mixes up the inputs and instructs all three users' wallets to pay the now-transformed input back to themselves. Your wallet pays that denomination directly to itself, but in a different address (called a change address).&lt;/li&gt; &lt;li&gt;In order to fully obscure your funds, your wallet must repeat this process a number of times with each denomination. Each time the process is completed, it's called a "round." Each round of PRiVCYSend makes it exponentially more difficult to determine where your funds originated.&lt;/li&gt; &lt;li&gt;This mixing process happens in the background without any intervention on your part. When you wish to make a transaction, your funds will already be mixed. No additional waiting is required.&lt;/li&gt; &lt;/ol&gt; &lt;hr&gt;&lt;b&gt;IMPORTANT:&lt;/b&gt; Your wallet only contains 1000 of these "change addresses." Every time a mixing event happens, up to 9 of your addresses are used up. This means those 1000 addresses last for about 100 mixing events. When 900 of them are used, your wallet must create more addresses. It can only do this, however, if you have automatic backups enabled.&lt;br&gt; Consequently, users who have backups disabled will also have PRiVCYSend disabled. &lt;hr&gt;For more information, see the &lt;a style="%1" href="https://docs.privcy.org/en/stable/wallets/privcycore/privcysend-instantsend.html"&gt;PRiVCYSend documentation&lt;/a&gt;.</source>
+        <translation>&lt;h3&gt;프라이빗샌드에 관한 기본 정보&lt;/h3&gt; 프라이빗 샌드는 당신의 자금 출처를 가려 진정한 재정적 프라이버시를 보장합니다. 당신의 지갑에 보관된 모든 대시는 각기 다른 ‘입력값’으로 구성되어 있습니다. 쉽게 생각하면 별도의 분리된 동전으로 구성되어 있다고 볼 수 있습니다.&lt;br&gt; 프라이빗샌드는 당신의 코인이 지갑을 떠나지 않고도 그 입력값을 다른 두 사람의 입력값과 섞는 혁신적인 방식을 사용합니다. 이로써 당신의 자금은 언제나 당신의 통제 하에 있습니다.&lt;hr&gt;&lt;b&gt; 프라이빗샌드는 다음과 같은 방식으로 작동합니다.&lt;/b&gt;&lt;ol type="1"&gt;&lt;li&gt; 프라이빗샌드는 당신의 거래 입력값을 표준 단위로 쪼개는 것으로 시작합니다. 이렇게 분할하는 단위는 0.001대시, 0.01대시, 0.1대시, 1대시 혹은 10대시 입니다 - 귀하가 일상적으로 사용하는 지폐와 비슷하다고 생각하셔도 좋습니다. &lt;/li&gt;&lt;li&gt;이후 당신의 지갑은 ‘마스터노드’라고 불리는 네트워크의 특수 구성 소프트웨어 노드에 요청을 전송합니다. 이로써 이들 마스터노드는 당신이 특정 금액을 믹싱하고자 한다는 정보를 수신합니다. 마스터노드에는 당신의 개인 정보를 식별할 수 있는 어떤 내용도 전송되지 않습니다. 즉 당신이 ‘누구’인지 알 수 있는 방법은 없습니다.&lt;/li&gt;&lt;li&gt; 두 명의 다른 사람이 비슷한 메시지를 보내어 그들 역시 같은 단위의 금액을 믹싱하고 싶다는 정보를 표시하면 믹싱 세션이 시작됩니다. 마스터노드는 이들 입력값을 믹싱하여 세 사용자의 지갑에 변환된 입력을 지불하도록 지시합니다. 당신의 지갑은 해당 입력값을 지불하지만, 지불되는 주소는 '변경 주소'라고 불리는 다른 주소로 보내집니다.&lt;/li&gt;&lt;li&gt; 당신의 자금을 완전히 가리기 위해서, 당신의 지갑은 이 과정을 각 대시 분할 단위만큼 여러번 반복합니다. 이러한 반복을 ‘라운드’라고 부릅니다. 프라이빗샌드의 각 라운드가 진행됨에 따라 당신이 송금하고자 하는 자금의 출처는 기하급수적으로 높은 수준으로 가려집니다.&lt;/li&gt;&lt;li&gt; 이 믹싱 과정은 당신이 개입할 필요 없이 백그라운드에서 진행됩니다. 당신이 거래를 원하시는 경우, 당신의 자금은 이미 믹싱을 진행하는 중입니다. 추가적으로 대기할 필요 역시 없습니다. &lt;/li&gt;&lt;/ol&gt;&lt;hr&gt;&lt;b&gt;중요:&lt;/b&gt; 당신의 지갑은 1,000개의 ‘변경 주소’만을 가지고 있습니다. 믹싱을 실행할 때마다 최대 9개의 주소가 사용됩니다. 이는 곧 이들 1000개의 주소가 약 100개의 믹싱 작업을 위해 사용될 수 있다는 것을 의미합니다. 전체 1,000개의 주소 중 900개가 사용된 경우 당신의 지갑은 더 많은 주소를 만들어야 합니다. 그러나 이 작업은 당신이 자동 백업을 설정한 경우에만 수행됩니다. &lt;br&gt;따라서 백업이 비활성화된 사용자는 프라이빗샌드 역시 비활성화 됩니다. &lt;hr&gt;더 많은 정보를 위해서는 다음을 참조하세요 &lt;a style="%1" href="https://docs.privcy.org/en/stable/wallets/privcycore/privcysend-instantsend.html"&gt;프라이빗샌드 설명서&lt;/a&gt;. </translation>
     </message>
 </context>
 <context>
@@ -1373,27 +1373,27 @@
         <translation>마스터노드 탭을 보여줍니다.</translation>
     </message>
     <message>
-        <source>Show additional information and buttons for PrivateSend on overview screen.</source>
+        <source>Show additional information and buttons for PRiVCYSend on overview screen.</source>
         <translation>추가적인 정보와 프라이빗샌드를 위한 버튼을 개요에 나타냅니다.</translation>
     </message>
     <message>
-        <source>Enable advanced PrivateSend interface</source>
+        <source>Enable advanced PRiVCYSend interface</source>
         <translation>향상된 프라이빗샌드 인터페이스 사용하기</translation>
     </message>
     <message>
-        <source>Show warning dialog when PrivateSend detects that wallet has very low number of keys left.</source>
+        <source>Show warning dialog when PRiVCYSend detects that wallet has very low number of keys left.</source>
         <translation>프라이빗샌드가 지갑에 남은 키의 숫자가 적은 것을 감지하는 경우 대화 상자에 오류를 나타냅니다.</translation>
     </message>
     <message>
-        <source>Warn if PrivateSend is running out of keys</source>
+        <source>Warn if PRiVCYSend is running out of keys</source>
         <translation>프라이빗샌드에 사용할 키가 없는 경우 경고문을 표시합니다.</translation>
     </message>
     <message>
-        <source>Whether to use experimental PrivateSend mode with multiple mixing sessions per block.&lt;br/&gt;Note: You must use this feature carefully.&lt;br/&gt;Make sure you always have recent wallet (auto)backup in a safe place!</source>
+        <source>Whether to use experimental PRiVCYSend mode with multiple mixing sessions per block.&lt;br/&gt;Note: You must use this feature carefully.&lt;br/&gt;Make sure you always have recent wallet (auto)backup in a safe place!</source>
         <translation>블록당 다수의 믹싱 세션을 이용하는 실험적 프라이빗샌드 모드를 사용할 지 여부를 결정합니다. &lt;br/&gt;주의: 이 기능을 사용하기 위해서는 특별히 주의를 기울여야 합니다.&lt;br/&gt;언제나 안전한 장소에 최신의 지갑 (자동)백업이 되고 있는지 확인하세요! </translation>
     </message>
     <message>
-        <source>Enable PrivateSend &amp;multi-session</source>
+        <source>Enable PRiVCYSend &amp;multi-session</source>
         <translation>프라이빗샌드 멀티 세션 활성화(&amp;m)</translation>
     </message>
     <message>
@@ -1401,15 +1401,15 @@
         <translation>확인되지 않은 잔액 사용을 중지하는 경우, 거래로부터 발생하는 잔액은 &lt;br/&gt;최소 한 번의 거래 확인이 발생할 때 까지 사용할 수 없습니다.&lt;br/&gt;이는 또한 당신의 잔고가 계산되는 방식에 영향을 미칠 수 있습니다.</translation>
     </message>
     <message>
-        <source>PrivateSend rounds to use</source>
+        <source>PRiVCYSend rounds to use</source>
         <translation>프라이빗샌드 라운드 사용</translation>
     </message>
     <message>
-        <source>This amount acts as a threshold to turn off PrivateSend once it's reached.</source>
+        <source>This amount acts as a threshold to turn off PRiVCYSend once it's reached.</source>
         <translation>이 금액에 도달하는 경우 프라이빗샌드를 끄기 위한 한계점으로 작동합니다.</translation>
     </message>
     <message>
-        <source>Target PrivateSend balance</source>
+        <source>Target PRiVCYSend balance</source>
         <translation>타깃 프라이빗샌드 잔고</translation>
     </message>
     <message>
@@ -1477,11 +1477,11 @@
         <translation>코인 제어 기능 활성화(&amp;C)</translation>
     </message>
     <message>
-        <source>Show system popups for PrivateSend mixing transactions&lt;br/&gt;just like for all other transaction types.</source>
+        <source>Show system popups for PRiVCYSend mixing transactions&lt;br/&gt;just like for all other transaction types.</source>
         <translation>다른 모든 거래 타입과 같이&lt;br/&gt;프라이빗샌드 믹싱 거래를 위한 시스템 팝업을 보여줍니다</translation>
     </message>
     <message>
-        <source>Show popups for PrivateSend transactions</source>
+        <source>Show popups for PRiVCYSend transactions</source>
         <translation>프라이빗샌드 거래를 위한 팝업을 보여줍니다.</translation>
     </message>
     <message>
@@ -1694,7 +1694,7 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>사용 가능한 잔고:</translation>
     </message>
     <message>
-        <source>PrivateSend</source>
+        <source>PRiVCYSend</source>
         <translation>프라이빗샌드</translation>
     </message>
     <message>
@@ -1734,7 +1734,7 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>믹싱 시작/정지</translation>
     </message>
     <message>
-        <source>PrivateSend Balance:</source>
+        <source>PRiVCYSend Balance:</source>
         <translation>프라이빗샌드 잔고</translation>
     </message>
     <message>
@@ -1838,15 +1838,15 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>경고! 키풀 보충에 실패하였습니다. 키풀 보충을 위해서는 지갑을 잠금 해제 하세요.</translation>
     </message>
     <message>
-        <source>If you don't want to see internal PrivateSend fees/transactions select "Most Common" as Type on the "Transactions" tab.</source>
+        <source>If you don't want to see internal PRiVCYSend fees/transactions select "Most Common" as Type on the "Transactions" tab.</source>
         <translation>프라이빗샌드 수수료/거래의 내부 사항을 보고 싶지 않으면 '거래' 탭에서 유형을 클릭하고  '자주 사용된 항목'을 선택하세요.</translation>
     </message>
     <message>
-        <source>PrivateSend requires at least %1 to use.</source>
+        <source>PRiVCYSend requires at least %1 to use.</source>
         <translation>프라이빗샌드를 사용하기 위해서는 최소한 %1이/가 필요합니다.</translation>
     </message>
     <message>
-        <source>Wallet is locked and user declined to unlock. Disabling PrivateSend.</source>
+        <source>Wallet is locked and user declined to unlock. Disabling PRiVCYSend.</source>
         <translation>지갑이 잠겨있으며 사용자가 잠금 해제를 거부하였습니다. 프라이빗샌드를 비활성화 합니다.</translation>
     </message>
 </context>
@@ -2910,11 +2910,11 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>&lt;b&gt;(%2 중 %1 입력값 표시됨)&lt;/b&gt;</translation>
     </message>
     <message>
-        <source>Confirm the PrivateSend action</source>
+        <source>Confirm the PRiVCYSend action</source>
         <translation>프라이빗샌드 액션 확인</translation>
     </message>
     <message>
-        <source>PrivateSend funds only</source>
+        <source>PRiVCYSend funds only</source>
         <translation>프라이빗샌드 자금만</translation>
     </message>
     <message>
@@ -2922,7 +2922,7 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>이용이 가능한 모든 자금</translation>
     </message>
     <message>
-        <source>(PrivateSend transactions have higher fees usually due to no change output being allowed)</source>
+        <source>(PRiVCYSend transactions have higher fees usually due to no change output being allowed)</source>
         <translation>(프라이빗샌드 거래는 잔돈 아웃풋이 허용되지 않아 보다 높은 수수료가 책정됩니다)</translation>
     </message>
     <message>
@@ -2938,7 +2938,7 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation><numerusform>이 거래는 %n 입력값을 소모합니다</numerusform></translation>
     </message>
     <message>
-        <source>Warning: Using PrivateSend with %1 or more inputs can harm your privacy and is not recommended</source>
+        <source>Warning: Using PRiVCYSend with %1 or more inputs can harm your privacy and is not recommended</source>
         <translation>경고:  %1 혹은 그 이상의 인풋으로 프라이빗샌드를 이용하게 되면 당신의 프라이버시가 침해될 수 있어 권장하지 않습니다.</translation>
     </message>
     <message>
@@ -3513,7 +3513,7 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>보낸 주소</translation>
     </message>
     <message>
-        <source>Received via PrivateSend</source>
+        <source>Received via PRiVCYSend</source>
         <translation>프라이빗샌드를 통해 받음</translation>
     </message>
     <message>
@@ -3529,19 +3529,19 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>채굴</translation>
     </message>
     <message>
-        <source>PrivateSend Denominate</source>
+        <source>PRiVCYSend Denominate</source>
         <translation>프라이빗샌드 단위 분할</translation>
     </message>
     <message>
-        <source>PrivateSend Collateral Payment</source>
+        <source>PRiVCYSend Collateral Payment</source>
         <translation>프라이빗샌드 콜래트럴 지불</translation>
     </message>
     <message>
-        <source>PrivateSend Make Collateral Inputs</source>
+        <source>PRiVCYSend Make Collateral Inputs</source>
         <translation>프라이빗샌드 콜래트럴 입력값 생성</translation>
     </message>
     <message>
-        <source>PrivateSend Create Denominations</source>
+        <source>PRiVCYSend Create Denominations</source>
         <translation>프라이빗샌드 분할 단위 생성</translation>
     </message>
     <message>
@@ -3624,19 +3624,19 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>보낸 주소</translation>
     </message>
     <message>
-        <source>PrivateSend Make Collateral Inputs</source>
+        <source>PRiVCYSend Make Collateral Inputs</source>
         <translation>프라이빗샌드 콜래트럴 입력값 생성</translation>
     </message>
     <message>
-        <source>PrivateSend Create Denominations</source>
+        <source>PRiVCYSend Create Denominations</source>
         <translation>프라이빗샌드 분할 단위 생성</translation>
     </message>
     <message>
-        <source>PrivateSend Denominate</source>
+        <source>PRiVCYSend Denominate</source>
         <translation>프라이빗샌드 단위 분할</translation>
     </message>
     <message>
-        <source>PrivateSend Collateral Payment</source>
+        <source>PRiVCYSend Collateral Payment</source>
         <translation>프라이빗샌드 콜래트럴 지불</translation>
     </message>
     <message>
@@ -4063,7 +4063,7 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>최소 스포크 서명자를 무시하고 스포크 값을 변경합니다. 오직 회귀 테스트와 개발 네트워크에서만 유용합니다. 메인넷이나 테스트넷에서 사용하는 경우에는 금지당할 수 있습니다.</translation>
     </message>
     <message>
-        <source>PrivateSend uses exact denominated amounts to send funds, you might simply need to mix some more coins.</source>
+        <source>PRiVCYSend uses exact denominated amounts to send funds, you might simply need to mix some more coins.</source>
         <translation>프라이빗샌드는 송금을 위하여 정확한 분할 단위 금액을 사용합니다. 단순히 더 많은 코인을 믹싱함으로써 문제를 해결할 수 있을 지도 모릅니다.</translation>
     </message>
     <message>
@@ -4419,7 +4419,7 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>멤풀에 있는 거래 기록을 &lt;n&gt;시간 후 부터는 유지하지 않기 (디폴트: %u)</translation>
     </message>
     <message>
-        <source>Enable multiple PrivateSend mixing sessions per block, experimental (0-1, default: %u)</source>
+        <source>Enable multiple PRiVCYSend mixing sessions per block, experimental (0-1, default: %u)</source>
         <translation>실험적으로 블록당 다수의 프라이빗샌드 믹싱 세션을 활성화합니다. (0-1, 디폴트: %u)</translation>
     </message>
     <message>
@@ -4523,7 +4523,7 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>각 분할 단위 금액에 최소 N개 입력값을 생성하세요 (%u-%u, 디폴트: %u)</translation>
     </message>
     <message>
-        <source>Unable to locate enough PrivateSend denominated funds for this transaction.</source>
+        <source>Unable to locate enough PRiVCYSend denominated funds for this transaction.</source>
         <translation>이 거래를 위해 필요한 충분한 프라이빗샌드 분할 단위 자금을 위치할 수 없습니다.</translation>
     </message>
     <message>
@@ -4715,11 +4715,11 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>거래 메모리 풀의 용량을 &lt;n&gt;메가바이트 아래로 유지하기 (기본값: %u)</translation>
     </message>
     <message>
-        <source>Last PrivateSend was too recent.</source>
+        <source>Last PRiVCYSend was too recent.</source>
         <translation>지난 프라이빗샌드가 너무 최신입니다.</translation>
     </message>
     <message>
-        <source>Last successful PrivateSend action was too recent.</source>
+        <source>Last successful PRiVCYSend action was too recent.</source>
         <translation>지난 성공적 프라이빗샌드 활동이 너무 최신입니다.</translation>
     </message>
     <message>
@@ -4803,15 +4803,15 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>버전 출력 후 종료</translation>
     </message>
     <message>
-        <source>PrivateSend is idle.</source>
+        <source>PRiVCYSend is idle.</source>
         <translation>프라이빗샌드가 가동되지 않았습니다.</translation>
     </message>
     <message>
-        <source>PrivateSend options:</source>
+        <source>PRiVCYSend options:</source>
         <translation>프라이빗샌드 옵션:</translation>
     </message>
     <message>
-        <source>PrivateSend request incomplete:</source>
+        <source>PRiVCYSend request incomplete:</source>
         <translation>프라이빗샌드 요청이 완료되지 않았습니다:</translation>
     </message>
     <message>
@@ -4863,7 +4863,7 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>블록체인 동기화 중...</translation>
     </message>
     <message>
-        <source>Target PrivateSend balance (%u-%u, default: %u)</source>
+        <source>Target PRiVCYSend balance (%u-%u, default: %u)</source>
         <translation>프라이빗샌드 잔고 타깃 (%u-%u, 디폴트: %u)</translation>
     </message>
     <message>
@@ -4991,7 +4991,7 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>MIT 소프트웨어 라이센스에 따라 배포 되었습니다. 첨부 파일 %s 또는 %s을 참조하십시오.</translation>
     </message>
     <message>
-        <source>Enable use of PrivateSend for funds stored in this wallet (0-1, default: %u)</source>
+        <source>Enable use of PRiVCYSend for funds stored in this wallet (0-1, default: %u)</source>
         <translation>이 지갑에 저장된 자금을 위해 프라이빗샌드 사용을 활성화합니다 (0-1, 디폴트: %u)</translation>
     </message>
     <message>
@@ -5055,7 +5055,7 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>이 제품에는 OpenSSL Project에 의해 penSSL Toolkit %s용으로 사용하기 위해 개발된 소프트웨어, Eric Young이 작성한 암호화 소프트웨어 및 Thomas Bernard가 작성한 UPnP 소프트웨어가 포함되어 있습니다.</translation>
     </message>
     <message>
-        <source>Unable to locate enough PrivateSend non-denominated funds for this transaction.</source>
+        <source>Unable to locate enough PRiVCYSend non-denominated funds for this transaction.</source>
         <translation>이 거래를 수행하는 데 필요한 충분한 프라이빗샌드 단위 분할 금액을 찾을 수 없습니다.  </translation>
     </message>
     <message>
@@ -5271,7 +5271,7 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>공개 주소를 지정하십시오.</translation>
     </message>
     <message>
-        <source>Start PrivateSend automatically (0-1, default: %u)</source>
+        <source>Start PRiVCYSend automatically (0-1, default: %u)</source>
         <translation>자동으로 프라이빗샌드 시작 (0-1, 디폴트: %u)</translation>
     </message>
     <message>

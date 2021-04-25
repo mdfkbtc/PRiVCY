@@ -56,7 +56,7 @@ Better handling of non-locked transactions in mined blocks
 ----------------------------------------------------------
 
 We observed multiple cases of ChainLocks failing on mainnet. We tracked this down to a situation where
-PrivateSend mixing transactions were first rejected by parts of the network (0.14.0.4 nodes) while other parts
+PRiVCYSend mixing transactions were first rejected by parts of the network (0.14.0.4 nodes) while other parts
 (<=0.14.0.3) accepted the transaction into the mempool. This caused InstantSend locking to fail for these
 transactions, while non-upgraded miners still included the transactions into blocks after 10 minutes.
 This caused blocks to not get ChainLocked for at least 10 minutes. This release improves an already existent

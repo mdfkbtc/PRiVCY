@@ -501,8 +501,8 @@
     </message>
     <message>
         <location line="-70"/>
-        <source>PrivateSend coins to a PRiVCY address</source>
-        <translation>PrivateSend coins to a PRiVCY address</translation>
+        <source>PRiVCYSend coins to a PRiVCY address</source>
+        <translation>PRiVCYSend coins to a PRiVCY address</translation>
     </message>
     <message>
         <location line="+78"/>
@@ -706,13 +706,13 @@
     </message>
     <message>
         <location line="-1083"/>
-        <source>&amp;PrivateSend information</source>
-        <translation>&amp;PrivateSend information</translation>
+        <source>&amp;PRiVCYSend information</source>
+        <translation>&amp;PRiVCYSend information</translation>
     </message>
     <message>
         <location line="+2"/>
-        <source>Show the PrivateSend basic information</source>
-        <translation>Show the PrivateSend basic information</translation>
+        <source>Show the PRiVCYSend basic information</source>
+        <translation>Show the PRiVCYSend basic information</translation>
     </message>
     <message>
         <location line="+63"/>
@@ -1140,13 +1140,13 @@
     </message>
     <message>
         <location line="+2"/>
-        <source>Hide PrivateSend coins</source>
-        <translation>Hide PrivateSend coins</translation>
+        <source>Hide PRiVCYSend coins</source>
+        <translation>Hide PRiVCYSend coins</translation>
     </message>
     <message>
         <location line="+5"/>
-        <source>Show all PrivateSend coins</source>
-        <translation>Show all PrivateSend coins</translation>
+        <source>Show all PRiVCYSend coins</source>
+        <translation>Show all PRiVCYSend coins</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -1361,13 +1361,13 @@
     </message>
     <message>
         <location line="+42"/>
-        <source>PrivateSend information</source>
-        <translation>PrivateSend information</translation>
+        <source>PRiVCYSend information</source>
+        <translation>PRiVCYSend information</translation>
     </message>
     <message>
         <location line="+4"/>
-        <source>&lt;h3&gt;PrivateSend Basics&lt;/h3&gt; PrivateSend gives you true financial privacy by obscuring the origins of your funds. All the PRiVCY in your wallet is comprised of different &quot;inputs&quot; which you can think of as separate, discrete coins.&lt;br&gt; PrivateSend uses an innovative process to mix your inputs with the inputs of two or more other people, without having your coins ever leave your wallet. You retain control of your money at all times.&lt;hr&gt; &lt;b&gt;The PrivateSend process works like this:&lt;/b&gt;&lt;ol type=&quot;1&quot;&gt; &lt;li&gt;PrivateSend begins by breaking your transaction inputs down into standard denominations. These denominations are 0.001 PRIV, 0.01 PRIV, 0.1 PRIV, 1 PRIV and 10 PRIV -- sort of like the paper money you use every day.&lt;/li&gt; &lt;li&gt;Your wallet then sends requests to specially configured software nodes on the network, called &quot;masternodes.&quot; These masternodes are informed then that you are interested in mixing a certain denomination. No identifiable information is sent to the masternodes, so they never know &quot;who&quot; you are.&lt;/li&gt; &lt;li&gt;When two or more other people send similar messages, indicating that they wish to mix the same denomination, a mixing session begins. The masternode mixes up the inputs and instructs all three users&apos; wallets to pay the now-transformed input back to themselves. Your wallet pays that denomination directly to itself, but in a different address (called a change address).&lt;/li&gt; &lt;li&gt;In order to fully obscure your funds, your wallet must repeat this process a number of times with each denomination. Each time the process is completed, it&apos;s called a &quot;round.&quot; Each round of PrivateSend makes it exponentially more difficult to determine where your funds originated.&lt;/li&gt; &lt;li&gt;This mixing process happens in the background without any intervention on your part. When you wish to make a transaction, your funds will already be mixed. No additional waiting is required.&lt;/li&gt; &lt;/ol&gt; &lt;hr&gt;&lt;b&gt;IMPORTANT:&lt;/b&gt; Your wallet only contains 1000 of these &quot;change addresses.&quot; Every time a mixing event happens, up to 9 of your addresses are used up. This means those 1000 addresses last for about 100 mixing events. When 900 of them are used, your wallet must create more addresses. It can only do this, however, if you have automatic backups enabled.&lt;br&gt; Consequently, users who have backups disabled will also have PrivateSend disabled. &lt;hr&gt;For more information, see the &lt;a style=&quot;%1&quot; href=&quot;https://docs.privcy.org/en/stable/wallets/privcycore/privatesend-instantsend.html&quot;&gt;PrivateSend documentation&lt;/a&gt;.</source>
-        <translation>&lt;h3&gt;PrivateSend Basics&lt;/h3&gt; PrivateSend gives you true financial privacy by obscuring the origins of your funds. All the PRiVCY in your wallet is comprised of different &quot;inputs&quot; which you can think of as separate, discrete coins.&lt;br&gt; PrivateSend uses an innovative process to mix your inputs with the inputs of two or more other people, without having your coins ever leave your wallet. You retain control of your money at all times.&lt;hr&gt; &lt;b&gt;The PrivateSend process works like this:&lt;/b&gt;&lt;ol type=&quot;1&quot;&gt; &lt;li&gt;PrivateSend begins by breaking your transaction inputs down into standard denominations. These denominations are 0.001 PRIV, 0.01 PRIV, 0.1 PRIV, 1 PRIV and 10 PRIV -- sort of like the paper money you use every day.&lt;/li&gt; &lt;li&gt;Your wallet then sends requests to specially configured software nodes on the network, called &quot;masternodes.&quot; These masternodes are informed then that you are interested in mixing a certain denomination. No identifiable information is sent to the masternodes, so they never know &quot;who&quot; you are.&lt;/li&gt; &lt;li&gt;When two or more other people send similar messages, indicating that they wish to mix the same denomination, a mixing session begins. The masternode mixes up the inputs and instructs all three users&apos; wallets to pay the now-transformed input back to themselves. Your wallet pays that denomination directly to itself, but in a different address (called a change address).&lt;/li&gt; &lt;li&gt;In order to fully obscure your funds, your wallet must repeat this process a number of times with each denomination. Each time the process is completed, it&apos;s called a &quot;round.&quot; Each round of PrivateSend makes it exponentially more difficult to determine where your funds originated.&lt;/li&gt; &lt;li&gt;This mixing process happens in the background without any intervention on your part. When you wish to make a transaction, your funds will already be mixed. No additional waiting is required.&lt;/li&gt; &lt;/ol&gt; &lt;hr&gt;&lt;b&gt;IMPORTANT:&lt;/b&gt; Your wallet only contains 1000 of these &quot;change addresses.&quot; Every time a mixing event happens, up to 9 of your addresses are used up. This means those 1000 addresses last for about 100 mixing events. When 900 of them are used, your wallet must create more addresses. It can only do this, however, if you have automatic backups enabled.&lt;br&gt; Consequently, users who have backups disabled will also have PrivateSend disabled. &lt;hr&gt;For more information, see the &lt;a style=&quot;%1&quot; href=&quot;https://docs.privcy.org/en/stable/wallets/privcycore/privatesend-instantsend.html&quot;&gt;PrivateSend documentation&lt;/a&gt;.</translation>
+        <source>&lt;h3&gt;PRiVCYSend Basics&lt;/h3&gt; PRiVCYSend gives you true financial privacy by obscuring the origins of your funds. All the PRiVCY in your wallet is comprised of different &quot;inputs&quot; which you can think of as separate, discrete coins.&lt;br&gt; PRiVCYSend uses an innovative process to mix your inputs with the inputs of two or more other people, without having your coins ever leave your wallet. You retain control of your money at all times.&lt;hr&gt; &lt;b&gt;The PRiVCYSend process works like this:&lt;/b&gt;&lt;ol type=&quot;1&quot;&gt; &lt;li&gt;PRiVCYSend begins by breaking your transaction inputs down into standard denominations. These denominations are 0.001 PRIV, 0.01 PRIV, 0.1 PRIV, 1 PRIV and 10 PRIV -- sort of like the paper money you use every day.&lt;/li&gt; &lt;li&gt;Your wallet then sends requests to specially configured software nodes on the network, called &quot;masternodes.&quot; These masternodes are informed then that you are interested in mixing a certain denomination. No identifiable information is sent to the masternodes, so they never know &quot;who&quot; you are.&lt;/li&gt; &lt;li&gt;When two or more other people send similar messages, indicating that they wish to mix the same denomination, a mixing session begins. The masternode mixes up the inputs and instructs all three users&apos; wallets to pay the now-transformed input back to themselves. Your wallet pays that denomination directly to itself, but in a different address (called a change address).&lt;/li&gt; &lt;li&gt;In order to fully obscure your funds, your wallet must repeat this process a number of times with each denomination. Each time the process is completed, it&apos;s called a &quot;round.&quot; Each round of PRiVCYSend makes it exponentially more difficult to determine where your funds originated.&lt;/li&gt; &lt;li&gt;This mixing process happens in the background without any intervention on your part. When you wish to make a transaction, your funds will already be mixed. No additional waiting is required.&lt;/li&gt; &lt;/ol&gt; &lt;hr&gt;&lt;b&gt;IMPORTANT:&lt;/b&gt; Your wallet only contains 1000 of these &quot;change addresses.&quot; Every time a mixing event happens, up to 9 of your addresses are used up. This means those 1000 addresses last for about 100 mixing events. When 900 of them are used, your wallet must create more addresses. It can only do this, however, if you have automatic backups enabled.&lt;br&gt; Consequently, users who have backups disabled will also have PRiVCYSend disabled. &lt;hr&gt;For more information, see the &lt;a style=&quot;%1&quot; href=&quot;https://docs.privcy.org/en/stable/wallets/privcycore/privcysend-instantsend.html&quot;&gt;PRiVCYSend documentation&lt;/a&gt;.</source>
+        <translation>&lt;h3&gt;PRiVCYSend Basics&lt;/h3&gt; PRiVCYSend gives you true financial privacy by obscuring the origins of your funds. All the PRiVCY in your wallet is comprised of different &quot;inputs&quot; which you can think of as separate, discrete coins.&lt;br&gt; PRiVCYSend uses an innovative process to mix your inputs with the inputs of two or more other people, without having your coins ever leave your wallet. You retain control of your money at all times.&lt;hr&gt; &lt;b&gt;The PRiVCYSend process works like this:&lt;/b&gt;&lt;ol type=&quot;1&quot;&gt; &lt;li&gt;PRiVCYSend begins by breaking your transaction inputs down into standard denominations. These denominations are 0.001 PRIV, 0.01 PRIV, 0.1 PRIV, 1 PRIV and 10 PRIV -- sort of like the paper money you use every day.&lt;/li&gt; &lt;li&gt;Your wallet then sends requests to specially configured software nodes on the network, called &quot;masternodes.&quot; These masternodes are informed then that you are interested in mixing a certain denomination. No identifiable information is sent to the masternodes, so they never know &quot;who&quot; you are.&lt;/li&gt; &lt;li&gt;When two or more other people send similar messages, indicating that they wish to mix the same denomination, a mixing session begins. The masternode mixes up the inputs and instructs all three users&apos; wallets to pay the now-transformed input back to themselves. Your wallet pays that denomination directly to itself, but in a different address (called a change address).&lt;/li&gt; &lt;li&gt;In order to fully obscure your funds, your wallet must repeat this process a number of times with each denomination. Each time the process is completed, it&apos;s called a &quot;round.&quot; Each round of PRiVCYSend makes it exponentially more difficult to determine where your funds originated.&lt;/li&gt; &lt;li&gt;This mixing process happens in the background without any intervention on your part. When you wish to make a transaction, your funds will already be mixed. No additional waiting is required.&lt;/li&gt; &lt;/ol&gt; &lt;hr&gt;&lt;b&gt;IMPORTANT:&lt;/b&gt; Your wallet only contains 1000 of these &quot;change addresses.&quot; Every time a mixing event happens, up to 9 of your addresses are used up. This means those 1000 addresses last for about 100 mixing events. When 900 of them are used, your wallet must create more addresses. It can only do this, however, if you have automatic backups enabled.&lt;br&gt; Consequently, users who have backups disabled will also have PRiVCYSend disabled. &lt;hr&gt;For more information, see the &lt;a style=&quot;%1&quot; href=&quot;https://docs.privcy.org/en/stable/wallets/privcycore/privcysend-instantsend.html&quot;&gt;PRiVCYSend documentation&lt;/a&gt;.</translation>
     </message>
 </context>
 <context>
@@ -1763,33 +1763,33 @@
     </message>
     <message>
         <location line="+7"/>
-        <source>Show additional information and buttons for PrivateSend on overview screen.</source>
-        <translation>Show additional information and buttons for PrivateSend on overview screen.</translation>
+        <source>Show additional information and buttons for PRiVCYSend on overview screen.</source>
+        <translation>Show additional information and buttons for PRiVCYSend on overview screen.</translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>Enable advanced PrivateSend interface</source>
-        <translation>Enable advanced PrivateSend interface</translation>
+        <source>Enable advanced PRiVCYSend interface</source>
+        <translation>Enable advanced PRiVCYSend interface</translation>
     </message>
     <message>
         <location line="+17"/>
-        <source>Show warning dialog when PrivateSend detects that wallet has very low number of keys left.</source>
-        <translation>Show warning dialog when PrivateSend detects that wallet has very low number of keys left.</translation>
+        <source>Show warning dialog when PRiVCYSend detects that wallet has very low number of keys left.</source>
+        <translation>Show warning dialog when PRiVCYSend detects that wallet has very low number of keys left.</translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>Warn if PrivateSend is running out of keys</source>
-        <translation>Warn if PrivateSend is running out of keys</translation>
+        <source>Warn if PRiVCYSend is running out of keys</source>
+        <translation>Warn if PRiVCYSend is running out of keys</translation>
     </message>
     <message>
         <location line="+7"/>
-        <source>Whether to use experimental PrivateSend mode with multiple mixing sessions per block.&lt;br/&gt;Note: You must use this feature carefully.&lt;br/&gt;Make sure you always have recent wallet (auto)backup in a safe place!</source>
-        <translation>Whether to use experimental PrivateSend mode with multiple mixing sessions per block.&lt;br/&gt;Note: You must use this feature carefully.&lt;br/&gt;Make sure you always have recent wallet (auto)backup in a safe place!</translation>
+        <source>Whether to use experimental PRiVCYSend mode with multiple mixing sessions per block.&lt;br/&gt;Note: You must use this feature carefully.&lt;br/&gt;Make sure you always have recent wallet (auto)backup in a safe place!</source>
+        <translation>Whether to use experimental PRiVCYSend mode with multiple mixing sessions per block.&lt;br/&gt;Note: You must use this feature carefully.&lt;br/&gt;Make sure you always have recent wallet (auto)backup in a safe place!</translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>Enable PrivateSend &amp;multi-session</source>
-        <translation>Enable PrivateSend &amp;multi-session</translation>
+        <source>Enable PRiVCYSend &amp;multi-session</source>
+        <translation>Enable PRiVCYSend &amp;multi-session</translation>
     </message>
     <message>
         <location line="-23"/>
@@ -1798,18 +1798,18 @@
     </message>
     <message>
         <location line="+45"/>
-        <source>PrivateSend rounds to use</source>
-        <translation>PrivateSend rounds to use</translation>
+        <source>PRiVCYSend rounds to use</source>
+        <translation>PRiVCYSend rounds to use</translation>
     </message>
     <message>
         <location line="+24"/>
-        <source>This amount acts as a threshold to turn off PrivateSend once it&apos;s reached.</source>
-        <translation>This amount acts as a threshold to turn off PrivateSend once it&apos;s reached.</translation>
+        <source>This amount acts as a threshold to turn off PRiVCYSend once it&apos;s reached.</source>
+        <translation>This amount acts as a threshold to turn off PRiVCYSend once it&apos;s reached.</translation>
     </message>
     <message>
         <location line="+15"/>
-        <source>Target PrivateSend balance</source>
-        <translation>Target PrivateSend balance</translation>
+        <source>Target PRiVCYSend balance</source>
+        <translation>Target PRiVCYSend balance</translation>
     </message>
     <message>
         <location line="+42"/>
@@ -1896,13 +1896,13 @@
     </message>
     <message>
         <location line="+57"/>
-        <source>Show system popups for PrivateSend mixing transactions&lt;br/&gt;just like for all other transaction types.</source>
-        <translation>Show system popups for PrivateSend mixing transactions&lt;br/&gt;just like for all other transaction types.</translation>
+        <source>Show system popups for PRiVCYSend mixing transactions&lt;br/&gt;just like for all other transaction types.</source>
+        <translation>Show system popups for PRiVCYSend mixing transactions&lt;br/&gt;just like for all other transaction types.</translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>Show popups for PrivateSend transactions</source>
-        <translation>Show popups for PrivateSend transactions</translation>
+        <source>Show popups for PRiVCYSend transactions</source>
+        <translation>Show popups for PRiVCYSend transactions</translation>
     </message>
     <message>
         <location line="-30"/>
@@ -2173,8 +2173,8 @@ https://www.transifex.com/projects/p/privcy/</translation>
     </message>
     <message>
         <location line="+29"/>
-        <source>PrivateSend</source>
-        <translation>PrivateSend</translation>
+        <source>PRiVCYSend</source>
+        <translation>PRiVCYSend</translation>
     </message>
     <message>
         <location line="+46"/>
@@ -2223,8 +2223,8 @@ https://www.transifex.com/projects/p/privcy/</translation>
     </message>
     <message>
         <location line="-76"/>
-        <source>PrivateSend Balance:</source>
-        <translation>PrivateSend Balance:</translation>
+        <source>PRiVCYSend Balance:</source>
+        <translation>PRiVCYSend Balance:</translation>
     </message>
     <message>
         <location line="+35"/>
@@ -2372,18 +2372,18 @@ https://www.transifex.com/projects/p/privcy/</translation>
     </message>
     <message>
         <location line="+22"/>
-        <source>If you don&apos;t want to see internal PrivateSend fees/transactions select &quot;Most Common&quot; as Type on the &quot;Transactions&quot; tab.</source>
-        <translation>If you don&apos;t want to see internal PrivateSend fees/transactions select &quot;Most Common&quot; as Type on the &quot;Transactions&quot; tab.</translation>
+        <source>If you don&apos;t want to see internal PRiVCYSend fees/transactions select &quot;Most Common&quot; as Type on the &quot;Transactions&quot; tab.</source>
+        <translation>If you don&apos;t want to see internal PRiVCYSend fees/transactions select &quot;Most Common&quot; as Type on the &quot;Transactions&quot; tab.</translation>
     </message>
     <message>
         <location line="+9"/>
-        <source>PrivateSend requires at least %1 to use.</source>
-        <translation>PrivateSend requires at least %1 to use.</translation>
+        <source>PRiVCYSend requires at least %1 to use.</source>
+        <translation>PRiVCYSend requires at least %1 to use.</translation>
     </message>
     <message>
         <location line="+14"/>
-        <source>Wallet is locked and user declined to unlock. Disabling PrivateSend.</source>
-        <translation>Wallet is locked and user declined to unlock. Disabling PrivateSend.</translation>
+        <source>Wallet is locked and user declined to unlock. Disabling PRiVCYSend.</source>
+        <translation>Wallet is locked and user declined to unlock. Disabling PRiVCYSend.</translation>
     </message>
 </context>
 <context>
@@ -3790,13 +3790,13 @@ https://www.transifex.com/projects/p/privcy/</translation>
     </message>
     <message>
         <location line="-231"/>
-        <source>Confirm the PrivateSend action</source>
-        <translation>Confirm the PrivateSend action</translation>
+        <source>Confirm the PRiVCYSend action</source>
+        <translation>Confirm the PRiVCYSend action</translation>
     </message>
     <message>
         <location line="+223"/>
-        <source>PrivateSend funds only</source>
-        <translation>PrivateSend funds only</translation>
+        <source>PRiVCYSend funds only</source>
+        <translation>PRiVCYSend funds only</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -3805,8 +3805,8 @@ https://www.transifex.com/projects/p/privcy/</translation>
     </message>
     <message>
         <location line="+21"/>
-        <source>(PrivateSend transactions have higher fees usually due to no change output being allowed)</source>
-        <translation>(PrivateSend transactions have higher fees usually due to no change output being allowed)</translation>
+        <source>(PRiVCYSend transactions have higher fees usually due to no change output being allowed)</source>
+        <translation>(PRiVCYSend transactions have higher fees usually due to no change output being allowed)</translation>
     </message>
     <message>
         <location line="+7"/>
@@ -3828,8 +3828,8 @@ https://www.transifex.com/projects/p/privcy/</translation>
     </message>
     <message>
         <location line="+6"/>
-        <source>Warning: Using PrivateSend with %1 or more inputs can harm your privacy and is not recommended</source>
-        <translation>Warning: Using PrivateSend with %1 or more inputs can harm your privacy and is not recommended</translation>
+        <source>Warning: Using PRiVCYSend with %1 or more inputs can harm your privacy and is not recommended</source>
+        <translation>Warning: Using PRiVCYSend with %1 or more inputs can harm your privacy and is not recommended</translation>
     </message>
     <message>
         <location line="+21"/>
@@ -4617,8 +4617,8 @@ https://www.transifex.com/projects/p/privcy/</translation>
     </message>
     <message>
         <location line="+2"/>
-        <source>Received via PrivateSend</source>
-        <translation>Received via PrivateSend</translation>
+        <source>Received via PRiVCYSend</source>
+        <translation>Received via PRiVCYSend</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -4637,23 +4637,23 @@ https://www.transifex.com/projects/p/privcy/</translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>PrivateSend Denominate</source>
-        <translation>PrivateSend Denominate</translation>
+        <source>PRiVCYSend Denominate</source>
+        <translation>PRiVCYSend Denominate</translation>
     </message>
     <message>
         <location line="+2"/>
-        <source>PrivateSend Collateral Payment</source>
-        <translation>PrivateSend Collateral Payment</translation>
+        <source>PRiVCYSend Collateral Payment</source>
+        <translation>PRiVCYSend Collateral Payment</translation>
     </message>
     <message>
         <location line="+2"/>
-        <source>PrivateSend Make Collateral Inputs</source>
-        <translation>PrivateSend Make Collateral Inputs</translation>
+        <source>PRiVCYSend Make Collateral Inputs</source>
+        <translation>PRiVCYSend Make Collateral Inputs</translation>
     </message>
     <message>
         <location line="+2"/>
-        <source>PrivateSend Create Denominations</source>
-        <translation>PrivateSend Create Denominations</translation>
+        <source>PRiVCYSend Create Denominations</source>
+        <translation>PRiVCYSend Create Denominations</translation>
     </message>
     <message>
         <location line="+22"/>
@@ -4756,23 +4756,23 @@ https://www.transifex.com/projects/p/privcy/</translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>PrivateSend Make Collateral Inputs</source>
-        <translation>PrivateSend Make Collateral Inputs</translation>
+        <source>PRiVCYSend Make Collateral Inputs</source>
+        <translation>PRiVCYSend Make Collateral Inputs</translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>PrivateSend Create Denominations</source>
-        <translation>PrivateSend Create Denominations</translation>
+        <source>PRiVCYSend Create Denominations</source>
+        <translation>PRiVCYSend Create Denominations</translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>PrivateSend Denominate</source>
-        <translation>PrivateSend Denominate</translation>
+        <source>PRiVCYSend Denominate</source>
+        <translation>PRiVCYSend Denominate</translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>PrivateSend Collateral Payment</source>
-        <translation>PrivateSend Collateral Payment</translation>
+        <source>PRiVCYSend Collateral Payment</source>
+        <translation>PRiVCYSend Collateral Payment</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -5301,8 +5301,8 @@ https://www.transifex.com/projects/p/privcy/</translation>
     </message>
     <message>
         <location line="+9"/>
-        <source>PrivateSend uses exact denominated amounts to send funds, you might simply need to mix some more coins.</source>
-        <translation>PrivateSend uses exact denominated amounts to send funds, you might simply need to mix some more coins.</translation>
+        <source>PRiVCYSend uses exact denominated amounts to send funds, you might simply need to mix some more coins.</source>
+        <translation>PRiVCYSend uses exact denominated amounts to send funds, you might simply need to mix some more coins.</translation>
     </message>
     <message>
         <location line="+14"/>
@@ -5746,8 +5746,8 @@ https://www.transifex.com/projects/p/privcy/</translation>
     </message>
     <message>
         <location line="+2"/>
-        <source>Enable multiple PrivateSend mixing sessions per block, experimental (0-1, default: %u)</source>
-        <translation>Enable multiple PrivateSend mixing sessions per block, experimental (0-1, default: %u)</translation>
+        <source>Enable multiple PRiVCYSend mixing sessions per block, experimental (0-1, default: %u)</source>
+        <translation>Enable multiple PRiVCYSend mixing sessions per block, experimental (0-1, default: %u)</translation>
     </message>
     <message>
         <location line="+25"/>
@@ -5876,8 +5876,8 @@ https://www.transifex.com/projects/p/privcy/</translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>Unable to locate enough PrivateSend denominated funds for this transaction.</source>
-        <translation>Unable to locate enough PrivateSend denominated funds for this transaction.</translation>
+        <source>Unable to locate enough PRiVCYSend denominated funds for this transaction.</source>
+        <translation>Unable to locate enough PRiVCYSend denominated funds for this transaction.</translation>
     </message>
     <message>
         <location line="+8"/>
@@ -6116,13 +6116,13 @@ https://www.transifex.com/projects/p/privcy/</translation>
     </message>
     <message>
         <location line="+2"/>
-        <source>Last PrivateSend was too recent.</source>
-        <translation>Last PrivateSend was too recent.</translation>
+        <source>Last PRiVCYSend was too recent.</source>
+        <translation>Last PRiVCYSend was too recent.</translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Last successful PrivateSend action was too recent.</source>
-        <translation>Last successful PrivateSend action was too recent.</translation>
+        <source>Last successful PRiVCYSend action was too recent.</source>
+        <translation>Last successful PRiVCYSend action was too recent.</translation>
     </message>
     <message>
         <location line="+5"/>
@@ -6226,18 +6226,18 @@ https://www.transifex.com/projects/p/privcy/</translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>PrivateSend is idle.</source>
-        <translation>PrivateSend is idle.</translation>
+        <source>PRiVCYSend is idle.</source>
+        <translation>PRiVCYSend is idle.</translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>PrivateSend options:</source>
-        <translation>PrivateSend options:</translation>
+        <source>PRiVCYSend options:</source>
+        <translation>PRiVCYSend options:</translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>PrivateSend request incomplete:</source>
-        <translation>PrivateSend request incomplete:</translation>
+        <source>PRiVCYSend request incomplete:</source>
+        <translation>PRiVCYSend request incomplete:</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -6301,8 +6301,8 @@ https://www.transifex.com/projects/p/privcy/</translation>
     </message>
     <message>
         <location line="+2"/>
-        <source>Target PrivateSend balance (%u-%u, default: %u)</source>
-        <translation>Target PrivateSend balance (%u-%u, default: %u)</translation>
+        <source>Target PRiVCYSend balance (%u-%u, default: %u)</source>
+        <translation>Target PRiVCYSend balance (%u-%u, default: %u)</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -6461,8 +6461,8 @@ https://www.transifex.com/projects/p/privcy/</translation>
     </message>
     <message>
         <location line="+14"/>
-        <source>Enable use of PrivateSend for funds stored in this wallet (0-1, default: %u)</source>
-        <translation>Enable use of PrivateSend for funds stored in this wallet (0-1, default: %u)</translation>
+        <source>Enable use of PRiVCYSend for funds stored in this wallet (0-1, default: %u)</source>
+        <translation>Enable use of PRiVCYSend for funds stored in this wallet (0-1, default: %u)</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -6541,8 +6541,8 @@ https://www.transifex.com/projects/p/privcy/</translation>
     </message>
     <message>
         <location line="+19"/>
-        <source>Unable to locate enough PrivateSend non-denominated funds for this transaction.</source>
-        <translation>Unable to locate enough PrivateSend non-denominated funds for this transaction.</translation>
+        <source>Unable to locate enough PRiVCYSend non-denominated funds for this transaction.</source>
+        <translation>Unable to locate enough PRiVCYSend non-denominated funds for this transaction.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -6811,8 +6811,8 @@ https://www.transifex.com/projects/p/privcy/</translation>
     </message>
     <message>
         <location line="+2"/>
-        <source>Start PrivateSend automatically (0-1, default: %u)</source>
-        <translation>Start PrivateSend automatically (0-1, default: %u)</translation>
+        <source>Start PRiVCYSend automatically (0-1, default: %u)</source>
+        <translation>Start PRiVCYSend automatically (0-1, default: %u)</translation>
     </message>
     <message>
         <location line="+1"/>

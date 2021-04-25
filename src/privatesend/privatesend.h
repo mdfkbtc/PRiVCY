@@ -15,7 +15,7 @@
 #include <timedata.h>
 #include <tinyformat.h>
 
-class CPrivateSend;
+class CPRiVCYSend;
 class CConnman;
 
 // timeouts
@@ -78,7 +78,7 @@ enum PoolStatusUpdate : int32_t {
 };
 template<> struct is_serializable_enum<PoolStatusUpdate> : std::true_type {};
 
-class CPrivateSendStatusUpdate
+class CPRiVCYSendStatusUpdate
 {
 public:
     int nSessionID;
@@ -87,14 +87,14 @@ public:
     PoolStatusUpdate nStatusUpdate;
     PoolMessage nMessageID;
 
-    CPrivateSendStatusUpdate() :
+    CPRiVCYSendStatusUpdate() :
         nSessionID(0),
         nState(POOL_STATE_IDLE),
         nEntriesCount(0),
         nStatusUpdate(STATUS_ACCEPTED),
         nMessageID(MSG_NOERR) {};
 
-    CPrivateSendStatusUpdate(int nSessionID, PoolState nState, int nEntriesCount, PoolStatusUpdate nStatusUpdate, PoolMessage nMessageID) :
+    CPRiVCYSendStatusUpdate(int nSessionID, PoolState nState, int nEntriesCount, PoolStatusUpdate nStatusUpdate, PoolMessage nMessageID) :
         nSessionID(nSessionID),
         nState(nState),
         nEntriesCount(nEntriesCount),
@@ -140,17 +140,17 @@ public:
     }
 };
 
-class CPrivateSendAccept
+class CPRiVCYSendAccept
 {
 public:
     int nDenom;
     CMutableTransaction txCollateral;
 
-    CPrivateSendAccept() :
+    CPRiVCYSendAccept() :
         nDenom(0),
         txCollateral(CMutableTransaction()){};
 
-    CPrivateSendAccept(int nDenom, const CMutableTransaction& txCollateral) :
+    CPRiVCYSendAccept(int nDenom, const CMutableTransaction& txCollateral) :
         nDenom(nDenom),
         txCollateral(txCollateral){};
 
@@ -163,14 +163,14 @@ public:
         READWRITE(txCollateral);
     }
 
-    friend bool operator==(const CPrivateSendAccept& a, const CPrivateSendAccept& b)
+    friend bool operator==(const CPRiVCYSendAccept& a, const CPRiVCYSendAccept& b)
     {
         return a.nDenom == b.nDenom && a.txCollateral == b.txCollateral;
     }
 };
 
 // A client's transaction in the mixing pool
-class CPrivateSendEntry
+class CPRiVCYSendEntry
 {
 public:
     std::vector<CTxDSIn> vecTxDSIn;
@@ -179,7 +179,7 @@ public:
     // memory only
     CService addr;
 
-    CPrivateSendEntry() :
+    CPRiVCYSendEntry() :
         vecTxDSIn(std::vector<CTxDSIn>()),
         vecTxOut(std::vector<CTxOut>()),
         txCollateral(MakeTransactionRef()),
@@ -187,7 +187,7 @@ public:
     {
     }
 
-    CPrivateSendEntry(const std::vector<CTxDSIn>& vecTxDSIn, const std::vector<CTxOut>& vecTxOut, const CTransaction& txCollateral) :
+    CPRiVCYSendEntry(const std::vector<CTxDSIn>& vecTxDSIn, const std::vector<CTxOut>& vecTxOut, const CTransaction& txCollateral) :
             vecTxDSIn(vecTxDSIn),
             vecTxOut(vecTxOut),
             txCollateral(MakeTransactionRef(txCollateral)),
@@ -212,7 +212,7 @@ public:
 /**
  * A currently in progress mixing merge and denomination information
  */
-class CPrivateSendQueue
+class CPRiVCYSendQueue
 {
 public:
     int nDenom;
@@ -223,7 +223,7 @@ public:
     // memory only
     bool fTried;
 
-    CPrivateSendQueue() :
+    CPRiVCYSendQueue() :
         nDenom(0),
         masternodeOutpoint(COutPoint()),
         nTime(0),
@@ -233,7 +233,7 @@ public:
     {
     }
 
-    CPrivateSendQueue(int nDenom, COutPoint outpoint, int64_t nTime, bool fReady) :
+    CPRiVCYSendQueue(int nDenom, COutPoint outpoint, int64_t nTime, bool fReady) :
         nDenom(nDenom),
         masternodeOutpoint(outpoint),
         nTime(nTime),
@@ -280,7 +280,7 @@ public:
             nDenom, nTime, fReady ? "true" : "false", fTried ? "true" : "false", masternodeOutpoint.ToStringShort());
     }
 
-    friend bool operator==(const CPrivateSendQueue& a, const CPrivateSendQueue& b)
+    friend bool operator==(const CPRiVCYSendQueue& a, const CPRiVCYSendQueue& b)
     {
         return a.nDenom == b.nDenom && a.masternodeOutpoint == b.masternodeOutpoint && a.nTime == b.nTime && a.fReady == b.fReady;
     }
@@ -288,7 +288,7 @@ public:
 
 /** Helper class to store mixing transaction (tx) information.
  */
-class CPrivateSendBroadcastTx
+class CPRiVCYSendBroadcastTx
 {
 private:
     // memory only
@@ -301,7 +301,7 @@ public:
     std::vector<unsigned char> vchSig;
     int64_t sigTime;
 
-    CPrivateSendBroadcastTx() :
+    CPRiVCYSendBroadcastTx() :
         nConfirmedHeight(-1),
         tx(MakeTransactionRef()),
         masternodeOutpoint(),
@@ -310,7 +310,7 @@ public:
     {
     }
 
-    CPrivateSendBroadcastTx(const CTransactionRef& _tx, COutPoint _outpoint, int64_t _sigTime) :
+    CPRiVCYSendBroadcastTx(const CTransactionRef& _tx, COutPoint _outpoint, int64_t _sigTime) :
         nConfirmedHeight(-1),
         tx(_tx),
         masternodeOutpoint(_outpoint),
@@ -332,17 +332,17 @@ public:
         READWRITE(sigTime);
     }
 
-    friend bool operator==(const CPrivateSendBroadcastTx& a, const CPrivateSendBroadcastTx& b)
+    friend bool operator==(const CPRiVCYSendBroadcastTx& a, const CPRiVCYSendBroadcastTx& b)
     {
         return *a.tx == *b.tx;
     }
-    friend bool operator!=(const CPrivateSendBroadcastTx& a, const CPrivateSendBroadcastTx& b)
+    friend bool operator!=(const CPRiVCYSendBroadcastTx& a, const CPRiVCYSendBroadcastTx& b)
     {
         return !(a == b);
     }
     explicit operator bool() const
     {
-        return *this != CPrivateSendBroadcastTx();
+        return *this != CPRiVCYSendBroadcastTx();
     }
 
     uint256 GetSignatureHash() const;
@@ -356,12 +356,12 @@ public:
 };
 
 // base class
-class CPrivateSendBaseSession
+class CPRiVCYSendBaseSession
 {
 protected:
-    mutable CCriticalSection cs_privatesend;
+    mutable CCriticalSection cs_privcysend;
 
-    std::vector<CPrivateSendEntry> vecEntries; // Masternode/clients entries
+    std::vector<CPRiVCYSendEntry> vecEntries; // Masternode/clients entries
 
     PoolState nState;                // should be one of the POOL_STATE_XXX values
     int64_t nTimeLastSuccessfulStep; // the time when last successful mixing step was performed
@@ -377,7 +377,7 @@ protected:
 public:
     int nSessionDenom; // Users must submit a denom matching this
 
-    CPrivateSendBaseSession() :
+    CPRiVCYSendBaseSession() :
         vecEntries(),
         nState(POOL_STATE_IDLE),
         nTimeLastSuccessfulStep(0),
@@ -394,38 +394,38 @@ public:
 };
 
 // base class
-class CPrivateSendBaseManager
+class CPRiVCYSendBaseManager
 {
 protected:
     mutable CCriticalSection cs_vecqueue;
 
     // The current mixing sessions in progress on the network
-    std::vector<CPrivateSendQueue> vecPrivateSendQueue;
+    std::vector<CPRiVCYSendQueue> vecPRiVCYSendQueue;
 
     void SetNull();
     void CheckQueue();
 
 public:
-    CPrivateSendBaseManager() :
-        vecPrivateSendQueue() {}
+    CPRiVCYSendBaseManager() :
+        vecPRiVCYSendQueue() {}
 
-    int GetQueueSize() const { return vecPrivateSendQueue.size(); }
-    bool GetQueueItemAndTry(CPrivateSendQueue& dsqRet);
+    int GetQueueSize() const { return vecPRiVCYSendQueue.size(); }
+    bool GetQueueItemAndTry(CPRiVCYSendQueue& dsqRet);
 };
 
 // helper class
-class CPrivateSend
+class CPRiVCYSend
 {
 private:
     // make constructor, destructor and copying not available
-    CPrivateSend() {}
-    ~CPrivateSend() {}
-    CPrivateSend(CPrivateSend const&) = delete;
-    CPrivateSend& operator=(CPrivateSend const&) = delete;
+    CPRiVCYSend() {}
+    ~CPRiVCYSend() {}
+    CPRiVCYSend(CPRiVCYSend const&) = delete;
+    CPRiVCYSend& operator=(CPRiVCYSend const&) = delete;
 
     // static members
     static std::vector<CAmount> vecStandardDenominations;
-    static std::map<uint256, CPrivateSendBroadcastTx> mapDSTX;
+    static std::map<uint256, CPRiVCYSendBroadcastTx> mapDSTX;
 
     static CCriticalSection cs_mapdstx;
 
@@ -462,8 +462,8 @@ public:
 
     static bool IsCollateralAmount(CAmount nInputAmount);
 
-    static void AddDSTX(const CPrivateSendBroadcastTx& dstx);
-    static CPrivateSendBroadcastTx GetDSTX(const uint256& hash);
+    static void AddDSTX(const CPRiVCYSendBroadcastTx& dstx);
+    static CPRiVCYSendBroadcastTx GetDSTX(const uint256& hash);
 
     static void UpdatedBlockTip(const CBlockIndex* pindex);
     static void NotifyChainLock(const CBlockIndex* pindex);

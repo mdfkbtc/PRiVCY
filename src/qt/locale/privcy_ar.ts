@@ -392,7 +392,7 @@
         <translation>حوالي %1</translation>
     </message>
     <message>
-        <source>PrivateSend coins to a PRiVCY address</source>
+        <source>PRiVCYSend coins to a PRiVCY address</source>
         <translation>أرسل العملات المعدنية إلى عنوان داش</translation>
     </message>
     <message>
@@ -556,11 +556,11 @@
         <translation>المحفظة &lt;b&gt; غير مشفرة&lt;/b&gt;</translation>
     </message>
     <message>
-        <source>&amp;PrivateSend information</source>
+        <source>&amp;PRiVCYSend information</source>
         <translation> المعلومات إرسال خاص </translation>
     </message>
     <message>
-        <source>Show the PrivateSend basic information</source>
+        <source>Show the PRiVCYSend basic information</source>
         <translation>خاص إرسال المعلومات إظهار خاص إرسال المعلومات الأساسية</translation>
     </message>
     <message>
@@ -1054,12 +1054,12 @@
         <translation>اعد تعديل جميع الإعدادات المتغيرة في GUI</translation>
     </message>
     <message>
-        <source>PrivateSend information</source>
+        <source>PRiVCYSend information</source>
         <translation>معلومات الإرسال المخفي</translation>
     </message>
     <message>
-        <source>&lt;h3&gt;PrivateSend Basics&lt;/h3&gt; PrivateSend gives you true financial privacy by obscuring the origins of your funds. All the PRiVCY in your wallet is comprised of different "inputs" which you can think of as separate, discrete coins.&lt;br&gt; PrivateSend uses an innovative process to mix your inputs with the inputs of two or more other people, without having your coins ever leave your wallet. You retain control of your money at all times.&lt;hr&gt; &lt;b&gt;The PrivateSend process works like this:&lt;/b&gt;&lt;ol type="1"&gt; &lt;li&gt;PrivateSend begins by breaking your transaction inputs down into standard denominations. These denominations are 0.001 PRIV, 0.01 PRIV, 0.1 PRIV, 1 PRIV and 10 PRIV -- sort of like the paper money you use every day.&lt;/li&gt; &lt;li&gt;Your wallet then sends requests to specially configured software nodes on the network, called "masternodes." These masternodes are informed then that you are interested in mixing a certain denomination. No identifiable information is sent to the masternodes, so they never know "who" you are.&lt;/li&gt; &lt;li&gt;When two or more other people send similar messages, indicating that they wish to mix the same denomination, a mixing session begins. The masternode mixes up the inputs and instructs all three users' wallets to pay the now-transformed input back to themselves. Your wallet pays that denomination directly to itself, but in a different address (called a change address).&lt;/li&gt; &lt;li&gt;In order to fully obscure your funds, your wallet must repeat this process a number of times with each denomination. Each time the process is completed, it's called a "round." Each round of PrivateSend makes it exponentially more difficult to determine where your funds originated.&lt;/li&gt; &lt;li&gt;This mixing process happens in the background without any intervention on your part. When you wish to make a transaction, your funds will already be mixed. No additional waiting is required.&lt;/li&gt; &lt;/ol&gt; &lt;hr&gt;&lt;b&gt;IMPORTANT:&lt;/b&gt; Your wallet only contains 1000 of these "change addresses." Every time a mixing event happens, up to 9 of your addresses are used up. This means those 1000 addresses last for about 100 mixing events. When 900 of them are used, your wallet must create more addresses. It can only do this, however, if you have automatic backups enabled.&lt;br&gt; Consequently, users who have backups disabled will also have PrivateSend disabled. &lt;hr&gt;For more information, see the &lt;a style="%1" href="https://docs.privcy.org/en/stable/wallets/privcycore/privatesend-instantsend.html"&gt;PrivateSend documentation&lt;/a&gt;.</source>
-        <translation>&lt;h3&gt;أساسيات الإرسال المخفي &lt;/h3&gt; يمنحك الإرسال المخفي الخصوصية المالية الحقيقية عن طريق حجب أصول أموالك. تتألف جميع داش في محفظتك من "مدخلات" مختلفة يمكنك التفكير فيها على أنها عملات معدنية منفصلة ومنفصلة. &lt;br&gt;يستخدم الإرسال المخفي عملية مبتكرة لخلط مدخلات الخاصة بك مع مدخلات شخصين آخرين ، دون أن تترك العملات المعدنية الخاصة بك من أي وقت مضى محفظتك. أنت تحتفظ بالسيطرة على أموالك في جميع الأوقات.&lt;hr&gt;  &lt;b&gt; تعمل عملية الإرسال المخفي على النحو التالي: &lt;/b&gt;&lt;ol type="1"&gt;&lt;li&gt;يبدأ الإرسال المخفي عن طريق كسر مدخلات الخاصة بالمعاملات إلى فئات قياسية. هذه الفئات هي 0.001 داش ، 0.01 داش ، 0.1 داش ، 1 داش و 10 داش - نوع من مثل النقود الورقية التي تستخدمها كل يوم. &lt;/li&gt;  عندئذٍ ترسل محفظتك طلبات إلى عقد برامج تم تكوينها خصيصًا على الشبكة ، تُسمى "ماسترنود". يتم إخبار هذه الألفاظ بأنك مهتم بخلط فئة معينة. يتم إرسال أي معلومات يمكن تحديدها إلى جميع ماسترنود ، لذلك لا يعرفون أبدا "من" أنت&lt;li&gt;  &lt;li&gt;  عندما يرسل شخصان آخران رسائل مشابهة ، تشير إلى أنهما يرغبان في خلط نفس المذهب ، تبدأ جلسة الخلط. يمزج متاسترنود يصل مدخلات ويكلف محافظ المستخدمين الثلاثة لدفع مدخلات تحولت الآن إلى أنفسهم. تدفع محفظتك تلك التسمية مباشرة لنفسها ، ولكن في عنوان مختلف (يسمى عنوان التغيير). &lt;li&gt;&lt;/li&gt;  من أجل حجب أموالك بشكل كامل ، يجب أن تكرر محفظتك هذه العملية عدة مرات مع كل فئة. في كل مرة يتم الانتهاء من العملية ، يطلق عليها "جولة". كل جولة من الإرسال المخفي تجعل من الصعب بشكل كبير تحديد المكان الذي نشأت فيه أموالك.&lt;/li&gt;  &lt;li&gt; تحدث عملية الاختلاط هذه في الخلفية دون أي تدخل من جانبك. عندما ترغب في إجراء معاملة ، ستكون أموالك مجهولة المصدر بالفعل. مطلوب أي انتظار إضافي. &lt;/li&gt;&lt;/ol&gt;&lt;hr&gt;&lt;b&gt;مهم &lt;/b&gt; تحتوي محفظتك فقط على 1000 من "عناوين التغيير" هذه. في كل مرة يحدث فيها حدث خلط ، يتم استخدام ما يصل إلى 9 عناوين من عناوينك. هذا يعني أن 1000 عنوان تدوم لحوالي 100 حدث خلط. عند استخدام 900 منهم ، يجب أن تنشئ محفظتك المزيد من العناوين. يمكن فقط القيام بذلك ، ومع ذلك ، إذا قمت بتمكين النسخ الاحتياطي التلقائي.&lt;br&gt; وبالتالي ، سيتم تعطيل الإرسال المخفي أيضًا للمستخدمين الذين لديهم نسخ احتياطية معطلة.&lt;hr&gt; لمزيد من المعلومات ، راجع&lt;a style="%1" href="https://docs.privcy.org/en/stable/wallets/privcycore/privatesend-instantsend.html"&gt; وثائق الإرسال المخفي &lt;/a&gt;</translation>
+        <source>&lt;h3&gt;PRiVCYSend Basics&lt;/h3&gt; PRiVCYSend gives you true financial privacy by obscuring the origins of your funds. All the PRiVCY in your wallet is comprised of different "inputs" which you can think of as separate, discrete coins.&lt;br&gt; PRiVCYSend uses an innovative process to mix your inputs with the inputs of two or more other people, without having your coins ever leave your wallet. You retain control of your money at all times.&lt;hr&gt; &lt;b&gt;The PRiVCYSend process works like this:&lt;/b&gt;&lt;ol type="1"&gt; &lt;li&gt;PRiVCYSend begins by breaking your transaction inputs down into standard denominations. These denominations are 0.001 PRIV, 0.01 PRIV, 0.1 PRIV, 1 PRIV and 10 PRIV -- sort of like the paper money you use every day.&lt;/li&gt; &lt;li&gt;Your wallet then sends requests to specially configured software nodes on the network, called "masternodes." These masternodes are informed then that you are interested in mixing a certain denomination. No identifiable information is sent to the masternodes, so they never know "who" you are.&lt;/li&gt; &lt;li&gt;When two or more other people send similar messages, indicating that they wish to mix the same denomination, a mixing session begins. The masternode mixes up the inputs and instructs all three users' wallets to pay the now-transformed input back to themselves. Your wallet pays that denomination directly to itself, but in a different address (called a change address).&lt;/li&gt; &lt;li&gt;In order to fully obscure your funds, your wallet must repeat this process a number of times with each denomination. Each time the process is completed, it's called a "round." Each round of PRiVCYSend makes it exponentially more difficult to determine where your funds originated.&lt;/li&gt; &lt;li&gt;This mixing process happens in the background without any intervention on your part. When you wish to make a transaction, your funds will already be mixed. No additional waiting is required.&lt;/li&gt; &lt;/ol&gt; &lt;hr&gt;&lt;b&gt;IMPORTANT:&lt;/b&gt; Your wallet only contains 1000 of these "change addresses." Every time a mixing event happens, up to 9 of your addresses are used up. This means those 1000 addresses last for about 100 mixing events. When 900 of them are used, your wallet must create more addresses. It can only do this, however, if you have automatic backups enabled.&lt;br&gt; Consequently, users who have backups disabled will also have PRiVCYSend disabled. &lt;hr&gt;For more information, see the &lt;a style="%1" href="https://docs.privcy.org/en/stable/wallets/privcycore/privcysend-instantsend.html"&gt;PRiVCYSend documentation&lt;/a&gt;.</source>
+        <translation>&lt;h3&gt;أساسيات الإرسال المخفي &lt;/h3&gt; يمنحك الإرسال المخفي الخصوصية المالية الحقيقية عن طريق حجب أصول أموالك. تتألف جميع داش في محفظتك من "مدخلات" مختلفة يمكنك التفكير فيها على أنها عملات معدنية منفصلة ومنفصلة. &lt;br&gt;يستخدم الإرسال المخفي عملية مبتكرة لخلط مدخلات الخاصة بك مع مدخلات شخصين آخرين ، دون أن تترك العملات المعدنية الخاصة بك من أي وقت مضى محفظتك. أنت تحتفظ بالسيطرة على أموالك في جميع الأوقات.&lt;hr&gt;  &lt;b&gt; تعمل عملية الإرسال المخفي على النحو التالي: &lt;/b&gt;&lt;ol type="1"&gt;&lt;li&gt;يبدأ الإرسال المخفي عن طريق كسر مدخلات الخاصة بالمعاملات إلى فئات قياسية. هذه الفئات هي 0.001 داش ، 0.01 داش ، 0.1 داش ، 1 داش و 10 داش - نوع من مثل النقود الورقية التي تستخدمها كل يوم. &lt;/li&gt;  عندئذٍ ترسل محفظتك طلبات إلى عقد برامج تم تكوينها خصيصًا على الشبكة ، تُسمى "ماسترنود". يتم إخبار هذه الألفاظ بأنك مهتم بخلط فئة معينة. يتم إرسال أي معلومات يمكن تحديدها إلى جميع ماسترنود ، لذلك لا يعرفون أبدا "من" أنت&lt;li&gt;  &lt;li&gt;  عندما يرسل شخصان آخران رسائل مشابهة ، تشير إلى أنهما يرغبان في خلط نفس المذهب ، تبدأ جلسة الخلط. يمزج متاسترنود يصل مدخلات ويكلف محافظ المستخدمين الثلاثة لدفع مدخلات تحولت الآن إلى أنفسهم. تدفع محفظتك تلك التسمية مباشرة لنفسها ، ولكن في عنوان مختلف (يسمى عنوان التغيير). &lt;li&gt;&lt;/li&gt;  من أجل حجب أموالك بشكل كامل ، يجب أن تكرر محفظتك هذه العملية عدة مرات مع كل فئة. في كل مرة يتم الانتهاء من العملية ، يطلق عليها "جولة". كل جولة من الإرسال المخفي تجعل من الصعب بشكل كبير تحديد المكان الذي نشأت فيه أموالك.&lt;/li&gt;  &lt;li&gt; تحدث عملية الاختلاط هذه في الخلفية دون أي تدخل من جانبك. عندما ترغب في إجراء معاملة ، ستكون أموالك مجهولة المصدر بالفعل. مطلوب أي انتظار إضافي. &lt;/li&gt;&lt;/ol&gt;&lt;hr&gt;&lt;b&gt;مهم &lt;/b&gt; تحتوي محفظتك فقط على 1000 من "عناوين التغيير" هذه. في كل مرة يحدث فيها حدث خلط ، يتم استخدام ما يصل إلى 9 عناوين من عناوينك. هذا يعني أن 1000 عنوان تدوم لحوالي 100 حدث خلط. عند استخدام 900 منهم ، يجب أن تنشئ محفظتك المزيد من العناوين. يمكن فقط القيام بذلك ، ومع ذلك ، إذا قمت بتمكين النسخ الاحتياطي التلقائي.&lt;br&gt; وبالتالي ، سيتم تعطيل الإرسال المخفي أيضًا للمستخدمين الذين لديهم نسخ احتياطية معطلة.&lt;hr&gt; لمزيد من المعلومات ، راجع&lt;a style="%1" href="https://docs.privcy.org/en/stable/wallets/privcycore/privcysend-instantsend.html"&gt; وثائق الإرسال المخفي &lt;/a&gt;</translation>
     </message>
 </context>
 <context>
@@ -1373,27 +1373,27 @@
         <translation>إضهار شريط ماسترنود</translation>
     </message>
     <message>
-        <source>Show additional information and buttons for PrivateSend on overview screen.</source>
+        <source>Show additional information and buttons for PRiVCYSend on overview screen.</source>
         <translation>عرض معلومات إضافية وأزرار لشاشة الإرسال الخاص في نظرة عامة.</translation>
     </message>
     <message>
-        <source>Enable advanced PrivateSend interface</source>
+        <source>Enable advanced PRiVCYSend interface</source>
         <translation>تمكين واجهة الإرسال المخفي المتقدمة</translation>
     </message>
     <message>
-        <source>Show warning dialog when PrivateSend detects that wallet has very low number of keys left.</source>
+        <source>Show warning dialog when PRiVCYSend detects that wallet has very low number of keys left.</source>
         <translation>إظهار مربع حوار التحذير عندما يكتشف الإرسال المخفي أن هناك عددًا منخفضًا جدًا من المفاتيح في المحفظة.</translation>
     </message>
     <message>
-        <source>Warn if PrivateSend is running out of keys</source>
+        <source>Warn if PRiVCYSend is running out of keys</source>
         <translation>تحذير إذا نفدت مفاتيح الإرسال المخفي</translation>
     </message>
     <message>
-        <source>Whether to use experimental PrivateSend mode with multiple mixing sessions per block.&lt;br/&gt;Note: You must use this feature carefully.&lt;br/&gt;Make sure you always have recent wallet (auto)backup in a safe place!</source>
+        <source>Whether to use experimental PRiVCYSend mode with multiple mixing sessions per block.&lt;br/&gt;Note: You must use this feature carefully.&lt;br/&gt;Make sure you always have recent wallet (auto)backup in a safe place!</source>
         <translation>لتحديد ما إذا كنت تريد استخدام وضع الإرسال المخفي التجريبي مع جلسات خلط متعددة لكل مقطع.&lt;br/&gt;ملاحظة: يجب عليك استخدام هذه الميزة بعناية. &lt;br/&gt;تأكد من أن لديك دائمًا احتياطي محفظة (تلقائي) حديث في مكان آمن!</translation>
     </message>
     <message>
-        <source>Enable PrivateSend &amp;multi-session</source>
+        <source>Enable PRiVCYSend &amp;multi-session</source>
         <translation>تمكين الإرسال المخفي متعددة الجلسة</translation>
     </message>
     <message>
@@ -1401,16 +1401,16 @@
         <translation>إذا قمت بتعطيل الإنفاق من التغيير غير المؤكد ، فإن التغيير من معاملة&lt;br/&gt; لا يمكن استخدامه حتى يكون لهذه المعاملة تأكيد واحد على الأقل. &lt;br/&gt; يؤثر هذا أيضًا على كيفية حساب رصيدك.</translation>
     </message>
     <message>
-        <source>PrivateSend rounds to use</source>
+        <source>PRiVCYSend rounds to use</source>
         <translation>الإرسال المخفي و جولات للاستخدام</translation>
     </message>
     <message>
-        <source>This amount acts as a threshold to turn off PrivateSend once it's reached.</source>
+        <source>This amount acts as a threshold to turn off PRiVCYSend once it's reached.</source>
         <translation>يعمل هذا المقدار كعتبة لإيقاف تشغيل الإرسال المخفي بمجرد الوصول إليه.</translation>
     </message>
     <message>
-        <source>Target PrivateSend balance</source>
-        <translation>الهدف رصيد PrivateSend</translation>
+        <source>Target PRiVCYSend balance</source>
+        <translation>الهدف رصيد PRiVCYSend</translation>
     </message>
     <message>
         <source>Automatically open the PRiVCY Core client port on the router. This only works when your router supports UPnP and it is enabled.</source>
@@ -1477,11 +1477,11 @@
         <translation>تمكين ميزات التحكم في العملة</translation>
     </message>
     <message>
-        <source>Show system popups for PrivateSend mixing transactions&lt;br/&gt;just like for all other transaction types.</source>
+        <source>Show system popups for PRiVCYSend mixing transactions&lt;br/&gt;just like for all other transaction types.</source>
         <translation>إظهار النوافذ المنبثقة للنظام لـ الإرسال المخفي معاملات المزج &lt;br/&gt; تمامًا مثل جميع أنواع المعاملات الأخرى.</translation>
     </message>
     <message>
-        <source>Show popups for PrivateSend transactions</source>
+        <source>Show popups for PRiVCYSend transactions</source>
         <translation>إظهار النوافذ المنبثقة لمعاملات الإرسال المخفي</translation>
     </message>
     <message>
@@ -1694,7 +1694,7 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>قابل للصرف:</translation>
     </message>
     <message>
-        <source>PrivateSend</source>
+        <source>PRiVCYSend</source>
         <translation>الإرسال المخفي</translation>
     </message>
     <message>
@@ -1734,7 +1734,7 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>بدأ/إنهاء/دمج</translation>
     </message>
     <message>
-        <source>PrivateSend Balance:</source>
+        <source>PRiVCYSend Balance:</source>
         <translation>رصيد الإرسال المخفي</translation>
     </message>
     <message>
@@ -1838,15 +1838,15 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>تحذير! تعذّر تجديد مفتاح ، يرجى إلغاء قفل محفظتك للقيام بذلك.</translation>
     </message>
     <message>
-        <source>If you don't want to see internal PrivateSend fees/transactions select "Most Common" as Type on the "Transactions" tab.</source>
+        <source>If you don't want to see internal PRiVCYSend fees/transactions select "Most Common" as Type on the "Transactions" tab.</source>
         <translation>إذا كنت لا ترغب في رؤية رسوم / معاملات الإرسال المخفي الداخلي حدد "الأكثر شيوعًا" كأنواع في علامة شريط "المعاملات".</translation>
     </message>
     <message>
-        <source>PrivateSend requires at least %1 to use.</source>
+        <source>PRiVCYSend requires at least %1 to use.</source>
         <translation>يتطلب الإرسال المخفي على الأقل%1 لاستخدامه.</translation>
     </message>
     <message>
-        <source>Wallet is locked and user declined to unlock. Disabling PrivateSend.</source>
+        <source>Wallet is locked and user declined to unlock. Disabling PRiVCYSend.</source>
         <translation>تم قفل المحفظة ورفض المستخدم إلغاء القفل. تعطيل الإرسال المخفي</translation>
     </message>
 </context>
@@ -2910,19 +2910,19 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>&lt;b&gt;( %1 على %2 المداخلات المعروضة)&lt;/b&gt;</translation>
     </message>
     <message>
-        <source>Confirm the PrivateSend action</source>
-        <translation>قم بتأكيد إجراء PrivateSend</translation>
+        <source>Confirm the PRiVCYSend action</source>
+        <translation>قم بتأكيد إجراء PRiVCYSend</translation>
     </message>
     <message>
-        <source>PrivateSend funds only</source>
-        <translation>أموال PrivateSend فقط</translation>
+        <source>PRiVCYSend funds only</source>
+        <translation>أموال PRiVCYSend فقط</translation>
     </message>
     <message>
         <source>any available funds</source>
         <translation>أي أموال متاحة</translation>
     </message>
     <message>
-        <source>(PrivateSend transactions have higher fees usually due to no change output being allowed)</source>
+        <source>(PRiVCYSend transactions have higher fees usually due to no change output being allowed)</source>
         <translation>(معاملات الإرسال الخاص لها رسوم أعلى عادة بسبب عدم السماح بإخراج التغيير)</translation>
     </message>
     <message>
@@ -2938,8 +2938,8 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation><numerusform>ستستهلك هذه المعاملة إدخال٪ n</numerusform><numerusform>ستستهلك هذه المعاملة إدخال٪ n</numerusform><numerusform>ستستهلك هذه المعاملة إدخال٪ n</numerusform><numerusform>ستستهلك هذه المعاملة إدخال٪ n</numerusform><numerusform>ستستهلك هذه المعاملة إدخال٪ n</numerusform><numerusform>ستستهلك هذه المعاملة مدخلات %n</numerusform></translation>
     </message>
     <message>
-        <source>Warning: Using PrivateSend with %1 or more inputs can harm your privacy and is not recommended</source>
-        <translation>تحذير: قد يؤدي استخدام PrivateSend مع %1 أو أكثر من الإدخالات إلى الإضرار بالخصوصية ولا يوصى بذلك</translation>
+        <source>Warning: Using PRiVCYSend with %1 or more inputs can harm your privacy and is not recommended</source>
+        <translation>تحذير: قد يؤدي استخدام PRiVCYSend مع %1 أو أكثر من الإدخالات إلى الإضرار بالخصوصية ولا يوصى بذلك</translation>
     </message>
     <message>
         <source>Confirm send coins</source>
@@ -3513,7 +3513,7 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>استقبل من</translation>
     </message>
     <message>
-        <source>Received via PrivateSend</source>
+        <source>Received via PRiVCYSend</source>
         <translation>تلقى عن طريق الإرسال المخفي</translation>
     </message>
     <message>
@@ -3529,19 +3529,19 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>Mined</translation>
     </message>
     <message>
-        <source>PrivateSend Denominate</source>
+        <source>PRiVCYSend Denominate</source>
         <translation>الإرسال المخفي المقوم</translation>
     </message>
     <message>
-        <source>PrivateSend Collateral Payment</source>
+        <source>PRiVCYSend Collateral Payment</source>
         <translation>الإرسال المخفي الدفع الجانبي</translation>
     </message>
     <message>
-        <source>PrivateSend Make Collateral Inputs</source>
+        <source>PRiVCYSend Make Collateral Inputs</source>
         <translation>الإرسال المخفي جعل مدخلات الجانبية</translation>
     </message>
     <message>
-        <source>PrivateSend Create Denominations</source>
+        <source>PRiVCYSend Create Denominations</source>
         <translation>الإرسال المخفي إنشاء الطوائف</translation>
     </message>
     <message>
@@ -3624,19 +3624,19 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>أرسل إلى</translation>
     </message>
     <message>
-        <source>PrivateSend Make Collateral Inputs</source>
+        <source>PRiVCYSend Make Collateral Inputs</source>
         <translation>الإرسال المخفي جعل مدخلات الجانبية</translation>
     </message>
     <message>
-        <source>PrivateSend Create Denominations</source>
+        <source>PRiVCYSend Create Denominations</source>
         <translation>الإرسال المخفي إنشاء الطوائف</translation>
     </message>
     <message>
-        <source>PrivateSend Denominate</source>
+        <source>PRiVCYSend Denominate</source>
         <translation>الإرسال المخفي المقوم</translation>
     </message>
     <message>
-        <source>PrivateSend Collateral Payment</source>
+        <source>PRiVCYSend Collateral Payment</source>
         <translation>الإرسال المخفي الدفع الجانبي</translation>
     </message>
     <message>
@@ -4063,8 +4063,8 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>يلغي الحد الأدنى من مواقع السبات لتغيير قيمة السِلك. مفيدة فقط ل regtest و devnet. استخدام هذا على mainnet أو testnet سيحظر لك.</translation>
     </message>
     <message>
-        <source>PrivateSend uses exact denominated amounts to send funds, you might simply need to mix some more coins.</source>
-        <translation>يستخدم PrivateSend مبالغ محددة بدقة لإرسال الأموال ، قد تحتاج ببساطة إلى خلط بعض العملات المعدنية.</translation>
+        <source>PRiVCYSend uses exact denominated amounts to send funds, you might simply need to mix some more coins.</source>
+        <translation>يستخدم PRiVCYSend مبالغ محددة بدقة لإرسال الأموال ، قد تحتاج ببساطة إلى خلط بعض العملات المعدنية.</translation>
     </message>
     <message>
         <source>Reduce storage requirements by enabling pruning (deleting) of old blocks. This allows the pruneblockchain RPC to be called to delete specific blocks, and enables automatic pruning of old blocks if a target size in MiB is provided. This mode is incompatible with -txindex, -rescan and -disablegovernance=false. Warning: Reverting this setting requires re-downloading the entire blockchain. (default: 0 = disable pruning blocks, 1 = allow manual pruning via RPC, &gt;=%u = automatically prune block files to stay under the specified target size in MiB)</source>
@@ -4419,7 +4419,7 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>لا تحتفظ بالمعاملات في الذاكرة أكثر من &lt;n&gt; ساعات (الافتراضي: %u)</translation>
     </message>
     <message>
-        <source>Enable multiple PrivateSend mixing sessions per block, experimental (0-1, default: %u)</source>
+        <source>Enable multiple PRiVCYSend mixing sessions per block, experimental (0-1, default: %u)</source>
         <translation>تمكين جلسات دمج الإرسال المحمي متعددة لكل كتلة ، تجريبية (0-1 ، القيمة الافتراضية: %u)</translation>
     </message>
     <message>
@@ -4523,7 +4523,7 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>حاول إنشاء مدخلات N على الأقل لكل مبلغ فئة (%u-%u ، الافتراضي: %u)</translation>
     </message>
     <message>
-        <source>Unable to locate enough PrivateSend denominated funds for this transaction.</source>
+        <source>Unable to locate enough PRiVCYSend denominated funds for this transaction.</source>
         <translation>غير قادر على تحديد ما يكفي من الأموال المخصصة الإرسال المحمي لهذه الصفقة ..</translation>
     </message>
     <message>
@@ -4715,11 +4715,11 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>إبقاء تجمع ذاكرة المعاملة أدناه &lt;n&gt; ميغابايت (افتراضي: %u)</translation>
     </message>
     <message>
-        <source>Last PrivateSend was too recent.</source>
+        <source>Last PRiVCYSend was too recent.</source>
         <translation>اخر إرسال مخفي كان حديث للغاية</translation>
     </message>
     <message>
-        <source>Last successful PrivateSend action was too recent.</source>
+        <source>Last successful PRiVCYSend action was too recent.</source>
         <translation>آخر إجراء الإرسال المخفي ناجح كان حديث للغاية.</translation>
     </message>
     <message>
@@ -4803,15 +4803,15 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>طباعة النسخة ومن ثم الخروج</translation>
     </message>
     <message>
-        <source>PrivateSend is idle.</source>
+        <source>PRiVCYSend is idle.</source>
         <translation>الإرسال المخفي غير نشط.</translation>
     </message>
     <message>
-        <source>PrivateSend options:</source>
+        <source>PRiVCYSend options:</source>
         <translation>خيارات الإرسال المخفي:</translation>
     </message>
     <message>
-        <source>PrivateSend request incomplete:</source>
+        <source>PRiVCYSend request incomplete:</source>
         <translation>طلب الإرسال المخفي غير مكتمل:</translation>
     </message>
     <message>
@@ -4863,8 +4863,8 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>مزامنة بلوكشين...</translation>
     </message>
     <message>
-        <source>Target PrivateSend balance (%u-%u, default: %u)</source>
-        <translation>رصيد PrivateSend المستهدف (%u-%u ، الافتراضي: %u)</translation>
+        <source>Target PRiVCYSend balance (%u-%u, default: %u)</source>
+        <translation>رصيد PRiVCYSend المستهدف (%u-%u ، الافتراضي: %u)</translation>
     </message>
     <message>
         <source>The wallet will avoid paying less than the minimum relay fee.</source>
@@ -4991,8 +4991,8 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>موزعة تحت ترخيص برنامج MIT ، راجع ملف المرافق %s أو %s</translation>
     </message>
     <message>
-        <source>Enable use of PrivateSend for funds stored in this wallet (0-1, default: %u)</source>
-        <translation>تفعيل استخدام PrivateSend للأموال المخزنة في هذه المحفظة (0-1 ، الافتراضي: %u)</translation>
+        <source>Enable use of PRiVCYSend for funds stored in this wallet (0-1, default: %u)</source>
+        <translation>تفعيل استخدام PRiVCYSend للأموال المخزنة في هذه المحفظة (0-1 ، الافتراضي: %u)</translation>
     </message>
     <message>
         <source>Error loading %s: You can't enable HD on an already existing non-HD wallet</source>
@@ -5055,7 +5055,7 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>يتضمن هذا المنتج برنامجًا تم تطويره بواسطة OpenSSL Project للاستخدام في OpenSSL Toolkit %s وبرنامج التشفير الذي كتبه Eric Young و UPnP الذي كتبه Thomas Bernard.</translation>
     </message>
     <message>
-        <source>Unable to locate enough PrivateSend non-denominated funds for this transaction.</source>
+        <source>Unable to locate enough PRiVCYSend non-denominated funds for this transaction.</source>
         <translation>غير قادر على تحديد ما يكفي من الأموال المخصصة غير المقومة الإرسال المخفي لهذه الصفقة.</translation>
     </message>
     <message>
@@ -5271,8 +5271,8 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>حدد عنوانك العام هنا</translation>
     </message>
     <message>
-        <source>Start PrivateSend automatically (0-1, default: %u)</source>
-        <translation>بدء PrivateSend تلقائيًا (0-1 ، الافتراضي: %u)</translation>
+        <source>Start PRiVCYSend automatically (0-1, default: %u)</source>
+        <translation>بدء PRiVCYSend تلقائيًا (0-1 ، الافتراضي: %u)</translation>
     </message>
     <message>
         <source>Starting network threads...</source>

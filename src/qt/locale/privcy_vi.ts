@@ -392,8 +392,8 @@
         <translation>&amp;Khoảng %1</translation>
     </message>
     <message>
-        <source>PrivateSend coins to a PRiVCY address</source>
-        <translation>Gửi PrivateSend đến một địa chỉ PRiVCY</translation>
+        <source>PRiVCYSend coins to a PRiVCY address</source>
+        <translation>Gửi PRiVCYSend đến một địa chỉ PRiVCY</translation>
     </message>
     <message>
         <source>Modify configuration options for %1</source>
@@ -556,12 +556,12 @@
         <translation>Ví được &lt;b&gt;mở mã hoá&lt;/b&gt;</translation>
     </message>
     <message>
-        <source>&amp;PrivateSend information</source>
-        <translation>Thông tin về &amp;PrivateSend</translation>
+        <source>&amp;PRiVCYSend information</source>
+        <translation>Thông tin về &amp;PRiVCYSend</translation>
     </message>
     <message>
-        <source>Show the PrivateSend basic information</source>
-        <translation>Hiển thị những thông tin cơ bản về PrivateSend</translation>
+        <source>Show the PRiVCYSend basic information</source>
+        <translation>Hiển thị những thông tin cơ bản về PRiVCYSend</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -901,12 +901,12 @@
         <translation>Hiển thị toàn bộ coin</translation>
     </message>
     <message>
-        <source>Hide PrivateSend coins</source>
-        <translation>Ẩn coin PrivateSend</translation>
+        <source>Hide PRiVCYSend coins</source>
+        <translation>Ẩn coin PRiVCYSend</translation>
     </message>
     <message>
-        <source>Show all PrivateSend coins</source>
-        <translation>Hiển thị tất cả coin PrivateSend</translation>
+        <source>Show all PRiVCYSend coins</source>
+        <translation>Hiển thị tất cả coin PRiVCYSend</translation>
     </message>
     <message>
         <source>Show spendable coins only</source>
@@ -1078,12 +1078,12 @@
         <translation>Tái thiết lập tất cả các thông số thay đổi trên giao diện đồ hoạ</translation>
     </message>
     <message>
-        <source>PrivateSend information</source>
-        <translation>Thông tin PrivateSend</translation>
+        <source>PRiVCYSend information</source>
+        <translation>Thông tin PRiVCYSend</translation>
     </message>
     <message>
-        <source>&lt;h3&gt;PrivateSend Basics&lt;/h3&gt; PrivateSend gives you true financial privacy by obscuring the origins of your funds. All the PRiVCY in your wallet is comprised of different "inputs" which you can think of as separate, discrete coins.&lt;br&gt; PrivateSend uses an innovative process to mix your inputs with the inputs of two or more other people, without having your coins ever leave your wallet. You retain control of your money at all times.&lt;hr&gt; &lt;b&gt;The PrivateSend process works like this:&lt;/b&gt;&lt;ol type="1"&gt; &lt;li&gt;PrivateSend begins by breaking your transaction inputs down into standard denominations. These denominations are 0.001 PRIV, 0.01 PRIV, 0.1 PRIV, 1 PRIV and 10 PRIV -- sort of like the paper money you use every day.&lt;/li&gt; &lt;li&gt;Your wallet then sends requests to specially configured software nodes on the network, called "masternodes." These masternodes are informed then that you are interested in mixing a certain denomination. No identifiable information is sent to the masternodes, so they never know "who" you are.&lt;/li&gt; &lt;li&gt;When two or more other people send similar messages, indicating that they wish to mix the same denomination, a mixing session begins. The masternode mixes up the inputs and instructs all three users' wallets to pay the now-transformed input back to themselves. Your wallet pays that denomination directly to itself, but in a different address (called a change address).&lt;/li&gt; &lt;li&gt;In order to fully obscure your funds, your wallet must repeat this process a number of times with each denomination. Each time the process is completed, it's called a "round." Each round of PrivateSend makes it exponentially more difficult to determine where your funds originated.&lt;/li&gt; &lt;li&gt;This mixing process happens in the background without any intervention on your part. When you wish to make a transaction, your funds will already be mixed. No additional waiting is required.&lt;/li&gt; &lt;/ol&gt; &lt;hr&gt;&lt;b&gt;IMPORTANT:&lt;/b&gt; Your wallet only contains 1000 of these "change addresses." Every time a mixing event happens, up to 9 of your addresses are used up. This means those 1000 addresses last for about 100 mixing events. When 900 of them are used, your wallet must create more addresses. It can only do this, however, if you have automatic backups enabled.&lt;br&gt; Consequently, users who have backups disabled will also have PrivateSend disabled. &lt;hr&gt;For more information, see the &lt;a style="%1" href="https://docs.privcy.org/en/stable/wallets/privcycore/privatesend-instantsend.html"&gt;PrivateSend documentation&lt;/a&gt;.</source>
-        <translation>&lt;h3&gt;Cơ bản về PrivateSend&lt;/h3&gt; PrivateSend cho bạn sự thực sự riêng tư về tài chính bằng việc che dấu những nguồn cung. Tất cả PRiVCY trong ví của bạn bao gồm những "đầu vào" khác nhau mà bạn nghĩ đó là các coin riêng biệt và rời rạc.&lt;br&gt; PrivateSend sử dụng một tiến trình độc đáo để trộn các đầu vào của bạn với đầu vào của hai người khác, mà không làm cho các coin rời khỏi ví của bạn. Bạn vẫn giữ quyền kiểm soát tiền của bạn bất cứ lúc nào.&lt;hr&gt; &lt;b&gt;Quá trình PrivateSend làm việc như sau: &lt;/b&gt; &lt;ol type="1"&gt; &lt;li&gt;PrivateSend bắt đầu bằng việc chia các giao dịch đầu vào của bạn thành những mệnh giá chuẩn. Những mệnh giá đó là 0.001 PRIV, 0.01 PRIV, 0.1 PRIV, 1 PRIV, và 10 PRIV -- cũng giống như các mệnh giá trên tiền giấy mà bạn sử dụng hàng ngày. &lt;/li&gt;&lt;li&gt;Ví của bạn sau đó gửi yêu cầu đến những nút phần mềm được cấu hình đặc biệt trên mạng gọi là các "masternode". Những masternode được báo rằng bạn quan tâm đến việc xáo trộn một mệnh giá nào đó. Không có thông tin định danh nào được gửi đến cho các masternode, và như vậy họ không bao giờ biết bạn "là ai". &lt;/li&gt; &lt;li&gt;Khi hai người kia gửi những thông điệp tương tự, có nghĩa là họ muốn xáo trộn cùng loại mệnh giá, một phiên xáo trộn bắt đầu. Masternode xáo trộn các đầu vào và hướng dẫn tất cả ví của cả ba người dùng để trả đầu vào đã được chuyển đổi trở lại cho chính họ. Ví của bạn sẽ trả mệnh giá đó trực tiếp cho nó, nhưng với một địa chỉ khác (được gọi là địa chỉ trả tiền lẻ). &lt;/li&gt; &lt;li&gt;Để thực sự che khuất nguồn tiền của bạn, ví của bạn phải lặp lại quy trình đó một số lần với mỗi mệnh giá nhất định. Mỗi lần tiến trình hoàn tất, nó được gọi là một "vòng". Mỗi vòng của PrivateSend làm nên độ khó bậc số mũ để xác định nguồn tiền của bạn đến từ đâu. &lt;/li&gt; &lt;li&gt;Quá trình xáo trộn này xảy ra trong chế độ nền mà không xen vào những việc khác của bạn. Khi bạn muốn thực hiện một giao dịch, nguồn tiền của bạn đã được ẩn danh rồi. Do đó bạn không cần phải đợi thêm gì nữa. &lt;/li&gt;&lt;/ol&gt; &lt;hr&gt; &lt;b&gt;QUAN TRỌNG:&lt;/b&gt; Ví của bạn chỉ có chứa 1000 "địa chỉ tiền trả lại". Mỗi lần một sự kiện xáo trộn xảy ra, có đến 9 địa chỉ sẽ được sử dụng. Điều đó có nghĩa với ví mới với 1000 địa chỉ thì dùng cho 100 lần trộn. Khi 900 địa chỉ đã được sử dụng, ví của bạn phải tạo thêm các địa chỉ mới. Nó chỉ có thể làm việc đó nếu bạn có chế độ tự động backup được bật&lt;br&gt; Kết quả là, những người dùng mà chế độ backup bị tắt sẽ có chế độ PrivateSend cũng bị tắt.&lt;hr&gt; Để biết thêm thông tin hãy xem &lt;a style="%1" href="https://docs.privcy.org/en/stable/wallets/privcycore/privatesend-instantsend.html"&gt;Tài liệu về PrivateSend&lt;/a&gt;.</translation>
+        <source>&lt;h3&gt;PRiVCYSend Basics&lt;/h3&gt; PRiVCYSend gives you true financial privacy by obscuring the origins of your funds. All the PRiVCY in your wallet is comprised of different "inputs" which you can think of as separate, discrete coins.&lt;br&gt; PRiVCYSend uses an innovative process to mix your inputs with the inputs of two or more other people, without having your coins ever leave your wallet. You retain control of your money at all times.&lt;hr&gt; &lt;b&gt;The PRiVCYSend process works like this:&lt;/b&gt;&lt;ol type="1"&gt; &lt;li&gt;PRiVCYSend begins by breaking your transaction inputs down into standard denominations. These denominations are 0.001 PRIV, 0.01 PRIV, 0.1 PRIV, 1 PRIV and 10 PRIV -- sort of like the paper money you use every day.&lt;/li&gt; &lt;li&gt;Your wallet then sends requests to specially configured software nodes on the network, called "masternodes." These masternodes are informed then that you are interested in mixing a certain denomination. No identifiable information is sent to the masternodes, so they never know "who" you are.&lt;/li&gt; &lt;li&gt;When two or more other people send similar messages, indicating that they wish to mix the same denomination, a mixing session begins. The masternode mixes up the inputs and instructs all three users' wallets to pay the now-transformed input back to themselves. Your wallet pays that denomination directly to itself, but in a different address (called a change address).&lt;/li&gt; &lt;li&gt;In order to fully obscure your funds, your wallet must repeat this process a number of times with each denomination. Each time the process is completed, it's called a "round." Each round of PRiVCYSend makes it exponentially more difficult to determine where your funds originated.&lt;/li&gt; &lt;li&gt;This mixing process happens in the background without any intervention on your part. When you wish to make a transaction, your funds will already be mixed. No additional waiting is required.&lt;/li&gt; &lt;/ol&gt; &lt;hr&gt;&lt;b&gt;IMPORTANT:&lt;/b&gt; Your wallet only contains 1000 of these "change addresses." Every time a mixing event happens, up to 9 of your addresses are used up. This means those 1000 addresses last for about 100 mixing events. When 900 of them are used, your wallet must create more addresses. It can only do this, however, if you have automatic backups enabled.&lt;br&gt; Consequently, users who have backups disabled will also have PRiVCYSend disabled. &lt;hr&gt;For more information, see the &lt;a style="%1" href="https://docs.privcy.org/en/stable/wallets/privcycore/privcysend-instantsend.html"&gt;PRiVCYSend documentation&lt;/a&gt;.</source>
+        <translation>&lt;h3&gt;Cơ bản về PRiVCYSend&lt;/h3&gt; PRiVCYSend cho bạn sự thực sự riêng tư về tài chính bằng việc che dấu những nguồn cung. Tất cả PRiVCY trong ví của bạn bao gồm những "đầu vào" khác nhau mà bạn nghĩ đó là các coin riêng biệt và rời rạc.&lt;br&gt; PRiVCYSend sử dụng một tiến trình độc đáo để trộn các đầu vào của bạn với đầu vào của hai người khác, mà không làm cho các coin rời khỏi ví của bạn. Bạn vẫn giữ quyền kiểm soát tiền của bạn bất cứ lúc nào.&lt;hr&gt; &lt;b&gt;Quá trình PRiVCYSend làm việc như sau: &lt;/b&gt; &lt;ol type="1"&gt; &lt;li&gt;PRiVCYSend bắt đầu bằng việc chia các giao dịch đầu vào của bạn thành những mệnh giá chuẩn. Những mệnh giá đó là 0.001 PRIV, 0.01 PRIV, 0.1 PRIV, 1 PRIV, và 10 PRIV -- cũng giống như các mệnh giá trên tiền giấy mà bạn sử dụng hàng ngày. &lt;/li&gt;&lt;li&gt;Ví của bạn sau đó gửi yêu cầu đến những nút phần mềm được cấu hình đặc biệt trên mạng gọi là các "masternode". Những masternode được báo rằng bạn quan tâm đến việc xáo trộn một mệnh giá nào đó. Không có thông tin định danh nào được gửi đến cho các masternode, và như vậy họ không bao giờ biết bạn "là ai". &lt;/li&gt; &lt;li&gt;Khi hai người kia gửi những thông điệp tương tự, có nghĩa là họ muốn xáo trộn cùng loại mệnh giá, một phiên xáo trộn bắt đầu. Masternode xáo trộn các đầu vào và hướng dẫn tất cả ví của cả ba người dùng để trả đầu vào đã được chuyển đổi trở lại cho chính họ. Ví của bạn sẽ trả mệnh giá đó trực tiếp cho nó, nhưng với một địa chỉ khác (được gọi là địa chỉ trả tiền lẻ). &lt;/li&gt; &lt;li&gt;Để thực sự che khuất nguồn tiền của bạn, ví của bạn phải lặp lại quy trình đó một số lần với mỗi mệnh giá nhất định. Mỗi lần tiến trình hoàn tất, nó được gọi là một "vòng". Mỗi vòng của PRiVCYSend làm nên độ khó bậc số mũ để xác định nguồn tiền của bạn đến từ đâu. &lt;/li&gt; &lt;li&gt;Quá trình xáo trộn này xảy ra trong chế độ nền mà không xen vào những việc khác của bạn. Khi bạn muốn thực hiện một giao dịch, nguồn tiền của bạn đã được ẩn danh rồi. Do đó bạn không cần phải đợi thêm gì nữa. &lt;/li&gt;&lt;/ol&gt; &lt;hr&gt; &lt;b&gt;QUAN TRỌNG:&lt;/b&gt; Ví của bạn chỉ có chứa 1000 "địa chỉ tiền trả lại". Mỗi lần một sự kiện xáo trộn xảy ra, có đến 9 địa chỉ sẽ được sử dụng. Điều đó có nghĩa với ví mới với 1000 địa chỉ thì dùng cho 100 lần trộn. Khi 900 địa chỉ đã được sử dụng, ví của bạn phải tạo thêm các địa chỉ mới. Nó chỉ có thể làm việc đó nếu bạn có chế độ tự động backup được bật&lt;br&gt; Kết quả là, những người dùng mà chế độ backup bị tắt sẽ có chế độ PRiVCYSend cũng bị tắt.&lt;hr&gt; Để biết thêm thông tin hãy xem &lt;a style="%1" href="https://docs.privcy.org/en/stable/wallets/privcycore/privcysend-instantsend.html"&gt;Tài liệu về PRiVCYSend&lt;/a&gt;.</translation>
     </message>
 </context>
 <context>
@@ -1397,44 +1397,44 @@
         <translation>Hiển thị trang Masternodes</translation>
     </message>
     <message>
-        <source>Show additional information and buttons for PrivateSend on overview screen.</source>
-        <translation>Hiển thị thêm thông tin và các nút cho PrivateSend trên màn hình tổng quát.</translation>
+        <source>Show additional information and buttons for PRiVCYSend on overview screen.</source>
+        <translation>Hiển thị thêm thông tin và các nút cho PRiVCYSend trên màn hình tổng quát.</translation>
     </message>
     <message>
-        <source>Enable advanced PrivateSend interface</source>
-        <translation>Bật chế độ giao diện PrivateSend cao cấp</translation>
+        <source>Enable advanced PRiVCYSend interface</source>
+        <translation>Bật chế độ giao diện PRiVCYSend cao cấp</translation>
     </message>
     <message>
-        <source>Show warning dialog when PrivateSend detects that wallet has very low number of keys left.</source>
-        <translation>Hiển thị bảng hội thoại cảnh báo khi PrivateSend phát hiện ví chỉ còn rất ít khoá còn lại.</translation>
+        <source>Show warning dialog when PRiVCYSend detects that wallet has very low number of keys left.</source>
+        <translation>Hiển thị bảng hội thoại cảnh báo khi PRiVCYSend phát hiện ví chỉ còn rất ít khoá còn lại.</translation>
     </message>
     <message>
-        <source>Warn if PrivateSend is running out of keys</source>
-        <translation>Cảnh báo nếu PrivateSend đang thiếu khoá</translation>
+        <source>Warn if PRiVCYSend is running out of keys</source>
+        <translation>Cảnh báo nếu PRiVCYSend đang thiếu khoá</translation>
     </message>
     <message>
-        <source>Whether to use experimental PrivateSend mode with multiple mixing sessions per block.&lt;br/&gt;Note: You must use this feature carefully.&lt;br/&gt;Make sure you always have recent wallet (auto)backup in a safe place!</source>
-        <translation>Cho dù sử dụng thí nghiệm chế độ PrivateSend với việc trộn nhiều phiên trên một khối.&lt;br/&gt;Chú ý: Bạn cần sử dụng tính năng này một cách thận trọng.&lt;br/&gt;Hãy đảm bảo rằng bạn luôn lưu trữ sao lưu (tự động) ví gần nhất ở nơi an toàn.</translation>
+        <source>Whether to use experimental PRiVCYSend mode with multiple mixing sessions per block.&lt;br/&gt;Note: You must use this feature carefully.&lt;br/&gt;Make sure you always have recent wallet (auto)backup in a safe place!</source>
+        <translation>Cho dù sử dụng thí nghiệm chế độ PRiVCYSend với việc trộn nhiều phiên trên một khối.&lt;br/&gt;Chú ý: Bạn cần sử dụng tính năng này một cách thận trọng.&lt;br/&gt;Hãy đảm bảo rằng bạn luôn lưu trữ sao lưu (tự động) ví gần nhất ở nơi an toàn.</translation>
     </message>
     <message>
-        <source>Enable PrivateSend &amp;multi-session</source>
-        <translation>Bật chế độ đa &amp;kênh PrivateSend</translation>
+        <source>Enable PRiVCYSend &amp;multi-session</source>
+        <translation>Bật chế độ đa &amp;kênh PRiVCYSend</translation>
     </message>
     <message>
         <source>If you disable the spending of unconfirmed change, the change from a transaction&lt;br/&gt;cannot be used until that transaction has at least one confirmation.&lt;br/&gt;This also affects how your balance is computed.</source>
         <translation>Nếu bạn vô hiệu hóa các chi tiêu của phần tiền lẻ chưa được xác nhận, phần tiền lẻ từ một giao dịch &lt;br/&gt;không thể được sử dụng đến khi giao dịch đó nhận được ít nhất một xác nhận. &lt;br/&gt;Điều này ảnh hưởng đến cách tính số dư của bạn.</translation>
     </message>
     <message>
-        <source>PrivateSend rounds to use</source>
-        <translation>Số vòng PrivateSend được dùng</translation>
+        <source>PRiVCYSend rounds to use</source>
+        <translation>Số vòng PRiVCYSend được dùng</translation>
     </message>
     <message>
-        <source>This amount acts as a threshold to turn off PrivateSend once it's reached.</source>
-        <translation>Số lượng này hoạt động như là một ngưỡng để tắt PrivateSend khi nó được chạm tới.</translation>
+        <source>This amount acts as a threshold to turn off PRiVCYSend once it's reached.</source>
+        <translation>Số lượng này hoạt động như là một ngưỡng để tắt PRiVCYSend khi nó được chạm tới.</translation>
     </message>
     <message>
-        <source>Target PrivateSend balance</source>
-        <translation>Số dư đích cho PrivateSend</translation>
+        <source>Target PRiVCYSend balance</source>
+        <translation>Số dư đích cho PRiVCYSend</translation>
     </message>
     <message>
         <source>Automatically open the PRiVCY Core client port on the router. This only works when your router supports UPnP and it is enabled.</source>
@@ -1501,12 +1501,12 @@
         <translation>Bật tính năng Kiểm soát &amp;Coin</translation>
     </message>
     <message>
-        <source>Show system popups for PrivateSend mixing transactions&lt;br/&gt;just like for all other transaction types.</source>
-        <translation>Hiển thị bảng hội thoại cho giao dịch trộn PrivateSend &lt;br/&gt;giống như cho tất các các loại giao dịch khác.</translation>
+        <source>Show system popups for PRiVCYSend mixing transactions&lt;br/&gt;just like for all other transaction types.</source>
+        <translation>Hiển thị bảng hội thoại cho giao dịch trộn PRiVCYSend &lt;br/&gt;giống như cho tất các các loại giao dịch khác.</translation>
     </message>
     <message>
-        <source>Show popups for PrivateSend transactions</source>
-        <translation>Hiển thị yêu cầu xác nhận cho các giao dịch PrivateSend</translation>
+        <source>Show popups for PRiVCYSend transactions</source>
+        <translation>Hiển thị yêu cầu xác nhận cho các giao dịch PRiVCYSend</translation>
     </message>
     <message>
         <source>&amp;Spend unconfirmed change</source>
@@ -1718,8 +1718,8 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>Có thể tiêu được:</translation>
     </message>
     <message>
-        <source>PrivateSend</source>
-        <translation>PrivateSend</translation>
+        <source>PRiVCYSend</source>
+        <translation>PRiVCYSend</translation>
     </message>
     <message>
         <source>Status:</source>
@@ -1758,8 +1758,8 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>Bắt đầu/Tắt việc trộn</translation>
     </message>
     <message>
-        <source>PrivateSend Balance:</source>
-        <translation>Số dư PrivateSend:</translation>
+        <source>PRiVCYSend Balance:</source>
+        <translation>Số dư PRiVCYSend:</translation>
     </message>
     <message>
         <source>The denominations you submitted to the Masternode.&lt;br&gt;To mix, other users must submit the exact same denominations.</source>
@@ -1862,16 +1862,16 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>CẢNH BÁO! Không thể bổ sung keypool, hãy mở khoá ví của bạn để làm việc đó.</translation>
     </message>
     <message>
-        <source>If you don't want to see internal PrivateSend fees/transactions select "Most Common" as Type on the "Transactions" tab.</source>
-        <translation>Nếu bạn không muốn nhìn thấy thông tin nội bộ về phí/giao dich PrivateSend thì hãy chọn "Thông dụng nhất" là kiểu trên trang "Các giao dịch".</translation>
+        <source>If you don't want to see internal PRiVCYSend fees/transactions select "Most Common" as Type on the "Transactions" tab.</source>
+        <translation>Nếu bạn không muốn nhìn thấy thông tin nội bộ về phí/giao dich PRiVCYSend thì hãy chọn "Thông dụng nhất" là kiểu trên trang "Các giao dịch".</translation>
     </message>
     <message>
-        <source>PrivateSend requires at least %1 to use.</source>
-        <translation>PrivateSend yêu cầu ít nhất %1 để sử dụng.</translation>
+        <source>PRiVCYSend requires at least %1 to use.</source>
+        <translation>PRiVCYSend yêu cầu ít nhất %1 để sử dụng.</translation>
     </message>
     <message>
-        <source>Wallet is locked and user declined to unlock. Disabling PrivateSend.</source>
-        <translation>Ví đã được khoá và người dùng từ chối mở khoá. Tắt chức năng PrivateSend.</translation>
+        <source>Wallet is locked and user declined to unlock. Disabling PRiVCYSend.</source>
+        <translation>Ví đã được khoá và người dùng từ chối mở khoá. Tắt chức năng PRiVCYSend.</translation>
     </message>
 </context>
 <context>
@@ -2938,20 +2938,20 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>&lt;b&gt;(%1 của %2 các thành phần được hiển thị)&lt;/b&gt;</translation>
     </message>
     <message>
-        <source>Confirm the PrivateSend action</source>
-        <translation>Xác nhận hành động PrivateSend</translation>
+        <source>Confirm the PRiVCYSend action</source>
+        <translation>Xác nhận hành động PRiVCYSend</translation>
     </message>
     <message>
-        <source>PrivateSend funds only</source>
-        <translation>Ngân quỹ chỉ cho PrivateSend</translation>
+        <source>PRiVCYSend funds only</source>
+        <translation>Ngân quỹ chỉ cho PRiVCYSend</translation>
     </message>
     <message>
         <source>any available funds</source>
         <translation>bất kỳ nguồn cung nào còn</translation>
     </message>
     <message>
-        <source>(PrivateSend transactions have higher fees usually due to no change output being allowed)</source>
-        <translation>(Các giao dịch PrivateSend có mức phí cao hơn thường do không được phép thay đổi đầu ra)</translation>
+        <source>(PRiVCYSend transactions have higher fees usually due to no change output being allowed)</source>
+        <translation>(Các giao dịch PRiVCYSend có mức phí cao hơn thường do không được phép thay đổi đầu ra)</translation>
     </message>
     <message>
         <source>Transaction size: %1</source>
@@ -2966,8 +2966,8 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation><numerusform>Giao dịch này sẽ dùng đến %n đầu vào</numerusform></translation>
     </message>
     <message>
-        <source>Warning: Using PrivateSend with %1 or more inputs can harm your privacy and is not recommended</source>
-        <translation>Cảnh báo: Sử dụng PrivateSend với %1 hoặc nhiều hơn các đầu vào có thể làm hại tính riêng tư cho bạn và nó không phải là điều được khuyến nghị</translation>
+        <source>Warning: Using PRiVCYSend with %1 or more inputs can harm your privacy and is not recommended</source>
+        <translation>Cảnh báo: Sử dụng PRiVCYSend với %1 hoặc nhiều hơn các đầu vào có thể làm hại tính riêng tư cho bạn và nó không phải là điều được khuyến nghị</translation>
     </message>
     <message>
         <source>Confirm send coins</source>
@@ -3569,8 +3569,8 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>Nhận từ</translation>
     </message>
     <message>
-        <source>Received via PrivateSend</source>
-        <translation>Nhận được thông qua PrivateSend</translation>
+        <source>Received via PRiVCYSend</source>
+        <translation>Nhận được thông qua PRiVCYSend</translation>
     </message>
     <message>
         <source>Sent to</source>
@@ -3585,20 +3585,20 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>Được đào</translation>
     </message>
     <message>
-        <source>PrivateSend Denominate</source>
-        <translation>Mệnh giá PrivateSend</translation>
+        <source>PRiVCYSend Denominate</source>
+        <translation>Mệnh giá PRiVCYSend</translation>
     </message>
     <message>
-        <source>PrivateSend Collateral Payment</source>
-        <translation>Thanh toán đảm bảo cho PrivateSend</translation>
+        <source>PRiVCYSend Collateral Payment</source>
+        <translation>Thanh toán đảm bảo cho PRiVCYSend</translation>
     </message>
     <message>
-        <source>PrivateSend Make Collateral Inputs</source>
-        <translation>PrivateSend Tạo Đặt Cọc Đầu Vào</translation>
+        <source>PRiVCYSend Make Collateral Inputs</source>
+        <translation>PRiVCYSend Tạo Đặt Cọc Đầu Vào</translation>
     </message>
     <message>
-        <source>PrivateSend Create Denominations</source>
-        <translation>PrivateSend Tạo Các Mệnh Giá</translation>
+        <source>PRiVCYSend Create Denominations</source>
+        <translation>PRiVCYSend Tạo Các Mệnh Giá</translation>
     </message>
     <message>
         <source>watch-only</source>
@@ -3680,20 +3680,20 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>Gửi đến</translation>
     </message>
     <message>
-        <source>PrivateSend Make Collateral Inputs</source>
-        <translation>PrivateSend Tạo Đặt Cọc Đầu Vào</translation>
+        <source>PRiVCYSend Make Collateral Inputs</source>
+        <translation>PRiVCYSend Tạo Đặt Cọc Đầu Vào</translation>
     </message>
     <message>
-        <source>PrivateSend Create Denominations</source>
-        <translation>PrivateSend Tạo Các Mệnh Giá</translation>
+        <source>PRiVCYSend Create Denominations</source>
+        <translation>PRiVCYSend Tạo Các Mệnh Giá</translation>
     </message>
     <message>
-        <source>PrivateSend Denominate</source>
-        <translation>Mệnh giá PrivateSend</translation>
+        <source>PRiVCYSend Denominate</source>
+        <translation>Mệnh giá PRiVCYSend</translation>
     </message>
     <message>
-        <source>PrivateSend Collateral Payment</source>
-        <translation>PrivateSend Collateral Payment</translation>
+        <source>PRiVCYSend Collateral Payment</source>
+        <translation>PRiVCYSend Collateral Payment</translation>
     </message>
     <message>
         <source>To yourself</source>
@@ -4119,8 +4119,8 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>Ghi đè yêu cầu về số người ký spork tối thiểu để thay đổi giá trị spork. Chỉ hữu ích cho regtest và devnet. Không được sử dụng cái này trên mainnet hoặc test net.</translation>
     </message>
     <message>
-        <source>PrivateSend uses exact denominated amounts to send funds, you might simply need to mix some more coins.</source>
-        <translation>PrivateSend sử dụng chính xác số tiền đã được phân mệnh giá để gửi, bạn chỉ đơn giản cần trộn thêm nhiều coin nữa.</translation>
+        <source>PRiVCYSend uses exact denominated amounts to send funds, you might simply need to mix some more coins.</source>
+        <translation>PRiVCYSend sử dụng chính xác số tiền đã được phân mệnh giá để gửi, bạn chỉ đơn giản cần trộn thêm nhiều coin nữa.</translation>
     </message>
     <message>
         <source>Reduce storage requirements by enabling pruning (deleting) of old blocks. This allows the pruneblockchain RPC to be called to delete specific blocks, and enables automatic pruning of old blocks if a target size in MiB is provided. This mode is incompatible with -txindex, -rescan and -disablegovernance=false. Warning: Reverting this setting requires re-downloading the entire blockchain. (default: 0 = disable pruning blocks, 1 = allow manual pruning via RPC, &gt;=%u = automatically prune block files to stay under the specified target size in MiB)</source>
@@ -4475,8 +4475,8 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>Không giữ các giao dịch trong mempool lâu hơn &lt;n&gt; giờ (ngầm định: %u)</translation>
     </message>
     <message>
-        <source>Enable multiple PrivateSend mixing sessions per block, experimental (0-1, default: %u)</source>
-        <translation>Cho phép nhiều phiên trộn PrivateSend cho mỗi khối, thí nghiệm (0-1, ngầm định: %u)</translation>
+        <source>Enable multiple PRiVCYSend mixing sessions per block, experimental (0-1, default: %u)</source>
+        <translation>Cho phép nhiều phiên trộn PRiVCYSend cho mỗi khối, thí nghiệm (0-1, ngầm định: %u)</translation>
     </message>
     <message>
         <source>Execute command when a wallet InstantSend transaction is successfully locked (%s in cmd is replaced by TxID)</source>
@@ -4579,8 +4579,8 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>Hãy cố tạo ít nhất N đầu vào cho mỗi một mức mệnh giá (%u-%u, ngầm định: %u)</translation>
     </message>
     <message>
-        <source>Unable to locate enough PrivateSend denominated funds for this transaction.</source>
-        <translation>Không tìm đủ nguồn tiền PrivateSend denominated cho giao dịch này.</translation>
+        <source>Unable to locate enough PRiVCYSend denominated funds for this transaction.</source>
+        <translation>Không tìm đủ nguồn tiền PRiVCYSend denominated cho giao dịch này.</translation>
     </message>
     <message>
         <source>Unsupported argument -socks found. Setting SOCKS version isn't possible anymore, only SOCKS5 proxies are supported.</source>
@@ -4771,12 +4771,12 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>Giữ cho bể nhớ giao dịch dưới &lt;n&gt; megabytes (ngầm định: %u)</translation>
     </message>
     <message>
-        <source>Last PrivateSend was too recent.</source>
-        <translation>Lần gửi PrivateSend mới nhất quá gần.</translation>
+        <source>Last PRiVCYSend was too recent.</source>
+        <translation>Lần gửi PRiVCYSend mới nhất quá gần.</translation>
     </message>
     <message>
-        <source>Last successful PrivateSend action was too recent.</source>
-        <translation>PrivateSend mới nhất được thực hiện quá gần đây.</translation>
+        <source>Last successful PRiVCYSend action was too recent.</source>
+        <translation>PRiVCYSend mới nhất được thực hiện quá gần đây.</translation>
     </message>
     <message>
         <source>Loading block index...</source>
@@ -4859,16 +4859,16 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>In ra phiên bản và thoát</translation>
     </message>
     <message>
-        <source>PrivateSend is idle.</source>
-        <translation>PrivateSend đang nghỉ</translation>
+        <source>PRiVCYSend is idle.</source>
+        <translation>PRiVCYSend đang nghỉ</translation>
     </message>
     <message>
-        <source>PrivateSend options:</source>
-        <translation>Các tuỳ chọn PrivateSend:</translation>
+        <source>PRiVCYSend options:</source>
+        <translation>Các tuỳ chọn PRiVCYSend:</translation>
     </message>
     <message>
-        <source>PrivateSend request incomplete:</source>
-        <translation>Yêu cầu gửi PrivateSend không hoàn thành:</translation>
+        <source>PRiVCYSend request incomplete:</source>
+        <translation>Yêu cầu gửi PRiVCYSend không hoàn thành:</translation>
     </message>
     <message>
         <source>Prune cannot be configured with a negative value.</source>
@@ -4919,8 +4919,8 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>Đang đồng bộ blockchain...</translation>
     </message>
     <message>
-        <source>Target PrivateSend balance (%u-%u, default: %u)</source>
-        <translation>Số dư PrivateSend cần đạt (%u-%u, default: %u)</translation>
+        <source>Target PRiVCYSend balance (%u-%u, default: %u)</source>
+        <translation>Số dư PRiVCYSend cần đạt (%u-%u, default: %u)</translation>
     </message>
     <message>
         <source>The wallet will avoid paying less than the minimum relay fee.</source>
@@ -5047,8 +5047,8 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>Distributed under the MIT software license, see the accompanying file %s or %s</translation>
     </message>
     <message>
-        <source>Enable use of PrivateSend for funds stored in this wallet (0-1, default: %u)</source>
-        <translation>Cho phép việc sử dụng PrivateSend cho các khoản tiền được lưu trong ví này (0-1, ngầm định: %u)</translation>
+        <source>Enable use of PRiVCYSend for funds stored in this wallet (0-1, default: %u)</source>
+        <translation>Cho phép việc sử dụng PRiVCYSend cho các khoản tiền được lưu trong ví này (0-1, ngầm định: %u)</translation>
     </message>
     <message>
         <source>Error loading %s: You can't enable HD on an already existing non-HD wallet</source>
@@ -5111,8 +5111,8 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit %s and cryptographic software written by Eric Young and UPnP software written by Thomas Bernard.</translation>
     </message>
     <message>
-        <source>Unable to locate enough PrivateSend non-denominated funds for this transaction.</source>
-        <translation>Không thể tìm đủ lượng ngân sách chưa phân mệnh giá Private Send cho giao dịch  này.</translation>
+        <source>Unable to locate enough PRiVCYSend non-denominated funds for this transaction.</source>
+        <translation>Không thể tìm đủ lượng ngân sách chưa phân mệnh giá PRiVCY Send cho giao dịch  này.</translation>
     </message>
     <message>
         <source>Unable to replay blocks. You will need to rebuild the database using -reindex-chainstate.</source>
@@ -5327,8 +5327,8 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>Hãy xác định địa chỉ công khai của bạn</translation>
     </message>
     <message>
-        <source>Start PrivateSend automatically (0-1, default: %u)</source>
-        <translation>Khởi động PrivateSend một cách tự động (0-1, ngầm định: %u)</translation>
+        <source>Start PRiVCYSend automatically (0-1, default: %u)</source>
+        <translation>Khởi động PRiVCYSend một cách tự động (0-1, ngầm định: %u)</translation>
     </message>
     <message>
         <source>Starting network threads...</source>

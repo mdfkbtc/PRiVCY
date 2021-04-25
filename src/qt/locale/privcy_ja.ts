@@ -504,11 +504,11 @@
         <translation>%1 クライアント</translation>
     </message>
     <message>
-        <source>&amp;PrivateSend information</source>
+        <source>&amp;PRiVCYSend information</source>
         <translation>プライベートセンドの情報(&amp;P)</translation>
     </message>
     <message>
-        <source>Show the PrivateSend basic information</source>
+        <source>Show the PRiVCYSend basic information</source>
         <translation>プライベートセンドの基本的な情報を表示</translation>
     </message>
     <message>
@@ -954,7 +954,7 @@
         <translation>GUI で行われた設定の変更を全てリセット</translation>
     </message>
     <message>
-        <source>PrivateSend information</source>
+        <source>PRiVCYSend information</source>
         <translation>プライベートセンドの情報</translation>
     </message>
     </context>
@@ -1234,27 +1234,27 @@
         <translation>マスターノードタブを表示する</translation>
     </message>
     <message>
-        <source>Show additional information and buttons for PrivateSend on overview screen.</source>
+        <source>Show additional information and buttons for PRiVCYSend on overview screen.</source>
         <translation>プライベートセンドの追加の情報とボタンを概要に表示</translation>
     </message>
     <message>
-        <source>Enable advanced PrivateSend interface</source>
+        <source>Enable advanced PRiVCYSend interface</source>
         <translation>高度なプライベートセンドのインターフェイスを有効にする</translation>
     </message>
     <message>
-        <source>Show warning dialog when PrivateSend detects that wallet has very low number of keys left.</source>
+        <source>Show warning dialog when PRiVCYSend detects that wallet has very low number of keys left.</source>
         <translation>プライベートセンドがウォレットに非常に少ないキーしか残されてないことを検知したとき警告を表示</translation>
     </message>
     <message>
-        <source>Warn if PrivateSend is running out of keys</source>
+        <source>Warn if PRiVCYSend is running out of keys</source>
         <translation>プライベートセンドがキーを使い果たしているとき警告する</translation>
     </message>
     <message>
-        <source>Whether to use experimental PrivateSend mode with multiple mixing sessions per block.&lt;br/&gt;Note: You must use this feature carefully.&lt;br/&gt;Make sure you always have recent wallet (auto)backup in a safe place!</source>
+        <source>Whether to use experimental PRiVCYSend mode with multiple mixing sessions per block.&lt;br/&gt;Note: You must use this feature carefully.&lt;br/&gt;Make sure you always have recent wallet (auto)backup in a safe place!</source>
         <translation>プライベートセンドモードを１ブロックあたり複数のミキシングセッションで実験的に使用する場合&lt;br/&gt;注意: この機能を十分に注意して使用してください。&lt;br/&gt;常に最新のウォレットバックアップを安全な場所に保管してください。</translation>
     </message>
     <message>
-        <source>Enable PrivateSend &amp;multi-session</source>
+        <source>Enable PRiVCYSend &amp;multi-session</source>
         <translation>プライベートセンドとマルチセッションを有効にする(&amp;M)</translation>
     </message>
     <message>
@@ -1262,11 +1262,11 @@
         <translation>もし未確認のチェンジを使用することを無効にする場合&lt;br/&gt;トランザクションから生じたチェンジはそのトランザクションが少なくとも一回コンファメーションがないと使用できません。&lt;br/&gt;これはまたあなたのウォレットの残高の計算にも影響を与えます。</translation>
     </message>
     <message>
-        <source>PrivateSend rounds to use</source>
+        <source>PRiVCYSend rounds to use</source>
         <translation>プライベートセンドを利用する際のラウンド回数</translation>
     </message>
     <message>
-        <source>This amount acts as a threshold to turn off PrivateSend once it's reached.</source>
+        <source>This amount acts as a threshold to turn off PRiVCYSend once it's reached.</source>
         <translation>この設定は閾値として機能し、この量に達するとプライベートセンドが無効になります。</translation>
     </message>
     <message>
@@ -1310,11 +1310,11 @@
         <translation>コインコントロール機能を有効化 (&amp;C)</translation>
     </message>
     <message>
-        <source>Show system popups for PrivateSend mixing transactions&lt;br/&gt;just like for all other transaction types.</source>
+        <source>Show system popups for PRiVCYSend mixing transactions&lt;br/&gt;just like for all other transaction types.</source>
         <translation>守秘送金［プライベートセンド］のミキシングトランザクション&lt;br/&gt;を他のすべてのトランザクションタイプと同じようにポップアップ表示します。</translation>
     </message>
     <message>
-        <source>Show popups for PrivateSend transactions</source>
+        <source>Show popups for PRiVCYSend transactions</source>
         <translation>守秘送金［プライベートセンド］トランザクションのポップアップを表示する</translation>
     </message>
     <message>
@@ -1523,7 +1523,7 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>使用可能：</translation>
     </message>
     <message>
-        <source>PrivateSend</source>
+        <source>PRiVCYSend</source>
         <translation>プライベートセンド</translation>
     </message>
     <message>
@@ -1563,7 +1563,7 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>ミキシング開始/停止 </translation>
     </message>
     <message>
-        <source>PrivateSend Balance:</source>
+        <source>PRiVCYSend Balance:</source>
         <translation>プライベートセンド残高:</translation>
     </message>
     <message>
@@ -1651,15 +1651,15 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>警告! キープールの補充に失敗しました。ウォレットをアンロックしてキープールを補充してください</translation>
     </message>
     <message>
-        <source>If you don't want to see internal PrivateSend fees/transactions select "Most Common" as Type on the "Transactions" tab.</source>
+        <source>If you don't want to see internal PRiVCYSend fees/transactions select "Most Common" as Type on the "Transactions" tab.</source>
         <translation>プライベートセンドのトランザクションや手数料を非表示にしたい場合はトランザクションタブ上で”通常”をタイプとして選択してください。</translation>
     </message>
     <message>
-        <source>PrivateSend requires at least %1 to use.</source>
+        <source>PRiVCYSend requires at least %1 to use.</source>
         <translation>プライベートセンドは最低 %1 使用します。</translation>
     </message>
     <message>
-        <source>Wallet is locked and user declined to unlock. Disabling PrivateSend.</source>
+        <source>Wallet is locked and user declined to unlock. Disabling PRiVCYSend.</source>
         <translation>ウォレットはロックされ、ユーザーはアンロックを拒否しました。プライベートセンドを無効にします。</translation>
     </message>
 </context>
@@ -3202,7 +3202,7 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>送信元</translation>
     </message>
     <message>
-        <source>Received via PrivateSend</source>
+        <source>Received via PRiVCYSend</source>
         <translation>プライベートセンド経由で受け取り</translation>
     </message>
     <message>
@@ -3218,19 +3218,19 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>発掘済</translation>
     </message>
     <message>
-        <source>PrivateSend Denominate</source>
+        <source>PRiVCYSend Denominate</source>
         <translation>プライベートセンド：分割開始</translation>
     </message>
     <message>
-        <source>PrivateSend Collateral Payment</source>
+        <source>PRiVCYSend Collateral Payment</source>
         <translation>プライベートセンド：コラテラル支払い</translation>
     </message>
     <message>
-        <source>PrivateSend Make Collateral Inputs</source>
+        <source>PRiVCYSend Make Collateral Inputs</source>
         <translation>プライベートセンド：コラテラル入力</translation>
     </message>
     <message>
-        <source>PrivateSend Create Denominations</source>
+        <source>PRiVCYSend Create Denominations</source>
         <translation>プライベートセンド：デノミネーション生成</translation>
     </message>
     <message>
@@ -3313,19 +3313,19 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>送金先</translation>
     </message>
     <message>
-        <source>PrivateSend Make Collateral Inputs</source>
+        <source>PRiVCYSend Make Collateral Inputs</source>
         <translation>プライベートセンド：コラテラル入力</translation>
     </message>
     <message>
-        <source>PrivateSend Create Denominations</source>
+        <source>PRiVCYSend Create Denominations</source>
         <translation>プライベートセンド：デノミネーション作成</translation>
     </message>
     <message>
-        <source>PrivateSend Denominate</source>
+        <source>PRiVCYSend Denominate</source>
         <translation>プライベートセンド：分割開始</translation>
     </message>
     <message>
-        <source>PrivateSend Collateral Payment</source>
+        <source>PRiVCYSend Collateral Payment</source>
         <translation>プライベートセンド：コラテラル支払い</translation>
     </message>
     <message>
@@ -4028,7 +4028,7 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>mempool内でトランザクションを &lt;n&gt; 時間以上保持しない (初期値: %u)</translation>
     </message>
     <message>
-        <source>Enable multiple PrivateSend mixing sessions per block, experimental (0-1, default: %u)</source>
+        <source>Enable multiple PRiVCYSend mixing sessions per block, experimental (0-1, default: %u)</source>
         <translation>ブロック毎に複数のミキシングセッションを有効化する、実験的 (0-1, 初期値: %u)</translation>
     </message>
     <message>
@@ -4116,7 +4116,7 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>送信転送量を与えられた目標値以下に維持するようにする (24時間あたり何MiBかで指定)。0 の場合は無制限 (初期値: %d)</translation>
     </message>
     <message>
-        <source>Unable to locate enough PrivateSend denominated funds for this transaction.</source>
+        <source>Unable to locate enough PRiVCYSend denominated funds for this transaction.</source>
         <translation>このトランザクションのためのプライベートセンド用の分割された充分なファンドが見つかりません。</translation>
     </message>
     <message>
@@ -4252,11 +4252,11 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>トランザクションのメモリープールの総量を &lt;n&gt; メガバイト以下に維持する (初期値: %u)</translation>
     </message>
     <message>
-        <source>Last PrivateSend was too recent.</source>
+        <source>Last PRiVCYSend was too recent.</source>
         <translation>最後のプライベートセンドを実行してから充分な時間が経っていません。</translation>
     </message>
     <message>
-        <source>Last successful PrivateSend action was too recent.</source>
+        <source>Last successful PRiVCYSend action was too recent.</source>
         <translation>最後の成功したプライベートセンドを実行してから充分な時間が経っていません。</translation>
     </message>
     <message>
@@ -4340,15 +4340,15 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>バージョンを表示し終了</translation>
     </message>
     <message>
-        <source>PrivateSend is idle.</source>
+        <source>PRiVCYSend is idle.</source>
         <translation>プライベートセンドはアイドル状態です。</translation>
     </message>
     <message>
-        <source>PrivateSend options:</source>
+        <source>PRiVCYSend options:</source>
         <translation>プライベートセンドオプション:</translation>
     </message>
     <message>
-        <source>PrivateSend request incomplete:</source>
+        <source>PRiVCYSend request incomplete:</source>
         <translation>プライベートセンドリクエスト未完了:</translation>
     </message>
     <message>
@@ -4476,7 +4476,7 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>MITソフトウェアライセンスのもとで配布されています。付属のファイル %s または %s を参照してください</translation>
     </message>
     <message>
-        <source>Enable use of PrivateSend for funds stored in this wallet (0-1, default: %u)</source>
+        <source>Enable use of PRiVCYSend for funds stored in this wallet (0-1, default: %u)</source>
         <translation>このウォレットに保管されている資金に対してプライベートセンドの使用を有効にします(0-1, 初期設定: %u)</translation>
     </message>
     <message>
@@ -4540,7 +4540,7 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>この製品はOpenSSLプロジェクトにより開発されたソフトウェアをOpenSSLツールキット %s として利用しています &lt;https://www.openssl.org/&gt;。また、Eric Young氏により開発された暗号ソフトウェア、Thomas Bernard氏により書かれたUPnPソフトウェアを用いています。</translation>
     </message>
     <message>
-        <source>Unable to locate enough PrivateSend non-denominated funds for this transaction.</source>
+        <source>Unable to locate enough PRiVCYSend non-denominated funds for this transaction.</source>
         <translation>このトランザクションに対してプライベートセンド用の分割されてない充分なファンドが検出できません。</translation>
     </message>
     <message>
@@ -4756,7 +4756,7 @@ https://www.transifex.com/projects/p/privcy/</translation>
         <translation>あなた自身のパブリックなアドレスを指定</translation>
     </message>
     <message>
-        <source>Start PrivateSend automatically (0-1, default: %u)</source>
+        <source>Start PRiVCYSend automatically (0-1, default: %u)</source>
         <translation>自動的にプライベートセンドを開始 (0-1, デフォルト: %u)</translation>
     </message>
     <message>

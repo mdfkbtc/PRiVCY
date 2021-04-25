@@ -7,7 +7,7 @@
 #include <init.h>
 #include <masternode/masternode-sync.h>
 #ifdef ENABLE_WALLET
-#include <privatesend/privatesend-client.h>
+#include <privcysend/privcysend-client.h>
 #endif
 #include <validation.h>
 

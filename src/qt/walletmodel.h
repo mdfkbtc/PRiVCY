@@ -229,7 +229,7 @@ public:
     int getDefaultConfirmTarget() const;
     int getNumISLocks() const;
 
-    int getRealOutpointPrivateSendRounds(const COutPoint& outpoint) const;
+    int getRealOutpointPRiVCYSendRounds(const COutPoint& outpoint) const;
     bool isFullyMixed(const COutPoint& outpoint) const;
 
 private:
@@ -256,7 +256,7 @@ private:
     EncryptionStatus cachedEncryptionStatus;
     int cachedNumBlocks;
     int cachedNumISLocks;
-    int cachedPrivateSendRounds;
+    int cachedPRiVCYSendRounds;
 
     QTimer *pollTimer;
 

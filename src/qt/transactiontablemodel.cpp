@@ -402,8 +402,8 @@ QString TransactionTableModel::formatTxType(const TransactionRecord *wtx) const
         return tr("Received with");
     case TransactionRecord::RecvFromOther:
         return tr("Received from");
-    case TransactionRecord::RecvWithPrivateSend:
-        return tr("Received via PrivateSend");
+    case TransactionRecord::RecvWithPRiVCYSend:
+        return tr("Received via PRiVCYSend");
     case TransactionRecord::SendToAddress:
     case TransactionRecord::SendToOther:
         return tr("Sent to");
@@ -412,16 +412,16 @@ QString TransactionTableModel::formatTxType(const TransactionRecord *wtx) const
     case TransactionRecord::Generated:
         return tr("Mined");
 
-    case TransactionRecord::PrivateSendDenominate:
-        return tr("PrivateSend Denominate");
-    case TransactionRecord::PrivateSendCollateralPayment:
-        return tr("PrivateSend Collateral Payment");
-    case TransactionRecord::PrivateSendMakeCollaterals:
-        return tr("PrivateSend Make Collateral Inputs");
-    case TransactionRecord::PrivateSendCreateDenominations:
-        return tr("PrivateSend Create Denominations");
-    case TransactionRecord::PrivateSend:
-        return "PrivateSend";
+    case TransactionRecord::PRiVCYSendDenominate:
+        return tr("PRiVCYSend Denominate");
+    case TransactionRecord::PRiVCYSendCollateralPayment:
+        return tr("PRiVCYSend Collateral Payment");
+    case TransactionRecord::PRiVCYSendMakeCollaterals:
+        return tr("PRiVCYSend Make Collateral Inputs");
+    case TransactionRecord::PRiVCYSendCreateDenominations:
+        return tr("PRiVCYSend Create Denominations");
+    case TransactionRecord::PRiVCYSend:
+        return "PRiVCYSend";
 
     default:
         return QString();
@@ -449,10 +449,10 @@ QString TransactionTableModel::formatTxToAddress(const TransactionRecord *wtx, b
     case TransactionRecord::RecvFromOther:
         return QString::fromStdString(wtx->strAddress) + watchAddress;
     case TransactionRecord::RecvWithAddress:
-    case TransactionRecord::RecvWithPrivateSend:
+    case TransactionRecord::RecvWithPRiVCYSend:
     case TransactionRecord::SendToAddress:
     case TransactionRecord::Generated:
-    case TransactionRecord::PrivateSend:
+    case TransactionRecord::PRiVCYSend:
         return formatAddressLabel(wtx->strAddress, wtx->status.label, tooltip) + watchAddress;
     case TransactionRecord::SendToOther:
         return QString::fromStdString(wtx->strAddress) + watchAddress;
@@ -470,18 +470,18 @@ QVariant TransactionTableModel::addressColor(const TransactionRecord *wtx) const
     case TransactionRecord::RecvWithAddress:
     case TransactionRecord::SendToAddress:
     case TransactionRecord::Generated:
-    case TransactionRecord::PrivateSend:
-    case TransactionRecord::RecvWithPrivateSend:
+    case TransactionRecord::PRiVCYSend:
+    case TransactionRecord::RecvWithPRiVCYSend:
         {
         QString label = walletModel->getAddressTableModel()->labelForDestination(wtx->txDest);
         if(label.isEmpty())
             return GUIUtil::getThemedQColor(GUIUtil::ThemedColor::BAREADDRESS);
         } break;
     case TransactionRecord::SendToSelf:
-    case TransactionRecord::PrivateSendCreateDenominations:
-    case TransactionRecord::PrivateSendDenominate:
-    case TransactionRecord::PrivateSendMakeCollaterals:
-    case TransactionRecord::PrivateSendCollateralPayment:
+    case TransactionRecord::PRiVCYSendCreateDenominations:
+    case TransactionRecord::PRiVCYSendDenominate:
+    case TransactionRecord::PRiVCYSendMakeCollaterals:
+    case TransactionRecord::PRiVCYSendCollateralPayment:
         return GUIUtil::getThemedQColor(GUIUtil::ThemedColor::BAREADDRESS);
     default:
         break;
@@ -506,20 +506,20 @@ QVariant TransactionTableModel::amountColor(const TransactionRecord *rec) const
 {
     switch (rec->type) {
     case TransactionRecord::Generated:
-    case TransactionRecord::RecvWithPrivateSend:
+    case TransactionRecord::RecvWithPRiVCYSend:
     case TransactionRecord::RecvWithAddress:
     case TransactionRecord::RecvFromOther:
         return GUIUtil::getThemedQColor(GUIUtil::ThemedColor::GREEN);
-    case TransactionRecord::PrivateSend:
+    case TransactionRecord::PRiVCYSend:
     case TransactionRecord::SendToAddress:
     case TransactionRecord::SendToOther:
     case TransactionRecord::Other:
         return GUIUtil::getThemedQColor(GUIUtil::ThemedColor::RED);
     case TransactionRecord::SendToSelf:
-    case TransactionRecord::PrivateSendDenominate:
-    case TransactionRecord::PrivateSendCollateralPayment:
-    case TransactionRecord::PrivateSendMakeCollaterals:
-    case TransactionRecord::PrivateSendCreateDenominations:
+    case TransactionRecord::PRiVCYSendDenominate:
+    case TransactionRecord::PRiVCYSendCollateralPayment:
+    case TransactionRecord::PRiVCYSendMakeCollaterals:
+    case TransactionRecord::PRiVCYSendCreateDenominations:
         return GUIUtil::getThemedQColor(GUIUtil::ThemedColor::ORANGE);
     }
     return GUIUtil::getThemedQColor(GUIUtil::ThemedColor::DEFAULT);

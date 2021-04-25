@@ -931,7 +931,7 @@ public:
     // Whether a ping is requested.
     std::atomic<bool> fPingQueued;
 
-    // If true, we will send him PrivateSend queue messages
+    // If true, we will send him PRiVCYSend queue messages
     std::atomic<bool> fSendDSQueue{false};
 
     // Challenge sent in VERSION to be answered with MNAUTH (only happens between MNs)

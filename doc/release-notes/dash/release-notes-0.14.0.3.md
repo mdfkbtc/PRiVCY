@@ -94,14 +94,14 @@ See detailed [set of changes](https://github.com/privcypay/privcy/compare/v0.14.
 - [`17ba23871`](https://github.com/privcypay/privcy/commit/17ba23871) Re-verify invalid IS sigs when the active quorum set rotated (#3052)
 - [`8c49d9b54`](https://github.com/privcypay/privcy/commit/8c49d9b54) Remove recovered sigs from the LLMQ db when corresponding IS locks get confirmed (#3048)
 - [`2e0cf8a30`](https://github.com/privcypay/privcy/commit/2e0cf8a30) Add "instantsendlocks" to getmempoolinfo RPC (#3047)
-- [`a8fb8252e`](https://github.com/privcypay/privcy/commit/a8fb8252e) Use fEnablePrivateSend instead of fPrivateSendRunning
+- [`a8fb8252e`](https://github.com/privcypay/privcy/commit/a8fb8252e) Use fEnablePRiVCYSend instead of fPRiVCYSendRunning
 - [`a198a04e0`](https://github.com/privcypay/privcy/commit/a198a04e0) Show number of InstantSend locks in Debug Console (#2919)
 - [`013169d63`](https://github.com/privcypay/privcy/commit/013169d63) Optimize on-disk deterministic masternode storage to reduce size of evodb (#3017)
 - [`9ac7a998b`](https://github.com/privcypay/privcy/commit/9ac7a998b) Add "isValidMember" and "memberIndex" to "quorum memberof" and allow to specify quorum scan count (#3009)
 - [`99824a879`](https://github.com/privcypay/privcy/commit/99824a879) Implement "quorum memberof" (#3004)
 - [`7ea319fd2`](https://github.com/privcypay/privcy/commit/7ea319fd2) Bail out properly on Evo DB consistency check failures in ConnectBlock/DisconnectBlock (#3044)
 - [`b1ffedb2d`](https://github.com/privcypay/privcy/commit/b1ffedb2d) Do not count 0-fee txes for fee estimation (#3037)
-- [`974055a9b`](https://github.com/privcypay/privcy/commit/974055a9b) Fix broken link in PrivateSend info dialog (#3031)
+- [`974055a9b`](https://github.com/privcypay/privcy/commit/974055a9b) Fix broken link in PRiVCYSend info dialog (#3031)
 - [`781b16579`](https://github.com/privcypay/privcy/commit/781b16579) Merge pull request #3028 from PastaPastaPasta/backport-12588
 - [`5af6ce91d`](https://github.com/privcypay/privcy/commit/5af6ce91d) Add PRiVCY Core Group codesign certificate (#3027)
 - [`873ab896c`](https://github.com/privcypay/privcy/commit/873ab896c) Fix osslsigncode compile issue in gitian-build (#3026)
