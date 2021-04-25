@@ -1577,7 +1577,7 @@ int CWallet::GetRealOutpointPRiVCYSendRounds(const COutPoint& outpoint, int nRou
 {
     LOCK(cs_wallet);
 
-    const int nRoundsMax = MAX_PRIVATESEND_ROUNDS + privateSendClient.nPRiVCYSendRandomRounds;
+    const int nRoundsMax = MAX_PRIVCYSEND_ROUNDS + privcySendClient.nPRiVCYSendRandomRounds;
 
     if (nRounds >= nRoundsMax) {
         // there can only be nRoundsMax rounds max
@@ -1597,7 +1597,7 @@ int CWallet::GetRealOutpointPRiVCYSendRounds(const COutPoint& outpoint, int nRou
     if (wtx == nullptr || wtx->tx == nullptr) {
         // no such tx in this wallet
         *nRoundsRef = -1;
-        LogPrint(BCLog::PRIVATESEND, "%s FAILED    %-70s %3d\n", __func__, outpoint.ToStringShort(), -1);
+        LogPrint(BCLog::PRIVCYSEND, "%s FAILED    %-70s %3d\n", __func__, outpoint.ToStringShort(), -1);
         return *nRoundsRef;
     }
 
@@ -1605,7 +1605,7 @@ int CWallet::GetRealOutpointPRiVCYSendRounds(const COutPoint& outpoint, int nRou
     if (outpoint.n >= wtx->tx->vout.size()) {
         // should never actually hit this
         *nRoundsRef = -4;
-        LogPrint(BCLog::PRIVATESEND, "%s FAILED    %-70s %3d\n", __func__, outpoint.ToStringShort(), -4);
+        LogPrint(BCLog::PRIVCYSEND, "%s FAILED    %-70s %3d\n", __func__, outpoint.ToStringShort(), -4);
         return *nRoundsRef;
     }
 
@@ -1613,14 +1613,14 @@ int CWallet::GetRealOutpointPRiVCYSendRounds(const COutPoint& outpoint, int nRou
 
     if (CPRiVCYSend::IsCollateralAmount(txOutRef->nValue)) {
         *nRoundsRef = -3;
-        LogPrint(BCLog::PRIVATESEND, "%s UPDATED   %-70s %3d\n", __func__, outpoint.ToStringShort(), *nRoundsRef);
+        LogPrint(BCLog::PRIVCYSEND, "%s UPDATED   %-70s %3d\n", __func__, outpoint.ToStringShort(), *nRoundsRef);
         return *nRoundsRef;
     }
 
     // make sure the final output is non-denominate
     if (!CPRiVCYSend::IsDenominatedAmount(txOutRef->nValue)) { //NOT DENOM
         *nRoundsRef = -2;
-        LogPrint(BCLog::PRIVATESEND, "%s UPDATED   %-70s %3d\n", __func__, outpoint.ToStringShort(), *nRoundsRef);
+        LogPrint(BCLog::PRIVCYSEND, "%s UPDATED   %-70s %3d\n", __func__, outpoint.ToStringShort(), *nRoundsRef);
         return *nRoundsRef;
     }
 
@@ -1628,7 +1628,7 @@ int CWallet::GetRealOutpointPRiVCYSendRounds(const COutPoint& outpoint, int nRou
         if (!CPRiVCYSend::IsDenominatedAmount(out.nValue)) {
             // this one is denominated but there is another non-denominated output found in the same tx
             *nRoundsRef = 0;
-            LogPrint(BCLog::PRIVATESEND, "%s UPDATED   %-70s %3d\n", __func__, outpoint.ToStringShort(), *nRoundsRef);
+            LogPrint(BCLog::PRIVCYSEND, "%s UPDATED   %-70s %3d\n", __func__, outpoint.ToStringShort(), *nRoundsRef);
             return *nRoundsRef;
         }
     }
@@ -1649,7 +1649,7 @@ int CWallet::GetRealOutpointPRiVCYSendRounds(const COutPoint& outpoint, int nRou
     *nRoundsRef = fDenomFound
             ? (nShortest >= nRoundsMax - 1 ? nRoundsMax : nShortest + 1) // good, we a +1 to the shortest one but only nRoundsMax rounds max allowed
             : 0;            // too bad, we are the fist one in that chain
-    LogPrint(BCLog::PRIVATESEND, "%s UPDATED   %-70s %3d\n", __func__, outpoint.ToStringShort(), *nRoundsRef);
+    LogPrint(BCLog::PRIVCYSEND, "%s UPDATED   %-70s %3d\n", __func__, outpoint.ToStringShort(), *nRoundsRef);
     return *nRoundsRef;
 }
 
@@ -1658,7 +1658,7 @@ int CWallet::GetCappedOutpointPRiVCYSendRounds(const COutPoint& outpoint) const
 {
     LOCK(cs_wallet);
     int realPRiVCYSendRounds = GetRealOutpointPRiVCYSendRounds(outpoint);
-    return realPRiVCYSendRounds > privateSendClient.nPRiVCYSendRounds ? privateSendClient.nPRiVCYSendRounds : realPRiVCYSendRounds;
+    return realPRiVCYSendRounds > privcySendClient.nPRiVCYSendRounds ? privcySendClient.nPRiVCYSendRounds : realPRiVCYSendRounds;
 }
 
 bool CWallet::IsDenominated(const COutPoint& outpoint) const
@@ -1681,13 +1681,13 @@ bool CWallet::IsFullyMixed(const COutPoint& outpoint) const
 {
     int nRounds = GetRealOutpointPRiVCYSendRounds(outpoint);
     // Mix again if we don't have N rounds yet
-    if (nRounds < privateSendClient.nPRiVCYSendRounds) return false;
+    if (nRounds < privcySendClient.nPRiVCYSendRounds) return false;
 
     // Try to mix a "random" number of rounds more than minimum.
     // If we have already mixed N + MaxOffset rounds, don't mix again.
     // Otherwise, we should mix again 50% of the time, this results in an exponential decay
     // N rounds 50% N+1 25% N+2 12.5%... until we reach N + GetRandomRounds() rounds where we stop.
-    if (nRounds < privateSendClient.nPRiVCYSendRounds + privateSendClient.nPRiVCYSendRandomRounds) {
+    if (nRounds < privcySendClient.nPRiVCYSendRounds + privcySendClient.nPRiVCYSendRandomRounds) {
         CDataStream ss(SER_GETHASH, PROTOCOL_VERSION);
         ss << outpoint << nPRiVCYSendSalt;
         uint256 nHash;
@@ -2555,7 +2555,7 @@ CAmount CWallet::GetBalance() const
 
 CAmount CWallet::GetAnonymizableBalance(bool fSkipDenominated, bool fSkipUnconfirmed) const
 {
-    if(!privateSendClient.fEnablePRiVCYSend) return 0;
+    if(!privcySendClient.fEnablePRiVCYSend) return 0;
 
     std::vector<CompactTallyItem> vecTally;
     if(!SelectCoinsGroupedByAddresses(vecTally, fSkipDenominated, true, fSkipUnconfirmed)) return 0;
@@ -2577,7 +2577,7 @@ CAmount CWallet::GetAnonymizableBalance(bool fSkipDenominated, bool fSkipUnconfi
 
 CAmount CWallet::GetAnonymizedBalance(const CCoinControl* coinControl) const
 {
-    if(!privateSendClient.fEnablePRiVCYSend) return 0;
+    if(!privcySendClient.fEnablePRiVCYSend) return 0;
 
     CAmount nTotal = 0;
 
@@ -2594,7 +2594,7 @@ CAmount CWallet::GetAnonymizedBalance(const CCoinControl* coinControl) const
 // that's ok as long as we use it for informational purposes only
 float CWallet::GetAverageAnonymizedRounds() const
 {
-    if(!privateSendClient.fEnablePRiVCYSend) return 0;
+    if(!privcySendClient.fEnablePRiVCYSend) return 0;
 
     int nTotal = 0;
     int nCount = 0;
@@ -2616,7 +2616,7 @@ float CWallet::GetAverageAnonymizedRounds() const
 // that's ok as long as we use it for informational purposes only
 CAmount CWallet::GetNormalizedAnonymizedBalance() const
 {
-    if(!privateSendClient.fEnablePRiVCYSend) return 0;
+    if(!privcySendClient.fEnablePRiVCYSend) return 0;
 
     CAmount nTotal = 0;
 
@@ -2630,7 +2630,7 @@ CAmount CWallet::GetNormalizedAnonymizedBalance() const
         if (it->second.GetDepthInMainChain() < 0) continue;
 
         int nRounds = GetCappedOutpointPRiVCYSendRounds(outpoint);
-        nTotal += nValue * nRounds / privateSendClient.nPRiVCYSendRounds;
+        nTotal += nValue * nRounds / privcySendClient.nPRiVCYSendRounds;
     }
 
     return nTotal;
@@ -2638,7 +2638,7 @@ CAmount CWallet::GetNormalizedAnonymizedBalance() const
 
 CAmount CWallet::GetDenominatedBalance(bool unconfirmed) const
 {
-    if(!privateSendClient.fEnablePRiVCYSend) return 0;
+    if(!privcySendClient.fEnablePRiVCYSend) return 0;
 
     CAmount nTotal = 0;
 
@@ -2821,7 +2821,7 @@ void CWallet::AvailableCoins(std::vector<COutput> &vCoins, bool fOnlySafe, const
                     found = !CPRiVCYSend::IsDenominatedAmount(pcoin->tx->vout[i].nValue);
                 } else if(nCoinType == CoinType::ONLY_MASTERNODE_COLLATERAL) {
                     found = pcoin->tx->vout[i].nValue == 1000*COIN;
-                } else if(nCoinType == CoinType::ONLY_PRIVATESEND_COLLATERAL) {
+                } else if(nCoinType == CoinType::ONLY_PRIVCYSEND_COLLATERAL) {
                     found = CPRiVCYSend::IsCollateralAmount(pcoin->tx->vout[i].nValue);
                 } else {
                     found = true;
@@ -3326,7 +3326,7 @@ bool CWallet::SelectPSInOutPairsByDenominations(int nDenom, CAmount nValueMax, s
     CCoinControl coin_control;
     coin_control.nCoinType = CoinType::ONLY_READY_TO_MIX;
     AvailableCoins(vCoins, true, &coin_control);
-    LogPrint(BCLog::PRIVATESEND, "CWallet::%s -- vCoins.size(): %d\n", __func__, vCoins.size());
+    LogPrint(BCLog::PRIVCYSEND, "CWallet::%s -- vCoins.size(): %d\n", __func__, vCoins.size());
 
     std::random_shuffle(vCoins.rbegin(), vCoins.rend(), GetRandInt);
 
@@ -3344,11 +3344,11 @@ bool CWallet::SelectPSInOutPairsByDenominations(int nDenom, CAmount nValueMax, s
         nValueTotal += nValue;
         vecPSInOutPairsRet.emplace_back(CTxDSIn(txin, scriptPubKey), CTxOut(nValue, scriptPubKey, nRounds));
         setRecentTxIds.emplace(txHash);
-        LogPrint(BCLog::PRIVATESEND, "CWallet::%s -- hash: %s, nValue: %d.%08d, nRounds: %d\n",
+        LogPrint(BCLog::PRIVCYSEND, "CWallet::%s -- hash: %s, nValue: %d.%08d, nRounds: %d\n",
                         __func__, txHash.ToString(), nValue / COIN, nValue % COIN, nRounds);
     }
 
-    LogPrint(BCLog::PRIVATESEND, "CWallet::%s -- setRecentTxIds.size(): %d\n", __func__, setRecentTxIds.size());
+    LogPrint(BCLog::PRIVCYSEND, "CWallet::%s -- setRecentTxIds.size(): %d\n", __func__, setRecentTxIds.size());
 
     return nValueTotal > 0;
 }
@@ -3486,7 +3486,7 @@ bool CWallet::GetCollateralTxDSIn(CTxDSIn& txdsinRet, CAmount& nValueRet) const
     std::vector<COutput> vCoins;
 
     CCoinControl coin_control;
-    coin_control.nCoinType = CoinType::ONLY_PRIVATESEND_COLLATERAL;
+    coin_control.nCoinType = CoinType::ONLY_PRIVCYSEND_COLLATERAL;
     AvailableCoins(vCoins, true, &coin_control);
 
     if (vCoins.empty()) {
@@ -3579,7 +3579,7 @@ bool CWallet::HasCollateralInputs(bool fOnlyConfirmed) const
 {
     std::vector<COutput> vCoins;
     CCoinControl coin_control;
-    coin_control.nCoinType = CoinType::ONLY_PRIVATESEND_COLLATERAL;
+    coin_control.nCoinType = CoinType::ONLY_PRIVCYSEND_COLLATERAL;
     AvailableCoins(vCoins, fOnlyConfirmed, &coin_control);
 
     return !vCoins.empty();
@@ -4345,7 +4345,7 @@ bool CWallet::NewKeyPool()
             batch.ErasePool(nIndex);
         }
         setExternalKeyPool.clear();
-        privateSendClient.fPRiVCYSendRunning = false;
+        privcySendClient.fPRiVCYSendRunning = false;
         nKeysLeftSinceAutoBackup = 0;
 
         m_pool_key_to_index.clear();

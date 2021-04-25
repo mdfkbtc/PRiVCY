@@ -99,9 +99,9 @@ BitcoinGUI::BitcoinGUI(const NetworkStyle *networkStyle, QWidget *parent) :
     masternodeAction(0),
     quitAction(0),
     sendCoinsAction(0),
-    privateSendCoinsAction(0),
+    privcySendCoinsAction(0),
     sendCoinsMenuAction(0),
-    privateSendCoinsMenuAction(0),
+    privcySendCoinsMenuAction(0),
     usedSendingAddressesAction(0),
     usedReceivingAddressesAction(0),
     signMessageAction(0),
@@ -402,16 +402,16 @@ void BitcoinGUI::createActions()
     sendCoinsMenuAction->setStatusTip(sendCoinsAction->statusTip());
     sendCoinsMenuAction->setToolTip(sendCoinsMenuAction->statusTip());
 
-    privateSendCoinsAction = new QToolButton(this);
-    privateSendCoinsAction->setText("&PRiVCYSend");
-    privateSendCoinsAction->setStatusTip(tr("PRiVCYSend coins to a PRiVCY address"));
-    privateSendCoinsAction->setToolTip(privateSendCoinsAction->statusTip());
-    privateSendCoinsAction->setCheckable(true);
-    tabGroup->addButton(privateSendCoinsAction);
+    privcySendCoinsAction = new QToolButton(this);
+    privcySendCoinsAction->setText("&PRiVCYSend");
+    privcySendCoinsAction->setStatusTip(tr("PRiVCYSend coins to a PRiVCY address"));
+    privcySendCoinsAction->setToolTip(privcySendCoinsAction->statusTip());
+    privcySendCoinsAction->setCheckable(true);
+    tabGroup->addButton(privcySendCoinsAction);
 
-    privateSendCoinsMenuAction = new QAction(privateSendCoinsAction->text(), this);
-    privateSendCoinsMenuAction->setStatusTip(privateSendCoinsAction->statusTip());
-    privateSendCoinsMenuAction->setToolTip(privateSendCoinsMenuAction->statusTip());
+    privcySendCoinsMenuAction = new QAction(privcySendCoinsAction->text(), this);
+    privcySendCoinsMenuAction->setStatusTip(privcySendCoinsAction->statusTip());
+    privcySendCoinsMenuAction->setToolTip(privcySendCoinsMenuAction->statusTip());
 
     receiveCoinsAction = new QToolButton(this);
     receiveCoinsAction->setText(tr("&Receive"));
@@ -453,10 +453,10 @@ void BitcoinGUI::createActions()
     connect(sendCoinsAction, SIGNAL(clicked()), this, SLOT(gotoSendCoinsPage()));
     connect(sendCoinsMenuAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
     connect(sendCoinsMenuAction, SIGNAL(triggered()), this, SLOT(gotoSendCoinsPage()));
-    connect(privateSendCoinsAction, SIGNAL(clicked()), this, SLOT(showNormalIfMinimized()));
-    connect(privateSendCoinsAction, SIGNAL(clicked()), this, SLOT(gotoPRiVCYSendCoinsPage()));
-    connect(privateSendCoinsMenuAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
-    connect(privateSendCoinsMenuAction, SIGNAL(triggered()), this, SLOT(gotoPRiVCYSendCoinsPage()));
+    connect(privcySendCoinsAction, SIGNAL(clicked()), this, SLOT(showNormalIfMinimized()));
+    connect(privcySendCoinsAction, SIGNAL(clicked()), this, SLOT(gotoPRiVCYSendCoinsPage()));
+    connect(privcySendCoinsMenuAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
+    connect(privcySendCoinsMenuAction, SIGNAL(triggered()), this, SLOT(gotoPRiVCYSendCoinsPage()));
     connect(receiveCoinsAction, SIGNAL(clicked()), this, SLOT(showNormalIfMinimized()));
     connect(receiveCoinsAction, SIGNAL(clicked()), this, SLOT(gotoReceiveCoinsPage()));
     connect(receiveCoinsMenuAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
@@ -666,13 +666,13 @@ void BitcoinGUI::createToolBars()
 
         overviewAction->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
         sendCoinsAction->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
-        privateSendCoinsAction->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
+        privcySendCoinsAction->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
         receiveCoinsAction->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
         historyAction->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
 
         toolbar->addWidget(overviewAction);
         toolbar->addWidget(sendCoinsAction);
-        toolbar->addWidget(privateSendCoinsAction);
+        toolbar->addWidget(privcySendCoinsAction);
         toolbar->addWidget(receiveCoinsAction);
         toolbar->addWidget(historyAction);
 
@@ -772,7 +772,7 @@ void BitcoinGUI::setClientModel(ClientModel *_clientModel)
             // initialize the disable state of the tray icon with the current value in the model.
             setTrayIconVisible(optionsModel->getHideTrayIcon());
 
-            connect(optionsModel, SIGNAL(privateSendEnabledChanged()), this, SLOT(updatePRiVCYSendVisibility()));
+            connect(optionsModel, SIGNAL(privcySendEnabledChanged()), this, SLOT(updatePRiVCYSendVisibility()));
         }
     } else {
         // Disable possibility to show main window via action
@@ -835,11 +835,11 @@ void BitcoinGUI::setWalletActionsEnabled(bool enabled)
     sendCoinsAction->setEnabled(enabled);
     sendCoinsMenuAction->setEnabled(enabled);
 #ifdef ENABLE_WALLET
-    privateSendCoinsAction->setEnabled(enabled && privateSendClient.fEnablePRiVCYSend);
-    privateSendCoinsMenuAction->setEnabled(enabled && privateSendClient.fEnablePRiVCYSend);
+    privcySendCoinsAction->setEnabled(enabled && privcySendClient.fEnablePRiVCYSend);
+    privcySendCoinsMenuAction->setEnabled(enabled && privcySendClient.fEnablePRiVCYSend);
 #else
-    privateSendCoinsAction->setEnabled(enabled);
-    privateSendCoinsMenuAction->setEnabled(enabled);
+    privcySendCoinsAction->setEnabled(enabled);
+    privcySendCoinsMenuAction->setEnabled(enabled);
 #endif // ENABLE_WALLET
     receiveCoinsAction->setEnabled(enabled);
     receiveCoinsMenuAction->setEnabled(enabled);
@@ -874,7 +874,7 @@ void BitcoinGUI::createIconMenu(QMenu *pmenu)
     pmenu->addAction(toggleHideAction);
     pmenu->addSeparator();
     pmenu->addAction(sendCoinsMenuAction);
-    pmenu->addAction(privateSendCoinsMenuAction);
+    pmenu->addAction(privcySendCoinsMenuAction);
     pmenu->addAction(receiveCoinsMenuAction);
     pmenu->addSeparator();
     pmenu->addAction(signMessageAction);
@@ -1046,7 +1046,7 @@ void BitcoinGUI::gotoSendCoinsPage(QString addr)
 
 void BitcoinGUI::gotoPRiVCYSendCoinsPage(QString addr)
 {
-    privateSendCoinsAction->setChecked(true);
+    privcySendCoinsAction->setChecked(true);
     if (walletFrame) walletFrame->gotoPRiVCYSendCoinsPage(addr);
 }
 
@@ -1160,7 +1160,7 @@ void BitcoinGUI::updateProgressBarVisibility()
 void BitcoinGUI::updatePRiVCYSendVisibility()
 {
 #ifdef ENABLE_WALLET
-    bool fEnabled = privateSendClient.fEnablePRiVCYSend;
+    bool fEnabled = privcySendClient.fEnablePRiVCYSend;
 #else
     bool fEnabled = false;
 #endif
@@ -1169,7 +1169,7 @@ void BitcoinGUI::updatePRiVCYSendVisibility()
     if (centralWidget()->layout()->itemAt(0)->widget() != nullptr) {
         qobject_cast<QToolBar*>(centralWidget()->layout()->itemAt(0)->widget())->actions()[2]->setVisible(fEnabled);
     }
-    privateSendCoinsMenuAction->setVisible(fEnabled);
+    privcySendCoinsMenuAction->setVisible(fEnabled);
     showPRiVCYSendHelpAction->setVisible(fEnabled);
     updateToolBarShortcuts();
     updateWidth();
@@ -1226,7 +1226,7 @@ void BitcoinGUI::setNumBlocks(int count, const QDateTime& blockDate, const QStri
     // Disabling macOS App Nap on initial sync, disk, reindex operations and mixing.
     bool disableAppNap = !masternodeSync.IsSynced();
 #ifdef ENABLE_WALLET
-    disableAppNap |= privateSendClient.fPRiVCYSendRunning;
+    disableAppNap |= privcySendClient.fPRiVCYSendRunning;
 #endif // ENABLE_WALLET
     if (disableAppNap) {
         m_app_nap_inhibitor->disableAppNap();

@@ -157,18 +157,18 @@ OverviewPage::OverviewPage(QWidget* parent) :
     ui->labelTransactionsStatus->setText("(" + tr("out of sync") + ")");
 
     // hide PS frame (helps to preserve saved size)
-    // we'll setup and make it visible in privateSendStatus() later
+    // we'll setup and make it visible in privcySendStatus() later
     ui->framePRiVCYSend->setVisible(false);
 
     // start with displaying the "out of sync" warnings
     showOutOfSyncWarning(true);
 
-    // Disable privateSendClient builtin support for automatic backups while we are in GUI,
-    // we'll handle automatic backups and user warnings in privateSendStatus()
-    privateSendClient.fCreateAutoBackups = false;
+    // Disable privcySendClient builtin support for automatic backups while we are in GUI,
+    // we'll handle automatic backups and user warnings in privcySendStatus()
+    privcySendClient.fCreateAutoBackups = false;
 
     timer = new QTimer(this);
-    connect(timer, SIGNAL(timeout()), this, SLOT(privateSendStatus()));
+    connect(timer, SIGNAL(timeout()), this, SLOT(privcySendStatus()));
 }
 
 void OverviewPage::handleTransactionClicked(const QModelIndex &index)
@@ -184,7 +184,7 @@ void OverviewPage::handleOutOfSyncWarningClicks()
 
 OverviewPage::~OverviewPage()
 {
-    if(timer) disconnect(timer, SIGNAL(timeout()), this, SLOT(privateSendStatus()));
+    if(timer) disconnect(timer, SIGNAL(timeout()), this, SLOT(privcySendStatus()));
     delete ui;
 }
 
@@ -280,11 +280,11 @@ void OverviewPage::setWalletModel(WalletModel *model)
         // explicitly update PS frame and transaction list to reflect actual settings
         updateAdvancedPSUI(model->getOptionsModel()->getShowAdvancedPSUI());
 
-        connect(model->getOptionsModel(), SIGNAL(privateSendRoundsChanged()), this, SLOT(updatePRiVCYSendProgress()));
+        connect(model->getOptionsModel(), SIGNAL(privcySendRoundsChanged()), this, SLOT(updatePRiVCYSendProgress()));
         connect(model->getOptionsModel(), SIGNAL(privateSentAmountChanged()), this, SLOT(updatePRiVCYSendProgress()));
         connect(model->getOptionsModel(), SIGNAL(advancedPSUIChanged(bool)), this, SLOT(updateAdvancedPSUI(bool)));
-        connect(model->getOptionsModel(), &OptionsModel::privateSendEnabledChanged, [=]() {
-            privateSendStatus(true);
+        connect(model->getOptionsModel(), &OptionsModel::privcySendEnabledChanged, [=]() {
+            privcySendStatus(true);
         });
 
         connect(ui->togglePRiVCYSend, SIGNAL(clicked()), this, SLOT(togglePRiVCYSend()));
@@ -330,16 +330,16 @@ void OverviewPage::updatePRiVCYSendProgress()
     if(!walletModel) return;
 
     QString strAmountAndRounds;
-    QString strPRiVCYSendAmount = BitcoinUnits::formatHtmlWithUnit(nDisplayUnit, privateSendClient.nPRiVCYSendAmount * COIN, false, BitcoinUnits::separatorAlways);
+    QString strPRiVCYSendAmount = BitcoinUnits::formatHtmlWithUnit(nDisplayUnit, privcySendClient.nPRiVCYSendAmount * COIN, false, BitcoinUnits::separatorAlways);
 
     if(currentBalance == 0)
     {
-        ui->privateSendProgress->setValue(0);
-        ui->privateSendProgress->setToolTip(tr("No inputs detected"));
+        ui->privcySendProgress->setValue(0);
+        ui->privcySendProgress->setToolTip(tr("No inputs detected"));
 
         // when balance is zero just show info from settings
         strPRiVCYSendAmount = strPRiVCYSendAmount.remove(strPRiVCYSendAmount.indexOf("."), BitcoinUnits::decimals(nDisplayUnit) + 1);
-        strAmountAndRounds = strPRiVCYSendAmount + " / " + tr("%n Rounds", "", privateSendClient.nPRiVCYSendRounds);
+        strAmountAndRounds = strPRiVCYSendAmount + " / " + tr("%n Rounds", "", privcySendClient.nPRiVCYSendRounds);
 
         ui->labelAmountRounds->setToolTip(tr("No inputs detected"));
         ui->labelAmountRounds->setText(strAmountAndRounds);
@@ -351,15 +351,15 @@ void OverviewPage::updatePRiVCYSendProgress()
     CAmount nMaxToAnonymize = nAnonymizableBalance + currentAnonymizedBalance;
 
     // If it's more than the anon threshold, limit to that.
-    if(nMaxToAnonymize > privateSendClient.nPRiVCYSendAmount*COIN) nMaxToAnonymize = privateSendClient.nPRiVCYSendAmount*COIN;
+    if(nMaxToAnonymize > privcySendClient.nPRiVCYSendAmount*COIN) nMaxToAnonymize = privcySendClient.nPRiVCYSendAmount*COIN;
 
     if(nMaxToAnonymize == 0) return;
 
-    if(nMaxToAnonymize >= privateSendClient.nPRiVCYSendAmount * COIN) {
+    if(nMaxToAnonymize >= privcySendClient.nPRiVCYSendAmount * COIN) {
         ui->labelAmountRounds->setToolTip(tr("Found enough compatible inputs to mix %1")
                                           .arg(strPRiVCYSendAmount));
         strPRiVCYSendAmount = strPRiVCYSendAmount.remove(strPRiVCYSendAmount.indexOf("."), BitcoinUnits::decimals(nDisplayUnit) + 1);
-        strAmountAndRounds = strPRiVCYSendAmount + " / " + tr("%n Rounds", "", privateSendClient.nPRiVCYSendRounds);
+        strAmountAndRounds = strPRiVCYSendAmount + " / " + tr("%n Rounds", "", privcySendClient.nPRiVCYSendRounds);
     } else {
         QString strMaxToAnonymize = BitcoinUnits::formatHtmlWithUnit(nDisplayUnit, nMaxToAnonymize, false, BitcoinUnits::separatorAlways);
         ui->labelAmountRounds->setToolTip(tr("Not enough compatible inputs to mix <span style='%1'>%2</span>,<br>"
@@ -370,7 +370,7 @@ void OverviewPage::updatePRiVCYSendProgress()
         strMaxToAnonymize = strMaxToAnonymize.remove(strMaxToAnonymize.indexOf("."), BitcoinUnits::decimals(nDisplayUnit) + 1);
         strAmountAndRounds = "<span style='" + GUIUtil::getThemedStyleQString(GUIUtil::ThemedStyle::TS_ERROR) + "'>" +
                 QString(BitcoinUnits::factor(nDisplayUnit) == 1 ? "" : "~") + strMaxToAnonymize +
-                " / " + tr("%n Rounds", "", privateSendClient.nPRiVCYSendRounds) + "</span>";
+                " / " + tr("%n Rounds", "", privcySendClient.nPRiVCYSendRounds) + "</span>";
     }
     ui->labelAmountRounds->setText(strAmountAndRounds);
 
@@ -409,7 +409,7 @@ void OverviewPage::updatePRiVCYSendProgress()
 
     // apply some weights to them ...
     float denomWeight = 1;
-    float anonNormWeight = privateSendClient.nPRiVCYSendRounds;
+    float anonNormWeight = privcySendClient.nPRiVCYSendRounds;
     float anonFullWeight = 2;
     float fullWeight = denomWeight + anonNormWeight + anonFullWeight;
     // ... and calculate the whole progress
@@ -419,24 +419,24 @@ void OverviewPage::updatePRiVCYSendProgress()
     float progress = denomPartCalc + anonNormPartCalc + anonFullPartCalc;
     if(progress >= 100) progress = 100;
 
-    ui->privateSendProgress->setValue(progress);
+    ui->privcySendProgress->setValue(progress);
 
     QString strToolPip = ("<b>" + tr("Overall progress") + ": %1%</b><br/>" +
                           tr("Denominated") + ": %2%<br/>" +
                           tr("Partially mixed") + ": %3%<br/>" +
                           tr("Mixed") + ": %4%<br/>" +
-                          tr("Denominated inputs have %5 of %n rounds on average", "", privateSendClient.nPRiVCYSendRounds))
+                          tr("Denominated inputs have %5 of %n rounds on average", "", privcySendClient.nPRiVCYSendRounds))
             .arg(progress).arg(denomPart).arg(anonNormPart).arg(anonFullPart)
             .arg(nAverageAnonymizedRounds);
-    ui->privateSendProgress->setToolTip(strToolPip);
+    ui->privcySendProgress->setToolTip(strToolPip);
 }
 
 void OverviewPage::updateAdvancedPSUI(bool fShowAdvancedPSUI) {
     this->fShowAdvancedPSUI = fShowAdvancedPSUI;
-    privateSendStatus(true);
+    privcySendStatus(true);
 }
 
-void OverviewPage::privateSendStatus(bool fForce)
+void OverviewPage::privcySendStatus(bool fForce)
 {
     if (!fForce && (!masternodeSync.IsBlockchainSynced() || ShutdownRequested())) return;
 
@@ -451,7 +451,7 @@ void OverviewPage::privateSendStatus(bool fForce)
         return;
     }
 
-    bool fIsEnabled = privateSendClient.fEnablePRiVCYSend;
+    bool fIsEnabled = privcySendClient.fEnablePRiVCYSend;
     ui->framePRiVCYSend->setVisible(fIsEnabled);
     if (!fIsEnabled) {
         SetupTransactionList(NUM_ITEMS_DISABLED);
@@ -468,9 +468,9 @@ void OverviewPage::privateSendStatus(bool fForce)
     // Wrap all privcysend related widgets we want to show/hide state based.
     // Value of the map contains a flag if this widget belongs to the advanced
     // PRiVCYSend UI option or not. True if it does, false if not.
-    std::map<QWidget*, bool> privateSendWidgets = {
+    std::map<QWidget*, bool> privcySendWidgets = {
         {ui->labelCompletitionText, true},
-        {ui->privateSendProgress, true},
+        {ui->privcySendProgress, true},
         {ui->labelSubmittedDenomText, true},
         {ui->labelSubmittedDenom, true},
         {ui->labelAmountAndRoundsText, false},
@@ -490,7 +490,7 @@ void OverviewPage::privateSendStatus(bool fForce)
             }
         }
         // Set visible if: fVisible and not advanced UI element or advanced ui element and advanced ui active
-        for (const auto& it : privateSendWidgets) {
+        for (const auto& it : privcySendWidgets) {
             it.first->setVisible(fVisible && (!it.second || it.second == fShowAdvancedPSUI));
         }
         fLastVisible = fVisible;
@@ -501,18 +501,18 @@ void OverviewPage::privateSendStatus(bool fForce)
     int nBestHeight = clientModel->getNumBlocks();
 
     // We are processing more than 1 block per second, we'll just leave
-    if(nBestHeight > privateSendClient.nCachedNumBlocks && GetTime() - nLastDSProgressBlockTime <= 1) return;
+    if(nBestHeight > privcySendClient.nCachedNumBlocks && GetTime() - nLastDSProgressBlockTime <= 1) return;
     nLastDSProgressBlockTime = GetTime();
 
     QString strKeysLeftText(tr("keys left: %1").arg(walletModel->getKeysLeftSinceAutoBackup()));
-    if(walletModel->getKeysLeftSinceAutoBackup() < PRIVATESEND_KEYS_THRESHOLD_WARNING) {
+    if(walletModel->getKeysLeftSinceAutoBackup() < PRIVCYSEND_KEYS_THRESHOLD_WARNING) {
         strKeysLeftText = "<span style='" + GUIUtil::getThemedStyleQString(GUIUtil::ThemedStyle::TS_ERROR) + "'>" + strKeysLeftText + "</span>";
     }
     ui->labelPRiVCYSendEnabled->setToolTip(strKeysLeftText);
 
-    if (!privateSendClient.fPRiVCYSendRunning) {
-        if (nBestHeight != privateSendClient.nCachedNumBlocks) {
-            privateSendClient.nCachedNumBlocks = nBestHeight;
+    if (!privcySendClient.fPRiVCYSendRunning) {
+        if (nBestHeight != privcySendClient.nCachedNumBlocks) {
+            privcySendClient.nCachedNumBlocks = nBestHeight;
             updatePRiVCYSendProgress();
         }
 
@@ -535,7 +535,7 @@ void OverviewPage::privateSendStatus(bool fForce)
 
     // Warn user that wallet is running out of keys
     // NOTE: we do NOT warn user and do NOT create autobackups if mixing is not running
-    if (nWalletBackups > 0 && walletModel->getKeysLeftSinceAutoBackup() < PRIVATESEND_KEYS_THRESHOLD_WARNING) {
+    if (nWalletBackups > 0 && walletModel->getKeysLeftSinceAutoBackup() < PRIVCYSEND_KEYS_THRESHOLD_WARNING) {
         QSettings settings;
         if(settings.value("fLowKeysWarning").toBool()) {
             QString strWarn =   tr("Very low number of keys left since last automatic backup!") + "<br><br>" +
@@ -544,10 +544,10 @@ void OverviewPage::privateSendStatus(bool fForce)
                                    "saved in some safe place</span>!").arg(GUIUtil::getThemedStyleQString(GUIUtil::ThemedStyle::TS_COMMAND)) + "<br><br>" +
                                 tr("Note: You can turn this message off in options.");
             ui->labelPRiVCYSendEnabled->setToolTip(strWarn);
-            LogPrint(BCLog::PRIVATESEND, "OverviewPage::privateSendStatus -- Very low number of keys left since last automatic backup, warning user and trying to create new backup...\n");
+            LogPrint(BCLog::PRIVCYSEND, "OverviewPage::privcySendStatus -- Very low number of keys left since last automatic backup, warning user and trying to create new backup...\n");
             QMessageBox::warning(this, "PRiVCYSend", strWarn, QMessageBox::Ok, QMessageBox::Ok);
         } else {
-            LogPrint(BCLog::PRIVATESEND, "OverviewPage::privateSendStatus -- Very low number of keys left since last automatic backup, skipping warning and trying to create new backup...\n");
+            LogPrint(BCLog::PRIVCYSEND, "OverviewPage::privcySendStatus -- Very low number of keys left since last automatic backup, skipping warning and trying to create new backup...\n");
         }
 
         QString strBackupWarning;
@@ -555,7 +555,7 @@ void OverviewPage::privateSendStatus(bool fForce)
         if(!walletModel->autoBackupWallet(strBackupWarning, strBackupError)) {
             if (!strBackupWarning.isEmpty()) {
                 // It's still more or less safe to continue but warn user anyway
-                LogPrint(BCLog::PRIVATESEND, "OverviewPage::privateSendStatus -- WARNING! Something went wrong on automatic backup: %s\n", strBackupWarning.toStdString());
+                LogPrint(BCLog::PRIVCYSEND, "OverviewPage::privcySendStatus -- WARNING! Something went wrong on automatic backup: %s\n", strBackupWarning.toStdString());
 
                 QMessageBox::warning(this, "PRiVCYSend",
                     tr("WARNING! Something went wrong on automatic backup") + ":<br><br>" + strBackupWarning,
@@ -563,7 +563,7 @@ void OverviewPage::privateSendStatus(bool fForce)
             }
             if (!strBackupError.isEmpty()) {
                 // Things are really broken, warn user and stop mixing immediately
-                LogPrint(BCLog::PRIVATESEND, "OverviewPage::privateSendStatus -- ERROR! Failed to create automatic backup: %s\n", strBackupError.toStdString());
+                LogPrint(BCLog::PRIVCYSEND, "OverviewPage::privcySendStatus -- ERROR! Failed to create automatic backup: %s\n", strBackupError.toStdString());
 
                 QMessageBox::warning(this, "PRiVCYSend",
                     tr("ERROR! Failed to create automatic backup") + ":<br><br>" + strBackupError + "<br>" +
@@ -573,7 +573,7 @@ void OverviewPage::privateSendStatus(bool fForce)
         }
     }
 
-    QString strEnabled = privateSendClient.fPRiVCYSendRunning ? tr("Enabled") : tr("Disabled");
+    QString strEnabled = privcySendClient.fPRiVCYSendRunning ? tr("Enabled") : tr("Disabled");
     // Show how many keys left in advanced PS UI mode only
     if(fShowAdvancedPSUI) strEnabled += ", " + strKeysLeftText;
     ui->labelPRiVCYSendEnabled->setText(strEnabled);
@@ -595,15 +595,15 @@ void OverviewPage::privateSendStatus(bool fForce)
     }
 
     // check privcysend status and unlock if needed
-    if(nBestHeight != privateSendClient.nCachedNumBlocks) {
+    if(nBestHeight != privcySendClient.nCachedNumBlocks) {
         // Balance and number of transactions might have changed
-        privateSendClient.nCachedNumBlocks = nBestHeight;
+        privcySendClient.nCachedNumBlocks = nBestHeight;
         updatePRiVCYSendProgress();
     }
 
     setWidgetsVisible(true);
 
-    ui->labelSubmittedDenom->setText(QString(privateSendClient.GetSessionDenoms().c_str()));
+    ui->labelSubmittedDenom->setText(QString(privcySendClient.GetSessionDenoms().c_str()));
 }
 
 void OverviewPage::togglePRiVCYSend(){
@@ -616,7 +616,7 @@ void OverviewPage::togglePRiVCYSend(){
                 QMessageBox::Ok, QMessageBox::Ok);
         settings.setValue("hasMixed", "hasMixed");
     }
-    if(!privateSendClient.fPRiVCYSendRunning){
+    if(!privcySendClient.fPRiVCYSendRunning){
         const CAmount nMinAmount = CPRiVCYSend::GetSmallestDenomination() + CPRiVCYSend::GetMaxCollateralAmount();
         if(currentBalance < nMinAmount){
             QString strMinAmount(BitcoinUnits::formatWithUnit(nDisplayUnit, nMinAmount));
@@ -633,23 +633,23 @@ void OverviewPage::togglePRiVCYSend(){
             if(!ctx.isValid())
             {
                 //unlock was cancelled
-                privateSendClient.nCachedNumBlocks = std::numeric_limits<int>::max();
+                privcySendClient.nCachedNumBlocks = std::numeric_limits<int>::max();
                 QMessageBox::warning(this, "PRiVCYSend",
                     tr("Wallet is locked and user declined to unlock. Disabling PRiVCYSend."),
                     QMessageBox::Ok, QMessageBox::Ok);
-                LogPrint(BCLog::PRIVATESEND, "OverviewPage::togglePRiVCYSend -- Wallet is locked and user declined to unlock. Disabling PRiVCYSend.\n");
+                LogPrint(BCLog::PRIVCYSEND, "OverviewPage::togglePRiVCYSend -- Wallet is locked and user declined to unlock. Disabling PRiVCYSend.\n");
                 return;
             }
         }
 
     }
 
-    privateSendClient.fPRiVCYSendRunning = !privateSendClient.fPRiVCYSendRunning;
-    privateSendClient.nCachedNumBlocks = std::numeric_limits<int>::max();
+    privcySendClient.fPRiVCYSendRunning = !privcySendClient.fPRiVCYSendRunning;
+    privcySendClient.nCachedNumBlocks = std::numeric_limits<int>::max();
 
-    if(!privateSendClient.fPRiVCYSendRunning){
+    if(!privcySendClient.fPRiVCYSendRunning){
         ui->togglePRiVCYSend->setText(tr("Start Mixing"));
-        privateSendClient.ResetPool();
+        privcySendClient.ResetPool();
     } else {
         ui->togglePRiVCYSend->setText(tr("Stop Mixing"));
     }
@@ -686,5 +686,5 @@ void OverviewPage::DisablePRiVCYSendCompletely() {
     if (nWalletBackups <= 0) {
         ui->labelPRiVCYSendEnabled->setText("<span style='" + GUIUtil::getThemedStyleQString(GUIUtil::ThemedStyle::TS_ERROR) + "'>(" + tr("Disabled") + ")</span>");
     }
-    privateSendClient.fPRiVCYSendRunning = false;
+    privcySendClient.fPRiVCYSendRunning = false;
 }

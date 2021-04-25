@@ -2687,8 +2687,8 @@ UniValue setprivcysendrounds(const JSONRPCRequest& request)
             "setprivcysendrounds rounds\n"
             "\nSet the number of rounds for PRiVCYSend mixing.\n"
             "\nArguments:\n"
-            "1. rounds         (numeric, required) The default number of rounds is " + std::to_string(DEFAULT_PRIVATESEND_ROUNDS) +
-            " Cannot be more than " + std::to_string(MAX_PRIVATESEND_ROUNDS) + " nor less than " + std::to_string(MIN_PRIVATESEND_ROUNDS) +
+            "1. rounds         (numeric, required) The default number of rounds is " + std::to_string(DEFAULT_PRIVCYSEND_ROUNDS) +
+            " Cannot be more than " + std::to_string(MAX_PRIVCYSEND_ROUNDS) + " nor less than " + std::to_string(MIN_PRIVCYSEND_ROUNDS) +
             "\nExamples:\n"
             + HelpExampleCli("setprivcysendrounds", "4")
             + HelpExampleRpc("setprivcysendrounds", "16")
@@ -2696,10 +2696,10 @@ UniValue setprivcysendrounds(const JSONRPCRequest& request)
 
     int nRounds = request.params[0].get_int();
 
-    if (nRounds > MAX_PRIVATESEND_ROUNDS || nRounds < MIN_PRIVATESEND_ROUNDS)
+    if (nRounds > MAX_PRIVCYSEND_ROUNDS || nRounds < MIN_PRIVCYSEND_ROUNDS)
         throw JSONRPCError(RPC_INVALID_PARAMETER, "Invalid number of rounds");
 
-    privateSendClient.nPRiVCYSendRounds = nRounds;
+    privcySendClient.nPRiVCYSendRounds = nRounds;
 
     return NullUniValue;
 }
@@ -2715,8 +2715,8 @@ UniValue setprivcysendamount(const JSONRPCRequest& request)
             "setprivcysendamount amount\n"
             "\nSet the goal amount in " + CURRENCY_UNIT + " for PRiVCYSend mixing.\n"
             "\nArguments:\n"
-            "1. amount         (numeric, required) The default amount is " + std::to_string(DEFAULT_PRIVATESEND_AMOUNT) +
-            " Cannot be more than " + std::to_string(MAX_PRIVATESEND_AMOUNT) + " nor less than " + std::to_string(MIN_PRIVATESEND_AMOUNT) +
+            "1. amount         (numeric, required) The default amount is " + std::to_string(DEFAULT_PRIVCYSEND_AMOUNT) +
+            " Cannot be more than " + std::to_string(MAX_PRIVCYSEND_AMOUNT) + " nor less than " + std::to_string(MIN_PRIVCYSEND_AMOUNT) +
             "\nExamples:\n"
             + HelpExampleCli("setprivcysendamount", "500")
             + HelpExampleRpc("setprivcysendamount", "208")
@@ -2724,10 +2724,10 @@ UniValue setprivcysendamount(const JSONRPCRequest& request)
 
     int nAmount = request.params[0].get_int();
 
-    if (nAmount > MAX_PRIVATESEND_AMOUNT || nAmount < MIN_PRIVATESEND_AMOUNT)
+    if (nAmount > MAX_PRIVCYSEND_AMOUNT || nAmount < MIN_PRIVCYSEND_AMOUNT)
         throw JSONRPCError(RPC_INVALID_PARAMETER, "Invalid amount of " + CURRENCY_UNIT + " as mixing goal amount");
 
-    privateSendClient.nPRiVCYSendAmount = nAmount;
+    privcySendClient.nPRiVCYSendAmount = nAmount;
 
     return NullUniValue;
 }
@@ -3043,7 +3043,7 @@ UniValue listunspent(const JSONRPCRequest& request)
             "      \"minimumSumAmount\" (numeric or string, default=unlimited) Minimum sum value of all UTXOs in " + CURRENCY_UNIT + "\n"
             "      \"coinType\"         (numeric, default=0) Filter coinTypes as follows:\n"
             "                         0=ALL_COINS, 1=ONLY_FULLY_MIXED, 2=ONLY_READY_TO_MIX, 3=ONLY_NONDENOMINATED,\n"
-            "                         4=ONLY_MASTERNODE_COLLATERAL, 5=ONLY_PRIVATESEND_COLLATERAL\n"
+            "                         4=ONLY_MASTERNODE_COLLATERAL, 5=ONLY_PRIVCYSEND_COLLATERAL\n"
             "    }\n"
             "\nResult\n"
             "[                   (array of json object)\n"

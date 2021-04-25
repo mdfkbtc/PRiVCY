@@ -2,8 +2,8 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PRIVATESENDSERVER_H
-#define PRIVATESENDSERVER_H
+#ifndef PRIVCYSENDSERVER_H
+#define PRIVCYSENDSERVER_H
 
 #include <net.h>
 #include <privcysend/privcysend.h>
@@ -12,7 +12,7 @@ class CPRiVCYSendServer;
 class UniValue;
 
 // The main object for accessing mixing
-extern CPRiVCYSendServer privateSendServer;
+extern CPRiVCYSendServer privcySendServer;
 
 /** Used to keep track of current status of mixing pool
  */

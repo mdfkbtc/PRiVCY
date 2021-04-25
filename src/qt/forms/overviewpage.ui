@@ -401,7 +401,7 @@
            </layout>
           </item>
           <item>
-           <layout class="QFormLayout" name="privateSendFormLayout">
+           <layout class="QFormLayout" name="privcySendFormLayout">
             <property name="fieldGrowthPolicy">
              <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
             </property>
@@ -433,7 +433,7 @@
              </widget>
             </item>
             <item row="1" column="1">
-             <widget class="QProgressBar" name="privateSendProgress">
+             <widget class="QProgressBar" name="privcySendProgress">
               <property name="maximumSize">
                <size>
                 <width>154</width>

@@ -2190,7 +2190,7 @@ bool AppInitMain()
     }
 
     if (fMasternodeMode) {
-        scheduler.scheduleEvery(boost::bind(&CPRiVCYSendServer::DoMaintenance, boost::ref(privateSendServer), boost::ref(*g_connman)), 1 * 1000);
+        scheduler.scheduleEvery(boost::bind(&CPRiVCYSendServer::DoMaintenance, boost::ref(privcySendServer), boost::ref(*g_connman)), 1 * 1000);
     }
 
     llmq::StartLLMQSystem();

@@ -276,7 +276,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QCheckBox" name="privateSendEnabled">
+           <widget class="QCheckBox" name="privcySendEnabled">
             <property name="toolTip">
              <string>Show mixing interface on Overview screen and reveal PRiVCYSend screen which allows to spend fully mixed coins only.&lt;br/&gt;A new tab with more settings will also appear in this dialog, please make sure to check them before mixing your coins.</string>
             </property>
@@ -335,7 +335,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QCheckBox" name="privateSendMultiSession">
+        <widget class="QCheckBox" name="privcySendMultiSession">
          <property name="toolTip">
           <string>Whether to use experimental PRiVCYSend mode with multiple mixing sessions per block.&lt;br/&gt;Note: You must use this feature carefully.&lt;br/&gt;Make sure you always have recent wallet (auto)backup in a safe place!</string>
          </property>
@@ -357,7 +357,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QSpinBox" name="privateSendRounds">
+          <widget class="QSpinBox" name="privcySendRounds">
            <property name="minimum">
             <number>2</number>
            </property>
@@ -396,7 +396,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QSpinBox" name="privateSendAmount">
+          <widget class="QSpinBox" name="privcySendAmount">
            <property name="minimum">
             <number>2</number>
            </property>

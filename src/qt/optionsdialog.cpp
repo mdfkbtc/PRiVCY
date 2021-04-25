@@ -175,10 +175,10 @@ OptionsDialog::OptionsDialog(QWidget *parent, bool enableWallet) :
 
     // Store the current PRiVCYSend enabled state to recover it if it gets changed but the dialog gets not accepted but declined.
 #ifdef ENABLE_WALLET
-    fPRiVCYSendEnabledPrev = privateSendClient.fEnablePRiVCYSend;
+    fPRiVCYSendEnabledPrev = privcySendClient.fEnablePRiVCYSend;
     connect(this, &OptionsDialog::rejected, [=]() {
-        if (fPRiVCYSendEnabledPrev != privateSendClient.fEnablePRiVCYSend) {
-            ui->privateSendEnabled->click();
+        if (fPRiVCYSendEnabledPrev != privcySendClient.fEnablePRiVCYSend) {
+            ui->privcySendEnabled->click();
         }
     });
 #endif
@@ -211,9 +211,9 @@ void OptionsDialog::setModel(OptionsModel *_model)
         // If -enableprivcysend was passed in on the command line, set the checkbox
         // to the value given via commandline and disable it (make it unclickable).
         if (strLabel.contains("-enableprivcysend")) {
-            bool fEnabled = privateSendClient.fEnablePRiVCYSend;
-            ui->privateSendEnabled->setChecked(fEnabled);
-            ui->privateSendEnabled->setEnabled(false);
+            bool fEnabled = privcySendClient.fEnablePRiVCYSend;
+            ui->privcySendEnabled->setChecked(fEnabled);
+            ui->privcySendEnabled->setEnabled(false);
         }
 #endif
 
@@ -243,9 +243,9 @@ void OptionsDialog::setModel(OptionsModel *_model)
     connect(ui->lang, SIGNAL(valueChanged()), this, SLOT(showRestartWarning()));
     connect(ui->thirdPartyTxUrls, SIGNAL(textChanged(const QString &)), this, SLOT(showRestartWarning()));
 
-    connect(ui->privateSendEnabled, &QCheckBox::clicked, [=](bool fChecked) {
+    connect(ui->privcySendEnabled, &QCheckBox::clicked, [=](bool fChecked) {
 #ifdef ENABLE_WALLET
-        privateSendClient.fEnablePRiVCYSend = fChecked;
+        privcySendClient.fEnablePRiVCYSend = fChecked;
 #endif
         updatePRiVCYSendVisibility();
         if (_model != nullptr) {
@@ -266,7 +266,7 @@ void OptionsDialog::setMapper()
 #endif
     mapper->addMapping(ui->threadsScriptVerif, OptionsModel::ThreadsScriptVerif);
     mapper->addMapping(ui->databaseCache, OptionsModel::DatabaseCache);
-    mapper->addMapping(ui->privateSendEnabled, OptionsModel::PRiVCYSendEnabled);
+    mapper->addMapping(ui->privcySendEnabled, OptionsModel::PRiVCYSendEnabled);
 
     /* Wallet */
     mapper->addMapping(ui->coinControlFeatures, OptionsModel::CoinControlFeatures);
@@ -274,10 +274,10 @@ void OptionsDialog::setMapper()
     mapper->addMapping(ui->showAdvancedPSUI, OptionsModel::ShowAdvancedPSUI);
     mapper->addMapping(ui->showPRiVCYSendPopups, OptionsModel::ShowPRiVCYSendPopups);
     mapper->addMapping(ui->lowKeysWarning, OptionsModel::LowKeysWarning);
-    mapper->addMapping(ui->privateSendMultiSession, OptionsModel::PRiVCYSendMultiSession);
+    mapper->addMapping(ui->privcySendMultiSession, OptionsModel::PRiVCYSendMultiSession);
     mapper->addMapping(ui->spendZeroConfChange, OptionsModel::SpendZeroConfChange);
-    mapper->addMapping(ui->privateSendRounds, OptionsModel::PRiVCYSendRounds);
-    mapper->addMapping(ui->privateSendAmount, OptionsModel::PRiVCYSendAmount);
+    mapper->addMapping(ui->privcySendRounds, OptionsModel::PRiVCYSendRounds);
+    mapper->addMapping(ui->privcySendAmount, OptionsModel::PRiVCYSendAmount);
 
     /* Network */
     mapper->addMapping(ui->mapPortUpnp, OptionsModel::MapPortUPnP);
@@ -349,7 +349,7 @@ void OptionsDialog::on_okButton_clicked()
     mapper->submit();
     appearance->accept();
 #ifdef ENABLE_WALLET
-    privateSendClient.nCachedNumBlocks = std::numeric_limits<int>::max();
+    privcySendClient.nCachedNumBlocks = std::numeric_limits<int>::max();
     if(HasWallets())
         GetWallets()[0]->MarkDirty();
 #endif // ENABLE_WALLET
@@ -442,7 +442,7 @@ void OptionsDialog::updateDefaultProxyNets()
 void OptionsDialog::updatePRiVCYSendVisibility()
 {
 #ifdef ENABLE_WALLET
-    bool fEnabled = privateSendClient.fEnablePRiVCYSend;
+    bool fEnabled = privcySendClient.fEnablePRiVCYSend;
 #else
     bool fEnabled = false;
 #endif

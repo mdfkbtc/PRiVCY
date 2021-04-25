@@ -254,7 +254,7 @@ void TransactionView::setModel(WalletModel *_model)
                 }
             }
 
-            connect(_model->getOptionsModel(), SIGNAL(privateSendEnabledChanged()), this, SLOT(updatePRiVCYSendVisibility()));
+            connect(_model->getOptionsModel(), SIGNAL(privcySendEnabledChanged()), this, SLOT(updatePRiVCYSendVisibility()));
         }
 
         // show/hide column Watch-only
@@ -712,7 +712,7 @@ void TransactionView::updateWatchOnlyColumn(bool fHaveWatchOnly)
 
 void TransactionView::updatePRiVCYSendVisibility()
 {
-    bool fEnabled = privateSendClient.fEnablePRiVCYSend;
+    bool fEnabled = privcySendClient.fEnablePRiVCYSend;
     // If PRiVCYSend gets enabled use "All" else "Most common"
     typeWidget->setCurrentIndex(fEnabled ? 0 : 1);
     // Hide all PRiVCYSend related filters

@@ -78,7 +78,7 @@ private:
         COLUMN_AMOUNT,
         COLUMN_LABEL,
         COLUMN_ADDRESS,
-        COLUMN_PRIVATESEND_ROUNDS,
+        COLUMN_PRIVCYSEND_ROUNDS,
         COLUMN_DATE,
         COLUMN_CONFIRMATIONS,
     };
@@ -93,7 +93,7 @@ private:
 
     enum class Mode {
         NORMAL,
-        PRIVATESEND,
+        PRIVCYSEND,
     };
 
     static CoinControlDialog::Mode mode;

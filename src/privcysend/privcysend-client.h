@@ -2,8 +2,8 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PRIVATESENDCLIENT_H
-#define PRIVATESENDCLIENT_H
+#ifndef PRIVCYSENDCLIENT_H
+#define PRIVCYSENDCLIENT_H
 
 #include <privcysend/privcysend-util.h>
 #include <privcysend/privcysend.h>
@@ -16,24 +16,24 @@ class CConnman;
 class CNode;
 class UniValue;
 
-static const int MIN_PRIVATESEND_SESSIONS = 1;
-static const int MIN_PRIVATESEND_ROUNDS = 2;
-static const int MIN_PRIVATESEND_AMOUNT = 2;
-static const int MIN_PRIVATESEND_DENOMS_GOAL = 10;
-static const int MIN_PRIVATESEND_DENOMS_HARDCAP = 10;
-static const int MAX_PRIVATESEND_SESSIONS = 10;
-static const int MAX_PRIVATESEND_ROUNDS = 16;
-static const int MAX_PRIVATESEND_DENOMS_GOAL = 100000;
-static const int MAX_PRIVATESEND_DENOMS_HARDCAP = 100000;
-static const int MAX_PRIVATESEND_AMOUNT = MAX_MONEY / COIN;
-static const int DEFAULT_PRIVATESEND_SESSIONS = 4;
-static const int DEFAULT_PRIVATESEND_ROUNDS = 4;
-static const int DEFAULT_PRIVATESEND_AMOUNT = 1000;
-static const int DEFAULT_PRIVATESEND_DENOMS_GOAL = 50;
-static const int DEFAULT_PRIVATESEND_DENOMS_HARDCAP = 300;
+static const int MIN_PRIVCYSEND_SESSIONS = 1;
+static const int MIN_PRIVCYSEND_ROUNDS = 2;
+static const int MIN_PRIVCYSEND_AMOUNT = 2;
+static const int MIN_PRIVCYSEND_DENOMS_GOAL = 10;
+static const int MIN_PRIVCYSEND_DENOMS_HARDCAP = 10;
+static const int MAX_PRIVCYSEND_SESSIONS = 10;
+static const int MAX_PRIVCYSEND_ROUNDS = 16;
+static const int MAX_PRIVCYSEND_DENOMS_GOAL = 100000;
+static const int MAX_PRIVCYSEND_DENOMS_HARDCAP = 100000;
+static const int MAX_PRIVCYSEND_AMOUNT = MAX_MONEY / COIN;
+static const int DEFAULT_PRIVCYSEND_SESSIONS = 4;
+static const int DEFAULT_PRIVCYSEND_ROUNDS = 4;
+static const int DEFAULT_PRIVCYSEND_AMOUNT = 1000;
+static const int DEFAULT_PRIVCYSEND_DENOMS_GOAL = 50;
+static const int DEFAULT_PRIVCYSEND_DENOMS_HARDCAP = 300;
 
-static const bool DEFAULT_PRIVATESEND_AUTOSTART = false;
-static const bool DEFAULT_PRIVATESEND_MULTISESSION = false;
+static const bool DEFAULT_PRIVCYSEND_AUTOSTART = false;
+static const bool DEFAULT_PRIVCYSEND_MULTISESSION = false;
 
 // How many new denom outputs to create before we consider the "goal" loop in CreateDenominated
 // a final one and start creating an actual tx. Same limit applies for the "hard cap" part of the algo.
@@ -43,18 +43,18 @@ static const bool DEFAULT_PRIVATESEND_MULTISESSION = false;
 // More than 500 outputs starts to make qt quite laggy.
 // Additionally to need all 500 outputs (assuming a max per denom of 50) you'd need to be trying to
 // create denominations for over 3000 privcy!
-static const int PRIVATESEND_DENOM_OUTPUTS_THRESHOLD = 500;
+static const int PRIVCYSEND_DENOM_OUTPUTS_THRESHOLD = 500;
 
 // Warn user if mixing in gui or try to create backup if mixing in daemon mode
 // when we have only this many keys left
-static const int PRIVATESEND_KEYS_THRESHOLD_WARNING = 100;
+static const int PRIVCYSEND_KEYS_THRESHOLD_WARNING = 100;
 // Stop mixing completely, it's too dangerous to continue when we have only this many keys left
-static const int PRIVATESEND_KEYS_THRESHOLD_STOP = 50;
+static const int PRIVCYSEND_KEYS_THRESHOLD_STOP = 50;
 // Pseudorandomly mix up to this many times in addition to base round count
-static const int PRIVATESEND_RANDOM_ROUNDS = 3;
+static const int PRIVCYSEND_RANDOM_ROUNDS = 3;
 
 // The main object for accessing mixing
-extern CPRiVCYSendClientManager privateSendClient;
+extern CPRiVCYSendClientManager privcySendClient;
 
 class CPendingDsaRequest
 {
@@ -224,14 +224,14 @@ public:
         nMinBlocksToWait(1),
         strAutoDenomResult(),
         nCachedBlockHeight(0),
-        nPRiVCYSendRounds(DEFAULT_PRIVATESEND_ROUNDS),
-        nPRiVCYSendRandomRounds(PRIVATESEND_RANDOM_ROUNDS),
-        nPRiVCYSendAmount(DEFAULT_PRIVATESEND_AMOUNT),
-        nPRiVCYSendDenomsGoal(DEFAULT_PRIVATESEND_DENOMS_GOAL),
-        nPRiVCYSendDenomsHardCap(DEFAULT_PRIVATESEND_DENOMS_HARDCAP),
+        nPRiVCYSendRounds(DEFAULT_PRIVCYSEND_ROUNDS),
+        nPRiVCYSendRandomRounds(PRIVCYSEND_RANDOM_ROUNDS),
+        nPRiVCYSendAmount(DEFAULT_PRIVCYSEND_AMOUNT),
+        nPRiVCYSendDenomsGoal(DEFAULT_PRIVCYSEND_DENOMS_GOAL),
+        nPRiVCYSendDenomsHardCap(DEFAULT_PRIVCYSEND_DENOMS_HARDCAP),
         fEnablePRiVCYSend(false),
         fPRiVCYSendRunning(false),
-        fPRiVCYSendMultiSession(DEFAULT_PRIVATESEND_MULTISESSION),
+        fPRiVCYSendMultiSession(DEFAULT_PRIVCYSEND_MULTISESSION),
         nCachedNumBlocks(std::numeric_limits<int>::max()),
         fCreateAutoBackups(true)
     {

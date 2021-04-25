@@ -35,7 +35,7 @@ UniValue privcysend(const JSONRPCRequest& request)
     if (fMasternodeMode)
         throw JSONRPCError(RPC_INTERNAL_ERROR, "Client-side mixing is not supported on masternodes");
 
-    if (!privateSendClient.fEnablePRiVCYSend) {
+    if (!privcySendClient.fEnablePRiVCYSend) {
         if (!gArgs.GetBoolArg("-enableprivcysend", true)) {
             // otherwise it's on by default, unless cmd line option says otherwise
             throw JSONRPCError(RPC_INTERNAL_ERROR, "Mixing is disabled via -enableprivcysend=0 command line option, remove it to enable mixing again");
@@ -53,18 +53,18 @@ UniValue privcysend(const JSONRPCRequest& request)
                 throw JSONRPCError(RPC_WALLET_UNLOCK_NEEDED, "Error: Please unlock wallet for mixing with walletpassphrase first.");
         }
 
-        privateSendClient.fPRiVCYSendRunning = true;
-        bool result = privateSendClient.DoAutomaticDenominating(*g_connman);
-        return "Mixing " + (result ? "started successfully" : ("start failed: " + privateSendClient.GetStatuses() + ", will retry"));
+        privcySendClient.fPRiVCYSendRunning = true;
+        bool result = privcySendClient.DoAutomaticDenominating(*g_connman);
+        return "Mixing " + (result ? "started successfully" : ("start failed: " + privcySendClient.GetStatuses() + ", will retry"));
     }
 
     if (request.params[0].get_str() == "stop") {
-        privateSendClient.fPRiVCYSendRunning = false;
+        privcySendClient.fPRiVCYSendRunning = false;
         return "Mixing was stopped";
     }
 
     if (request.params[0].get_str() == "reset") {
-        privateSendClient.ResetPool();
+        privcySendClient.ResetPool();
         return "Mixing was reset";
     }
 
@@ -128,13 +128,13 @@ UniValue getprivcysendinfo(const JSONRPCRequest& request)
     UniValue obj(UniValue::VOBJ);
 
     if (fMasternodeMode) {
-        privateSendServer.GetJsonInfo(obj);
+        privcySendServer.GetJsonInfo(obj);
         return obj;
     }
 
 
 #ifdef ENABLE_WALLET
-    privateSendClient.GetJsonInfo(obj);
+    privcySendClient.GetJsonInfo(obj);
 
     CWallet* const pwallet = GetWalletForJSONRPCRequest(request);
     if (!pwallet) {
@@ -142,7 +142,7 @@ UniValue getprivcysendinfo(const JSONRPCRequest& request)
     }
 
     obj.push_back(Pair("keys_left",     pwallet->nKeysLeftSinceAutoBackup));
-    obj.push_back(Pair("warnings",      pwallet->nKeysLeftSinceAutoBackup < PRIVATESEND_KEYS_THRESHOLD_WARNING
+    obj.push_back(Pair("warnings",      pwallet->nKeysLeftSinceAutoBackup < PRIVCYSEND_KEYS_THRESHOLD_WARNING
                                         ? "WARNING: keypool is almost depleted!" : ""));
 #endif // ENABLE_WALLET
 

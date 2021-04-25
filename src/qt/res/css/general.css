@@ -1459,14 +1459,14 @@ QWidget .QFrame#framePRiVCYSend  .QLabel#labelCompletitionText { /* PRiVCYSend C
     margin-right: 10px;
 }
 
-QWidget .QFrame#framePRiVCYSend  QProgressBar#privateSendProgress { /* PRiVCYSend Completion */
+QWidget .QFrame#framePRiVCYSend  QProgressBar#privcySendProgress { /* PRiVCYSend Completion */
     min-height: 13px;
     max-height: 13px;
     border-radius: 5px;
     margin-top: 7px;
 }
 
-QWidget .QFrame#framePRiVCYSend  QProgressBar#privateSendProgress:chunk {
+QWidget .QFrame#framePRiVCYSend  QProgressBar#privcySendProgress:chunk {
     border-radius: 5px;
 }
 

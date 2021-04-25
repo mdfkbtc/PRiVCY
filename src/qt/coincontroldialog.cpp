@@ -38,7 +38,7 @@ CoinControlDialog::Mode CoinControlDialog::mode{CoinControlDialog::Mode::NORMAL}
 
 bool CCoinControlWidgetItem::operator<(const QTreeWidgetItem &other) const {
     int column = treeWidget()->sortColumn();
-    if (column == CoinControlDialog::COLUMN_AMOUNT || column == CoinControlDialog::COLUMN_DATE || column == CoinControlDialog::COLUMN_CONFIRMATIONS || column == CoinControlDialog::COLUMN_PRIVATESEND_ROUNDS)
+    if (column == CoinControlDialog::COLUMN_AMOUNT || column == CoinControlDialog::COLUMN_DATE || column == CoinControlDialog::COLUMN_CONFIRMATIONS || column == CoinControlDialog::COLUMN_PRIVCYSEND_ROUNDS)
         return data(column, Qt::UserRole).toLongLong() < other.data(column, Qt::UserRole).toLongLong();
     return QTreeWidgetItem::operator<(other);
 }
@@ -146,7 +146,7 @@ CoinControlDialog::CoinControlDialog(QWidget* parent) :
     ui->treeWidget->setColumnWidth(COLUMN_CHECKBOX, 94);
     ui->treeWidget->setColumnWidth(COLUMN_AMOUNT, 100);
     ui->treeWidget->setColumnWidth(COLUMN_LABEL, 170);
-    ui->treeWidget->setColumnWidth(COLUMN_PRIVATESEND_ROUNDS, 110);
+    ui->treeWidget->setColumnWidth(COLUMN_PRIVCYSEND_ROUNDS, 110);
     ui->treeWidget->setColumnWidth(COLUMN_DATE, 120);
     ui->treeWidget->setColumnWidth(COLUMN_CONFIRMATIONS, 110);
 
@@ -673,7 +673,7 @@ void CoinControlDialog::updateLabels(WalletModel *model, QDialog* dialog)
 
 void CoinControlDialog::usePRiVCYSend(bool fUsePRiVCYSend)
 {
-    CoinControlDialog::mode = fUsePRiVCYSend ? CoinControlDialog::Mode::PRIVATESEND : CoinControlDialog::Mode::NORMAL;
+    CoinControlDialog::mode = fUsePRiVCYSend ? CoinControlDialog::Mode::PRIVCYSEND : CoinControlDialog::Mode::NORMAL;
 }
 
 CCoinControl* CoinControlDialog::coinControl()
@@ -695,12 +695,12 @@ void CoinControlDialog::updateView()
         return;
 
     bool fNormalMode = mode == Mode::NORMAL;
-    ui->treeWidget->setColumnHidden(COLUMN_PRIVATESEND_ROUNDS, fNormalMode);
+    ui->treeWidget->setColumnHidden(COLUMN_PRIVCYSEND_ROUNDS, fNormalMode);
     ui->treeWidget->setColumnHidden(COLUMN_LABEL, !fNormalMode);
     ui->radioTreeMode->setVisible(fNormalMode);
     ui->radioListMode->setVisible(fNormalMode);
 
-    if (!privateSendClient.fEnablePRiVCYSend) {
+    if (!privcySendClient.fEnablePRiVCYSend) {
         fHideAdditional = false;
         ui->hideButton->setVisible(false);
     }
@@ -714,7 +714,7 @@ void CoinControlDialog::updateView()
             strHideButton = tr("Hide PRiVCYSend coins");
         }
         break;
-    case Mode::PRIVATESEND:
+    case Mode::PRIVCYSEND:
         if (fHideAdditional) {
             strHideButton = tr("Show all PRiVCYSend coins");
         } else {
@@ -835,12 +835,12 @@ void CoinControlDialog::updateView()
 
             // PRiVCYSend rounds
             int nRounds = model->getRealOutpointPRiVCYSendRounds(outpoint);
-            if (nRounds >= 0 || LogAcceptCategory(BCLog::PRIVATESEND)) {
-                itemOutput->setText(COLUMN_PRIVATESEND_ROUNDS, QString::number(nRounds));
+            if (nRounds >= 0 || LogAcceptCategory(BCLog::PRIVCYSEND)) {
+                itemOutput->setText(COLUMN_PRIVCYSEND_ROUNDS, QString::number(nRounds));
             } else {
-                itemOutput->setText(COLUMN_PRIVATESEND_ROUNDS, tr("n/a"));
+                itemOutput->setText(COLUMN_PRIVCYSEND_ROUNDS, tr("n/a"));
             }
-            itemOutput->setData(COLUMN_PRIVATESEND_ROUNDS, Qt::UserRole, QVariant((qlonglong)nRounds));
+            itemOutput->setData(COLUMN_PRIVCYSEND_ROUNDS, Qt::UserRole, QVariant((qlonglong)nRounds));
 
             // confirmations
             itemOutput->setText(COLUMN_CONFIRMATIONS, QString::number(out.nDepth));
