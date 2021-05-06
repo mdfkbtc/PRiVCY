@@ -67,7 +67,7 @@ static CBlock CreateDevNetGenesisBlock(const uint256 &prevBlockHash, const std::
 
 static CBlock CreateGenesisBlock(uint32_t nTime, uint32_t nNonce, uint32_t nBits, int32_t nVersion, const CAmount& genesisReward)
 {
-    const char* pszTimestamp = "PRiVCY matters | CircuitBreaker | 4/10/2021";
+    const char* pszTimestamp = "PRiVCY matters | CircuitBreaker | 5/5/2021";
     const CScript genesisOutputScript = CScript() << ParseHex("040184710fa689ad5023690c80f3a49c8f13f8d45b8c857fbcbc8bc4a8e4d3eb4b10f4d4604fa08dce601aaf0f470216fe1b51850b4acf21b179c45070ac7b03a9") << OP_CHECKSIG;
     return CreateGenesisBlock(pszTimestamp, genesisOutputScript, nTime, nNonce, nBits, nVersion, genesisReward);
 }
@@ -271,36 +271,41 @@ class CMainParams : public CChainParams {
 public:
     CMainParams() {
         strNetworkID = "main";
-        consensus.nSubsidyHalvingInterval = 525600; // halves once per year (86400/60)*365
-        consensus.nMasternodePaymentsStartBlock = 90;
-        consensus.nMasternodePaymentsIncreaseBlock = -1;
-        consensus.nMasternodePaymentsIncreasePeriod = -1;
+        consensus.nSubsidyHalvingInterval = NEVER32; // not used
+
+        consensus.nMasternodePaymentsStartBlock = 100;
+        consensus.nMasternodePaymentsIncreaseBlock = NEVER32;
+        consensus.nMasternodePaymentsIncreasePeriod = NEVER32;
+        consensus.nMasternodeMinimumConfirmations = 15;
+
         consensus.nInstantSendConfirmationsRequired = 6;
         consensus.nInstantSendKeepLock = 24;
-        consensus.nBudgetPaymentsStartBlock = -1;
-        consensus.nBudgetPaymentsCycleBlocks = -1;
+        consensus.nBudgetPaymentsStartBlock = NEVER32;
+        consensus.nBudgetPaymentsCycleBlocks = 21600; // ~(60*24*30)/2
         consensus.nBudgetPaymentsWindowBlocks = 100;
-        consensus.nSuperblockStartBlock = -1;
-        consensus.nSuperblockStartHash = uint256S("0x0");
-        consensus.nSuperblockCycle = 1048576;
+        consensus.nSuperblockStartBlock = 250000;
+        consensus.nSuperblockStartHash = uint256S("0x00");
+        consensus.nSuperblockCycle = 21600; // ~(60*24*30)/2
         consensus.nGovernanceMinQuorum = 10;
         consensus.nGovernanceFilterElements = 20000;
-        consensus.nMasternodeMinimumConfirmations = 15;
-        consensus.BIP34Height = 30;
-        consensus.BIP34Hash = uint256S("0x0");
-        consensus.BIP65Height = 30;
-        consensus.BIP66Height = 30;
-        consensus.DIP0001Height = 30;
-        consensus.DIP0003Height = 30;
+
+        consensus.BIP34Height = 1;
+        consensus.BIP34Hash = uint256S("0x00");
+        consensus.BIP65Height = 1;
+        consensus.BIP66Height = 1;
+        consensus.DIP0001Height = 2;
+        consensus.DIP0003Height = 2;
         consensus.DIP0003EnforcementHeight = 1048576;
-        consensus.DIP0003EnforcementHash = uint256S("0x0");
+        consensus.DIP0003EnforcementHash = uint256S("0x00");
+
         consensus.powLimit = uint256S("0x000fffff00000000000000000000000000000000000000000000000000000000");
         consensus.nPowTargetTimespan = 24 * 60 * 60; // PRiVCY: 1 day
         consensus.nPowTargetSpacing = 2 * 60; // PRiVCY: 2 minutes
         consensus.fPowAllowMinDifficultyBlocks = false;
         consensus.fPowNoRetargeting = false;
-        consensus.nPowKGWHeight = 15200;
-        consensus.nPowDGWHeight = 34140;
+        consensus.nPowKGWHeight = 1;
+        consensus.nPowDGWHeight = 2;
+
         consensus.nRuleChangeActivationThreshold = 1916;
         consensus.nMinerConfirmationWindow = 2016;
         consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].bit = 28;
@@ -350,10 +355,10 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_REALLOC].nFalloffCoeff = 5;
 
         // The best chain should have at least this much work.
-        consensus.nMinimumChainWork = uint256S("0x0");
+        consensus.nMinimumChainWork = uint256S("0x00");
 
         // By default assume that the signatures in ancestors of this block are valid.
-        consensus.defaultAssumeValid = uint256S("0x0");
+        consensus.defaultAssumeValid = uint256S("0x00");
 
         /**
          * The message start string is designed to be unlikely to occur in normal data.
@@ -367,10 +372,10 @@ public:
         nDefaultPort = 40400;
         nPruneAfterHeight = 100000;
 
-        genesis = CreateGenesisBlock(1618061371, 17757, 0x1f0fffff, 1, 50 * COIN);
+        genesis = CreateGenesisBlock(1620259586, 16208, 0x1f0fffff, 1, 50 * COIN);
 
     /*    // just for now
-        uint32_t nTime = 1618061371;
+        uint32_t nTime = 1620259586;
         uint32_t nNonce = 0;
 
         while (UintToArith256(genesis.GetHash()) >
@@ -385,8 +390,8 @@ public:
 
         consensus.hashGenesisBlock = genesis.GetHash();
 
-        assert(consensus.hashGenesisBlock == uint256S("0x000e0c4e4b1b2cc067431732746d5206492a0c8f01d20258233dca8eb95e11c8"));
-        assert(genesis.hashMerkleRoot == uint256S("0x5f270c5d88789dc9c2488e8f9ce5292104c988c2a87496c50f37c7187e26ef32"));
+        assert(consensus.hashGenesisBlock == uint256S("0x000c90d5d2c4ff52d053157857693db7a5598726069edd1be031544a7bd1d786"));
+        assert(genesis.hashMerkleRoot == uint256S("0xf6db0452dbddaa02b432f229cb7e1b80f8a9426951d69963ac4aaf8a0aac715b"));
 
         // Note that of those which support the service bits prefix, most only support a subset of
         // possible options.
@@ -448,7 +453,7 @@ public:
         };
 
         chainTxData = ChainTxData{
-            1618061371, // * UNIX timestamp of last known number of transactions (Block 1344000)
+            1620259586, // * UNIX timestamp of last known number of transactions (Block 1344000)
             1,   // * total number of transactions between genesis and that timestamp
                         //   (the tx=... number in the SetBestChain debug.log lines)
             1          // * estimated number of transactions per second after that timestamp

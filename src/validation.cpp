@@ -1103,22 +1103,81 @@ NOTE:   unlike bitcoin we are using PREVIOUS block height here,
 */
 CAmount GetBlockSubsidy(int nPrevBits, int nPrevHeight, const Consensus::Params& consensusParams, bool fSuperblockPartOnly)
 {
-    if (nPrevHeight >= 0 && nPrevHeight <= 2) // Premine Phase
-        return 500000 * COIN;
+  int64_t nSubsidy = 0;
+  int nHeight = nPrevHeight + 1;
 
-    // Otherwise, standard BTC halving type..
-    int halvings = nPrevHeight / consensusParams.nSubsidyHalvingInterval;
-    if (halvings >= 64)
-        return 0;
+  // TESTNET: Use a 10x faster block reward schedule for front-running testnet over mainnet
+  if (Params().NetworkIDString() == "test") {
+      if (nHeight == 0) { nSubsidy = 0 * COIN;
+      } else if (nHeight == 1)                            { nSubsidy = 12091100 * COIN;
+      } else if (nHeight > 1       && nHeight <= 15000)   { nSubsidy = 0.05 * COIN;
+      } else if (nHeight > 15000   && nHeight <= 125000)  { nSubsidy = 6 * COIN;
+      } else if (nHeight > 125000  && nHeight <= 250000)  { nSubsidy = 7.5 * COIN;
+      } else if (nHeight > 250000  && nHeight <= 375000)  { nSubsidy = 9.5 * COIN;
+      } else if (nHeight > 375000  && nHeight <= 500000)  { nSubsidy = 11 * COIN;
+      } else if (nHeight > 500000  && nHeight <= 625000)  { nSubsidy = 9.5 * COIN;
+      } else if (nHeight > 625000  && nHeight <= 750000)  { nSubsidy = 7.5 * COIN;
+      } else if (nHeight > 750000  && nHeight <= 875000)  { nSubsidy = 6 * COIN;
+      } else if (nHeight > 875000  && nHeight <= 1000000) { nSubsidy = 6 * COIN;
+      } else if (nHeight > 1000000 && nHeight <= 1125000) { nSubsidy = 5 * COIN;
+      } else if (nHeight > 1125000 && nHeight <= 1250000) { nSubsidy = 5 * COIN;
+      } else if (nHeight > 1250000 && nHeight <= 1375000) { nSubsidy = 5 * COIN;
+      } else if (nHeight > 1375000 && nHeight <= 1500000) { nSubsidy = 5 * COIN;
+      } else if (nHeight > 1500000 && nHeight <= 1625000) { nSubsidy = 4 * COIN;
+      } else if (nHeight > 1625000 && nHeight <= 1750000) { nSubsidy = 4 * COIN;
+      } else if (nHeight > 1750000 && nHeight <= 1875000) { nSubsidy = 4 * COIN;
+      } else if (nHeight > 1875000 && nHeight <= 2000000) { nSubsidy = 4 * COIN;
+      } else if (nHeight > 2000000)                       { nSubsidy = 3 * COIN; }
+  } else {
+      if (nHeight == 0) { nSubsidy = 0 * COIN;
+      } else if (nHeight == 1)                            { nSubsidy = 12091100 * COIN;
+      } else if (nHeight > 1       && nHeight <= 15000)   { nSubsidy = 0.05 * COIN;
+      } else if (nHeight > 15000   && nHeight <= 125000)  { nSubsidy = 6 * COIN;
+      } else if (nHeight > 125000  && nHeight <= 250000)  { nSubsidy = 7.5 * COIN;
+      } else if (nHeight > 250000  && nHeight <= 375000)  { nSubsidy = 9.5 * COIN;
+      } else if (nHeight > 375000  && nHeight <= 500000)  { nSubsidy = 11 * COIN;
+      } else if (nHeight > 500000  && nHeight <= 625000)  { nSubsidy = 9.5 * COIN;
+      } else if (nHeight > 625000  && nHeight <= 750000)  { nSubsidy = 7.5 * COIN;
+      } else if (nHeight > 750000  && nHeight <= 875000)  { nSubsidy = 6 * COIN;
+      } else if (nHeight > 875000  && nHeight <= 1000000) { nSubsidy = 6 * COIN;
+      } else if (nHeight > 1000000 && nHeight <= 1125000) { nSubsidy = 5 * COIN;
+      } else if (nHeight > 1125000 && nHeight <= 1250000) { nSubsidy = 5 * COIN;
+      } else if (nHeight > 1250000 && nHeight <= 1375000) { nSubsidy = 5 * COIN;
+      } else if (nHeight > 1375000 && nHeight <= 1500000) { nSubsidy = 5 * COIN;
+      } else if (nHeight > 1500000 && nHeight <= 1625000) { nSubsidy = 4 * COIN;
+      } else if (nHeight > 1625000 && nHeight <= 1750000) { nSubsidy = 4 * COIN;
+      } else if (nHeight > 1750000 && nHeight <= 1875000) { nSubsidy = 4 * COIN;
+      } else if (nHeight > 1875000 && nHeight <= 2000000) { nSubsidy = 4 * COIN;
+      } else if (nHeight > 2000000)                       { nSubsidy = 3 * COIN; }
+  }
 
-    CAmount nSubsidy = 50 * COIN;
-    nSubsidy >>= halvings;
-       return nSubsidy;
+  return nSubsidy;
 }
 
 CAmount GetMasternodePayment(int nHeight, CAmount blockValue, int nReallocActivationHeight)
 {
-    return (blockValue * 0.75); // 75%
+  int64_t ret = blockValue;
+
+         if   (nHeight <= 100)   { ret = blockValue * 0; // MN payments start at block 100
+  } else if (nHeight <= 15000)   { ret = blockValue * 0.5;
+  } else if (nHeight <= 125000)  { ret = blockValue * 0.75;
+  } else if (nHeight <= 250000)  { ret = blockValue * 0.8421052631578947;
+  } else if (nHeight <= 375000)  { ret = blockValue * 0.8636363636363636;
+  } else if (nHeight <= 500000)  { ret = blockValue * 0.8421052631578947;
+  } else if (nHeight <= 625000)  { ret = blockValue * 0.8;
+  } else if (nHeight <= 750000)  { ret = blockValue * 0.75;
+  } else if (nHeight <= 875000)  { ret = blockValue * 0.75;
+  } else if (nHeight <= 1000000) { ret = blockValue * 0.8;
+  } else if (nHeight <= 1125000) { ret = blockValue * 0.8;
+  } else if (nHeight <= 1250000) { ret = blockValue * 0.8;
+  } else if (nHeight <= 1375000) { ret = blockValue * 0.8;
+  } else if (nHeight <= 1500000) { ret = blockValue * 0.75;
+  } else if (nHeight <= 1625000) { ret = blockValue * 0.75;
+  } else if (nHeight <= 1750000) { ret = blockValue * 0.75;
+  } else if (nHeight <= 1875000) { ret = blockValue * 0.75;
+  } else if (nHeight > 2000000)  { ret = blockValue * 0.8333333333333333; }
+
+  return ret;
 }
 
 bool IsInitialBlockDownload()
