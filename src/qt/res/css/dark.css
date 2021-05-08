@@ -41,14 +41,17 @@ Loaded in GUIUtil::loadStyleSheet() in guitil.cpp.
 Common stuff
 ******************************************************/
 
+WalletFrame {
+	border-image: url(':/images/walletFrame') 0 0 0 0 stretch stretch;
+	border-top: 0px solid #000;
+	margin: 0;
+	padding: 0;
+}
+
 QDialog,
 QMainWindow,
-QMessageBox
-WalletFrame {
-  border-image: url(':/images/walletFrame') 0 0 0 0 stretch stretch;
-  border-top: 0px solid #000;
-  margin: 0;
-  padding: 0;
+QMessageBox {
+    background-color: #1e1e1f;
 }
 
 QWidget { /* override text selection background color for all text widgets */
@@ -680,7 +683,8 @@ QToolBar > QToolButton:hover:!checked {
 }
 
 QToolBar > QToolButton:checked {
-    background-color: #4cb626;
+   background-color: #1e1e1f;
+   border: 4px solid #4cb626;
     color: #c7c7c7;
 }
 
