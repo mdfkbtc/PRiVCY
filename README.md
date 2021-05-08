@@ -3,7 +3,7 @@ PRiVCY Core staging tree 0.16
 
 `master:` [![Build Status](https://travis-ci.org/privcypay/privcy.svg?branch=master)](https://travis-ci.org/privcypay/privcy) `develop:` [![Build Status](https://travis-ci.org/privcypay/privcy.svg?branch=develop)](https://travis-ci.org/privcypay/privcy/branches)
 
-https://www.privcy.org
+https://www.privcy.eu
 
 
 What is PRiVCY?
@@ -16,7 +16,7 @@ are carried out collectively by the network. PRiVCY Core is the name of the open
 source software which enables the use of this currency.
 
 For more information, as well as an immediately useable, binary version of
-the PRiVCY Core software, see https://www.privcy.org/get-privcy/.
+the PRiVCY Core software, see https://www.privcy.eu/get-privcy/.
 
 
 License
@@ -74,4 +74,4 @@ Translations are periodically pulled from Transifex and merged into the git repo
 **Important**: We do not accept translation changes as GitHub pull requests because the next
 pull from Transifex would automatically overwrite them again.
 
-Translators should also follow the [forum](https://www.privcy.org/forum/topic/privcy-worldwide-collaboration.88/).
+Translators should also follow the [forum](https://www.privcy.eu/forum/topic/privcy-worldwide-collaboration.88/).
