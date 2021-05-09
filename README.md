@@ -1,4 +1,4 @@
-PRiVCY Core staging tree 0.16
+PRiVCY Core staging tree v2.0
 ===========================
 
 `master:` [![Build Status](https://travis-ci.org/privcypay/privcy.svg?branch=master)](https://travis-ci.org/privcypay/privcy) `develop:` [![Build Status](https://travis-ci.org/privcypay/privcy.svg?branch=develop)](https://travis-ci.org/privcypay/privcy/branches)
