@@ -289,13 +289,13 @@ public:
         consensus.nGovernanceMinQuorum = 10;
         consensus.nGovernanceFilterElements = 20000;
 
-        consensus.BIP34Height = 1;
+        consensus.BIP34Height = 3;
         consensus.BIP34Hash = uint256S("0x00");
-        consensus.BIP65Height = 1;
-        consensus.BIP66Height = 1;
-        consensus.DIP0001Height = 2;
-        consensus.DIP0003Height = 2;
-        consensus.DIP0003EnforcementHeight = 1048576;
+        consensus.BIP65Height = 4;
+        consensus.BIP66Height = 5;
+        consensus.DIP0001Height = 10;
+        consensus.DIP0003Height = 500;
+        consensus.DIP0003EnforcementHeight = 1500;
         consensus.DIP0003EnforcementHash = uint256S("0x00");
 
         consensus.powLimit = uint256S("0x000fffff00000000000000000000000000000000000000000000000000000000");
